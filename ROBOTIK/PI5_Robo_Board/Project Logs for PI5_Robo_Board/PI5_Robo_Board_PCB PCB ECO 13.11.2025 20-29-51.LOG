@@ -1,0 +1,37 @@
+Added Component: Designator=Raspberry Pi(MODULE_SC0195(9))
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/SC0195(9)/Raspberry+Pi/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Raspberry Pi"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "SC0195(9)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/SC0195(9)/Raspberry+Pi/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+5 Pin=Raspberry Pi-2
+Added Pin To Net: NetName=SDA Pin=Raspberry Pi-3
+Added Pin To Net: NetName=+5 Pin=Raspberry Pi-4
+Added Pin To Net: NetName=SCL Pin=Raspberry Pi-5
+Added Pin To Net: NetName=GND Pin=Raspberry Pi-6
+Added Pin To Net: NetName=NetRaspberry Pi_8 Pin=Raspberry Pi-8
+Added Pin To Net: NetName=GND Pin=Raspberry Pi-9
+Added Pin To Net: NetName=NetRaspberry Pi_10 Pin=Raspberry Pi-10
+Added Pin To Net: NetName=NetJ906_2 Pin=Raspberry Pi-11
+Added Pin To Net: NetName=NetJ908_2 Pin=Raspberry Pi-12
+Added Pin To Net: NetName=NetJ907_2 Pin=Raspberry Pi-13
+Added Pin To Net: NetName=GND Pin=Raspberry Pi-14
+Added Pin To Net: NetName=NetJ909_2 Pin=Raspberry Pi-15
+Added Pin To Net: NetName=NetRaspberry Pi_19 Pin=Raspberry Pi-19
+Added Pin To Net: NetName=GND Pin=Raspberry Pi-20
+Added Pin To Net: NetName=NetRaspberry Pi_21 Pin=Raspberry Pi-21
+Added Pin To Net: NetName=NetRaspberry Pi_23 Pin=Raspberry Pi-23
+Added Pin To Net: NetName=GND Pin=Raspberry Pi-25
+Added Pin To Net: NetName=NetBNO/0x28_14 Pin=Raspberry Pi-29
+Added Pin To Net: NetName=GND Pin=Raspberry Pi-30
+Added Pin To Net: NetName=NetRaspberry Pi_31 Pin=Raspberry Pi-31
+Added Pin To Net: NetName=NetJ903_2 Pin=Raspberry Pi-32
+Added Pin To Net: NetName=NetR800_1 Pin=Raspberry Pi-33
+Added Pin To Net: NetName=GND Pin=Raspberry Pi-34
+Added Pin To Net: NetName=NetJ912_2 Pin=Raspberry Pi-35
+Added Pin To Net: NetName=NetRaspberry Pi_36 Pin=Raspberry Pi-36
+Added Pin To Net: NetName=NetJ912_3 Pin=Raspberry Pi-38
+Added Pin To Net: NetName=GND Pin=Raspberry Pi-39
+Added Pin To Net: NetName=NetC102_1 Pin=Raspberry Pi-40
+Added Member To Class: ClassName=Raspberry_PI5 Member=Component Raspberry Pi

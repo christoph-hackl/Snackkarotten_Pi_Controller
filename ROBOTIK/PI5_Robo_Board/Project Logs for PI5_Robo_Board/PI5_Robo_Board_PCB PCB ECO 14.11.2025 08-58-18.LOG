@@ -1,0 +1,113 @@
+Change Component Comment : Designator=R502 Old Comment=10K New Comment=
+Change Component Comment : Designator=R503 Old Comment=10K New Comment=
+Change Component Comment : Designator=R504 Old Comment=10K New Comment=
+Change Component Comment : Designator=R505 Old Comment=10K New Comment=
+Change Component Comment : Designator=R506 Old Comment=10K New Comment=
+Change Component Comment : Designator=R507 Old Comment=10K New Comment=
+Change Component Comment : Designator=R508 Old Comment=10K New Comment=
+Change Component Comment : Designator=R509 Old Comment=10K New Comment=
+Change Component Comment : Designator=R510 Old Comment=10K New Comment=
+Change Component Comment : Designator=R515 Old Comment=10K New Comment=
+Change Component Comment : Designator=R516 Old Comment=10K New Comment=
+Change Component Comment : Designator=R517 Old Comment=10K New Comment=
+Change Component Comment : Designator=R518 Old Comment=10K New Comment=
+Change Component Comment : Designator=R519 Old Comment=10K New Comment=
+Change Component Comment : Designator=R520 Old Comment=10K New Comment=
+Change Component Comment : Designator=R521 Old Comment=10K New Comment=
+Change Component Comment : Designator=R522 Old Comment=10K New Comment=
+Change Component Comment : Designator=R527 Old Comment=10K New Comment=
+Change Component Comment : Designator=R528 Old Comment=10K New Comment=
+Change Component Comment : Designator=R529 Old Comment=10K New Comment=
+Change Component Comment : Designator=R530 Old Comment=10K New Comment=
+Change Component Comment : Designator=R531 Old Comment=10K New Comment=
+Change Component Comment : Designator=R532 Old Comment=10K New Comment=
+Change Component Comment : Designator=R533 Old Comment=10K New Comment=
+Change Component Comment : Designator=R534 Old Comment=10K New Comment=
+Change Component Comment : Designator=R511 Old Comment=20K New Comment=
+Change Component Comment : Designator=R512 Old Comment=20K New Comment=
+Change Component Comment : Designator=R513 Old Comment=20K New Comment=
+Change Component Comment : Designator=R514 Old Comment=20K New Comment=
+Change Component Comment : Designator=R523 Old Comment=20K New Comment=
+Change Component Comment : Designator=R524 Old Comment=20K New Comment=
+Change Component Comment : Designator=R525 Old Comment=20K New Comment=
+Change Component Comment : Designator=R526 Old Comment=20K New Comment=
+Change Component Comment : Designator=R535 Old Comment=20K New Comment=
+Change Component Comment : Designator=R536 Old Comment=20K New Comment=
+Change Component Comment : Designator=R537 Old Comment=20K New Comment=
+Change Component Comment : Designator=R538 Old Comment=20K New Comment=
+Change Component Comment : Designator=R800 Old Comment=RES New Comment=
+Change Component Library : Designator=U100 Old Library=SC0195_9_.IntLib New Library=SC0195(9).SchLib
+Change component parameters: Designator = "R502" ("R502"); Footprint = "1206"; UniqueID = "\HZCOHMYZ" ("\HZCOHMYZ")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R503" ("R503"); Footprint = "1206"; UniqueID = "\QIQVQSPY" ("\QIQVQSPY")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R504" ("R504"); Footprint = "1206"; UniqueID = "\QLPOSYLE" ("\QLPOSYLE")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R505" ("R505"); Footprint = "1206"; UniqueID = "\FSXMQTPE" ("\FSXMQTPE")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R506" ("R506"); Footprint = "1206"; UniqueID = "\XFPEFPJU" ("\XFPEFPJU")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R507" ("R507"); Footprint = "1206"; UniqueID = "\EYVPZNTV" ("\EYVPZNTV")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R508" ("R508"); Footprint = "1206"; UniqueID = "\ATTHQEWL" ("\ATTHQEWL")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R509" ("R509"); Footprint = "1206"; UniqueID = "\GRCPUICB" ("\GRCPUICB")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R510" ("R510"); Footprint = "1206"; UniqueID = "\TMYYFEJS" ("\TMYYFEJS")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R511" ("R511"); Footprint = "1206"; UniqueID = "\OASACWFK" ("\OASACWFK")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R512" ("R512"); Footprint = "1206"; UniqueID = "\ZORCUGEU" ("\ZORCUGEU")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R513" ("R513"); Footprint = "1206"; UniqueID = "\HNONRFLW" ("\HNONRFLW")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R514" ("R514"); Footprint = "1206"; UniqueID = "\PFCMDRBD" ("\PFCMDRBD")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R515" ("R515"); Footprint = "1206"; UniqueID = "\JPJDLNPK" ("\JPJDLNPK")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R516" ("R516"); Footprint = "1206"; UniqueID = "\TSDPYASM" ("\TSDPYASM")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R517" ("R517"); Footprint = "1206"; UniqueID = "\QQZIROKG" ("\QQZIROKG")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R518" ("R518"); Footprint = "1206"; UniqueID = "\UWYFKOZJ" ("\UWYFKOZJ")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R519" ("R519"); Footprint = "1206"; UniqueID = "\HLNUEGWH" ("\HLNUEGWH")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R520" ("R520"); Footprint = "1206"; UniqueID = "\XIPHMNHX" ("\XIPHMNHX")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R521" ("R521"); Footprint = "1206"; UniqueID = "\TKSLORAU" ("\TKSLORAU")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R522" ("R522"); Footprint = "1206"; UniqueID = "\SDBFUAQK" ("\SDBFUAQK")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R523" ("R523"); Footprint = "1206"; UniqueID = "\XXARCILS" ("\XXARCILS")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R524" ("R524"); Footprint = "1206"; UniqueID = "\VIWEIWUC" ("\VIWEIWUC")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R525" ("R525"); Footprint = "1206"; UniqueID = "\UGXWVBVJ" ("\UGXWVBVJ")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R526" ("R526"); Footprint = "1206"; UniqueID = "\VPKUAPZL" ("\VPKUAPZL")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R527" ("R527"); Footprint = "1206"; UniqueID = "\IYXKTHWN" ("\IYXKTHWN")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R528" ("R528"); Footprint = "1206"; UniqueID = "\QNPBKJYK" ("\QNPBKJYK")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R529" ("R529"); Footprint = "1206"; UniqueID = "\QUOAJNJL" ("\QUOAJNJL")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R530" ("R530"); Footprint = "1206"; UniqueID = "\PYNAURQB" ("\PYNAURQB")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R531" ("R531"); Footprint = "1206"; UniqueID = "\VSMAUVAT" ("\VSMAUVAT")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R532" ("R532"); Footprint = "1206"; UniqueID = "\XQKUTEJN" ("\XQKUTEJN")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R533" ("R533"); Footprint = "1206"; UniqueID = "\WUJNZMZL" ("\WUJNZMZL")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R534" ("R534"); Footprint = "1206"; UniqueID = "\VMOPWGNO" ("\VMOPWGNO")
+Change component parameters (AddParameter): Name = "Value"; Value = "10K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R535" ("R535"); Footprint = "1206"; UniqueID = "\ZWBVBAKM" ("\ZWBVBAKM")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R536" ("R536"); Footprint = "1206"; UniqueID = "\BNFYXJZN" ("\BNFYXJZN")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R537" ("R537"); Footprint = "1206"; UniqueID = "\URLYHYCK" ("\URLYHYCK")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R538" ("R538"); Footprint = "1206"; UniqueID = "\TNZRMPYG" ("\TNZRMPYG")
+Change component parameters (AddParameter): Name = "Value"; Value = "20K"; VariantName = "[No Variations]"
