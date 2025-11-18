@@ -305,23 +305,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document16]
-DocumentPath=..\Librarys\LMK212BJ226MG-T.zip
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document17]
 DocumentPath=..\WBDesign7\Altium\2025-09-19_03-02-12\2025-09-19_03-02-12.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -338,7 +321,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document18]
+[Document17]
 DocumentPath=..\WBDesign7\Altium\2025-09-19_03-02-12\2025-09-19_03-02-12.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -355,7 +338,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FNHQXPVN
 
-[Document19]
+[Document18]
 DocumentPath=PI5_Robo_Board.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -372,7 +355,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document20]
+[Document19]
 DocumentPath=..\Librarys\AP2112K-3.3TRG1.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -389,7 +372,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document21]
+[Document20]
 DocumentPath=..\Librarys\PCA9306DCTR.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -406,7 +389,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document22]
+[Document21]
 DocumentPath=PI5_Robo_Board.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -423,7 +406,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document23]
+[Document22]
 DocumentPath=..\Librarys\STM32\STM32H562RIT6.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -440,7 +423,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document24]
+[Document23]
 DocumentPath=..\Librarys\STM32\STM32H562RIT6.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -457,7 +440,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VKZGCGHZ
 
-[Document25]
+[Document24]
 DocumentPath=..\Librarys\FSM6JSMATR\FSM6JSMATR.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -474,7 +457,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UFLJGDDJ
 
-[Document26]
+[Document25]
 DocumentPath=..\Librarys\FSM6JSMATR\FSM6JSMATR.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -491,7 +474,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GBOIIHPY
 
-[Document27]
+[Document26]
 DocumentPath=..\Librarys\3557-15\3557-15.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -508,7 +491,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document28]
+[Document27]
 DocumentPath=..\Librarys\3557-15\3557-15.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -525,7 +508,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document29]
+[Document28]
 DocumentPath=..\Librarys\TPS566231RQFR.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -542,7 +525,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document30]
+[Document29]
 DocumentPath=..\..\..\Users\chris\Downloads\EEEFN1A220R.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -559,7 +542,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document31]
+[Document30]
 DocumentPath=..\Librarys\SC0195_9_\SC0195_9_.LibPkg
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -576,7 +559,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document32]
+[Document31]
 DocumentPath=..\Librarys\SPM6530T-1R5M100.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
