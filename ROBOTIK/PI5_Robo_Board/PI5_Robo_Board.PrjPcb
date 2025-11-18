@@ -1816,7 +1816,7 @@ Net3=NetName=+5|NetColor=clRed
 Net4=NetName=+6a|NetColor=clRed
 Net5=NetName=+6b|NetColor=clRed
 Net6=NetName=+6c|NetColor=clRed
-Net7=NetName=GND|NetColor=$004D1220
+Net7=NetName=GND|NetColor=clAqua
 Net8=NetName=NetBNO/0x28_19|NetColor=clYellow
 Net9=NetName=NetBNO/0x28_20|NetColor=clBlue
 Net10=NetName=NetCin600_2|NetColor=$00000066
