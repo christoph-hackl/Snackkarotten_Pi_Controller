@@ -1,0 +1,48 @@
+Added Component: Designator=J500(SIP-6)
+Added Component: Designator=J501(SIP-6)
+Added Component: Designator=J502(SIP-6)
+Added Component: Designator=J503(SIP-6)
+Added Component: Designator=J504(SIP-6)
+Added Component: Designator=J505(SIP-6)
+Added Pin To Net: NetName=Motor_1_+ Pin=J500-1
+Added Pin To Net: NetName=Motor_1_- Pin=J500-2
+Added Pin To Net: NetName=GND Pin=J500-3
+Added Pin To Net: NetName=+5 Pin=J500-4
+Added Pin To Net: NetName=NetJ500_5 Pin=J500-5
+Added Pin To Net: NetName=NetJ500_6 Pin=J500-6
+Added Pin To Net: NetName=Motor_4_+ Pin=J501-1
+Added Pin To Net: NetName=Motor_4_- Pin=J501-2
+Added Pin To Net: NetName=GND Pin=J501-3
+Added Pin To Net: NetName=+5 Pin=J501-4
+Added Pin To Net: NetName=NetJ501_5 Pin=J501-5
+Added Pin To Net: NetName=NetJ501_6 Pin=J501-6
+Added Pin To Net: NetName=Motor_2_+ Pin=J502-1
+Added Pin To Net: NetName=Motor_2_- Pin=J502-2
+Added Pin To Net: NetName=GND Pin=J502-3
+Added Pin To Net: NetName=+5 Pin=J502-4
+Added Pin To Net: NetName=NetJ502_5 Pin=J502-5
+Added Pin To Net: NetName=NetJ502_6 Pin=J502-6
+Added Pin To Net: NetName=Motor_5_+ Pin=J503-1
+Added Pin To Net: NetName=Motor_5_- Pin=J503-2
+Added Pin To Net: NetName=GND Pin=J503-3
+Added Pin To Net: NetName=+5 Pin=J503-4
+Added Pin To Net: NetName=NetJ503_5 Pin=J503-5
+Added Pin To Net: NetName=NetJ503_6 Pin=J503-6
+Added Pin To Net: NetName=Motor_3_+ Pin=J504-1
+Added Pin To Net: NetName=Motor_3_- Pin=J504-2
+Added Pin To Net: NetName=GND Pin=J504-3
+Added Pin To Net: NetName=+5 Pin=J504-4
+Added Pin To Net: NetName=NetJ504_5 Pin=J504-5
+Added Pin To Net: NetName=NetJ504_6 Pin=J504-6
+Added Pin To Net: NetName=Motor_6_+ Pin=J505-1
+Added Pin To Net: NetName=Motor_6_- Pin=J505-2
+Added Pin To Net: NetName=GND Pin=J505-3
+Added Pin To Net: NetName=+5 Pin=J505-4
+Added Pin To Net: NetName=NetJ505_5 Pin=J505-5
+Added Pin To Net: NetName=NetJ505_6 Pin=J505-6
+Added Member To Class: ClassName=DRV+Motor Member=Component J500 CON6
+Added Member To Class: ClassName=DRV+Motor Member=Component J501 CON6
+Added Member To Class: ClassName=DRV+Motor Member=Component J502 CON6
+Added Member To Class: ClassName=DRV+Motor Member=Component J503 CON6
+Added Member To Class: ClassName=DRV+Motor Member=Component J504 CON6
+Added Member To Class: ClassName=DRV+Motor Member=Component J505 CON6

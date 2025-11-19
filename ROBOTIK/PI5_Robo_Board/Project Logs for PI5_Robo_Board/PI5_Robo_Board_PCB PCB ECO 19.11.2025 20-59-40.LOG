@@ -1,0 +1,70 @@
+Added Component: Designator=J900(Sip-3)
+Added Component: Designator=J901(Sip-3)
+Added Component: Designator=J902(Sip-3)
+Added Component: Designator=J903(Sip-3)
+Added Component: Designator=J904(Sip-4)
+Added Component: Designator=J905(Sip-4)
+Added Component: Designator=J906(Sip-3)
+Added Component: Designator=J907(Sip-3)
+Added Component: Designator=J908(Sip-3)
+Added Component: Designator=J909(Sip-3)
+Added Component: Designator=J910(Sip-4)
+Added Component: Designator=J911(Sip-4)
+Added Component: Designator=J912(Sip-4)
+Added Pin To Net: NetName=+3.3 Pin=J900-1
+Added Pin To Net: NetName=NetJ900_2 Pin=J900-2
+Added Pin To Net: NetName=GND Pin=J900-3
+Added Pin To Net: NetName=+3.3 Pin=J901-1
+Added Pin To Net: NetName=NetJ901_2 Pin=J901-2
+Added Pin To Net: NetName=GND Pin=J901-3
+Added Pin To Net: NetName=+3.3 Pin=J902-1
+Added Pin To Net: NetName=NetJ902_2 Pin=J902-2
+Added Pin To Net: NetName=GND Pin=J902-3
+Added Pin To Net: NetName=+3.3 Pin=J903-1
+Added Pin To Net: NetName=NetJ903_2 Pin=J903-2
+Added Pin To Net: NetName=GND Pin=J903-3
+Added Pin To Net: NetName=+3.3 Pin=J904-1
+Added Pin To Net: NetName=NetJ904_2 Pin=J904-2
+Added Pin To Net: NetName=NetJ904_3 Pin=J904-3
+Added Pin To Net: NetName=GND Pin=J904-4
+Added Pin To Net: NetName=+3.3 Pin=J905-1
+Added Pin To Net: NetName=NetJ905_2 Pin=J905-2
+Added Pin To Net: NetName=NetJ905_3 Pin=J905-3
+Added Pin To Net: NetName=GND Pin=J905-4
+Added Pin To Net: NetName=+3.3 Pin=J906-1
+Added Pin To Net: NetName=NetJ906_2 Pin=J906-2
+Added Pin To Net: NetName=GND Pin=J906-3
+Added Pin To Net: NetName=+3.3 Pin=J907-1
+Added Pin To Net: NetName=NetJ907_2 Pin=J907-2
+Added Pin To Net: NetName=GND Pin=J907-3
+Added Pin To Net: NetName=+3.3 Pin=J908-1
+Added Pin To Net: NetName=NetJ908_2 Pin=J908-2
+Added Pin To Net: NetName=GND Pin=J908-3
+Added Pin To Net: NetName=+3.3 Pin=J909-1
+Added Pin To Net: NetName=NetJ909_2 Pin=J909-2
+Added Pin To Net: NetName=GND Pin=J909-3
+Added Pin To Net: NetName=+3.3 Pin=J910-1
+Added Pin To Net: NetName=SDA Pin=J910-2
+Added Pin To Net: NetName=SCL Pin=J910-3
+Added Pin To Net: NetName=GND Pin=J910-4
+Added Pin To Net: NetName=+3.3 Pin=J911-1
+Added Pin To Net: NetName=SDA Pin=J911-2
+Added Pin To Net: NetName=SCL Pin=J911-3
+Added Pin To Net: NetName=GND Pin=J911-4
+Added Pin To Net: NetName=NetCin600_2 Pin=J912-1
+Added Pin To Net: NetName=NetJ912_2 Pin=J912-2
+Added Pin To Net: NetName=NetJ912_3 Pin=J912-3
+Added Pin To Net: NetName=GND Pin=J912-4
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J900 CON3
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J901 CON3
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J902 CON3
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J903 CON3
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J904 CON4
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J905 CON4
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J906 CON3
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J907 CON3
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J908 CON3
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J909 CON3
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J910 CON4
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J911 CON4
+Added Member To Class: ClassName=Test_Sensor_Connectoren Member=Component J912 CON4
