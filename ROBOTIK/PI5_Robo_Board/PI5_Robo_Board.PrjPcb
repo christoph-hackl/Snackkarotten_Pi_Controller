@@ -1820,17 +1820,20 @@ Net3=NetName=+5|NetColor=clRed
 Net4=NetName=+6a|NetColor=clRed
 Net5=NetName=+6b|NetColor=clRed
 Net6=NetName=+6c|NetColor=clRed
-Net7=NetName=GND|NetColor=clAqua
-Net8=NetName=NetBNO/0x28_19|NetColor=clYellow
-Net9=NetName=NetBNO/0x28_20|NetColor=clBlue
-Net10=NetName=NetCin600_2|NetColor=$00000066
-Net11=NetName=NetCin703_1|NetColor=$00000066
-Net12=NetName=NetPCA/0x40_26|NetColor=clYellow
-Net13=NetName=NetPCA/0x40_27|NetColor=clBlue
-Net14=NetName=NetU300_5|NetColor=clBlue
-Net15=NetName=NetU300_6|NetColor=clYellow
-Net16=NetName=SCL|NetColor=clYellow
-Net17=NetName=SDA|NetColor=clBlue
+Net7=NetName=Battery|NetColor=$00000098
+Net8=NetName=GND|NetColor=clAqua
+Net9=NetName=NetBNO/0x28_19|NetColor=clYellow
+Net10=NetName=NetBNO/0x28_20|NetColor=clBlue
+Net11=NetName=NetCin600_2|NetColor=$00000066
+Net12=NetName=NetCin703_1|NetColor=$00000066
+Net13=NetName=NetCin710_1|NetColor=$00000098
+Net14=NetName=NetJ912_1|NetColor=$00000098
+Net15=NetName=NetPCA/0x40_26|NetColor=clYellow
+Net16=NetName=NetPCA/0x40_27|NetColor=clBlue
+Net17=NetName=NetU300_5|NetColor=clBlue
+Net18=NetName=NetU300_6|NetColor=clYellow
+Net19=NetName=SCL|NetColor=clYellow
+Net20=NetName=SDA|NetColor=clBlue
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=0|UseName=-1|InclAllRules=0
