@@ -1,0 +1,11 @@
+Added Component: Designator=T100(SWITCH_FSM6JSMATR_TYC)
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2025 Ultra Librarian. All rights reserved."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "FSM6JSMATR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC102_1 Pin=T100-1
+Added Pin To Net: NetName=NetC102_1 Pin=T100-2
+Added Pin To Net: NetName=GND Pin=T100-3
+Added Pin To Net: NetName=GND Pin=T100-4
+Added Member To Class: ClassName=Raspberry_PI5 Member=Component T100 FSM6JSMATR

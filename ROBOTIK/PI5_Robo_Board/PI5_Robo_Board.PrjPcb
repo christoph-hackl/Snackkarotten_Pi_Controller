@@ -729,6 +729,40 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QGXGPRQG
 
+[Document41]
+DocumentPath=..\Librarys\Components - 26.11.25 - 09.06.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document42]
+DocumentPath=..\Librarys\Components - 26.11.25 - 09.06.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=DOVLUSDJ
+
 [GeneratedDocument1]
 DocumentPath=Project Outputs for PI5_Robo_Board\Design Rule Check - PI5_Robo_Board_PCB.html
 DItemRevisionGUID=
