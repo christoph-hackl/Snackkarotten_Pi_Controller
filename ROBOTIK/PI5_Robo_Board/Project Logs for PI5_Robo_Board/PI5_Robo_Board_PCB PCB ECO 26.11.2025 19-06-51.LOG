@@ -1,0 +1,35 @@
+Removed Pin From Net: NetName=+3.3 Pin=Cstütz806-1
+Removed Pin From Net: NetName=GND Pin=Cstütz806-2
+Removed Pin From Net: NetName=+3.3 Pin=Cstütz807-1
+Removed Pin From Net: NetName=GND Pin=Cstütz807-2
+Removed Pin From Net: NetName=+3.3 Pin=Cstütz808-1
+Removed Pin From Net: NetName=GND Pin=Cstütz808-2
+Removed Pin From Net: NetName=+3.3 Pin=Cstütz809-1
+Removed Pin From Net: NetName=GND Pin=Cstütz809-2
+Removed Pin From Net: NetName=GND Pin=Cstütz810-2
+Removed Pin From Net: NetName=GND Pin=Cstütz811-2
+Removed Member From Class: ClassName=STM32 Member=Cstütz808
+Removed Member From Class: ClassName=STM32 Member=Cstütz809
+Removed Member From Class: ClassName=STM32 Member=Cstütz810
+Removed Member From Class: ClassName=STM32 Member=Cstütz811
+Added Component: Designator=Ccap800(0603)
+Add component (AddParameter): Name = "Value"; Value = "2.2uF"; VariantName = "[No Variations]"
+Added Component: Designator=Ccap801(0603)
+Add component (AddParameter): Name = "Value"; Value = "2.2uF"; VariantName = "[No Variations]"
+Added Component: Designator=Cstütz806(0603)
+Add component (AddParameter): Name = "Value"; Value = "4.7uF"; VariantName = "[No Variations]"
+Added Component: Designator=Cstütz807(0603)
+Add component (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=Ccap800-1
+Added Pin To Net: NetName=GND Pin=Ccap801-1
+Added Pin To Net: NetName=GND Pin=Cstütz806-1
+Added Pin To Net: NetName=+3.3 Pin=Cstütz806-2
+Added Pin To Net: NetName=GND Pin=Cstütz807-1
+Added Pin To Net: NetName=+3.3 Pin=Cstütz807-2
+Added Pin To Net: NetName=NetCcap800_2 Pin=Ccap800-2
+Added Pin To Net: NetName=NetCcap800_2 Pin=Ccap801-2
+Added Pin To Net: NetName=NetCcap800_2 Pin=U800-30
+Added Pin To Net: NetName=NetCcap800_2 Pin=U800-62
+Added Net: Name=NetCcap800_2
+Added Member To Class: ClassName=STM32 Member=Component Ccap800 0603
+Added Member To Class: ClassName=STM32 Member=Component Ccap801 0603

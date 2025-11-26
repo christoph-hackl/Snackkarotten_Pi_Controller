@@ -1,0 +1,82 @@
+Removed Pin From Net: NetName=Motor_4_+ Pin=J501-1
+Removed Pin From Net: NetName=Motor_4_- Pin=J501-2
+Removed Pin From Net: NetName=GND Pin=J501-3
+Removed Pin From Net: NetName=+5 Pin=J501-4
+Removed Pin From Net: NetName=Motor_2_+ Pin=J502-1
+Removed Pin From Net: NetName=Motor_2_- Pin=J502-2
+Removed Pin From Net: NetName=GND Pin=J502-3
+Removed Pin From Net: NetName=+5 Pin=J502-4
+Removed Pin From Net: NetName=Motor_5_+ Pin=J503-1
+Removed Pin From Net: NetName=Motor_5_- Pin=J503-2
+Removed Pin From Net: NetName=GND Pin=J503-3
+Removed Pin From Net: NetName=+5 Pin=J503-4
+Removed Pin From Net: NetName=Motor_3_+ Pin=J504-1
+Removed Pin From Net: NetName=Motor_3_- Pin=J504-2
+Removed Pin From Net: NetName=GND Pin=J504-3
+Removed Pin From Net: NetName=+5 Pin=J504-4
+Removed Member From Class: ClassName=DRV+Motor Member=J501
+Removed Member From Class: ClassName=DRV+Motor Member=J502
+Removed Member From Class: ClassName=DRV+Motor Member=J503
+Removed Member From Class: ClassName=DRV+Motor Member=J504
+Change Component Designator: OldDesignator=J400 NewDesignator=Servo 1
+Change Component Designator: OldDesignator=J401 NewDesignator=Servo 5
+Change Component Designator: OldDesignator=J402 NewDesignator=Servo 2
+Change Component Designator: OldDesignator=J403 NewDesignator=Servo 6
+Change Component Designator: OldDesignator=J404 NewDesignator=Servo 3
+Change Component Designator: OldDesignator=J405 NewDesignator=Servo 7
+Change Component Designator: OldDesignator=J406 NewDesignator=Servo 4
+Change Component Designator: OldDesignator=J407 NewDesignator=Servo 8
+Change Component Designator: OldDesignator=J500 NewDesignator=Moto 1
+Change Component Designator: OldDesignator=J505 NewDesignator=Moto 6
+Added Component: Designator=Moto 2(SIP-6)
+Added Component: Designator=Moto 3(SIP-6)
+Added Component: Designator=Moto 4(SIP-6)
+Added Component: Designator=Moto 5(SIP-6)
+Added Pin To Net: NetName=Motor_2_+ Pin=Moto 2-1
+Added Pin To Net: NetName=Motor_2_- Pin=Moto 2-2
+Added Pin To Net: NetName=GND Pin=Moto 2-3
+Added Pin To Net: NetName=+5 Pin=Moto 2-4
+Added Pin To Net: NetName=Motor_3_+ Pin=Moto 3-1
+Added Pin To Net: NetName=Motor_3_- Pin=Moto 3-2
+Added Pin To Net: NetName=GND Pin=Moto 3-3
+Added Pin To Net: NetName=+5 Pin=Moto 3-4
+Added Pin To Net: NetName=Motor_4_+ Pin=Moto 4-1
+Added Pin To Net: NetName=Motor_4_- Pin=Moto 4-2
+Added Pin To Net: NetName=GND Pin=Moto 4-3
+Added Pin To Net: NetName=+5 Pin=Moto 4-4
+Added Pin To Net: NetName=Motor_5_+ Pin=Moto 5-1
+Added Pin To Net: NetName=Motor_5_- Pin=Moto 5-2
+Added Pin To Net: NetName=GND Pin=Moto 5-3
+Added Pin To Net: NetName=+5 Pin=Moto 5-4
+Change Net Name : Old Net Name=NetJ500_5 New Net Name=NetMoto 1_5
+Change Net Name : Old Net Name=NetJ500_6 New Net Name=NetMoto 1_6
+Change Net Name : Old Net Name=NetJ505_5 New Net Name=NetMoto 6_5
+Change Net Name : Old Net Name=NetJ505_6 New Net Name=NetMoto 6_6
+Added Pin To Net: NetName=NetMoto 2_5 Pin=Moto 2-5
+Added Pin To Net: NetName=NetMoto 2_5 Pin=R519-1
+Added Net: Name=NetMoto 2_5
+Added Pin To Net: NetName=NetMoto 2_6 Pin=Moto 2-6
+Added Pin To Net: NetName=NetMoto 2_6 Pin=R520-1
+Added Net: Name=NetMoto 2_6
+Added Pin To Net: NetName=NetMoto 3_5 Pin=Moto 3-5
+Added Pin To Net: NetName=NetMoto 3_5 Pin=R529-1
+Added Net: Name=NetMoto 3_5
+Added Pin To Net: NetName=NetMoto 3_6 Pin=Moto 3-6
+Added Pin To Net: NetName=NetMoto 3_6 Pin=R530-1
+Added Net: Name=NetMoto 3_6
+Added Pin To Net: NetName=NetMoto 4_5 Pin=Moto 4-5
+Added Pin To Net: NetName=NetMoto 4_5 Pin=R509-1
+Added Net: Name=NetMoto 4_5
+Added Pin To Net: NetName=NetMoto 4_6 Pin=Moto 4-6
+Added Pin To Net: NetName=NetMoto 4_6 Pin=R510-1
+Added Net: Name=NetMoto 4_6
+Added Pin To Net: NetName=NetMoto 5_5 Pin=Moto 5-5
+Added Pin To Net: NetName=NetMoto 5_5 Pin=R521-1
+Added Net: Name=NetMoto 5_5
+Added Pin To Net: NetName=NetMoto 5_6 Pin=Moto 5-6
+Added Pin To Net: NetName=NetMoto 5_6 Pin=R522-1
+Added Net: Name=NetMoto 5_6
+Added Member To Class: ClassName=DRV+Motor Member=Component Moto 2 JST-XH
+Added Member To Class: ClassName=DRV+Motor Member=Component Moto 3 JST-XH
+Added Member To Class: ClassName=DRV+Motor Member=Component Moto 4 JST-XH
+Added Member To Class: ClassName=DRV+Motor Member=Component Moto 5 JST-XH

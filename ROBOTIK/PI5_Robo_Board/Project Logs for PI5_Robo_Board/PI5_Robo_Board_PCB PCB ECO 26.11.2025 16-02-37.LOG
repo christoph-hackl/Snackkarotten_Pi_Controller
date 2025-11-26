@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=+5 Pin=U601-1
+Removed Pin From Net: NetName=GND Pin=U601-2
+Removed Pin From Net: NetName=+5 Pin=U601-3
+Removed Pin From Net: NetName=+3.3 Pin=U601-5
+Added Component: Designator=U601(SOT95P285X140-5N)
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/AP2112K-3.3TRG1/Diodes+Inc./view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Diodes Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "AP2112K-3.3TRG1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SOT-753 Diodes Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/AP2112K-3.3TRG1/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/AP2112K-3.3TRG1/Diodes+Inc./view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+5 Pin=U601-1
+Added Pin To Net: NetName=GND Pin=U601-2
+Added Pin To Net: NetName=+5 Pin=U601-3
+Added Pin To Net: NetName=+3.3 Pin=U601-5

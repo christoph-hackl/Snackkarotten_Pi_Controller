@@ -1,0 +1,32 @@
+Removed Pin From Net: NetName=GND Pin=T100-3
+Change Component DesignItemId : Designator=T100 Old DesignItemId=FSM6JSMATR New DesignItemId=CMP-07427-000007-1
+Change Footprint: Cannot match pads with new footprint in component :T100 Footprint:FP-7914J-1-032-MFG
+Change Component Comment : Designator=T100 Old Comment=Button New Comment=7914J-1-032
+Change Component Description : Designator=T100 Old Description=FSM6JSMATR=TACT SWITCH 6X6MIL New Description=SWITCH TACTILE SPST-NO 0.1A 16V
+Change Component Library : Designator=T100 Old Library=FSM6JSMATR.SchLib New Library=SMD_Button.SchLib
+Change Managed Component Library Link : Designator=T100 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID= New ItemGUID=BC5C4EA1-DE12-4ACF-B915-A9A3A6662F6D Old RevisionGUID= New RevisionGUID=EBB8ED80-5A50-4256-85DD-DA3E6FEDCD5B
+Change component parameters: Designator = "T100" ("T100"); Footprint = "SWITCH_FSM6JSMATR_TYC"; UniqueID = "\VVKSFCJP" ("\VVKSFCJP")
+Change component parameters (AddParameter): Name = "Actuator Material"; Value = "Rubber"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Actuator Type"; Value = "Standard"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Case/Package"; Value = "SMD/SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Contact Material"; Value = "Gold"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Contact Plating"; Value = "Silver"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Current Rating"; Value = "100mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Depth"; Value = "5mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Illumination Type"; Value = "Non-Illuminated"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "5mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Current Rating"; Value = "100mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "125°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mechanical Life"; Value = "100000Cycles"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-55°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Operating Force"; Value = "300gf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Orientation"; Value = "Straight"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Quantity"; Value = "50"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Rail/Tube"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RoHS Compliant"; Value = "Yes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Series"; Value = "7914"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Switch Function"; Value = "Off-Mom"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Termination"; Value = "J-Hook"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Throw Configuration"; Value = "SPST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage Rating (DC)"; Value = "16V"; VariantName = "[No Variations]"
