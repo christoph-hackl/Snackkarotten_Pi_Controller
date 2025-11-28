@@ -1,0 +1,34 @@
+Removed Pin From Net: NetName=Battery Pin=J1-P
+Added Component: Designator=F1(3557-15_KEY)
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2025 Ultra Librarian. All rights reserved."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Keystone Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "3557-15"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Component: Designator=F600(1206)
+Add component (AddParameter): Name = "Text Field1"; Value = "Strom"; VariantName = "[No Variations]"
+Added Component: Designator=F700(1206)
+Add component (AddParameter): Name = "Text Field1"; Value = "Strom"; VariantName = "[No Variations]"
+Added Component: Designator=F710(1206)
+Add component (AddParameter): Name = "Text Field1"; Value = "Strom"; VariantName = "[No Variations]"
+Added Component: Designator=F720(1206)
+Add component (AddParameter): Name = "Text Field1"; Value = "Strom"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=Battery Pin=F1-3
+Added Pin To Net: NetName=Battery Pin=F1-4
+Added Pin To Net: NetName=NetCff600_1 Pin=F600-1
+Added Pin To Net: NetName=+5 Pin=F600-2
+Added Pin To Net: NetName=NetCcomp700_2 Pin=F700-1
+Added Pin To Net: NetName=+6a Pin=F700-2
+Added Pin To Net: NetName=NetCcomp710_2 Pin=F710-1
+Added Pin To Net: NetName=+6b Pin=F710-2
+Added Pin To Net: NetName=NetCcomp720_2 Pin=F720-1
+Added Pin To Net: NetName=+6c Pin=F720-2
+Added Pin To Net: NetName=NetF1_1 Pin=F1-1
+Added Pin To Net: NetName=NetF1_1 Pin=F1-2
+Added Pin To Net: NetName=NetF1_1 Pin=J1-P
+Added Net: Name=NetF1_1
+Added Member To Class: ClassName=5V,_3V3,_6a,_Batt Member=Component F1 3557-15
+Added Member To Class: ClassName=5V,_3V3,_6a,_Batt Member=Component F600 SMD Fuse
+Added Member To Class: ClassName=5V,_3V3,_6a,_Batt Member=Component F700 SMD Fuse
+Added Member To Class: ClassName=6b,_6c Member=Component F710 SMD Fuse
+Added Member To Class: ClassName=6b,_6c Member=Component F720 SMD Fuse
