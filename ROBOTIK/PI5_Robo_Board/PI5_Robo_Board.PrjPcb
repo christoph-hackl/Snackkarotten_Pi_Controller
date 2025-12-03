@@ -780,6 +780,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=STRJFATR
 
+[Document44]
+DocumentPath=PI5_Robo_Board.Annotation
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [GeneratedDocument1]
 DocumentPath=Project Outputs for PI5_Robo_Board\Design Rule Check - PI5_Robo_Board_PCB.html
 DItemRevisionGUID=
