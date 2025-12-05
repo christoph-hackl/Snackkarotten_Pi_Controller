@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=Battery Pin=U700-20
+Added Component: Designator=Cvcc700(0603)
+Add component (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Added Component: Designator=Rkelvin700(0603)
+Add component (AddParameter): Name = "Value"; Value = "0Ohm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=Cvcc700-2
+Added Pin To Net: NetName=Battery Pin=Rkelvin700-2
+Added Pin To Net: NetName=NetCvcc700_1 Pin=Cvcc700-1
+Added Pin To Net: NetName=NetCvcc700_1 Pin=Rkelvin700-1
+Added Pin To Net: NetName=NetCvcc700_1 Pin=U700-20
+Added Net: Name=NetCvcc700_1
+Added Member To Class: ClassName=5V,_3V3,_6a,_Batt Member=Component Cvcc700 1% 0603
+Added Member To Class: ClassName=5V,_3V3,_6a,_Batt Member=Component Rkelvin700 1% 0603
+Added Member To Class: ClassName=5V,_3V3,_6a,_Batt Member=Component U700 TPS56121DQPR
