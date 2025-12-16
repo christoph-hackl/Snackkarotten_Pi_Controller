@@ -1,8 +1,8 @@
 Record=TopLevelDocument|FileName=5V,_3V3,_6a,_Batt.SchDoc|SheetNumber=6
 Record=NoMainPathDocument|SourceDocument=5V,_3V3,_6a,_Batt.SchDoc|FileName=6b,_6c.SchDoc|SheetNumber=7
-Record=NoMainPathDocument|SourceDocument=5V,_3V3,_6a,_Batt.SchDoc|FileName=BNO555.SchDoc|SheetNumber=2
+Record=NoMainPathDocument|SourceDocument=5V,_3V3,_6a,_Batt.SchDoc|FileName=BNO085.SchDoc|SheetNumber=2
 Record=NoMainPathDocument|SourceDocument=5V,_3V3,_6a,_Batt.SchDoc|FileName=DRV+Motor.SchDoc|SheetNumber=5
-Record=NoMainPathDocument|SourceDocument=5V,_3V3,_6a,_Batt.SchDoc|FileName=ICM-20948.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=5V,_3V3,_6a,_Batt.SchDoc|FileName=LSM6DSO.SchDoc|SheetNumber=3
 Record=NoMainPathDocument|SourceDocument=5V,_3V3,_6a,_Batt.SchDoc|FileName=PCA9685.SchDoc|SheetNumber=4
 Record=NoMainPathDocument|SourceDocument=5V,_3V3,_6a,_Batt.SchDoc|FileName=Raspberry_PI5.SchDoc|SheetNumber=1
 Record=NoMainPathDocument|SourceDocument=5V,_3V3,_6a,_Batt.SchDoc|FileName=STM32.SchDoc|SheetNumber=8

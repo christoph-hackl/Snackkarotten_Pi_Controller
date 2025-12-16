@@ -1,0 +1,70 @@
+Removed Pin From Net: NetName=NetLight Sensor_2 Pin=U100-32
+Removed Pin From Net: NetName=NetR800_1 Pin=U100-33
+Removed Pin From Net: NetName=NetLuefter_2 Pin=U100-35
+Removed Pin From Net: NetName=NetLuefter_3 Pin=U100-38
+Removed Pin From Net: NetName=NetC102_1 Pin=U100-40
+Removed Pin From Net: NetName=NetU100_31 Pin=U301-4
+Added Component: Designator=C200(0603)
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C201(0603)
+Add component (AddParameter): Name = "Value"; Value = "4.7uF"; VariantName = "[No Variations]"
+Added Component: Designator=C202(0603)
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=R200(0603)
+Add component (AddParameter): Name = "Value"; Value = "2.2k"; VariantName = "[No Variations]"
+Added Component: Designator=R201(0603)
+Add component (AddParameter): Name = "Value"; Value = "2.2k"; VariantName = "[No Variations]"
+Added Component: Designator=R202(0603)
+Add component (AddParameter): Name = "Value"; Value = "10k"; VariantName = "[No Variations]"
+Added Component: Designator=U200(IC_BNO085)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/BNO085/Hillcrest+Laboratories%252C+Inc./view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Hillcrest Laboratories,"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "BNO085"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "TFLGA-28 Hillcrest Laboratories"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/BNO085/Hillcrest+Laboratories%252C+Inc./view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+3.3 Pin=C200-1
+Added Pin To Net: NetName=GND Pin=C200-2
+Added Pin To Net: NetName=+3.3 Pin=C201-1
+Added Pin To Net: NetName=GND Pin=C201-2
+Added Pin To Net: NetName=GND Pin=C202-2
+Added Pin To Net: NetName=+3.3 Pin=R200-2
+Added Pin To Net: NetName=+3.3 Pin=R201-2
+Added Pin To Net: NetName=+3.3 Pin=R202-2
+Added Pin To Net: NetName=NetLight Sensor_2 Pin=U100-33
+Added Pin To Net: NetName=NetR800_1 Pin=U100-36
+Added Pin To Net: NetName=NetC102_1 Pin=U100-37
+Added Pin To Net: NetName=NetLuefter_2 Pin=U100-38
+Added Pin To Net: NetName=NetLuefter_3 Pin=U100-40
+Added Pin To Net: NetName=GND Pin=U200-2
+Added Pin To Net: NetName=+3.3 Pin=U200-3
+Added Pin To Net: NetName=GND Pin=U200-5
+Added Pin To Net: NetName=GND Pin=U200-6
+Added Pin To Net: NetName=NetU100_31 Pin=U200-11
+Added Pin To Net: NetName=GND Pin=U200-17
+Added Pin To Net: NetName=SCL Pin=U200-19
+Added Pin To Net: NetName=SDA Pin=U200-20
+Added Pin To Net: NetName=GND Pin=U200-25
+Added Pin To Net: NetName=+3.3 Pin=U200-28
+Added Pin To Net: NetName=NetC202_1 Pin=C202-1
+Added Pin To Net: NetName=NetC202_1 Pin=U200-9
+Added Net: Name=NetC202_1
+Added Pin To Net: NetName=NetR200_1 Pin=R200-1
+Added Pin To Net: NetName=NetR200_1 Pin=U200-15
+Added Net: Name=NetR200_1
+Added Pin To Net: NetName=NetR201_1 Pin=R201-1
+Added Pin To Net: NetName=NetR201_1 Pin=U200-16
+Added Net: Name=NetR201_1
+Added Pin To Net: NetName=NetR202_1 Pin=R202-1
+Added Pin To Net: NetName=NetR202_1 Pin=U200-4
+Added Net: Name=NetR202_1
+Added Pin To Net: NetName=NetU100_29 Pin=U100-29
+Added Pin To Net: NetName=NetU100_29 Pin=U200-14
+Added Net: Name=NetU100_29
+Added Pin To Net: NetName=NetU100_32 Pin=U100-32
+Added Pin To Net: NetName=NetU100_32 Pin=U301-4
+Added Net: Name=NetU100_32
+Added Pin To Net: NetName=NetU100_35 Pin=U100-35
+Added Pin To Net: NetName=NetU100_35 Pin=U800-60
+Added Net: Name=NetU100_35
+Added Class: Name=BNO085
