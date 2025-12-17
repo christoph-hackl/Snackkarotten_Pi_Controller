@@ -832,23 +832,6 @@ GenerateClassCluster=0
 DocumentUniqueId=NGLTGAHM
 
 [Document47]
-DocumentPath=..\Librarys\SnapEDA-Library\BNO085.IntLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document48]
 DocumentPath=..\Librarys\SnapEDA-Library\BNO085\BNO085.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -865,7 +848,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document49]
+[Document48]
 DocumentPath=..\Librarys\SnapEDA-Library\BNO085\IC_BNO085.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -882,7 +865,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ERHDCUQP
 
-[Document50]
+[Document49]
 DocumentPath=..\Librarys\LSM6DSOXTR.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -899,7 +882,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document51]
+[Document50]
 DocumentPath=..\Librarys\PQFN50P250X300X86-14N.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
