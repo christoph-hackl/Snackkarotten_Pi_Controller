@@ -1,9 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\morit\Documents\Robotik\ROBOTIK\PI5_Robo_Board\PI5_Robo_Board_PCB.PcbDoc
-Date     : 04.12.2025
-Time     : 11:12:06
-
-ERROR : More than 500 violations detected, DRC was stopped
+Date     : 20.12.2025
+Time     : 20:41:27
 
 Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
 Rule Violations :0
@@ -12,54 +10,7 @@ Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
 Rule Violations :0
 
 Processing Rule : Un-Routed Net Constraint ( (All) )
-   Violation between Un-Routed Net Constraint: Net NetADC Diff 1_3 Between Pad U800-27(257.025mm,268.9mm) on TOP1 And Pad ADC Diff 1-3(270.125mm,251.175mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net NetADC Diff 2_3 Between Pad U800-9(250.025mm,274.4mm) on TOP1 And Pad ADC Diff 2-3(261.8mm,250.825mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net SCL Between Pad U100-5(19.77mm,372.1mm) on Multi-Layer And Pad BNO/0x28-19(21.55mm,327.137mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net SCL Between Pad BNO/0x28-19(21.55mm,327.137mm) on TOP1 And Pad U300-6(45.335mm,321.625mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net SDA Between Pad BNO/0x28-20(20.638mm,326.975mm) on TOP1 And Pad U300-5(45.335mm,322.275mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net +5 Between Pad C100-1(88.463mm,378.65mm) on TOP1 And Pad C600-2(202.153mm,372.975mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net +5 Between Pad U100-4(17.23mm,369.56mm) on Multi-Layer And Pad C101-2(85.025mm,379.378mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net +5 Between Pad C600-2(202.153mm,372.975mm) on TOP1 And Pad F5-2(202.385mm,386.925mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net Battery Between Pad Cin712-1(241.641mm,413.173mm) on TOP1 And Pad Cinx700-1(242.291mm,434.696mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net Battery Between Pad Fbat-3(234.438mm,391mm) on Multi-Layer And Pad Cin721-1(238.085mm,413.173mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net Battery Between Pad Cinx600-2(218.85mm,394.224mm) on TOP1 And Pad Fbat-3(234.438mm,391mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net Battery Between Pad Fbat-4(234.438mm,387.596mm) on Multi-Layer And Pad Cvcc700-1(235.034mm,376.528mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetDIG Sens 1_2 Between Pad U100-11(19.77mm,379.72mm) on Multi-Layer And Pad DIG Sens 1-2(85.6mm,285.11mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net NetDIG Sens 4_2 Between Pad U100-15(19.77mm,384.8mm) on Multi-Layer And Pad DIG Sens 4-2(65.775mm,286.135mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net NetCcomp710_2 Between Track (258.723mm,412.446mm)(258.758mm,412.446mm) on TOP1 And Pad F6b-1(266.6mm,413.086mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net Battery Between Pad Fbat-4(234.438mm,387.596mm) on Multi-Layer And Pad Fbat-3(234.438mm,391mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net SDA Between Pad I2C 1-2(48.775mm,286.895mm) on Multi-Layer And Pad I2C 2-2(48.8mm,273.2mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net SCL Between Pad I2C 1-3(48.775mm,289.435mm) on Multi-Layer And Pad I2C 2-3(48.8mm,275.74mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net SCL Between Pad U300-6(45.335mm,321.625mm) on TOP1 And Pad I2C 1-3(48.775mm,289.435mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net NetLight Sensor_2 Between Pad U100-32(17.23mm,405.12mm) on Multi-Layer And Pad Light Sensor-2(93.2mm,284.46mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net Battery Between Pad Luefter-1(103.25mm,287.665mm) on Multi-Layer And Pad U600-6(212.95mm,392.775mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net +5 Between Pad Moto 1-4(238.7mm,351.34mm) on Multi-Layer And Pad Moto 2-4(245.7mm,351.34mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net +5 Between Pad U601-3(205.54mm,372.05mm) on TOP1 And Pad Moto 1-4(238.7mm,351.34mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net +5 Between Pad Moto 2-4(245.7mm,351.34mm) on Multi-Layer And Pad Moto 3-4(252.7mm,351.34mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net NetMoto 2_6 Between Pad R520-1(149mm,263.575mm) on TOP1 And Pad Moto 2-6(245.7mm,346.28mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net +5 Between Pad Moto 3-4(252.7mm,351.34mm) on Multi-Layer And Pad Moto 4-4(259.7mm,351.4mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net +5 Between Pad Moto 4-4(259.7mm,351.4mm) on Multi-Layer And Pad Moto 5-4(266.7mm,351.4mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net Motor_5_- Between Pad U502-4(193.05mm,262.875mm) on TOP1 And Pad Moto 5-2(266.7mm,356.5mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net +5 Between Pad Moto 5-4(266.7mm,351.4mm) on Multi-Layer And Pad Moto 6-4(273.7mm,351.4mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net Motor_6_+ Between Pad U502-7(193.05mm,260.925mm) on TOP1 And Pad Moto 6-1(273.7mm,359.02mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net Servo_4 Between Pad PCA/0x40-10(216.653mm,440.142mm) on TOP1 And Pad Servo 4-1(224.1mm,451.86mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net SCL Between Pad U100-5(19.77mm,372.1mm) on Multi-Layer And Pad PCA/0x40-26(221.2mm,434.3mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR504_1 Between Pad R504-1(124.7mm,263.302mm) on TOP1 And Pad U800-42(261.525mm,275.4mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR506_1 Between Pad U502-8(193.05mm,260.275mm) on TOP1 And Pad R506-1(228.923mm,251.725mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR506_1 Between Pad R506-1(228.923mm,251.725mm) on TOP1 And Pad U800-34(261.525mm,271.4mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR507_2 Between Pad R507-2(131.7mm,259.201mm) on TOP1 And Pad R511-2(132.2mm,263.998mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR507_2 Between Pad R511-2(132.2mm,263.998mm) on TOP1 And Pad U800-28(257.525mm,268.9mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR522_2 Between Pad R526-2(153.925mm,260.172mm) on TOP1 And Pad R522-2(153.925mm,262.378mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR522_2 Between Pad R522-2(153.925mm,262.378mm) on TOP1 And Pad U800-2(250.025mm,277.9mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR532_2 Between Pad R538-2(189.375mm,255.025mm) on TOP1 And Pad R532-2(189.375mm,257.628mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR532_2 Between Pad R532-2(189.375mm,257.628mm) on TOP1 And Pad U800-4(250.025mm,276.9mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetU100_10 Between Pad U100-10(17.23mm,377.18mm) on Multi-Layer And Pad U800-35(261.525mm,271.9mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net +5 Between Pad U100-2(17.23mm,367.02mm) on Multi-Layer And Pad U100-4(17.23mm,369.56mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net NetU100_23 Between Pad U100-23(19.77mm,394.96mm) on Multi-Layer And Pad U800-29(258.025mm,268.9mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetU100_36 Between Pad U100-36(17.23mm,410.2mm) on Multi-Layer And Pad U800-60(254.025mm,280.4mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR506_1 Between Pad U500-8(127.175mm,255.6mm) on TOP1 And Pad U501-8(158.532mm,263.475mm) on TOP1 
-   Violation between Un-Routed Net Constraint: Net NetR506_1 Between Pad U501-8(158.532mm,263.475mm) on TOP1 And Pad U502-8(193.05mm,260.275mm) on TOP1 
-Rule Violations :47
+Rule Violations :0
 
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
@@ -74,466 +25,43 @@ Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.3mm) (Co
 Rule Violations :0
 
 Processing Rule : Minimum Annular Ring (Minimum=0.2mm) (All)
-   Violation between Minimum Annular Ring: (0.075mm < 0.2mm) Via (242.692mm,375.755mm) from TOP1 to BOT6 (Annular Ring=0.075mm) On (Top Layer)
-   Violation between Minimum Annular Ring: (0.075mm < 0.2mm) Via (243.065mm,444.911mm) from TOP1 to BOT6 (Annular Ring=0.075mm) On (Top Layer)
-Rule Violations :2
+Rule Violations :0
 
 Processing Rule : Hole Size Constraint (Min=0.15mm) (Max=6.3mm) (All)
 Rule Violations :0
 
 Processing Rule : Hole To Hole Clearance (Gap=0.45mm) (All),(All)
-   Violation between Hole To Hole Clearance Constraint: (0.446mm < 0.45mm) Between Via (239.128mm,375.419mm) from TOP1 to BOT6 And Via (239.131mm,374.673mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (240.565mm,444.411mm) from TOP1 to BOT6 And Via (240.565mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (240.565mm,444.411mm) from TOP1 to BOT6 And Via (241.065mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (240.565mm,444.911mm) from TOP1 to BOT6 And Via (241.065mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (240.565mm,444.911mm) from TOP1 to BOT6 And Via (241.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (240.565mm,445.911mm) from TOP1 to BOT6 And Via (241.065mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (240.565mm,446.411mm) from TOP1 to BOT6 And Via (240.565mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (240.565mm,446.411mm) from TOP1 to BOT6 And Via (241.065mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (240.565mm,446.411mm) from TOP1 to BOT6 And Via (241.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (240.565mm,446.911mm) from TOP1 to BOT6 And Via (241.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.065mm,444.411mm) from TOP1 to BOT6 And Via (241.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.065mm,444.411mm) from TOP1 to BOT6 And Via (241.565mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.065mm,444.911mm) from TOP1 to BOT6 And Via (241.565mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.065mm,445.911mm) from TOP1 to BOT6 And Via (241.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.065mm,445.911mm) from TOP1 to BOT6 And Via (241.565mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.065mm,445.911mm) from TOP1 to BOT6 And Via (241.565mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.065mm,446.911mm) from TOP1 to BOT6 And Via (241.565mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.065mm,446.911mm) from TOP1 to BOT6 And Via (241.565mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,373.255mm) from TOP1 to BOT6 And Via (241.192mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,373.255mm) from TOP1 to BOT6 And Via (241.692mm,373.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,373.255mm) from TOP1 to BOT6 And Via (241.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,373.755mm) from TOP1 to BOT6 And Via (241.692mm,373.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,373.755mm) from TOP1 to BOT6 And Via (241.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,374.255mm) from TOP1 to BOT6 And Via (241.192mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,374.255mm) from TOP1 to BOT6 And Via (241.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,374.755mm) from TOP1 to BOT6 And Via (241.192mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,374.755mm) from TOP1 to BOT6 And Via (241.692mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,374.755mm) from TOP1 to BOT6 And Via (241.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,374.755mm) from TOP1 to BOT6 And Via (241.692mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,375.255mm) from TOP1 to BOT6 And Via (241.192mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,375.255mm) from TOP1 to BOT6 And Via (241.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,375.255mm) from TOP1 to BOT6 And Via (241.692mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,375.255mm) from TOP1 to BOT6 And Via (241.692mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,375.755mm) from TOP1 to BOT6 And Via (241.192mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,375.755mm) from TOP1 to BOT6 And Via (241.692mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,375.755mm) from TOP1 to BOT6 And Via (241.692mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,375.755mm) from TOP1 to BOT6 And Via (241.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,376.255mm) from TOP1 to BOT6 And Via (241.192mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,376.255mm) from TOP1 to BOT6 And Via (241.692mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,376.255mm) from TOP1 to BOT6 And Via (241.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,376.255mm) from TOP1 to BOT6 And Via (241.692mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,376.755mm) from TOP1 to BOT6 And Via (241.192mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,376.755mm) from TOP1 to BOT6 And Via (241.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,376.755mm) from TOP1 to BOT6 And Via (241.692mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,377.255mm) from TOP1 to BOT6 And Via (241.192mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,377.255mm) from TOP1 to BOT6 And Via (241.692mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,377.255mm) from TOP1 to BOT6 And Via (241.692mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,377.755mm) from TOP1 to BOT6 And Via (241.192mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,377.755mm) from TOP1 to BOT6 And Via (241.692mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,377.755mm) from TOP1 to BOT6 And Via (241.692mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.192mm,378.255mm) from TOP1 to BOT6 And Via (241.692mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.192mm,378.255mm) from TOP1 to BOT6 And Via (241.692mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.565mm,444.411mm) from TOP1 to BOT6 And Via (241.565mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.565mm,444.411mm) from TOP1 to BOT6 And Via (242.065mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.565mm,444.411mm) from TOP1 to BOT6 And Via (242.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.565mm,445.411mm) from TOP1 to BOT6 And Via (241.565mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.565mm,445.911mm) from TOP1 to BOT6 And Via (242.065mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.565mm,445.911mm) from TOP1 to BOT6 And Via (242.065mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.565mm,445.911mm) from TOP1 to BOT6 And Via (242.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.565mm,446.411mm) from TOP1 to BOT6 And Via (242.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.565mm,446.911mm) from TOP1 to BOT6 And Via (242.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.565mm,446.911mm) from TOP1 to BOT6 And Via (242.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,373.255mm) from TOP1 to BOT6 And Via (241.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,373.255mm) from TOP1 to BOT6 And Via (242.192mm,373.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,373.255mm) from TOP1 to BOT6 And Via (242.192mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,373.755mm) from TOP1 to BOT6 And Via (242.192mm,373.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,373.755mm) from TOP1 to BOT6 And Via (242.192mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,373.755mm) from TOP1 to BOT6 And Via (242.192mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,374.255mm) from TOP1 to BOT6 And Via (241.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,374.755mm) from TOP1 to BOT6 And Via (241.692mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,374.755mm) from TOP1 to BOT6 And Via (242.192mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,374.755mm) from TOP1 to BOT6 And Via (242.192mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,374.755mm) from TOP1 to BOT6 And Via (242.192mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,375.255mm) from TOP1 to BOT6 And Via (241.692mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,375.255mm) from TOP1 to BOT6 And Via (242.192mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,375.255mm) from TOP1 to BOT6 And Via (242.192mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,375.255mm) from TOP1 to BOT6 And Via (242.192mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,375.755mm) from TOP1 to BOT6 And Via (241.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,375.755mm) from TOP1 to BOT6 And Via (242.192mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,375.755mm) from TOP1 to BOT6 And Via (242.192mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,375.755mm) from TOP1 to BOT6 And Via (242.192mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,376.255mm) from TOP1 to BOT6 And Via (241.692mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,376.255mm) from TOP1 to BOT6 And Via (242.192mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,376.255mm) from TOP1 to BOT6 And Via (242.192mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,376.255mm) from TOP1 to BOT6 And Via (242.192mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,376.755mm) from TOP1 to BOT6 And Via (242.192mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,376.755mm) from TOP1 to BOT6 And Via (242.192mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,376.755mm) from TOP1 to BOT6 And Via (242.192mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,377.755mm) from TOP1 to BOT6 And Via (241.692mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,377.755mm) from TOP1 to BOT6 And Via (242.192mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,377.755mm) from TOP1 to BOT6 And Via (242.192mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,377.755mm) from TOP1 to BOT6 And Via (242.192mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (241.692mm,378.255mm) from TOP1 to BOT6 And Via (242.192mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (241.692mm,378.255mm) from TOP1 to BOT6 And Via (242.192mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.065mm,444.411mm) from TOP1 to BOT6 And Via (242.565mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.065mm,444.911mm) from TOP1 to BOT6 And Via (242.565mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.065mm,444.911mm) from TOP1 to BOT6 And Via (242.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.065mm,445.411mm) from TOP1 to BOT6 And Via (242.565mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.065mm,445.411mm) from TOP1 to BOT6 And Via (242.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.065mm,445.411mm) from TOP1 to BOT6 And Via (242.565mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.065mm,445.911mm) from TOP1 to BOT6 And Via (242.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.065mm,445.911mm) from TOP1 to BOT6 And Via (242.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.065mm,445.911mm) from TOP1 to BOT6 And Via (242.565mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.065mm,446.411mm) from TOP1 to BOT6 And Via (242.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.065mm,446.411mm) from TOP1 to BOT6 And Via (242.565mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.065mm,446.411mm) from TOP1 to BOT6 And Via (242.565mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.065mm,446.411mm) from TOP1 to BOT6 And Via (242.565mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,373.255mm) from TOP1 to BOT6 And Via (242.192mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,373.255mm) from TOP1 to BOT6 And Via (242.692mm,373.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,373.255mm) from TOP1 to BOT6 And Via (242.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,373.755mm) from TOP1 to BOT6 And Via (242.192mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,373.755mm) from TOP1 to BOT6 And Via (242.692mm,373.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,373.755mm) from TOP1 to BOT6 And Via (242.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,373.755mm) from TOP1 to BOT6 And Via (242.692mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,374.255mm) from TOP1 to BOT6 And Via (242.192mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,374.255mm) from TOP1 to BOT6 And Via (242.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,374.255mm) from TOP1 to BOT6 And Via (242.692mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,374.255mm) from TOP1 to BOT6 And Via (242.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,374.755mm) from TOP1 to BOT6 And Via (242.192mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,374.755mm) from TOP1 to BOT6 And Via (242.692mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,374.755mm) from TOP1 to BOT6 And Via (242.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,374.755mm) from TOP1 to BOT6 And Via (242.692mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,375.255mm) from TOP1 to BOT6 And Via (242.192mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,375.255mm) from TOP1 to BOT6 And Via (242.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,375.255mm) from TOP1 to BOT6 And Via (242.692mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,375.255mm) from TOP1 to BOT6 And Via (242.692mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,375.755mm) from TOP1 to BOT6 And Via (242.192mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,375.755mm) from TOP1 to BOT6 And Via (242.692mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,375.755mm) from TOP1 to BOT6 And Via (242.692mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,375.755mm) from TOP1 to BOT6 And Via (242.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,376.255mm) from TOP1 to BOT6 And Via (242.192mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,376.255mm) from TOP1 to BOT6 And Via (242.692mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,376.255mm) from TOP1 to BOT6 And Via (242.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,376.755mm) from TOP1 to BOT6 And Via (242.192mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,376.755mm) from TOP1 to BOT6 And Via (242.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,376.755mm) from TOP1 to BOT6 And Via (242.692mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,377.255mm) from TOP1 to BOT6 And Via (242.192mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,377.255mm) from TOP1 to BOT6 And Via (242.692mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,377.255mm) from TOP1 to BOT6 And Via (242.692mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,377.755mm) from TOP1 to BOT6 And Via (242.192mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,377.755mm) from TOP1 to BOT6 And Via (242.692mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,377.755mm) from TOP1 to BOT6 And Via (242.692mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,377.755mm) from TOP1 to BOT6 And Via (242.692mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.192mm,378.255mm) from TOP1 to BOT6 And Via (242.692mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.192mm,378.255mm) from TOP1 to BOT6 And Via (242.692mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.565mm,444.411mm) from TOP1 to BOT6 And Via (243.065mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.565mm,444.411mm) from TOP1 to BOT6 And Via (243.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.565mm,444.911mm) from TOP1 to BOT6 And Via (242.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.565mm,444.911mm) from TOP1 to BOT6 And Via (243.065mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.565mm,444.911mm) from TOP1 to BOT6 And Via (243.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.565mm,444.911mm) from TOP1 to BOT6 And Via (243.065mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.565mm,445.411mm) from TOP1 to BOT6 And Via (242.565mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.565mm,445.411mm) from TOP1 to BOT6 And Via (243.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.565mm,445.411mm) from TOP1 to BOT6 And Via (243.065mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.565mm,445.911mm) from TOP1 to BOT6 And Via (243.065mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.565mm,446.411mm) from TOP1 to BOT6 And Via (243.065mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.565mm,446.411mm) from TOP1 to BOT6 And Via (243.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.565mm,446.911mm) from TOP1 to BOT6 And Via (243.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,373.255mm) from TOP1 to BOT6 And Via (242.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,373.255mm) from TOP1 to BOT6 And Via (243.192mm,373.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,373.255mm) from TOP1 to BOT6 And Via (243.192mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,373.755mm) from TOP1 to BOT6 And Via (242.692mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,373.755mm) from TOP1 to BOT6 And Via (243.192mm,373.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,373.755mm) from TOP1 to BOT6 And Via (243.192mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,373.755mm) from TOP1 to BOT6 And Via (243.192mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,374.255mm) from TOP1 to BOT6 And Via (242.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,374.255mm) from TOP1 to BOT6 And Via (243.192mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,374.255mm) from TOP1 to BOT6 And Via (243.192mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,374.255mm) from TOP1 to BOT6 And Via (243.192mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,374.755mm) from TOP1 to BOT6 And Via (242.692mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,374.755mm) from TOP1 to BOT6 And Via (243.192mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,374.755mm) from TOP1 to BOT6 And Via (243.192mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,374.755mm) from TOP1 to BOT6 And Via (243.192mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,375.255mm) from TOP1 to BOT6 And Via (242.692mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,375.255mm) from TOP1 to BOT6 And Via (243.192mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,375.255mm) from TOP1 to BOT6 And Via (243.192mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,375.255mm) from TOP1 to BOT6 And Via (243.192mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,375.755mm) from TOP1 to BOT6 And Via (242.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,375.755mm) from TOP1 to BOT6 And Via (243.192mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,375.755mm) from TOP1 to BOT6 And Via (243.192mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,375.755mm) from TOP1 to BOT6 And Via (243.192mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,376.255mm) from TOP1 to BOT6 And Via (243.192mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,376.255mm) from TOP1 to BOT6 And Via (243.192mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,376.255mm) from TOP1 to BOT6 And Via (243.192mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,376.755mm) from TOP1 to BOT6 And Via (242.692mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,376.755mm) from TOP1 to BOT6 And Via (243.192mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,377.255mm) from TOP1 to BOT6 And Via (242.692mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,377.255mm) from TOP1 to BOT6 And Via (243.192mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,377.255mm) from TOP1 to BOT6 And Via (243.192mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,377.755mm) from TOP1 to BOT6 And Via (242.692mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,377.755mm) from TOP1 to BOT6 And Via (243.192mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,377.755mm) from TOP1 to BOT6 And Via (243.192mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (242.692mm,378.255mm) from TOP1 to BOT6 And Via (243.192mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (242.692mm,378.255mm) from TOP1 to BOT6 And Via (243.192mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.065mm,444.411mm) from TOP1 to BOT6 And Via (243.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.065mm,444.911mm) from TOP1 to BOT6 And Via (243.065mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.065mm,444.911mm) from TOP1 to BOT6 And Via (243.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.065mm,445.411mm) from TOP1 to BOT6 And Via (243.565mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.065mm,445.911mm) from TOP1 to BOT6 And Via (243.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.065mm,445.911mm) from TOP1 to BOT6 And Via (243.565mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.065mm,446.411mm) from TOP1 to BOT6 And Via (243.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.065mm,446.411mm) from TOP1 to BOT6 And Via (243.565mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.065mm,446.411mm) from TOP1 to BOT6 And Via (243.565mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.065mm,446.911mm) from TOP1 to BOT6 And Via (243.565mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,373.255mm) from TOP1 to BOT6 And Via (243.192mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,373.255mm) from TOP1 to BOT6 And Via (243.692mm,373.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,373.255mm) from TOP1 to BOT6 And Via (243.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,373.755mm) from TOP1 to BOT6 And Via (243.192mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,373.755mm) from TOP1 to BOT6 And Via (243.692mm,373.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,373.755mm) from TOP1 to BOT6 And Via (243.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,373.755mm) from TOP1 to BOT6 And Via (243.692mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,374.255mm) from TOP1 to BOT6 And Via (243.192mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,374.255mm) from TOP1 to BOT6 And Via (243.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,374.255mm) from TOP1 to BOT6 And Via (243.692mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,374.255mm) from TOP1 to BOT6 And Via (243.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,374.755mm) from TOP1 to BOT6 And Via (243.192mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,374.755mm) from TOP1 to BOT6 And Via (243.692mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,374.755mm) from TOP1 to BOT6 And Via (243.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,375.255mm) from TOP1 to BOT6 And Via (243.192mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,375.255mm) from TOP1 to BOT6 And Via (243.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,375.755mm) from TOP1 to BOT6 And Via (243.192mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,375.755mm) from TOP1 to BOT6 And Via (243.692mm,375.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,375.755mm) from TOP1 to BOT6 And Via (243.692mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,375.755mm) from TOP1 to BOT6 And Via (243.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,376.255mm) from TOP1 to BOT6 And Via (243.192mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,376.255mm) from TOP1 to BOT6 And Via (243.692mm,375.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,376.255mm) from TOP1 to BOT6 And Via (243.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,376.255mm) from TOP1 to BOT6 And Via (243.692mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,376.755mm) from TOP1 to BOT6 And Via (243.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,376.755mm) from TOP1 to BOT6 And Via (243.692mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,376.755mm) from TOP1 to BOT6 And Via (243.692mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,377.755mm) from TOP1 to BOT6 And Via (243.192mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,377.755mm) from TOP1 to BOT6 And Via (243.692mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,377.755mm) from TOP1 to BOT6 And Via (243.692mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,377.755mm) from TOP1 to BOT6 And Via (243.692mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.192mm,378.255mm) from TOP1 to BOT6 And Via (243.692mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.192mm,378.255mm) from TOP1 to BOT6 And Via (243.692mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.446mm < 0.45mm) Between Via (243.401mm,442.347mm) from TOP1 to BOT6 And Via (244.146mm,442.35mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.565mm,444.411mm) from TOP1 to BOT6 And Via (244.065mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.565mm,444.411mm) from TOP1 to BOT6 And Via (244.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.565mm,444.911mm) from TOP1 to BOT6 And Via (244.065mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.565mm,444.911mm) from TOP1 to BOT6 And Via (244.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.565mm,445.411mm) from TOP1 to BOT6 And Via (244.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.565mm,445.911mm) from TOP1 to BOT6 And Via (243.565mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.565mm,445.911mm) from TOP1 to BOT6 And Via (244.065mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.565mm,445.911mm) from TOP1 to BOT6 And Via (244.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.565mm,446.411mm) from TOP1 to BOT6 And Via (244.065mm,445.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.565mm,446.411mm) from TOP1 to BOT6 And Via (244.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.565mm,446.411mm) from TOP1 to BOT6 And Via (244.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (243.565mm,446.911mm) from TOP1 to BOT6 And Via (244.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.565mm,446.911mm) from TOP1 to BOT6 And Via (244.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.692mm,373.255mm) from TOP1 to BOT6 And Via (243.692mm,373.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.692mm,373.755mm) from TOP1 to BOT6 And Via (243.692mm,374.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.692mm,374.255mm) from TOP1 to BOT6 And Via (243.692mm,374.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.692mm,375.755mm) from TOP1 to BOT6 And Via (243.692mm,376.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.692mm,376.255mm) from TOP1 to BOT6 And Via (243.692mm,376.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.692mm,376.755mm) from TOP1 to BOT6 And Via (243.692mm,377.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.692mm,377.255mm) from TOP1 to BOT6 And Via (243.692mm,377.755mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (243.692mm,377.755mm) from TOP1 to BOT6 And Via (243.692mm,378.255mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (244.065mm,444.411mm) from TOP1 to BOT6 And Via (244.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (244.065mm,444.411mm) from TOP1 to BOT6 And Via (244.565mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (244.065mm,444.911mm) from TOP1 to BOT6 And Via (244.065mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (244.065mm,444.911mm) from TOP1 to BOT6 And Via (244.565mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (244.065mm,444.911mm) from TOP1 to BOT6 And Via (244.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (244.065mm,445.411mm) from TOP1 to BOT6 And Via (244.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (244.065mm,445.911mm) from TOP1 to BOT6 And Via (244.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (244.065mm,445.911mm) from TOP1 to BOT6 And Via (244.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (244.065mm,446.411mm) from TOP1 to BOT6 And Via (244.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (244.565mm,444.411mm) from TOP1 to BOT6 And Via (245.065mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (244.565mm,444.411mm) from TOP1 to BOT6 And Via (245.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (244.565mm,444.911mm) from TOP1 to BOT6 And Via (245.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (244.565mm,445.411mm) from TOP1 to BOT6 And Via (245.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (244.565mm,445.911mm) from TOP1 to BOT6 And Via (245.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (244.565mm,446.411mm) from TOP1 to BOT6 And Via (245.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (244.565mm,446.911mm) from TOP1 to BOT6 And Via (245.065mm,446.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (245.065mm,444.411mm) from TOP1 to BOT6 And Via (245.065mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (245.065mm,444.411mm) from TOP1 to BOT6 And Via (245.565mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (245.065mm,444.911mm) from TOP1 to BOT6 And Via (245.065mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (245.065mm,444.911mm) from TOP1 to BOT6 And Via (245.565mm,444.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (245.065mm,444.911mm) from TOP1 to BOT6 And Via (245.565mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (245.065mm,444.911mm) from TOP1 to BOT6 And Via (245.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (245.065mm,445.411mm) from TOP1 to BOT6 And Via (245.565mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (245.065mm,445.411mm) from TOP1 to BOT6 And Via (245.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (245.065mm,445.911mm) from TOP1 to BOT6 And Via (245.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (245.065mm,446.411mm) from TOP1 to BOT6 And Via (245.065mm,446.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (245.565mm,444.411mm) from TOP1 to BOT6 And Via (245.565mm,444.911mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (245.565mm,444.911mm) from TOP1 to BOT6 And Via (245.565mm,445.411mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.446mm < 0.45mm) Between Via (245.735mm,412.064mm) from TOP1 to BOT6 And Via (245.738mm,411.318mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,410.4mm) from TOP1 to BOT6 And Via (247.8mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,410.9mm) from TOP1 to BOT6 And Via (247.8mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (247.8mm,410.9mm) from TOP1 to BOT6 And Via (248.3mm,410.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,410.9mm) from TOP1 to BOT6 And Via (248.3mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (247.8mm,410.9mm) from TOP1 to BOT6 And Via (248.3mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,411.4mm) from TOP1 to BOT6 And Via (247.8mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,411.4mm) from TOP1 to BOT6 And Via (248.3mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (247.8mm,411.4mm) from TOP1 to BOT6 And Via (248.3mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,411.9mm) from TOP1 to BOT6 And Via (247.8mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (247.8mm,411.9mm) from TOP1 to BOT6 And Via (248.3mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (247.8mm,412.4mm) from TOP1 to BOT6 And Via (248.3mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,413.4mm) from TOP1 to BOT6 And Via (247.8mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (247.8mm,413.4mm) from TOP1 to BOT6 And Via (248.3mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (247.8mm,413.4mm) from TOP1 to BOT6 And Via (248.3mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,413.9mm) from TOP1 to BOT6 And Via (248.3mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (247.8mm,413.9mm) from TOP1 to BOT6 And Via (248.3mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,414.4mm) from TOP1 to BOT6 And Via (247.8mm,414.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,414.4mm) from TOP1 to BOT6 And Via (248.3mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (247.8mm,414.4mm) from TOP1 to BOT6 And Via (248.3mm,414.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (247.8mm,414.9mm) from TOP1 to BOT6 And Via (248.3mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (247.8mm,414.9mm) from TOP1 to BOT6 And Via (248.3mm,414.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.3mm,411.4mm) from TOP1 to BOT6 And Via (248.3mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.3mm,411.4mm) from TOP1 to BOT6 And Via (248.8mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.3mm,411.4mm) from TOP1 to BOT6 And Via (248.8mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.3mm,411.9mm) from TOP1 to BOT6 And Via (248.8mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.3mm,411.9mm) from TOP1 to BOT6 And Via (248.8mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.3mm,412.4mm) from TOP1 to BOT6 And Via (248.8mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.3mm,412.9mm) from TOP1 to BOT6 And Via (248.8mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.3mm,412.9mm) from TOP1 to BOT6 And Via (248.8mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.3mm,413.9mm) from TOP1 to BOT6 And Via (248.3mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.3mm,413.9mm) from TOP1 to BOT6 And Via (248.8mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.3mm,413.9mm) from TOP1 to BOT6 And Via (248.8mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.3mm,414.4mm) from TOP1 to BOT6 And Via (248.3mm,414.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.3mm,414.4mm) from TOP1 to BOT6 And Via (248.8mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.8mm,411.4mm) from TOP1 to BOT6 And Via (248.8mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.8mm,411.4mm) from TOP1 to BOT6 And Via (249.3mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.8mm,411.4mm) from TOP1 to BOT6 And Via (249.3mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.8mm,411.4mm) from TOP1 to BOT6 And Via (249.3mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.8mm,411.9mm) from TOP1 to BOT6 And Via (248.8mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.8mm,411.9mm) from TOP1 to BOT6 And Via (249.3mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.8mm,411.9mm) from TOP1 to BOT6 And Via (249.3mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.8mm,411.9mm) from TOP1 to BOT6 And Via (249.3mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.8mm,412.4mm) from TOP1 to BOT6 And Via (248.8mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.8mm,412.4mm) from TOP1 to BOT6 And Via (249.3mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.8mm,412.4mm) from TOP1 to BOT6 And Via (249.3mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.8mm,412.4mm) from TOP1 to BOT6 And Via (249.3mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.8mm,412.9mm) from TOP1 to BOT6 And Via (248.8mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.8mm,412.9mm) from TOP1 to BOT6 And Via (249.3mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.8mm,412.9mm) from TOP1 to BOT6 And Via (249.3mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.8mm,413.4mm) from TOP1 to BOT6 And Via (248.8mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.8mm,413.4mm) from TOP1 to BOT6 And Via (249.3mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.8mm,413.4mm) from TOP1 to BOT6 And Via (249.3mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (248.8mm,413.9mm) from TOP1 to BOT6 And Via (249.3mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (248.8mm,413.9mm) from TOP1 to BOT6 And Via (249.3mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,409.9mm) from TOP1 to BOT6 And Via (249.8mm,409.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,409.9mm) from TOP1 to BOT6 And Via (249.8mm,410.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,410.4mm) from TOP1 to BOT6 And Via (249.3mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,410.4mm) from TOP1 to BOT6 And Via (249.8mm,409.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,410.4mm) from TOP1 to BOT6 And Via (249.8mm,410.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,410.9mm) from TOP1 to BOT6 And Via (249.3mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,410.9mm) from TOP1 to BOT6 And Via (249.8mm,410.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,410.9mm) from TOP1 to BOT6 And Via (249.8mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,410.9mm) from TOP1 to BOT6 And Via (249.8mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,411.4mm) from TOP1 to BOT6 And Via (249.3mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,411.4mm) from TOP1 to BOT6 And Via (249.8mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,411.4mm) from TOP1 to BOT6 And Via (249.8mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,411.9mm) from TOP1 to BOT6 And Via (249.3mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,411.9mm) from TOP1 to BOT6 And Via (249.8mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,411.9mm) from TOP1 to BOT6 And Via (249.8mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,412.4mm) from TOP1 to BOT6 And Via (249.3mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,412.4mm) from TOP1 to BOT6 And Via (249.8mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,412.4mm) from TOP1 to BOT6 And Via (249.8mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,412.4mm) from TOP1 to BOT6 And Via (249.8mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,412.9mm) from TOP1 to BOT6 And Via (249.8mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,412.9mm) from TOP1 to BOT6 And Via (249.8mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,412.9mm) from TOP1 to BOT6 And Via (249.8mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,413.4mm) from TOP1 to BOT6 And Via (249.3mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,413.4mm) from TOP1 to BOT6 And Via (249.8mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,413.4mm) from TOP1 to BOT6 And Via (249.8mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,413.4mm) from TOP1 to BOT6 And Via (249.8mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,413.9mm) from TOP1 to BOT6 And Via (249.3mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,413.9mm) from TOP1 to BOT6 And Via (249.8mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,413.9mm) from TOP1 to BOT6 And Via (249.8mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,413.9mm) from TOP1 to BOT6 And Via (249.8mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,414.4mm) from TOP1 to BOT6 And Via (249.8mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.3mm,414.4mm) from TOP1 to BOT6 And Via (249.8mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.3mm,414.4mm) from TOP1 to BOT6 And Via (249.8mm,414.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,409.9mm) from TOP1 to BOT6 And Via (249.8mm,410.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,409.9mm) from TOP1 to BOT6 And Via (250.3mm,409.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,409.9mm) from TOP1 to BOT6 And Via (250.3mm,410.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,410.4mm) from TOP1 to BOT6 And Via (249.8mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,410.4mm) from TOP1 to BOT6 And Via (250.3mm,409.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,410.4mm) from TOP1 to BOT6 And Via (250.3mm,410.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,410.4mm) from TOP1 to BOT6 And Via (250.3mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,410.9mm) from TOP1 to BOT6 And Via (249.8mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,410.9mm) from TOP1 to BOT6 And Via (250.3mm,410.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,410.9mm) from TOP1 to BOT6 And Via (250.3mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,410.9mm) from TOP1 to BOT6 And Via (250.3mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,411.4mm) from TOP1 to BOT6 And Via (249.8mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,411.4mm) from TOP1 to BOT6 And Via (250.3mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,411.9mm) from TOP1 to BOT6 And Via (249.8mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,411.9mm) from TOP1 to BOT6 And Via (250.3mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,411.9mm) from TOP1 to BOT6 And Via (250.3mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,411.9mm) from TOP1 to BOT6 And Via (250.3mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,412.4mm) from TOP1 to BOT6 And Via (249.8mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,412.4mm) from TOP1 to BOT6 And Via (250.3mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,412.4mm) from TOP1 to BOT6 And Via (250.3mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,412.4mm) from TOP1 to BOT6 And Via (250.3mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,412.9mm) from TOP1 to BOT6 And Via (249.8mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,412.9mm) from TOP1 to BOT6 And Via (250.3mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,412.9mm) from TOP1 to BOT6 And Via (250.3mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,412.9mm) from TOP1 to BOT6 And Via (250.3mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,413.4mm) from TOP1 to BOT6 And Via (249.8mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,413.4mm) from TOP1 to BOT6 And Via (250.3mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,413.4mm) from TOP1 to BOT6 And Via (250.3mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,413.4mm) from TOP1 to BOT6 And Via (250.3mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,413.9mm) from TOP1 to BOT6 And Via (249.8mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,413.9mm) from TOP1 to BOT6 And Via (250.3mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,413.9mm) from TOP1 to BOT6 And Via (250.3mm,413.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,413.9mm) from TOP1 to BOT6 And Via (250.3mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,414.4mm) from TOP1 to BOT6 And Via (249.8mm,414.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,414.4mm) from TOP1 to BOT6 And Via (250.3mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,414.4mm) from TOP1 to BOT6 And Via (250.3mm,414.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.407mm < 0.45mm) Between Via (249.8mm,414.9mm) from TOP1 to BOT6 And Via (250.3mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (249.8mm,414.9mm) from TOP1 to BOT6 And Via (250.3mm,414.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (250.3mm,410.4mm) from TOP1 to BOT6 And Via (250.3mm,410.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (250.3mm,410.9mm) from TOP1 to BOT6 And Via (250.3mm,411.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (250.3mm,411.4mm) from TOP1 to BOT6 And Via (250.3mm,411.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (250.3mm,411.9mm) from TOP1 to BOT6 And Via (250.3mm,412.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (250.3mm,412.4mm) from TOP1 to BOT6 And Via (250.3mm,412.9mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (250.3mm,412.9mm) from TOP1 to BOT6 And Via (250.3mm,413.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (250.3mm,413.9mm) from TOP1 to BOT6 And Via (250.3mm,414.4mm) from TOP1 to BOT6 
-   Violation between Hole To Hole Clearance Constraint: (0.2mm < 0.45mm) Between Via (250.3mm,414.4mm) from TOP1 to BOT6 And Via (250.3mm,414.9mm) from TOP1 to BOT6 
-Rule Violations :421
+Rule Violations :0
 
 Processing Rule : Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)
-   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad BNO/0x28-1(20.638mm,322.475mm) on TOP1 And Pad BNO/0x28-28(20.638mm,322.975mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad BNO/0x28-14(23.962mm,326.475mm) on TOP1 And Pad BNO/0x28-15(23.962mm,326.975mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad BNO/0x28-17(22.55mm,327.137mm) on TOP1 And Pad BNO/0x28-18(22.05mm,327.137mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad BNO/0x28-20(20.638mm,326.975mm) on TOP1 And Pad BNO/0x28-21(20.638mm,326.475mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad BNO/0x28-22(20.638mm,325.975mm) on TOP1 And Pad BNO/0x28-23(20.638mm,325.475mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.035mm < 0.1mm) Between Pad ICM/0x68-18(51.023mm,322.461mm) on TOP1 And Pad ICM/0x68-19(50.478mm,321.916mm) on TOP1 [Top Solder] Mask Sliver [0.035mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.03mm < 0.1mm) Between Pad ICM/0x68-3(51.823mm,319.371mm) on TOP1 And Pad ICM/0x68-4(52.223mm,319.371mm) on TOP1 [Top Solder] Mask Sliver [0.03mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.03mm < 0.1mm) Between Pad ICM/0x68-7(53.568mm,319.916mm) on TOP1 And Pad ICM/0x68-8(53.568mm,320.316mm) on TOP1 [Top Solder] Mask Sliver [0.03mm]
-Rule Violations :8
+   Violation between Minimum Solder Mask Sliver Constraint: (0.09997mm (3.936mil) < 0.1mm (3.937mil)) Between Pad U200-10(153.458mm,375.936mm) on TOP1 And Pad U200-9(152.958mm,375.936mm) on TOP1 [Top Solder] Mask Sliver [0.1mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.09997mm (3.936mil) < 0.1mm (3.937mil)) Between Pad U200-11(153.958mm,375.936mm) on TOP1 And Pad U200-12(154.458mm,375.936mm) on TOP1 [Top Solder] Mask Sliver [0.1mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.09997mm (3.936mil) < 0.1mm (3.937mil)) Between Pad U200-13(154.958mm,375.936mm) on TOP1 And Pad U200-14(155.458mm,375.936mm) on TOP1 [Top Solder] Mask Sliver [0.1mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.09997mm (3.936mil) < 0.1mm (3.937mil)) Between Pad U200-16(156.12mm,376.846mm) on TOP1 And Pad U200-17(156.12mm,377.346mm) on TOP1 [Top Solder] Mask Sliver [0.1mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.09997mm (3.936mil) < 0.1mm (3.937mil)) Between Pad U200-21(155.458mm,379.256mm) on TOP1 And Pad U200-22(154.958mm,379.256mm) on TOP1 [Top Solder] Mask Sliver [0.1mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.09997mm (3.936mil) < 0.1mm (3.937mil)) Between Pad U200-23(154.458mm,379.256mm) on TOP1 And Pad U200-24(153.958mm,379.256mm) on TOP1 [Top Solder] Mask Sliver [0.1mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.09997mm (3.936mil) < 0.1mm (3.937mil)) Between Pad U200-25(153.458mm,379.256mm) on TOP1 And Pad U200-26(152.958mm,379.256mm) on TOP1 [Top Solder] Mask Sliver [0.1mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.09997mm (3.936mil) < 0.1mm (3.937mil)) Between Pad U200-27(152.458mm,379.256mm) on TOP1 And Pad U200-28(151.958mm,379.256mm) on TOP1 [Top Solder] Mask Sliver [0.1mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.09997mm (3.936mil) < 0.1mm (3.937mil)) Between Pad U200-4(151.296mm,377.346mm) on TOP1 And Pad U200-5(151.296mm,376.846mm) on TOP1 [Top Solder] Mask Sliver [0.1mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.09997mm (3.936mil) < 0.1mm (3.937mil)) Between Pad U200-7(151.958mm,375.936mm) on TOP1 And Pad U200-8(152.458mm,375.936mm) on TOP1 [Top Solder] Mask Sliver [0.1mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad U300-1(163.11mm,380.304mm) on TOP1 And Pad U300-2(163.11mm,380.804mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.08mm < 0.1mm) Between Pad U300-1(163.11mm,380.304mm) on TOP1 And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [0.08mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad U300-10(160.49mm,380.804mm) on TOP1 And Pad U300-11(160.49mm,380.304mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad U300-10(160.49mm,380.804mm) on TOP1 And Pad U300-9(160.49mm,381.304mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.08mm < 0.1mm) Between Pad U300-11(160.49mm,380.304mm) on TOP1 And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [0.08mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad U300-2(163.11mm,380.804mm) on TOP1 And Pad U300-3(163.11mm,381.304mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad U300-3(163.11mm,381.304mm) on TOP1 And Pad U300-4(163.11mm,381.804mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.08mm < 0.1mm) Between Pad U300-4(163.11mm,381.804mm) on TOP1 And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [0.08mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Pad U300-8(160.49mm,381.804mm) on TOP1 And Pad U300-9(160.49mm,381.304mm) on TOP1 [Top Solder] Mask Sliver [0.05mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.08mm < 0.1mm) Between Pad U300-8(160.49mm,381.804mm) on TOP1 And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [0.08mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [0.05mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [0.05mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [0.05mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.05mm < 0.1mm) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [0.05mm]
+Rule Violations :24
 
 Processing Rule : Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)
-   Violation between Silk To Solder Mask Clearance Constraint: (0.11mm < 0.15mm) Between Pad U500-14(123.925mm,261.4mm) on TOP1 And Track (122.011mm,262.413mm)(123.789mm,262.413mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.11mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.11mm < 0.15mm) Between Pad U500-14(123.925mm,261.4mm) on TOP1 And Track (123.789mm,262.413mm)(123.789mm,263.556mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.11mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.11mm < 0.15mm) Between Pad U500-14(123.925mm,261.4mm) on TOP1 And Track (123.811mm,262.413mm)(123.811mm,263.556mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.11mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.11mm < 0.15mm) Between Pad U500-14(123.925mm,261.4mm) on TOP1 And Track (123.811mm,262.413mm)(125.589mm,262.413mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.11mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.11mm < 0.15mm) Between Pad U500-15(123.275mm,261.4mm) on TOP1 And Track (122.011mm,262.413mm)(123.789mm,262.413mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.11mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.11mm < 0.15mm) Between Pad U500-16(122.625mm,261.4mm) on TOP1 And Track (122.011mm,262.413mm)(123.789mm,262.413mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.11mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.092mm < 0.15mm) Between Pad U700-15(242.115mm,443.292mm) on TOP1 And Track (242.038mm,442.697mm)(243.181mm,442.697mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.092mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.118mm < 0.15mm) Between Pad U700-2(245.115mm,447.992mm) on TOP1 And Track (243.686mm,448.611mm)(244.956mm,448.611mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.118mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.092mm < 0.15mm) Between Pad U710-13(246.681mm,414.35mm) on TOP1 And Track (246.086mm,414.189mm)(246.086mm,415.459mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.092mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.092mm < 0.15mm) Between Pad U710-15(246.681mm,413.35mm) on TOP1 And Track (246.086mm,412.284mm)(246.086mm,413.427mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.092mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.092mm < 0.15mm) Between Pad U710-17(246.681mm,412.35mm) on TOP1 And Track (244.308mm,412.284mm)(246.086mm,412.284mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.092mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.116mm < 0.15mm) Between Pad U710-5(251.381mm,411.85mm) on TOP1 And Track (252mm,410.509mm)(252mm,411.779mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.116mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.119mm < 0.15mm) Between Pad U710-6(251.381mm,412.35mm) on TOP1 And Track (251.927mm,411.864mm)(251.927mm,419.865mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.119mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.092mm < 0.15mm) Between Pad U720-15(240.073mm,376.705mm) on TOP1 And Track (239.479mm,375.639mm)(239.479mm,376.782mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.092mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.119mm < 0.15mm) Between Pad U720-8(244.773mm,376.705mm) on TOP1 And Track (245.319mm,375.219mm)(245.319mm,383.22mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.119mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.119mm < 0.15mm) Between Pad U720-9(244.773mm,377.205mm) on TOP1 And Track (245.319mm,375.219mm)(245.319mm,383.22mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.119mm]
-Rule Violations :16
+Rule Violations :0
 
 Processing Rule : Silk to Silk (Clearance=0mm) (Disabled)(All),(All)
 Rule Violations :0
@@ -542,18 +70,12 @@ Processing Rule : Net Antennae (Tolerance=0mm) (All)
 Rule Violations :0
 
 Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.4mm) Between Board Edge And Track (220.35mm,449.32mm)(220.35mm,459.48mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.4mm) Between Board Edge And Track (220.35mm,459.48mm)(226.1mm,459.48mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.4mm) Between Board Edge And Track (226.1mm,449.32mm)(226.1mm,459.48mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.4mm) Between Board Edge And Track (227.15mm,449.36mm)(227.15mm,459.52mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.4mm) Between Board Edge And Track (227.15mm,459.52mm)(232.9mm,459.52mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.4mm) Between Board Edge And Track (232.9mm,449.36mm)(232.9mm,459.52mm) on Top Overlay 
-Rule Violations :6
+Rule Violations :0
 
 Processing Rule : Height Constraint (Min=0mm) (Max=1816.048mm) (Prefered=12.7mm) (All)
 Rule Violations :0
 
 
-Violations Detected : 500
+Violations Detected : 24
 Waived Violations : 0
-Time Elapsed        : 00:00:03
+Time Elapsed        : 00:00:02
