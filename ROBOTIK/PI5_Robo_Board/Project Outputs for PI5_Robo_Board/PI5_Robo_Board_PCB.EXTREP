@@ -1,0 +1,26 @@
+------------------------------------------------------------------------------------------
+Gerber File Extension Report For: PI5_Robo_Board_PCB.GBR   20.12.2025  23:34:16
+------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------
+Layer Extension     Layer Description                      
+------------------------------------------------------------------------------------------
+.GTO                Top Overlay                             
+.GTP                Top Paste                               
+.GTS                Top Solder                              
+.GTL                TOP1                                    
+.G1                 SIG2                                    
+.G2                 SIG3                                    
+.GBL                BOT4                                    
+.GBS                Bottom Solder                           
+.GBP                Bottom Paste                            
+.GBO                Bottom Overlay                          
+.GM4                Top Plugging                            
+.GM6                Bottom Plugging                         
+.GM7                Top Covering                            
+.GM8                Bottom Covering                         
+.GM9                Top Tenting                             
+.GM10               Bottom Tenting                          
+.GM                 Profile                                 
+------------------------------------------------------------------------------------------
