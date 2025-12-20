@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=NetCcap800_2 Pin=Ccap801-2
+Removed Pin From Net: NetName=NetCcap800_2 Pin=U800-30
+Added Pin To Net: NetName=NetCcap801_2 Pin=Ccap801-2
+Added Pin To Net: NetName=NetCcap801_2 Pin=U800-30
+Added Net: Name=NetCcap801_2
