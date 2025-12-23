@@ -1,0 +1,27 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: PI5_Robo_Board_PCB.PcbDoc   23.12.2025  20:16:43
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : TOP1 to BOT4
+ASCII Plated RoundHoles File : PI5_Robo_Board_PCB-Plated.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.3mm)                                             Round             465       PTH        46.64inch (1184.63mm)
+T2      33mil (0.85mm)                                            Round             104       PTH        19.75inch (501.69mm)
+T3      40mil (1.016mm)                                           Round             40        PTH        4.00inch (101.60mm)
+T4      63mil (1.6mm)                                             Round             4         PTH        0.80inch (20.27mm)
+T5      108mil (2.75mm)                                           Round             4         PTH        6.14inch (156.00mm)
+T6      179mil (4.55mm)                                           Round             2         PTH        0.28inch (7.20mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              619
+Via Type 4b : TOP1 to BOT4
+ASCII Plated RoundHoles File : PI5_Robo_Board_PCB_Type_4b-Plated.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T7      12mil (0.3mm)                                             Round             411       PTH        43.89inch (1114.80mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Via Type 4b Totals                                                                  411
+
+Total Processing Time (hh:mm:ss) : 00:00:01
