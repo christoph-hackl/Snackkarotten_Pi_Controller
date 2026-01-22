@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=NetCcomp712_2 Pin=Csnubber710-2
+Removed Pin From Net: NetName=NetCcomp722_2 Pin=Csnubber720-2
+Removed Pin From Net: NetName=NetCcomp712_2 Pin=Rsnubber710-1
+Removed Pin From Net: NetName=NetCcomp722_2 Pin=Rsnubber720-1
+Added Pin To Net: NetName=NetCsnubber710_2 Pin=Csnubber710-2
+Added Pin To Net: NetName=NetCsnubber710_2 Pin=Rsnubber710-1
+Added Net: Name=NetCsnubber710_2
+Added Pin To Net: NetName=NetCsnubber720_2 Pin=Csnubber720-2
+Added Pin To Net: NetName=NetCsnubber720_2 Pin=Rsnubber720-1
+Added Net: Name=NetCsnubber720_2

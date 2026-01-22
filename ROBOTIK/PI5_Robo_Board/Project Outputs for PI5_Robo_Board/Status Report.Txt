@@ -1,0 +1,26 @@
+Output: Gerber Files
+Type  : Gerber
+From  : PCB Document [PI5_Robo_Board_PCB.PcbDoc]
+   Generated File[PI5_Robo_Board_PCB.GTO]
+   Generated File[PI5_Robo_Board_PCB.GTP]
+   Generated File[PI5_Robo_Board_PCB.GTS]
+   Generated File[PI5_Robo_Board_PCB.GTL]
+   Generated File[PI5_Robo_Board_PCB.G1]
+   Generated File[PI5_Robo_Board_PCB.G2]
+   Generated File[PI5_Robo_Board_PCB.GBL]
+   Generated File[PI5_Robo_Board_PCB.GBS]
+   Generated File[PI5_Robo_Board_PCB.GBP]
+   Generated File[PI5_Robo_Board_PCB.GBO]
+   Generated File[PI5_Robo_Board_PCB.GM4]
+   Generated File[PI5_Robo_Board_PCB.GM6]
+   Generated File[PI5_Robo_Board_PCB.GM7]
+   Generated File[PI5_Robo_Board_PCB.GM8]
+   Generated File[PI5_Robo_Board_PCB.GM]
+   Generated File[PI5_Robo_Board_PCB.EXTREP]
+   Generated File[PI5_Robo_Board_PCB.REP]
+
+
+Files Generated   : 17
+Documents Printed : 0
+
+Finished Output Generation At 20:16:45 On 23.12.2025
