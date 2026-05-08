@@ -1,0 +1,19 @@
+Added Component: Designator=ICM/0x68(QFN40P300X300X105-24N)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/ICM-20948/TDK/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "TDK InvenSense"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "ICM-20948"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "TFQFN-24 TDK InvenSense"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/ICM-20948/TDK/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+1.8 Pin=ICM/0x68-8
+Added Pin To Net: NetName=GND Pin=ICM/0x68-9
+Added Pin To Net: NetName=NetC303_1 Pin=ICM/0x68-10
+Added Pin To Net: NetName=GND Pin=ICM/0x68-11
+Added Pin To Net: NetName=NetICM/0x68_12 Pin=ICM/0x68-12
+Added Pin To Net: NetName=+3.3 Pin=ICM/0x68-13
+Added Pin To Net: NetName=GND Pin=ICM/0x68-18
+Added Pin To Net: NetName=GND Pin=ICM/0x68-20
+Added Pin To Net: NetName=+1.8 Pin=ICM/0x68-22
+Added Pin To Net: NetName=NetICM/0x68_23 Pin=ICM/0x68-23
+Added Pin To Net: NetName=NetICM/0x68_24 Pin=ICM/0x68-24
+Added Member To Class: ClassName=ICM-20948 Member=Component ICM/0x68

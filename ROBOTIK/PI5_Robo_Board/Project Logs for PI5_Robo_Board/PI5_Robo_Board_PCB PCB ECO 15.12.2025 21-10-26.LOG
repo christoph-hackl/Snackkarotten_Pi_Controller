@@ -1,0 +1,51 @@
+Change Component Footprint: Designator=L700 Old Footprint=XAL7070 New Footprint=WE-HCC_807021
+Change Component Footprint: Designator=L710 Old Footprint=XAL7070 New Footprint=WE-HCC_807021
+Change Component Footprint: Designator=L720 Old Footprint=XAL7070 New Footprint=WE-HCC_807021
+Change Component Comment : Designator=TVS1 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS2 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS3 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS4 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS5 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS6 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS7 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS8 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS9 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS10 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS11 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS12 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS13 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS14 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS15 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=TVS16 Old Comment= New Comment=DRTR5V0U1LPQ-7B
+Change Component Comment : Designator=U300 Old Comment= New Comment=PCA9306DCTR
+Change Component Comment : Designator=ICM/0x68 Old Comment= New Comment=TDK ICM20948
+Change Component Comment : Designator=L700 Old Comment=Spule New Comment=
+Change Component Comment : Designator=L710 Old Comment=Spule New Comment=
+Change Component Comment : Designator=L720 Old Comment=Spule New Comment=
+Change component parameters: Designator = "L700" ("L700"); Footprint = "XAL7070"; UniqueID = "\SCSUMQDD" ("\SCSUMQDD")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "https://www.we-online.com/components/products/download/3D_WE-HCC-8070_7443340xxx_3D+%28rev1%29.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "7.2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "7443340220"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "710-7443340220"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/7443340220?qs=MVRUG6Lt7nGtb48EAN9JeA%3D%3D"; VariantName = "[No Variations]"
+Change component parameters: Designator = "L710" ("L710"); Footprint = "XAL7070"; UniqueID = "\ZXZSEZEK" ("\ZXZSEZEK")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "https://www.we-online.com/components/products/download/3D_WE-HCC-8070_7443340xxx_3D+%28rev1%29.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "7.2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "7443340220"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "710-7443340220"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/7443340220?qs=MVRUG6Lt7nGtb48EAN9JeA%3D%3D"; VariantName = "[No Variations]"
+Change component parameters: Designator = "L720" ("L720"); Footprint = "XAL7070"; UniqueID = "\AIAXZUDG" ("\AIAXZUDG")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "https://www.we-online.com/components/products/download/3D_WE-HCC-8070_7443340xxx_3D+%28rev1%29.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "7.2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "7443340220"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "710-7443340220"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/7443340220?qs=MVRUG6Lt7nGtb48EAN9JeA%3D%3D"; VariantName = "[No Variations]"

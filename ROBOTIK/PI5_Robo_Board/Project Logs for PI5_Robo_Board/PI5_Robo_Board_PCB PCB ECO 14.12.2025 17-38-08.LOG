@@ -1,0 +1,60 @@
+Removed Pin From Net: NetName=+3.3 Pin=R502-1
+Removed Pin From Net: NetName=+3.3 Pin=R503-2
+Removed Pin From Net: NetName=+3.3 Pin=R504-2
+Removed Pin From Net: NetName=+3.3 Pin=R505-2
+Removed Pin From Net: NetName=+3.3 Pin=R515-1
+Removed Pin From Net: NetName=+3.3 Pin=R516-1
+Removed Pin From Net: NetName=+3.3 Pin=R517-2
+Removed Pin From Net: NetName=+3.3 Pin=R518-2
+Removed Pin From Net: NetName=+3.3 Pin=R527-1
+Removed Pin From Net: NetName=+3.3 Pin=R528-1
+Removed Pin From Net: NetName=+3.3 Pin=R533-2
+Removed Pin From Net: NetName=+3.3 Pin=R534-2
+Removed Member From Class: ClassName=DRV+Motor Member=R502
+Removed Member From Class: ClassName=DRV+Motor Member=R503
+Removed Member From Class: ClassName=DRV+Motor Member=R504
+Removed Member From Class: ClassName=DRV+Motor Member=R505
+Removed Member From Class: ClassName=DRV+Motor Member=R515
+Removed Member From Class: ClassName=DRV+Motor Member=R516
+Removed Member From Class: ClassName=DRV+Motor Member=R517
+Removed Member From Class: ClassName=DRV+Motor Member=R518
+Removed Member From Class: ClassName=DRV+Motor Member=R527
+Removed Member From Class: ClassName=DRV+Motor Member=R528
+Removed Member From Class: ClassName=DRV+Motor Member=R533
+Removed Member From Class: ClassName=DRV+Motor Member=R534
+Added Pin To Net: NetName=NetU500_9 Pin=U500-9
+Added Pin To Net: NetName=NetU500_9 Pin=U800-43
+Added Net: Name=NetU500_9
+Added Pin To Net: NetName=NetU500_10 Pin=U500-10
+Added Pin To Net: NetName=NetU500_10 Pin=U800-44
+Added Net: Name=NetU500_10
+Added Pin To Net: NetName=NetU500_15 Pin=U500-15
+Added Pin To Net: NetName=NetU500_15 Pin=U800-42
+Added Net: Name=NetU500_15
+Added Pin To Net: NetName=NetU500_16 Pin=U500-16
+Added Pin To Net: NetName=NetU500_16 Pin=U800-41
+Added Net: Name=NetU500_16
+Added Pin To Net: NetName=NetU501_9 Pin=U501-9
+Added Pin To Net: NetName=NetU501_9 Pin=U800-16
+Added Net: Name=NetU501_9
+Added Pin To Net: NetName=NetU501_10 Pin=U501-10
+Added Pin To Net: NetName=NetU501_10 Pin=U800-17
+Added Net: Name=NetU501_10
+Added Pin To Net: NetName=NetU501_15 Pin=U501-15
+Added Pin To Net: NetName=NetU501_15 Pin=U800-55
+Added Net: Name=NetU501_15
+Added Pin To Net: NetName=NetU501_16 Pin=U501-16
+Added Pin To Net: NetName=NetU501_16 Pin=U800-14
+Added Net: Name=NetU501_16
+Added Pin To Net: NetName=NetU502_9 Pin=U502-9
+Added Pin To Net: NetName=NetU502_9 Pin=U800-39
+Added Net: Name=NetU502_9
+Added Pin To Net: NetName=NetU502_10 Pin=U502-10
+Added Pin To Net: NetName=NetU502_10 Pin=U800-40
+Added Net: Name=NetU502_10
+Added Pin To Net: NetName=NetU502_15 Pin=U502-15
+Added Pin To Net: NetName=NetU502_15 Pin=U800-38
+Added Net: Name=NetU502_15
+Added Pin To Net: NetName=NetU502_16 Pin=U502-16
+Added Pin To Net: NetName=NetU502_16 Pin=U800-37
+Added Net: Name=NetU502_16

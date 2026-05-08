@@ -1,0 +1,15 @@
+Added Component: Designator=Fbat(FUSE_3557-15)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/3557-15/Keystone/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Keystone Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "3557-15"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/3557-15/Keystone/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=Battery Pin=Fbat-2_1
+Added Pin To Net: NetName=Battery Pin=Fbat-2_2
+Added Pin To Net: NetName=NetFbat_1_1 Pin=Fbat-1_1
+Added Pin To Net: NetName=NetFbat_1_1 Pin=Fbat-1_2
+Added Pin To Net: NetName=NetFbat_1_1 Pin=J1-P
+Added Net: Name=NetFbat_1_1
+Added Member To Class: ClassName=5V,_3V3,_6a,_Batt Member=Component Fbat 3557-15
+Added Member To Class: ClassName=STM32 Member=Component U800 STM32H562RIT6

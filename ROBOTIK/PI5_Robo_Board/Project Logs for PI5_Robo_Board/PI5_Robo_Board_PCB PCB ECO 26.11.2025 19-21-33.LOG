@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=+3.3 Pin=C401-1
+Removed Pin From Net: NetName=GND Pin=C401-2
+Change Component Footprint: Designator=C401 Old Footprint=CAP_EEEFN1A220R New Footprint=0603
+Change Component Comment : Designator=C401 Old Comment=ELKO New Comment=0603
+Change component parameters: Designator = "C401" ("C401"); Footprint = "CAP_EEEFN1A220R"; UniqueID = "\YSDFKBUK" ("\YSDFKBUK")
+Change component parameters (AddParameter): Name = "Value"; Value = "4.7uF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C401-1
+Added Pin To Net: NetName=+3.3 Pin=C401-2

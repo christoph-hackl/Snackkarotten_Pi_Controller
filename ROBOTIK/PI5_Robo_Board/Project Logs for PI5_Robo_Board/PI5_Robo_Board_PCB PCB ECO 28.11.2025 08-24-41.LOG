@@ -1,0 +1,16 @@
+Added Component: Designator=U300(SOP65P400X130-8N)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/PCA9306DCTR/Texas+Instruments/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "PCA9306DCTR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SSOP-8 Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/PCA9306DCTR/Texas+Instruments/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=U300-1
+Added Pin To Net: NetName=+1.8 Pin=U300-2
+Added Pin To Net: NetName=NetICM/0x68_23 Pin=U300-3
+Added Pin To Net: NetName=NetICM/0x68_24 Pin=U300-4
+Added Pin To Net: NetName=SDA Pin=U300-5
+Added Pin To Net: NetName=SCL Pin=U300-6
+Added Pin To Net: NetName=NetR302_1 Pin=U300-7
+Added Pin To Net: NetName=NetR302_1 Pin=U300-8
+Added Member To Class: ClassName=ICM-20948 Member=Component U300

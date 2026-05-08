@@ -1,0 +1,5 @@
+Change Component Library : Designator=L700 Old Library=SamacSys.SchLib New Library=Wuerth_Coil.SchLib
+Change Component Library : Designator=L710 Old Library=SamacSys.SchLib New Library=Wuerth_Coil.SchLib
+Change Component Library : Designator=L720 Old Library=SamacSys.SchLib New Library=Wuerth_Coil.SchLib
+Added Member To Class: ClassName=5V,_3V3,_6a,_Batt Member=Component L700
+Added Member To Class: ClassName=6b,_6c Member=Component L710

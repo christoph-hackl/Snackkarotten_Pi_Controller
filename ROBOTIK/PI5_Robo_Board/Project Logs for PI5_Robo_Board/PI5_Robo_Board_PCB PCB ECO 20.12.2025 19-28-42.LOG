@@ -1,0 +1,11 @@
+Added Component: Designator=Fbat(3557-15_KEY)
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2025 Ultra Librarian. All rights reserved."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Keystone Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "3557-15"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetFbat_1 Pin=Fbat-1
+Added Pin To Net: NetName=NetFbat_1 Pin=Fbat-2
+Added Pin To Net: NetName=Battery Pin=Fbat-3
+Added Pin To Net: NetName=Battery Pin=Fbat-4
+Added Member To Class: ClassName=5V,_3V3,_6a,_Batt Member=Component Fbat 3557-15

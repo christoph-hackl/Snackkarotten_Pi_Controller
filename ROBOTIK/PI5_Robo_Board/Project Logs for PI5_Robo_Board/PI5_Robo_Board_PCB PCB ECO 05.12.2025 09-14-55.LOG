@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=Battery Pin=Cvcc710-1
+Removed Pin From Net: NetName=Battery Pin=U710-20
+Removed Pin From Net: NetName=Battery Pin=U720-20
+Added Component: Designator=Cin721(0603)
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=Cvcc720(0603)
+Add component (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Added Component: Designator=Rkelvin710(0603)
+Add component (AddParameter): Name = "Value"; Value = "0Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=Rkelvin720(0603)
+Add component (AddParameter): Name = "Value"; Value = "0Ohm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=Battery Pin=Cin721-1
+Added Pin To Net: NetName=GND Pin=Cin721-2
+Added Pin To Net: NetName=GND Pin=Cvcc720-2
+Added Pin To Net: NetName=Battery Pin=Rkelvin710-2
+Added Pin To Net: NetName=Battery Pin=Rkelvin720-2
+Added Pin To Net: NetName=NetCvcc710_1 Pin=Cvcc710-1
+Added Pin To Net: NetName=NetCvcc710_1 Pin=Rkelvin710-1
+Added Pin To Net: NetName=NetCvcc710_1 Pin=U710-20
+Added Net: Name=NetCvcc710_1
+Added Pin To Net: NetName=NetCvcc720_1 Pin=Cvcc720-1
+Added Pin To Net: NetName=NetCvcc720_1 Pin=Rkelvin720-1
+Added Pin To Net: NetName=NetCvcc720_1 Pin=U720-20
+Added Net: Name=NetCvcc720_1
+Added Member To Class: ClassName=6b,_6c Member=Component Cin721 1% 0603
+Added Member To Class: ClassName=6b,_6c Member=Component Cvcc720 1% 0603
+Added Member To Class: ClassName=6b,_6c Member=Component Rkelvin710 1% 0603
+Added Member To Class: ClassName=6b,_6c Member=Component Rkelvin720 1% 0603

@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=NetCcomp702_2 Pin=Csnubber700-2
+Removed Pin From Net: NetName=NetCcomp702_2 Pin=Rsnubber700-1
+Change Component Designator: OldDesignator=ADC 1 NewDesignator=ADC Sens 1
+Change Component Designator: OldDesignator=ADC 2 NewDesignator=ADC Sens 2
+Change Component Designator: OldDesignator=ADC 3 NewDesignator=ADC Sens 3
+Change Component Designator: OldDesignator=ADC Dif 1 NewDesignator=ADC Diff 1
+Change Component Designator: OldDesignator=ADC Dif 2 NewDesignator=ADC Diff 2
+Change Component Designator: OldDesignator=PCA9685PW/0x40 NewDesignator=PCA/0x40
+Change Component Designator: OldDesignator=Sensor 1 NewDesignator=DIG Sens 1
+Change Component Designator: OldDesignator=Sensor 2 NewDesignator=DIG Sens 3
+Change Component Designator: OldDesignator=Sensor 3 NewDesignator=DIG Sens 2
+Change Component Designator: OldDesignator=Sensor 4 NewDesignator=DIG Sens 4
+Change Component Designator: OldDesignator=Sensor 5 NewDesignator=Light Sensor
+Change Component Description : Designator=Fbat Old Description=Auto Fuse Holder; THM; Insulated Clip; 30 Amp; Blue New Description=Auto Fuse Holder; THM; Insulated Clip; 30 Amp; Blue | Keystone Electronics 3557-15
+Change Component Library : Designator=U600 Old Library=TPS566231RQFR.IntLib New Library=TPS566231RQFR.SchLib
+Added Pin To Net: NetName=NetCsnubber700_2 Pin=Csnubber700-2
+Added Pin To Net: NetName=NetCsnubber700_2 Pin=Rsnubber700-1
+Added Net: Name=NetCsnubber700_2

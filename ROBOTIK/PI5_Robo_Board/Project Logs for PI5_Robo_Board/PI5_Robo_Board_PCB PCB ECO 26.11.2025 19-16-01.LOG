@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=+1.8 Pin=C301-1
+Removed Pin From Net: NetName=GND Pin=C301-2
+Change Component Footprint: Designator=C301 Old Footprint=CAP_EEEFN1A220R New Footprint=0603
+Change Component Comment : Designator=C301 Old Comment=ELKO New Comment=0603
+Change component parameters: Designator = "C301" ("C301"); Footprint = "CAP_EEEFN1A220R"; UniqueID = "\BPXJPFYN" ("\BPXJPFYN")
+Change component parameters (AddParameter): Name = "Value"; Value = "4.7µF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C301-1
+Added Pin To Net: NetName=+1.8 Pin=C301-2
+Added Member To Class: ClassName=STM32 Member=Component Cstütz806 0603
+Added Member To Class: ClassName=STM32 Member=Component Cstütz807 0603

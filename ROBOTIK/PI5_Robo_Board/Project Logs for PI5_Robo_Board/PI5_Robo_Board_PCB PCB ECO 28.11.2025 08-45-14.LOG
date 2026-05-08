@@ -1,0 +1,13 @@
+Added Component: Designator=U301(SOT65P210X110-5N)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "SN74AUP1T34DCKR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+1.8 Pin=U301-1
+Added Pin To Net: NetName=NetICM/0x68_12 Pin=U301-2
+Added Pin To Net: NetName=GND Pin=U301-3
+Added Pin To Net: NetName=NetU100_31 Pin=U301-4
+Added Pin To Net: NetName=+3.3 Pin=U301-5
+Added Member To Class: ClassName=ICM-20948 Member=Component U301 SN74AUP1T34DCKR

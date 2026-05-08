@@ -1,0 +1,27 @@
+Change Component Designator: OldDesignator=J900 NewDesignator=ADC Sens 1
+Change Component Designator: OldDesignator=J901 NewDesignator=ADC Sens 2
+Change Component Designator: OldDesignator=J902 NewDesignator=ADC Sens 3
+Change Component Designator: OldDesignator=J903 NewDesignator=Light Sensor
+Change Component Designator: OldDesignator=J904 NewDesignator=ADC Diff 2
+Change Component Designator: OldDesignator=J905 NewDesignator=ADC Diff 1
+Change Component Designator: OldDesignator=J906 NewDesignator=DIG Sens 1
+Change Component Designator: OldDesignator=J907 NewDesignator=DIG Sens 2
+Change Component Designator: OldDesignator=J908 NewDesignator=DIG Sens 3
+Change Component Designator: OldDesignator=J909 NewDesignator=DIG Sens 4
+Change Component Designator: OldDesignator=J910 NewDesignator=I2C 1
+Change Component Designator: OldDesignator=J911 NewDesignator=I2C 2
+Change Component Designator: OldDesignator=J912 NewDesignator=Luefter
+Change Net Name : Old Net Name=NetJ900_2 New Net Name=NetADC Sens 1_2
+Change Net Name : Old Net Name=NetJ901_2 New Net Name=NetADC Sens 2_2
+Change Net Name : Old Net Name=NetJ902_2 New Net Name=NetADC Sens 3_2
+Change Net Name : Old Net Name=NetJ903_2 New Net Name=NetLight Sensor_2
+Change Net Name : Old Net Name=NetJ904_2 New Net Name=NetADC Diff 2_2
+Change Net Name : Old Net Name=NetJ904_3 New Net Name=NetADC Diff 2_3
+Change Net Name : Old Net Name=NetJ905_2 New Net Name=NetADC Diff 1_2
+Change Net Name : Old Net Name=NetJ905_3 New Net Name=NetADC Diff 1_3
+Change Net Name : Old Net Name=NetJ906_2 New Net Name=NetDIG Sens 1_2
+Change Net Name : Old Net Name=NetJ907_2 New Net Name=NetDIG Sens 2_2
+Change Net Name : Old Net Name=NetJ908_2 New Net Name=NetDIG Sens 3_2
+Change Net Name : Old Net Name=NetJ909_2 New Net Name=NetDIG Sens 4_2
+Change Net Name : Old Net Name=NetJ912_2 New Net Name=NetLuefter_2
+Change Net Name : Old Net Name=NetJ912_3 New Net Name=NetLuefter_3

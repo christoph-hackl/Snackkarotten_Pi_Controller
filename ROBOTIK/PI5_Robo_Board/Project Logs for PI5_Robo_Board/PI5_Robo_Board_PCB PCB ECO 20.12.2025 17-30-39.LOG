@@ -1,0 +1,50 @@
+Added Component: Designator=U501(IC_DRV8411APWPR)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/DRV8411APWPR/Texas+Instruments/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "DRV8411APWPR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "TSSOP-16 Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/DRV8411APWPR/Texas+Instruments/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U502(IC_DRV8411APWPR)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/DRV8411APWPR/Texas+Instruments/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "DRV8411APWPR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "TSSOP-16 Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/DRV8411APWPR/Texas+Instruments/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+6c Pin=U501-1
+Added Pin To Net: NetName=Motor_3_+ Pin=U501-2
+Added Pin To Net: NetName=GND Pin=U501-3
+Added Pin To Net: NetName=Motor_3_- Pin=U501-4
+Added Pin To Net: NetName=Motor_4_- Pin=U501-5
+Added Pin To Net: NetName=GND Pin=U501-6
+Added Pin To Net: NetName=Motor_4_+ Pin=U501-7
+Added Pin To Net: NetName=NetR506_1 Pin=U501-8
+Added Pin To Net: NetName=NetU501_9 Pin=U501-9
+Added Pin To Net: NetName=NetU501_10 Pin=U501-10
+Added Pin To Net: NetName=GND Pin=U501-11
+Added Pin To Net: NetName=+6c Pin=U501-12
+Added Pin To Net: NetName=GND Pin=U501-13
+Added Pin To Net: NetName=GND Pin=U501-14
+Added Pin To Net: NetName=NetU501_15 Pin=U501-15
+Added Pin To Net: NetName=NetU501_16 Pin=U501-16
+Added Pin To Net: NetName=GND Pin=U501-17
+Added Pin To Net: NetName=+6c Pin=U502-1
+Added Pin To Net: NetName=Motor_5_+ Pin=U502-2
+Added Pin To Net: NetName=GND Pin=U502-3
+Added Pin To Net: NetName=Motor_5_- Pin=U502-4
+Added Pin To Net: NetName=Motor_6_- Pin=U502-5
+Added Pin To Net: NetName=GND Pin=U502-6
+Added Pin To Net: NetName=Motor_6_+ Pin=U502-7
+Added Pin To Net: NetName=NetR506_1 Pin=U502-8
+Added Pin To Net: NetName=NetU502_9 Pin=U502-9
+Added Pin To Net: NetName=NetU502_10 Pin=U502-10
+Added Pin To Net: NetName=GND Pin=U502-11
+Added Pin To Net: NetName=+6c Pin=U502-12
+Added Pin To Net: NetName=GND Pin=U502-13
+Added Pin To Net: NetName=GND Pin=U502-14
+Added Pin To Net: NetName=NetU502_15 Pin=U502-15
+Added Pin To Net: NetName=NetU502_16 Pin=U502-16
+Added Pin To Net: NetName=GND Pin=U502-17
+Added Member To Class: ClassName=DRV+Motor Member=Component U501 DRV8411APWPR
+Added Member To Class: ClassName=DRV+Motor Member=Component U502 DRV8411APWPR

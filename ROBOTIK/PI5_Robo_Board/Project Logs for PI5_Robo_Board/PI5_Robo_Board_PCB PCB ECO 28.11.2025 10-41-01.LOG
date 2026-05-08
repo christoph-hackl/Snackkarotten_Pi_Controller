@@ -1,0 +1,6 @@
+Change Component Designator: OldDesignator=F1 NewDesignator=Fbat
+Change Component Designator: OldDesignator=F600 NewDesignator=F5
+Change Component Designator: OldDesignator=F700 NewDesignator=F6a
+Change Component Designator: OldDesignator=F710 NewDesignator=F6b
+Change Component Designator: OldDesignator=F720 NewDesignator=F6c
+Change Net Name : Old Net Name=NetF1_1 New Net Name=NetFbat_1
