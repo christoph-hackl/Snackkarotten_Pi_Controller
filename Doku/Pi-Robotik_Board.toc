@@ -10,16 +10,16 @@
 \contentsline {subsection}{\numberline {5.2}Spannungsversorgung}{6}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Motoransteuerung}{6}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Servoansteuerung}{6}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Sensoranschluesse}{6}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.5}Sensoranschlüsse}{6}{subsection.5.5}%
 \contentsline {subsection}{\numberline {5.6}Inertialsensoren}{6}{subsection.5.6}%
-\contentsline {section}{\numberline {6}Auswahl und Begruendung der Bauteile}{7}{section.6}%
+\contentsline {section}{\numberline {6}Auswahl und Begründung der Bauteile}{6}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Raspberry Pi 5}{7}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}STM32H562RIT6}{7}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}IMUs}{7}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Servo- und Erweiterungsbausteine}{7}{subsection.6.4}%
 \contentsline {subsection}{\numberline {6.5}Spannungswandler und Leistungsteil}{7}{subsection.6.5}%
 \contentsline {section}{\numberline {7}PCB-Design und Layout}{7}{section.7}%
-\contentsline {section}{\numberline {8}Fertigung, Bestueckung und Inbetriebnahme}{9}{section.8}%
+\contentsline {section}{\numberline {8}Fertigung, Bestückung und Inbetriebnahme}{9}{section.8}%
 \contentsline {section}{\numberline {9}Fehler, Probleme und bereits umgesetzte Verbesserungen}{10}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Fehler im Schaltplan aus dem Power-Designer}{10}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Empfindlichkeit des 5-V-Wandlers beim Abziehen des Akkus}{10}{subsection.9.2}%
@@ -28,8 +28,8 @@
 \contentsline {subsection}{\numberline {10.1}Rolle des Mikrocontrollers}{10}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Aktueller Stand der Firmware}{10}{subsection.10.2}%
 \contentsline {subsection}{\numberline {10.3}Geplante Aufgaben der Firmware}{11}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Probleme beim Flashen ueber USART1}{11}{subsection.10.4}%
-\contentsline {section}{\numberline {11}Geplante Erweiterungen und naechste Schritte}{11}{section.11}%
+\contentsline {subsection}{\numberline {10.4}Probleme beim Flashen über USART1}{11}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Geplante Erweiterungen und nächste Schritte}{11}{section.11}%
 \contentsline {section}{\numberline {12}Geplante Messungen und Auswertungen}{11}{section.12}%
 \contentsline {subsection}{\numberline {12.1}Messungen an den Powerrails}{11}{subsection.12.1}%
 \contentsline {subsubsection}{\numberline {12.1.1}Messziel}{12}{subsubsection.12.1.1}%
