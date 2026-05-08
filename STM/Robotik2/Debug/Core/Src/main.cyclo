@@ -1,0 +1,15 @@
+../Core/Src/main.c:107:13:StartAllPwmChannels	1
+../Core/Src/main.c:140:13:Motor_SetSpeed	37
+../Core/Src/main.c:179:13:Motor_SetPercent	3
+../Core/Src/main.c:196:13:Motor_CoastAll	2
+../Core/Src/main.c:212:5:main	2
+../Core/Src/main.c:288:6:SystemClock_Config	4
+../Core/Src/main.c:349:13:MX_ADC1_Init	3
+../Core/Src/main.c:408:13:MX_ICACHE_Init	2
+../Core/Src/main.c:436:13:MX_SPI2_Init	2
+../Core/Src/main.c:483:13:MX_TIM1_Init	10
+../Core/Src/main.c:577:13:MX_TIM2_Init	9
+../Core/Src/main.c:648:13:MX_TIM8_Init	10
+../Core/Src/main.c:742:13:MX_USART1_UART_Init	5
+../Core/Src/main.c:790:13:MX_GPIO_Init	1
+../Core/Src/main.c:881:6:Error_Handler	1

@@ -1,0 +1,370 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{htlprotokoll}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\labortext{zur Projektarbeit}
+\titel{Raspberry Pi Robotik Controller}
+\klasse{4AHELS}
+\datum{Schuljahr 2025/2026}
+\lehrer{PRANTL}
+
+\personen
+{Projektmitarbeiter}{Moritz Emanuel Klein}
+{Projektmitarbeiter}{Christoph Guenther Hackl}
+{Mitarbeiter}{}
+{Mitarbeiter}{}
+
+\messobjekte{Raspberry Pi Robotik Controller \\ Spannungsversorgung \\ Motor- und Sensoranbindung \\ STM32-Subsystem}
+\geraete{Altium Designer \\ STM32CubeIDE \\ Raspberry Pi 5 \\ Labornetzteil \\ Oszilloskop \\ Multimeter}
+
+\newcommand{\bildplatzhalter}[2]{
+	\begin{figure}[H]
+		\centering
+		\fbox{
+			\begin{minipage}[c][6cm][c]{0.88\linewidth}
+				\centering
+				\textbf{Platzhalter fuer Abbildung}\\[0.5em]
+				#1
+			\end{minipage}
+		}
+		\caption{#2}
+	\end{figure}
+}
+
+\begin{document}
+\protokolldeckblatt
+\tableofcontents
+\clearpage
+
+\section{Einleitung}
+Im Rahmen der Projektarbeit wurde eine eigene Erweiterungsplatine fuer den Raspberry Pi entwickelt, die als zentrale Hardwarebasis fuer einen Robotik-Controller dienen soll. Ziel des Projekts war es, die fuer Wettbewerbs- und Schulprojekte benoetigten Funktionen nicht ueber viele einzelne Zusatzmodule zu verteilen, sondern auf einer gemeinsamen Leiterplatte zusammenzufassen.
+
+Die entwickelte Platine verbindet den Raspberry Pi 5 mit Motor- und Servoansteuerung, Sensoranschluessen, Inertialsensoren sowie einer leistungsfaehigen Spannungsversorgung. Zusaetzlich wurde ein STM32-Mikrocontroller vorgesehen, um zeitkritische Aufgaben von der Linux-Plattform zu trennen.
+
+Die vorliegende Dokumentation beschreibt daher nicht nur den aktuellen Endstand, sondern vor allem den technischen Entwicklungsweg. Neben dem grundsaetzlichen Hardwareaufbau werden deshalb auch die Auswahl der Bauteile, wichtige Entwurfsentscheidungen, bereits aufgetretene Fehler sowie geplante Verbesserungen fuer eine naechste Revision behandelt.
+
+\section{Ausgangslage und Zielsetzung}
+Der Raspberry Pi eignet sich sehr gut fuer hohe Rechenleistung, Bildverarbeitung und komplexe Software. Fuer den direkten Einsatz in einem Roboter bringt er jedoch mehrere Einschraenkungen mit sich. Er besitzt keine nativen Analogeingaenge und ist wegen des Linux-Betriebssystems nur eingeschraenkt fuer streng zeitkritische Aufgaben geeignet.
+
+In frueheren Robotikprojekten wurden diese fehlenden Funktionen ueber zusaetzliche Boards und Module ergaenzt. Diese Loesung war grundsaetzlich funktionsfaehig, fuehrte aber zu einem hoeheren Verdrahtungsaufwand, mehr Steckverbindungen und dadurch zu einem weniger robusten Gesamtsystem.
+
+Aus diesem Grund wurde das Ziel verfolgt, eine eigene Pi-Erweiterungsplatine zu entwickeln, die moeglichst viele benoetigte Funktionen direkt integriert. Die wichtigsten Zielsetzungen waren:
+
+\begin{itemize}
+	\item zentrale Anbindung eines Raspberry Pi 5 als Hauptrechner
+	\item Versorgung des Systems ueber einen 12-V-Akku
+	\item Ansteuerung mehrerer Motoren und Servos
+	\item Einbindung digitaler und analoger Sensoren
+	\item Integration von IMUs fuer Bewegungs- und Lageinformationen
+	\item Entlastung des Raspberry Pi durch einen separaten Mikrocontroller
+	\item moeglichst robuster und servicefreundlicher Aufbau
+\end{itemize}
+
+\section{Anforderungen an das System}
+Damit der Controller im Robotikeinsatz sinnvoll verwendet werden kann, mussten sowohl funktionale als auch konstruktive Anforderungen beruecksichtigt werden.
+
+\subsection{Funktionale Anforderungen}
+\begin{itemize}
+	\item Der Raspberry Pi muss als zentrale Recheneinheit direkt auf die Platine aufgesetzt werden koennen.
+	\item Mehrere DC-Motoren muessen ueber passende Treiber angesteuert werden koennen.
+	\item Servos muessen ueber eigene Anschluesse und getrennte Versorgungsbereiche betrieben werden koennen.
+	\item Digitale und analoge Sensoren muessen ohne Zusatzboards anschliessbar sein.
+	\item Mindestens ein IMU-System fuer Bewegungsdaten muss vorhanden sein.
+	\item Der STM32 muss zeitkritische Aufgaben uebernehmen und mit dem Raspberry Pi kommunizieren koennen.
+\end{itemize}
+
+\subsection{Nichtfunktionale Anforderungen}
+\begin{itemize}
+	\item Leistungselektronik und Logikbereich sollen moeglichst sauber getrennt werden.
+	\item Die Leiterplatte soll mechanisch und elektrisch fuer den mobilen Robotikeinsatz geeignet sein.
+	\item Die Schaltung soll erweiterbar bleiben, da die genauen Wettbewerbsanforderungen nicht immer im Vorhinein bekannt sind.
+	\item Die Entwicklungsplattform soll auch fuer spaetere Projekte weiterverwendbar sein.
+\end{itemize}
+
+\section{Gesamtsystem und Architektur}
+Das Gesamtsystem besteht aus zwei klar getrennten Rechenebenen. Der Raspberry Pi 5 uebernimmt die uebergeordnete Programmlogik, etwa Bildverarbeitung, Ablaufsteuerung und strategische Entscheidungen. Zusaetzlich bindet er die digitalen Peripheriebausteine an, insbesondere die IMUs sowie die Servoansteuerung ueber den PCA9685.
+
+Der STM32H562RIT6 uebernimmt die Motoransteuerung sowie die Erfassung analoger Sensorsignale. Die Kommunikation zwischen beiden Systemen ist ueber eine SPI-Schnittstelle vorgesehen. Fuer Entwicklung, Debugging und Firmware-Upload wurde zunaechst eine UART-Loesung betrachtet, die spaeter moeglichst durch eine SWD-Schnittstelle ersetzt werden soll.
+
+\bildplatzhalter{Hier das selbst erstellte Blockschaltbild des Gesamtsystems einfuegen. Empfehlenswert ist eine Aufteilung in Raspberry-Pi-Bereich, STM32-Bereich, Sensorik, Aktorik und Spannungsversorgung.}{Blockschaltbild des geplanten Gesamtsystems}
+
+\section{Hardwareentwurf}
+\subsection{Raspberry-Pi-Anbindung}
+Der Raspberry Pi 5 bildet die zentrale Recheneinheit des Systems. Die Erweiterungsplatine wurde so entworfen, dass sie die benoetigten Signale und Versorgungen ueber die GPIO-Schnittstelle des Raspberry Pi bereitstellt. Dadurch koennen Steuerdaten, Kommunikationsschnittstellen und Hilfssignale direkt mit den auf der Platine befindlichen Baugruppen verbunden werden.
+
+Die Wahl des Raspberry Pi 5 erfolgte, weil gegenueber frueheren Loesungen deutlich mehr Rechenleistung zur Verfuegung steht. Insbesondere fuer Robotikanwendungen mit Kamera, Bildverarbeitung oder spaeter auch KI-gestuetzten Auswerteverfahren bietet diese Plattform deutliche Vorteile. In diesem Zusammenhang ist auch die moegliche Anbindung eines KI-Beschleunigers interessant.
+
+Die Leistungsfaehigkeit solcher Beschleuniger wird haeufig in \glqq TOPS\grqq{} angegeben. Diese Abkuerzung steht fuer \glqq Tera Operations per Second\grqq{}, also fuer Billionen Rechenoperationen pro Sekunde. Gemeint ist damit ein theoretischer Kennwert fuer die Verarbeitung stark parallelisierbarer KI-Berechnungen, wie sie etwa bei neuronalen Netzen auftreten. Ein hoeherer TOPS-Wert bedeutet daher grundsaetzlich, dass ein System fuer Aufgaben wie Bildklassifikation, Objekterkennung oder andere KI-Modelle mehr Rechenreserve besitzt. Der Wert beschreibt jedoch nicht direkt die allgemeine CPU-Leistung des Raspberry Pi, sondern die theoretische Rechenleistung eines dafuer vorgesehenen KI-Beschleunigers.
+
+\subsection{Spannungsversorgung}
+Die Platine wird ueber einen 12-V-Eingang versorgt, der zu einem 3S1P-Akkusystem passt. Aus dieser Eingangsspannung werden mehrere niedrigere Versorgungsspannungen erzeugt.
+
+Der Entwurf sieht drei 6-V-Versorgungsbereiche sowie eine 5-V-Versorgung fuer den Raspberry Pi vor. Aus der 5-V-Schiene wird zusaetzlich eine 3,3-V-Versorgung fuer Logik und Peripherie erzeugt. Die Aufteilung wurde bewusst vorgenommen, um stoerende Rueckwirkungen von Motoren und Servos auf den Logikbereich zu reduzieren.
+
+Die getrennten Versorgungspfade sind eine wichtige Designentscheidung, weil im Robotikbetrieb kurzzeitig hohe Stroeme und Lastwechsel auftreten.
+
+\subsection{Motoransteuerung}
+Die DC-Motoren werden ueber eigene Treiberstufen angesteuert. Im vorliegenden Entwurf sind dafuer drei DRV8411-Bausteine vorgesehen. Diese uebernehmen die leistungsseitige Ansteuerung, waehrend die Steuersignale vom Mikrocontroller vorgegeben werden.
+
+Der STM32 wurde in diesem Bereich eingeplant, weil Motorregelung ein deterministisches Verhalten benoetigt und damit besser auf einem Mikrocontroller aufgehoben ist.
+
+\subsection{Servoansteuerung}
+Fuer Servomotoren wurde ein eigener Versorgungs- und Anschlussbereich vorgesehen. Die eigentliche Signalerzeugung erfolgt ueber den PCA9685, der direkt vom Raspberry Pi angesteuert wird. Dadurch bleibt dieser Bereich vom STM32-Teil getrennt.
+
+\subsection{Sensoranschluesse}
+Das Board bietet Anschluesse fuer digitale und analoge Sensoren. Die analogen Signale werden ueber den STM32 erfasst, da der Raspberry Pi keine eigenen ADC-Kanaele besitzt. Ein Teil dieser Kanaele ist differenziell ausgelegt. Digitale Sensoren koennen direkt durch den Raspberry Pi ausgewertet werden.
+
+\subsection{Inertialsensoren}
+Auf dem Board wurden zwei IMUs vorgesehen: der BNO085 und der LSM6DSO. Dadurch steht einerseits ein leistungsfaehiger Sensor-Hub zur Verfuegung, andererseits ergibt sich Redundanz fuer spaetere Versuche und Vergleiche. Die IMUs werden direkt durch den Raspberry Pi angebunden und nicht ueber den STM32 verarbeitet.
+
+\section{Auswahl und Begruendung der Bauteile}
+\subsection{Raspberry Pi 5}
+Der Raspberry Pi 5 wurde aufgrund seiner hohen Rechenleistung, der guten Linux-Unterstuetzung und der Verfuegbarkeit im schulischen Umfeld gewaehlt. Gegenueber aelteren Raspberry-Pi-Modellen bietet er mehr Leistungsreserven fuer Bildverarbeitung, Navigation und zukuenftige KI-Funktionen.
+
+\subsection{STM32H562RIT6}
+Der eingesetzte STM32H562RIT6 wurde gewaehlt, weil er fuer zeitkritische Aufgaben ausreichend Rechenleistung sowie moderne Peripherie bereitstellt. Besonders wichtig waren:
+
+\begin{itemize}
+	\item mehrere Timer mit PWM-Kanaelen
+	\item ADC fuer analoge Sensoren
+	\item SPI fuer die Kommunikation mit dem Raspberry Pi
+	\item UART fuer erste Debug- und Flash-Versuche
+\end{itemize}
+
+Dadurch eignet sich der Mikrocontroller sehr gut als Echtzeit-Erweiterung des Raspberry Pi.
+
+\subsection{IMUs}
+Die Kombination aus BNO085 und LSM6DSO entstand aus dem Wunsch nach Flexibilitaet und Redundanz. Der BNO085 eignet sich besonders fuer orientierungsbezogene Auswertung, waehrend der LSM6DSO eine zweite Messbasis liefert.
+
+\subsection{Servo- und Erweiterungsbausteine}
+Fuer die Servoanbindung wurde ein PCA9685-basierter Ansatz eingeplant. Dieser Baustein ist in Robotikprojekten weit verbreitet, erlaubt viele Ausgaenge und wird direkt vom Raspberry Pi angesteuert. Dadurch bleibt die Servoansteuerung klar vom STM32-Teil getrennt.
+
+\subsection{Spannungswandler und Leistungsteil}
+Bei der Auswahl der Spannungswandler stand die Stromtragfaehigkeit im Vordergrund. Insbesondere fuer den Raspberry Pi und die Servoversorgung mussten ausreichende Reserven vorgesehen werden.
+
+\section{PCB-Design und Layout}
+Nach dem Schaltplanentwurf wurde das Layout der Leiterplatte erstellt. Dabei war es besonders wichtig, die stromstarken Bereiche von den empfindlichen Logik- und Sensorschaltungen zu trennen. Die Platzierung der Bauteile erfolgte so, dass die Stromversorgung moeglichst kurze Wege zu den Verbrauchern besitzt und zusammengehoerige Funktionsgruppen nah beieinander liegen.
+
+Besondere Aufmerksamkeit galt:
+
+\begin{itemize}
+	\item den Strompfaden von Akku, Spannungswandlern, Motor- und Servobereichen
+	\item der Trennung von Leistungselektronik und Logik
+	\item kurzen und uebersichtlichen Verbindungen rund um den STM32
+	\item einer gut erreichbaren Anordnung der Steckverbinder
+\end{itemize}
+
+Die Layoutdaten wurden bereits bis zu einem fertigungstauglichen Stand gebracht und es liegen erzeugte Produktionsdaten vor. Die Design-Rule-Checks waren weitgehend unauffaellig. Allerdings gab es im Bereich eines Bauteils noch Verletzungen der Mindest-Solder-Mask-Breite, die in einer weiteren Revision gezielt verbessert werden sollten.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.92\linewidth]{Board.png}
+	\caption{Aktueller Stand des PCB-Layouts}
+\end{figure}
+
+\bildplatzhalter{Hier einen vergroesserten Ausschnitt des Layouts mit markierten Spannungs- und Logikbereichen einfuegen.}{Platzierung kritischer Funktionsgruppen auf dem PCB}
+
+\section{Fertigung, Bestueckung und Inbetriebnahme}
+Nach Abschluss des Layouts wurden Fertigungsdaten erzeugt und die Platine aufgebaut. In der ersten Inbetriebnahme stand die grundlegende elektrische Funktionspruefung im Vordergrund. Ziel dieser Phase war es, die Versorgung, die Erreichbarkeit der zentralen Komponenten und offensichtliche Hardwarefehler frueh zu erkennen. Dazu gehoeren insbesondere:
+
+\begin{itemize}
+	\item Kontrolle der Versorgungsspannungen
+	\item Pruefung der Grundfunktion des Raspberry-Pi-Bereichs
+	\item Erreichbarkeit des STM32
+	\item Sichtpruefung der bestueckten Baugruppen
+\end{itemize}
+
+Eine vollstaendige messtechnische Charakterisierung liegt zum aktuellen Zeitpunkt noch nicht vor. Diese Messungen sind jedoch fuer die weitere Projektarbeit vorgesehen und sollen in der finalen Fassung der Dokumentation ergaenzt werden.
+
+\bildplatzhalter{Hier Fotos der bestueckten Platine, der Erstinbetriebnahme oder eines Messaufbaus einfuegen.}{Bestueckte Platine und geplanter Messaufbau}
+
+\section{Fehler, Probleme und bereits umgesetzte Verbesserungen}
+\subsection{Fehler im Schaltplan aus dem Power-Designer}
+Ein konkreter Fehler trat bei der Uebernahme eines Schaltungsteils aus dem Texas-Instruments-Power-Designer auf. Beim Abzeichnen der erzeugten Schematic wurde ein Fehler uebernommen, der im spaeteren Verlauf bemerkt werden konnte.
+
+Die Korrektur erfolgte pragmatisch direkt an der aufgebauten Platine, indem eine Leiterbahn aufgekratzt wurde. Damit konnte der Fehler zwar bereinigt werden, fuer eine naechste Platinenrevision muss diese Aenderung jedoch sauber in den Schaltplan und das Layout rueckgefuehrt werden. Dieser Fall zeigt deutlich, dass auch automatisch erzeugte oder aus externen Tools uebernommene Teilschaltungen immer nochmals kritisch ueberprueft werden muessen.
+
+\subsection{Empfindlichkeit des 5-V-Wandlers beim Abziehen des Akkus}
+Ein weiteres reales Problem betrifft den 5-V-Wandler fuer den Raspberry Pi. Wenn der Akku einfach abgezogen wird, waehrend der Raspberry Pi noch in Betrieb ist, kann der Wandler beschaedigt werden. Aus diesem Grund darf der Akku derzeit nur getrennt werden, nachdem der Raspberry Pi sauber heruntergefahren und abgeschaltet wurde.
+
+Diese Beobachtung ist fuer den praktischen Einsatz sehr relevant, weil sie sowohl die Zuverlaessigkeit als auch die Bedienung des Systems beeinflusst. Fuer eine zukuenftige Revision sollte geprueft werden, ob hier zusaetzliche Schutzmassnahmen, ein geaenderter Abschaltpfad oder eine robustere Wandlerloesung vorgesehen werden muessen.
+
+\subsection{Offene Layout- und Fertigungspunkte}
+Neben den bereits genannten realen Fehlern gibt es auch Punkte, die in einer weiteren Ueberarbeitung verbessert werden sollten. Dazu zaehlen insbesondere kritische Fertigungsdetails wie enge Solder-Mask-Bereiche, die bei der Bestueckung oder bei Nacharbeiten unguenstig sein koennen.
+
+\section{Firmware des STM32-Mikrocontrollers}
+\subsection{Rolle des Mikrocontrollers}
+Der STM32 ist als echtzeitfaehiger Co-Prozessor des Raspberry Pi vorgesehen. Er soll spaeter die hardwarenahen Aufgaben uebernehmen, insbesondere PWM-Ausgabe, ADC-Erfassung und die Kommunikation mit dem Raspberry Pi.
+
+\subsection{Aktueller Stand der Firmware}
+Im aktuellen Projektstand ist die Grundkonfiguration des Mikrocontrollers bereits in STM32CubeIDE angelegt. Dazu gehoeren:
+
+\begin{itemize}
+	\item ADC1 fuer analoge Eingangssignale
+	\item SPI2 als Schnittstelle zum Raspberry Pi
+	\item USART1 fuer Kommunikation und erste Flash-/Debug-Versuche
+	\item TIM1, TIM2 und TIM8 fuer PWM-Ausgaenge
+	\item mehrere GPIO- und EXTI-Konfigurationen
+\end{itemize}
+
+Die eigentliche Anwendungslogik ist jedoch noch nicht vollstaendig implementiert. Der aktuelle Stand besteht in erster Linie aus der Grundinitialisierung der Peripherie sowie ersten vorbereitenden Tests. Eine vollstaendige Motorregelung, ein definiertes SPI-Protokoll sowie die eigentliche Sensorverarbeitung sind vorgesehen, muessen aber in den naechsten Schritten noch ausgearbeitet und getestet werden.
+
+\subsection{Geplante Aufgaben der Firmware}
+Fuer die naechste Entwicklungsphase sind unter anderem folgende Softwarefunktionen vorgesehen:
+
+\begin{itemize}
+	\item Auslesen analoger Sensoren ueber den ADC
+	\item Ansteuerung von Motoren ueber PWM
+	\item Kommunikation mit dem Raspberry Pi ueber SPI
+	\item Vorbereitung einer spaeteren PID-Regelung
+	\item Rueckmeldung von Zustands- und Sensordaten an den Raspberry Pi
+\end{itemize}
+
+\subsection{Probleme beim Flashen ueber USART1}
+Beim aktuellen Ansatz fuer das Flashen des STM32 zeigte sich ein deutlicher Nachteil: USART1 kann fuer den Boot- und Flash-Vorgang nur ueber bestimmte Pins sinnvoll verwendet werden. Dieser Punkt wurde in der Anfangsphase nicht ausreichend tief anhand der Boot-Dokumentation geprueft.
+
+Fuer spaetere Versionen soll deshalb das Flashen ueber freie SWD-Pins erfolgen. Diese Variante ist robuster, in der STM32-Entwicklung ueblich und verbessert die Debugmoeglichkeiten deutlich.
+
+\section{Geplante Erweiterungen und naechste Schritte}
+Aus dem bisherigen Entwicklungsstand ergeben sich mehrere konkrete Verbesserungen fuer die naechste Projektphase:
+
+\begin{itemize}
+	\item Ersetzen des aktuellen USART-Flash-Konzepts durch eine SWD-Schnittstelle
+	\item bessere Debugmoeglichkeiten fuer den STM32
+	\item Ueberarbeitung kritischer Stellen im Layout
+	\item genauere Analyse des 5-V-Wandlers und moeglicher Schutzmassnahmen
+\item weitere Ausarbeitung und Erprobung der eigentlichen STM32-Anwendungssoftware
+	\item messtechnische Ueberpruefung der Versorgung, Signalqualitaet und Lastfaehigkeit
+\end{itemize}
+
+Die SWD-Schnittstelle ist dabei ein wichtiger naechster Schritt, da sie Flashen und Debugging deutlich vereinfacht.
+
+\section{Geplante Messungen und Auswertungen}
+Bereits in der Projektarbeitsanfrage wurden konkrete Messungen fuer das fertige System vorgesehen. Diese betreffen einerseits die Stromversorgung und andererseits die Aktorik sowie die Rueckfuehrung ueber Encoder. Auch wenn zum aktuellen Stand noch nicht alle Messwerte vorliegen, soll dieser Abschnitt bereits den geplanten technischen Aufbau und die Auswertungssystematik dokumentieren.
+
+Die in der Antragsphase verwendete Bezeichnung \glqq ESP\grqq{} bezieht sich auf den damals vorgesehenen Mikrocontrollerteil. Im aktuellen Entwicklungsstand wird diese Funktion durch den STM32 uebernommen. Die geplanten Messungen bleiben inhaltlich jedoch gleich.
+
+\subsection{Messungen an den Powerrails}
+Die Stromversorgung ist ein zentrales Teilsystem der gesamten Platine. Aus diesem Grund muessen die einzelnen Versorgungsschienen nicht nur auf ihre Sollspannung, sondern auch auf ihr Verhalten unter Last untersucht werden. Laut Projektantrag stehen dabei insbesondere Spannung und Strom unter Last, Leistungsaufnahme, Wirkungsgrad und Stabilitaet im Vordergrund.
+
+\subsubsection{Messziel}
+Mit diesen Messungen soll ueberprueft werden,
+
+\begin{itemize}
+	\item ob die einzelnen Versorgungsschienen ihre Sollspannungen einhalten,
+	\item wie gross die Stromentnahme unter verschiedenen Lastfaellen ist,
+	\item wie hoch die resultierende Leistungsaufnahme ausfaellt,
+	\item wie effizient die Umwandlung von 12\,V auf 6\,V, 5\,V und 3,3\,V erfolgt,
+	\item ob es beim Zu- oder Abschalten zu kritischen Einbruechen, Ueberschwingern oder Instabilitaeten kommt.
+\end{itemize}
+
+\subsubsection{Messaufbau}
+Als Spannungsquelle wird ein Labornetzteil oder der vorgesehene Akku mit bekannter Eingangsspannung verwendet. Die jeweilige Ausgangsschiene wird anschliessend mit einer definierten Last beaufschlagt. Je nach Messung koennen dafuer Lastwiderstaende, elektronische Lasten oder die real angeschlossenen Verbraucher verwendet werden.
+
+Gemessen werden:
+
+\begin{itemize}
+	\item Eingangsspannung und Eingangsstrom des Wandlers
+	\item Ausgangsspannung und Ausgangsstrom der jeweiligen Schiene
+	\item eventuelle Spannungseinbrueche beim Lastwechsel
+	\item Schaltverhalten beim Ein- und Ausschalten
+\end{itemize}
+
+\bildplatzhalter{Hier den Messaufbau fuer 5-V-, 6-V- und 3,3-V-Schienen einfuegen, zum Beispiel mit Labornetzteil, Strommessung und Last.}{Messaufbau zur Untersuchung der Powerrails}
+
+\subsubsection{Messschaltung}
+Die Strommessung kann entweder ueber das Labornetzteil, ein Multimeter in Serie oder einen niederohmigen Shunt-Widerstand mit Spannungsabfallmessung erfolgen. Die Spannungsmessung erfolgt direkt an den Testpunkten der jeweiligen Powerrail. Fuer das Beobachten von Einbruechen oder Schaltspitzen ist zusaetzlich ein Oszilloskop sinnvoll.
+
+\subsubsection{Auswertung und Interpretation}
+Aus den gemessenen Groessen lassen sich Eingangsleistung, Ausgangsleistung und Wirkungsgrad berechnen. Ausserdem kann beurteilt werden, ob die Spannungsversorgung fuer die jeweilige Last ausreichend stabil ist. Besonders wichtig ist dabei die Bewertung unter realistischen Lastbedingungen.
+
+Fuer das vorliegende Projekt ist diese Messung besonders relevant, weil bereits ein reales Problem beim 5-V-Wandler beobachtet wurde. Das Verhalten beim Abziehen des Akkus beziehungsweise beim Abschalten der Versorgung muss deshalb besonders kritisch betrachtet werden.
+
+\subsection{Messungen an den Encodersignalen}
+Die Encoder dienen als Rueckfuehrung fuer die spaetere Motorregelung. Daher muessen nicht nur die elektrischen Signale selbst, sondern auch deren Qualitaet und Auswertbarkeit untersucht werden.
+
+\subsubsection{Messziel}
+Bei den Encodermessungen soll ueberprueft werden,
+
+\begin{itemize}
+	\item ob die Signale elektrisch sauber und stoerungsarm vorliegen,
+	\item ob die Impulsfolge zur tatsaechlichen Bewegung passt,
+	\item ob sich die Drehrichtung eindeutig erkennen laesst,
+	\item ob die Aufloesung und Genauigkeit fuer die geplante Regelung ausreichend sind.
+\end{itemize}
+
+\subsubsection{Messaufbau}
+Ein Motor mit angeschlossenem Encoder wird kontrolliert betrieben. Die Encodersignale werden gleichzeitig am Mikrocontroller-Eingang und gegebenenfalls direkt am Stecker oder an einem Testpunkt gemessen. Dabei kann der Motor mit verschiedenen Drehzahlen und in beiden Drehrichtungen betrieben werden.
+
+Zur Untersuchung eignen sich vor allem:
+
+\begin{itemize}
+	\item Oszilloskop zur Darstellung der Encoderkanaele
+	\item Logikanalysator zur Impulszaehlung und Richtungsanalyse
+	\item Vergleich mit einer bekannten mechanischen Bewegung oder Umdrehungszahl
+\end{itemize}
+
+\bildplatzhalter{Hier den Messaufbau fuer die Encoder mit Motor, Treiber, Encoder und Oszilloskop beziehungsweise Logikanalysator einfuegen.}{Messaufbau zur Untersuchung der Encodersignale}
+
+\subsubsection{Messschaltung}
+Die Encodersignale werden ueber die dafuer vorgesehenen Leitungen an den Mikrocontroller gefuehrt. Fuer die Messung werden diese Leitungen parallel an ein Oszilloskop oder einen Logikanalysator angeschlossen. Wichtig ist dabei eine gemeinsame Massebeziehung, damit die Signalform korrekt beurteilt werden kann.
+
+\subsubsection{Auswertung und Interpretation}
+Ausgewertet werden insbesondere Tastverhaeltnis, Signalpegel, Phasenlage der beiden Encoderkanaele und die Impulszahl pro Umdrehung. Die Phasenverschiebung zwischen den Kanaelen gibt dabei Aufschluss ueber die Drehrichtung. Unscharfe Flanken, starke Stoerungen oder Pegelprobleme wuerden auf Schwachstellen in der Signalaufbereitung, Leitungsfuehrung oder Pegelanpassung hinweisen.
+
+\subsection{Messungen an Motoren und Servos}
+Die dritte im Antrag vorgesehene Messgruppe betrifft Motoren und Servos selbst. Hier geht es in erster Linie um Stromaufnahme, Leistungsaufnahme und Verhalten unter Last.
+
+\subsubsection{Messziel}
+Mit diesen Messungen soll untersucht werden,
+
+\begin{itemize}
+	\item wie gross die Stromaufnahme der Motoren und Servos im Leerlauf und unter Last ist,
+	\item welche Leistung im praktischen Betrieb benoetigt wird,
+	\item wie sich die Stromaufnahme bei Lastwechseln veraendert,
+	\item ob die vorhandenen Versorgungszweige ausreichend dimensioniert sind.
+\end{itemize}
+
+\subsubsection{Messaufbau}
+Ein Motor beziehungsweise Servo wird an die reale Ausgangsstufe des Boards angeschlossen und anschliessend in mehreren Betriebsfaellen untersucht. Sinnvolle Lastfaelle sind beispielsweise:
+
+\begin{itemize}
+	\item Leerlaufbetrieb
+	\item Anlaufmoment
+	\item Betrieb unter mechanischer Last
+	\item blockierter oder nahezu blockierter Zustand fuer kurze kontrollierte Zeit
+\end{itemize}
+
+Gemessen werden dabei Strom, Spannung und gegebenenfalls das zeitliche Verhalten waehrend des Einschaltens oder bei Lastspruengen.
+
+\bildplatzhalter{Hier den Messaufbau fuer Motor- und Servomessungen einfuegen, zum Beispiel mit Strommessung, Lastfall und Oszilloskop.}{Messaufbau zur Untersuchung von Motoren und Servos}
+
+\subsubsection{Messschaltung}
+Die Strommessung erfolgt wieder ueber ein in Serie geschaltetes Messgeraet oder ueber einen Shunt. Die Spannung wird direkt am Verbraucher oder an den entsprechenden Versorgungsklemmen gemessen. Bei dynamischen Lasten bietet sich zusaetzlich die Beobachtung mit dem Oszilloskop an, um kurze Stromspitzen oder Spannungseinbrueche sichtbar zu machen.
+
+\subsubsection{Auswertung und Interpretation}
+Die gemessenen Werte erlauben eine direkte Beurteilung der realen Belastung der einzelnen Powerrails. Daraus kann abgeleitet werden, ob Reserven vorhanden sind oder ob einzelne Bereiche thermisch beziehungsweise elektrisch kritisch werden koennen. Besonders relevant ist dabei das Verhalten bei Lastwechseln und kurzzeitigen Spitzen.
+
+\subsection{Darstellung der Messungen in der finalen Dokumentation}
+Sobald die Messungen praktisch durchgefuehrt wurden, sollten sie in der finalen Fassung jeweils einheitlich dokumentiert werden. Eine sinnvolle Struktur je Messung ist:
+
+\begin{enumerate}
+	\item Messziel
+	\item verwendete Geraete
+	\item Messaufbau und Messschaltung
+	\item gemessene Werte in Tabelle oder Diagramm
+	\item kurze fachliche Interpretation
+\end{enumerate}
+
+Dadurch entsteht ein nachvollziehbarer, technischer Abschnitt, der nicht nur rohe Messwerte auflistet, sondern auch deren Bedeutung fuer das Gesamtsystem erklaert.
+
+\section{Fazit}
+Mit dem Raspberry-Pi-Robotik-Controller wurde eine leistungsfaehige und vielseitige Hardwareplattform fuer Robotikprojekte aufgebaut. Der bisherige Entwicklungsstand zeigt, dass das Grundkonzept tragfaehig ist und die wichtigsten Funktionsbereiche erfolgreich auf einer gemeinsamen Platine zusammengefuehrt wurden.
+
+Besonders wertvoll fuer die Projektarbeit ist jedoch nicht nur das fertige Ergebnis, sondern auch der Entwicklungsprozess. Die bereits aufgetretenen Probleme haben gezeigt, an welchen Stellen der Entwurf weiter verbessert werden muss.
+
+Die naechsten Schritte liegen in der weiteren Firmwareentwicklung, der Einbindung einer SWD-Debugschnittstelle und in den noch ausstehenden Messungen. Damit bildet die aktuelle Platine eine gute Basis fuer eine verbesserte naechste Revision und fuer den weiteren Robotikeinsatz.
+
+\end{document}

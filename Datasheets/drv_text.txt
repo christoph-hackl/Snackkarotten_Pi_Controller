@@ -1,0 +1,2991 @@
+                                                                                                                                         DRV8411A
+                                                                                                 SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+                 DRV8411A Dual H-Bridge Motor Driver with Current Regulation
+1 Features                                                             3 Description
+•   Dual H-bridge motor driver, can drive -                            The DRV8411A is a dual H-bridge motor driver that
+    – One bipolar stepper motor                                        can drive one or two DC brush motors, one stepper
+    – One or two brushed DC motors                                     motor, solenoids, or other inductive loads. The tripler
+    – Solenoids and other inductive loads                              charge pump allows the device to operate down to
+•   Low ON-resistance: HS + LS = 400mΩ (Typical,                       1.65V to accommodate 1.8V supply rails and low-
+    25°C)                                                              battery conditions. The charge pump integrates all
+•   Wide Power Supply Voltage Range                                    capacitors and allows for 100% duty cycle operation.
+    – 1.65 to 11V                                                      The inputs and outputs can be paralleled to drive high
+•   Pin-to-pin compatible with -                                       current brush DC motors with half the RDS(on).
+
+    – DRV8833: 360mΩ/bridge                                            The device implements current sensing and
+    – DRV8833C: 1735mΩ/bridge                                          regulation. Internal current mirrors output the current
+    – DRV8847: 1000mΩ/bridge                                           sense information on the IPROPI pins, eliminating the
+    – DRV8410: 800mΩ/bridge                                            need for large power shunt resistors, thereby saving
+    – DRV8411: 400mΩ/bridge                                            board area and reducing system cost. The IPROPI
+•   High output current capability: 4A Peak                            outputs allow a microcontroller to detect motor stall
+•   PWM control interface                                              or changes in load conditions. Using the VREF pin,
+•   Supports 1.8V, 3.3V, and 5V logic inputs                           the devices can regulate the motor current during
+•   Integrated current regulation                                      startup and high-load events without interaction from
+•   IPROPI current sense output for stall detection                    a microcontroller.
+•   Low-power sleep mode                                               A low-power sleep mode achieves ultra-low quiescent
+    – ≤ 40nA at VVM = 5V, TJ = 25°C                                    current draw by shutting down most of the
+•   Small package and footprint                                        internal circuitry. Internal protection features include
+    – 16-pin HTSSOP with PowerPAD™, 5.0×4.4mm                          undervoltage, overcurrent, and overtemperature.
+    – 16-Pin WQFN with PowerPAD™, 3.0×3.0mm                            The DRV8411A is part of a family of devices
+•   Integrated protection features                                     which come in pin-to-pin, scalable RDS(ON) options to
+    – VM undervoltage lockout (UVLO)                                   support various loads with minimal design changes.
+    – Auto-retry overcurrent protection (OCP)                          See Section 4 for information on the devices in this
+    – Thermal shutdown (TSD)                                           family. View our full portfolio of brushed motor drivers
+    – Fault Indication Pin (nFAULT)                                    on ti.com.
+2 Applications                                                                                  Device Information(1)
+                                                                                                                                  PACKAGE SIZE
+•   Battery-Powered Toys                                                     PART NUMBER                   PACKAGE
+                                                                                                                                    (NOM) (2)
+•   POS Printers                                                                                          HTSSOP (16)            5.00mm × 6.40mm
+•   Video Security Cameras                                                    DRV8411A
+                                                                                                          WQFN (16)              3.00mm × 3.00mm
+•   Office Automation Machines
+•   Gaming Machines                                                    (1)    For all available packages, see the orderable addendum at
+•   Robotics                                                                  the end of the data sheet.
+•   Electronic Smart Locks                                             (2)    The package size (length × width) is a nominal value and
+                                                                              includes pins, where applicable.
+•   General purpose solenoid loads
+                                                                                                            1.65 V to 11 V
+
+                                                                                                              DRV8411A
+                                                                                                  PWM
+                                                                                                                                BDC   Stepper
+                                                                                   Controller
+
+
+
+
+                                                                                                              Stepper or
+                                                                                                             Brushed DC
+                                                                                                             Motor Driver
+                                                                                                nFAULT
+
+                                                                                                 IPROPI                         BDC
+                                                                                                            Current Regula on
+                                                                                                               Protecon
+
+
+
+                                                                                                Simplified Schematic
+
+     An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+     intellectual property matters and other important disclaimers. PRODUCTION DATA.
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                                      www.ti.com
+
+
+                                                                        Table of Contents
+1 Features............................................................................1     8.3 External Components............................................... 12
+2 Applications..................................................................... 1       8.4 Feature Description...................................................12
+3 Description.......................................................................1       8.5 Device Functional Modes..........................................19
+4 Device Comparison......................................................... 3              8.6 Pin Diagrams............................................................ 20
+5 Pin Configuration and Functions...................................3                     9 Application and Implementation.................................. 21
+6 Specifications.................................................................. 5        9.1 Application Information............................................. 21
+  6.1 Absolute Maximum Ratings........................................ 5                    9.2 Power Supply Recommendations.............................35
+  6.2 ESD Ratings............................................................... 5          9.3 Layout....................................................................... 36
+  6.3 Recommended Operating Conditions.........................5                          10 Device and Documentation Support..........................38
+  6.4 Thermal Information....................................................6              10.1 Documentation Support.......................................... 38
+  6.5 Electrical Characteristics.............................................6              10.2 Receiving Notification of Documentation Updates..38
+  6.6 Timing Diagrams......................................................... 7            10.3 Community Resources............................................38
+7 Typical Characteristics................................................... 8              10.4 Trademarks............................................................. 38
+8 Detailed Description...................................................... 11           11 Revision History.......................................................... 38
+  8.1 Overview................................................................... 11      12 Mechanical, Packaging, and Orderable
+  8.2 Functional Block Diagram......................................... 11                  Information.................................................................... 39
+
+
+
+
+2       Submit Document Feedback                                                                                         Copyright © 2024 Texas Instruments Incorporated
+
+                                                                     Product Folder Links: DRV8411A
+                                                                                                                                                              DRV8411A
+www.ti.com                                                                                                  SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+4 Device Comparison
+                                                   Table 4-1. Device Comparison Table
+                                                   Overcurrent                                 Current-                                                   Pin-to-Pin
+                     Supply         RDS(on)                                   Current                                 Direct Pin-to-Pin
+ Device Name                                      Protection limit                              Sense                                                  Replacement with
+                   Voltage (V)       (mΩ)                                    Regulation                                Replacement
+                                                        (A)                                   Feedback                                                   Modifications
+    DRV8410         1.65 to 11        800                  2.5             External Shunt       External                 DRV8833,
+                                                                                                                                                          DRV8847
+    DRV8411         1.65 to 11        400                                     Resistor          Amplifier                DRV8833C
+
+                                                           4                                                                                              DRV8833,
+   DRV8411A         1.65 to 11        400                                  Internal current mirror (IPROPI)                       N/A                    DRV8833C,
+                                                                                                                                                          DRV8847
+
+
+5 Pin Configuration and Functions
+
+
+
+
+                                                                                                              AOUT1
+
+                                                                                                                         VREF
+
+                                                                                                                                    AIN1
+
+                                                                                                                                           AIN2
+      VREF          1                                 16            AIN1
+
+    AOUT1           2                                 15            AIN2
+
+
+
+
+                                                                                                              16
+
+                                                                                                                         15
+
+                                                                                                                                    14
+
+                                                                                                                                           13
+    PGNDA           3                                 14            AIPROPI
+                                                                                       PGNDA            1                                         12        AIPROPI
+    AOUT2           4                                 13            GND
+                                   Thermal
+                                     Pad                                                AOUT2           2                                         11        GND
+    BOUT2           5                                 12            VM                                                  Thermal
+                                                                                        BOUT2           3                     Pad                 10        VM
+    PGNDB           6                                 11            BIPROPI
+
+                                                                                       PGNDB            4                                          9        BIPROPI
+    BOUT1           7                                 10            BIN2
+
+
+
+                                                                                                              5
+
+                                                                                                                         6
+
+                                                                                                                                    7
+
+                                                                                                                                           8
+    nFAULT          8                                  9            BIN1
+
+
+
+
+   Figure 5-1. PWP or DYZ Package 16-Pin HTSSOP
+                                                                                                              BOUT1
+
+
+
+
+                                                                                                                                    BIN1
+
+                                                                                                                                           BIN2
+                                                                                                                         nFAULT
+
+                      Top View
+                                                                                    Figure 5-2. RTE Package 16-Pin WQFN Top View
+
+
+                PIN
+                            PWP,      TYPE(1)                                                   DESCRIPTION
+ NAME              RTE
+                            DYZ
+                                                  H-bridge control input for full bridge A (AOUT1, AOUT2). See Section 8.4.1. Internal pulldown
+ AIN1               14        16             I
+                                                  resistor.
+                                                  H-bridge control input for full bridge A (AOUT1, AOUT2). See Section 8.4.1. Internal pulldown
+ AIN2               13        15             I
+                                                  resistor.
+                                                  Analog current output proportional to load current for full bridge A (AOUT1, AOUT2). See
+ AIPROPI            12        14         O
+                                                  Section 8.4.2.
+ AOUT1              16         2         O        Bridge A output 1
+ AOUT2              2          4         O        Bridge A output 2
+                                                  H-bridge control input for full bridge B (BOUT1, BOUT2). See Section 8.4.1. Internal pulldown
+ BIN1               7          9             I
+                                                  resistor.
+                                                  H-bridge control input for full bridge B (BOUT1, BOUT2). See Section 8.4.1. Internal pulldown
+ BIN2               8         10             I
+                                                  resistor.
+                                                  Analog current output proportional to load current for full bridge B (BOUT1, BOUT2). See
+ BIPROPI            9         11         O
+                                                  Section 8.4.2.
+ BOUT1              5          7         O        Bridge B output 1
+ BOUT2              3          5         O        Bridge B output 2
+ GND                11        13        PWR       Device ground. Connect to system ground.
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                                                   Submit Document Feedback                3
+                                                               Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                            www.ti.com
+
+                  PIN
+                             PWP,    TYPE(1)                                            DESCRIPTION
+    NAME            RTE
+                             DYZ
+                                               Fault indicator output. Pulled low during a fault condition. Connect an external pullup resistor
+    nFAULT            6        8       OD
+                                               for open-drain operation. See Section 8.4.3.
+    PAD              —        —         —      Thermal pad. Connect to system ground.
+    PGNDA             1        3       PWR     Device power ground for full bridge A (AOUT1, AOUT2). Connect to system ground.
+    PGNDB             4        6       PWR     Device power ground for full bridge B (BOUT1, BOUT2). Connect to system ground.
+                                               1.65-V to 11-V power supply input. Connect a 0.1-µF bypass capacitor to ground, as well as
+    VM               10       12       PWR
+                                               sufficient Bulk Capacitance rated for VM.
+    VREF             15        1         I     External reference voltage input to set internal current regulation limit..See Section 8.4.2.
+
+(1)       PWR = power, I = input, O = output, NC = no connection, OD = open-drain
+
+
+
+
+4         Submit Document Feedback                                                                    Copyright © 2024 Texas Instruments Incorporated
+
+                                                        Product Folder Links: DRV8411A
+                                                                                                                                 DRV8411A
+www.ti.com                                                                                SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+6 Specifications
+6.1 Absolute Maximum Ratings
+over operating temperature range (unless otherwise noted)(1)
+                                                                                                           MIN              MAX       UNIT
+ Power supply pin voltage                                 VM                                               -0.5                12         V
+ Power supply transient voltage ramp                      VM                                                 0                  2     V/µs
+ Voltage difference between ground pins                   GND, PGNDA, PGNDB                                -0.6               0.6         V
+ Logic pin voltage                                        AIN1, AIN2, BIN1, BIN2                           -0.3              5.75         V
+ Open-drain output pin voltage                            nFAULT                                            0.3              5.75         V
+ Proportional current output pin voltage, VM ≥ 5.45 V                                                      -0.3              5.75         V
+                                                          AIPROPI, BIPROPI
+ Proportional current output pin voltage, VM < 5.45 V                                                      -0.3         VVM + 0.3         V
+ Reference input pin voltage                              VREF                                              0.3              5.75         V
+ Output pin voltage                                       AOUT1, AOUT2, BOUT1, BOUT2                       -VSD         VVM+VSD           V
+                                                                                                    Internally          Internally
+ Output current                                           AOUT1, AOUT2, BOUT1, BOUT2                                                      A
+                                                                                                      Limited             Limited
+ Ambient temperature, TA                                                                                   –40               125       °C
+ Junction temperature, TJ                                                                                  –40               150       °C
+ Storage temperature, Tstg                                                                                 –65               150       °C
+
+(1)     Stresses beyond those listed under Absolute Maximum Rating may cause permanent damage to the device. These are stress
+        ratings only, which do not imply functional operation of the device at these or any other conditions beyond those indicated
+        under Recommended Operating Condition. Exposure to absolute-maximum-rated conditions for extended periods may affect device
+        reliability.
+
+
+6.2 ESD Ratings
+                                                                                                                   VALUE             UNIT
+
+             Electrostatic   Human body model (HBM), per ANSI/ESDA/JEDEC JS-001(1)                                 ±2000
+ V(ESD)                                                                                                                               V
+             discharge       Charged device model (CDM), per JEDEC specification JESD22-C101(2)                    ±500
+
+(1)     JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process. Pins listed as
+        ±2000 V may actually have higher performance.
+(2)     JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process. Pins listed as ±500
+        V may actually have higher performance.
+
+
+6.3 Recommended Operating Conditions
+over operating temperature range (unless otherwise noted)
+                                                                                                    MIN           NOM       MAX       UNIT
+ VVM            Power supply voltage                      VM                                        1.65                       11         V
+ VIN            Logic input voltage                       AIN1, AIN2, BIN1, BIN2                       0                      5.5         V
+ fPWM           PWM frequency                             AIN1, AIN2, BIN1, BIN2                       0                     100      kHz
+ VOD            Open drain pullup voltage                 nFAULT                                       0                      5.5         V
+ IOD            Open drain output current                 nFAULT                                       0                        5      mA
+ IOUT (1)       Peak output current                       OUTx                                         0                  IOCP,min        A
+ IIPROPI        Current sense output current              AIPROPI, BIPROPI                             0                        1      mA
+                Current limit reference voltage, VM ≥
+ VVREF                                                    VREF                                         0                      3.6         V
+                3.6 V
+                Current limit reference voltage, VM <
+ VVREF                                                    VREF                                         0                      VM          V
+                3.6 V
+ TA             Operating ambient temperature                                                       –40                      125       °C
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback                 5
+                                                        Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                  www.ti.com
+
+over operating temperature range (unless otherwise noted)
+                                                                                                                  MIN        NOM        MAX      UNIT
+    TJ              Operating junction temperature                                                                 –40                    150      °C
+
+(1)         Power dissipation and thermal limits must be observed
+
+
+6.4 Thermal Information
+                                                                                                DEVICE                      DEVICE
+                                       THERMAL METRIC(1)                                    PWP (HTSSOP)                  RTE (WQFN)             UNIT
+                                                                                                  PINS                        PINS
+    RθJA          Junction-to-ambient thermal resistance                                          45.1                        49.7               °C/W
+    RθJC(top)     Junction-to-case (top) thermal resistance                                       43.7                        50.9               °C/W
+    RθJB          Junction-to-board thermal resistance                                            19.9                        23.5               °C/W
+    ΨJT           Junction-to-top characterization parameter                                          2.6                      1.7               °C/W
+    ΨJB           Junction-to-board characterization parameter                                    19.9                        23.5               °C/W
+    RθJC(bot)     Junction-to-case (bottom) thermal resistance                                        4.9                     10.8               °C/W
+
+(1)         For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application
+            report.
+
+
+6.5 Electrical Characteristics
+1.65 V ≤ VVM ≤ 11 V, –40°C ≤ TJ ≤ 150°C (unless otherwise noted). Typical values are at TJ = 27 °C and VVM = 5 V.
+                           PARAMETER                                        TEST CONDITIONS                       MIN         TYP       MAX      UNIT
+    POWER SUPPLIES (VM)
+    IVMQ            VM sleep mode current                       VVM = 5 V, TJ = 27°C                                             4         40     nA
+    IVM             VM active mode current                      xIN1 = 3.3 V, xIN2 = 0 V, VVM = 5 V                            2.3          4     mA
+    tWAKE           Turnon time                                 Sleep mode to active mode delay                                           100      μs
+    tAUTOSLEEP      Autosleep turnoff time                      Active mode to autosleep mode delay                0.7                    1.5     ms
+    LOGIC-LEVEL INPUTS (AIN1, AIN2, BIN1, BIN2)
+    VIL             Input logic low voltage                                                                           0                   0.4      V
+    VIH             Input logic high voltage                                                                      1.45                    5.5      V
+    VHYS_logic      Logic Input hysteresis                                                                          50                            mV
+    IIL             Input logic low current                     VxINx = 0 V                                          -1                     1     µA
+    IIH             Input logic high current                    VxINx = 5 V                                         20                     70     µA
+    RPD             Input pulldown resistance                                                                                 100                 kΩ
+    tDEGLITCH       Input logic deglitch                                                                                        50                 ns
+    OPEN-DRAIN OUTPUTS (nFAULT)
+    VOL             Output logic low voltage                    IOD = 5 mA                                                                0.3      V
+    IOZ             Output logic high current                   VOD = 5 V                                            -1                     1     µA
+    DRIVER OUTPUTS (AOUT1, AOUT2, BOUT1, BOUT2)
+    RHS_DS(ON)      High-side MOSFET on resistance              IOUTx = 0.2 A                                                 200                 mΩ
+    RLS_DS(ON)      Low-side MOSFET on resistance               IOUTx = -0.2 A                                                200                 mΩ
+    VSD             Body diode forward voltage                  IOUTx = -0.5 A                                                   1                 V
+                                                                VOUTx rising from 10% to 90% of VVM,
+    tRISE           Output rise time                                                                                          100                  ns
+                                                                VVM = 5 V
+                                                                VOUTx falling from 90% to 10% of VVM,
+    tFALL           Output fall time                                                                                            50                 ns
+                                                                VVM = 5 V
+                                                                Input crosses 0.8 V to VOUTx = 0.1×VVM,
+    tPD             Input to output propagation delay                                                                         600                  ns
+                                                                IOUTx = 1 A
+    tDEAD           Output dead time                                                                                          400                  ns
+
+6           Submit Document Feedback                                                                        Copyright © 2024 Texas Instruments Incorporated
+
+                                                              Product Folder Links: DRV8411A
+                                                                                                                                       DRV8411A
+www.ti.com                                                                                           SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+1.65 V ≤ VVM ≤ 11 V, –40°C ≤ TJ ≤ 150°C (unless otherwise noted). Typical values are at TJ = 27 °C and VVM = 5 V.
+                       PARAMETER                                        TEST CONDITIONS                         MIN        TYP     MAX     UNIT
+ CURRENT SENSE AND REGULATION
+ AIPROPI        Current mirror scaling factor                                                                              200             µA/A
+                                                             IOUT = 1 A, VIPROPI ≤ min(VM-1.25 V, 3.3
+                                                                                                                    -6                6        %
+                                                             V), 3.3 V ≤ VVM ≤ 11 V
+ AERR           Current mirror total error
+                                                             IOUT = 1 A, VIPROPI ≤ min(VM-1.25 V, 3.3
+                                                                                                                    -9                6        %
+                                                             V), 1.65 V ≤ VVM ≤ 3.3 V
+ tOFF           Current regulation off time                                                                                 20              µs
+ tBLANK         Current regulation blanking time                                                                            1.8             µs
+ tDELAY         Current sense delay time                                                                                     2              µs
+ tDEG           Current regulation deglitch time                                                                             1              µs
+ PROTECTION CIRCUITS
+                                                             Supply rising                                                           1.6       V
+ VUVLO          Supply undervoltage lockout (UVLO)
+                                                             Supply falling                                     1.3                            V
+ VUVLO_HYS      Supply UVLO hysteresis                       Rising to falling threshold                                   100             mV
+ tUVLO          Supply undervoltage deglitch time            VVM falling to OUTx disabled                                   10              µs
+ IOCP           Overcurrent protection trip point                                                                    4                         A
+ tOCP           Overcurrent protection deglitch time                                                                        4.2             µs
+ tRETRY         Overcurrent protection retry time                                                                           1.6            ms
+ TTSD           Thermal shutdown temperature                                                                    153                 193     °C
+ THYS           Thermal shutdown hysteresis                                                                                 18              °C
+
+
+
+6.6 Timing Diagrams
+
+
+                                    xIN1 (V)
+
+
+
+
+                                    xIN2 (V)                                    tPD
+                                                               tPD
+                                                                                                          tPD
+                                  xOUT1 (V)            Z                                                        Z
+
+                                                                                            tPD
+
+
+                                  xOUT2 (V)            Z                                                        Z
+
+
+
+
+                                                             90%                              90%
+
+
+                                  xOUTx (V)
+
+                                                       10%
+                                                                                                    10%
+
+
+                                                                tRISE                       tFALL
+
+                                                    Figure 6-1. Input-to-Output Timing
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                                     Submit Document Feedback       7
+                                                           Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                                www.ti.com
+
+7 Typical Characteristics
+                                       3.6
+                                                                                                                                             TJ = -40°C
+                                       3.4                                                                                                   TJ = 27°C
+                                                                                                                                             TJ = 85°C
+                                                                                                                                             TJ = 125°C
+                                       3.2                                                                                                   TJ = 150°C
+
+                                        3
+            Active Mode Current (mA)
+
+
+
+
+                                       2.8
+
+                                       2.6
+
+                                       2.4
+
+                                       2.2
+
+                                        2
+
+                                       1.8
+
+                                       1.6
+                                             1           2        3       4          5             6            7   8          9          10          11
+                                                                                          VM Supply Voltage (V)
+
+                                                                              Figure 7-1. Active Mode Current
+
+                                       1600
+                                                     TJ = -40°C
+                                                     TJ = 27°C
+                                       1400          TJ = 85°C
+                                                     TJ = 125°C
+                                                     TJ = 150°C
+                                       1200
+           Sleep Mode Current (nA)
+
+
+
+
+                                       1000
+
+
+                                        800
+
+
+                                        600
+
+
+                                        400
+
+
+                                        200
+
+
+                                             0
+                                                 1           2        3   4           5            6            7   8           9          10         11
+                                                                                          VM Supply Voltage (V)
+
+                                                                              Figure 7-2. Sleep Mode Current
+
+
+
+
+8     Submit Document Feedback                                                                                          Copyright © 2024 Texas Instruments Incorporated
+
+                                                                              Product Folder Links: DRV8411A
+                                                                                                                                                                             DRV8411A
+www.ti.com                                                                                                                            SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+7 Typical Characteristics (continued)
+                                                    330
+                                                             VVM = 1.65 V
+                                                             VVM = 3.3 V
+                                                    300      VVM = 4.2 V
+                                                             VVM = 6 V
+              High-side MOSFET on resistance (m)
+
+
+
+                                                             VVM = 8.4 V
+                                                             VVM = 11 V
+                                                    270
+
+
+                                                    240
+
+
+                                                    210
+
+
+                                                    180
+
+
+                                                    150
+
+
+                                                    120
+                                                      -40   -30   -20   -10   0   10   20   30   40      50    60      70   80   90     100   110    120   130   140   150
+                                                                                                      Temperature (°C)
+
+                                                                                  Figure 7-3. High-side MOSFET on resistance
+
+
+
+
+                                                                                  Figure 7-4. Low-side MOSFET on resistance
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                                                                     Submit Document Feedback        9
+                                                                                        Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                                       www.ti.com
+
+7 Typical Characteristics (continued)
+                                            40
+                                                                                                                            -6 standard deviation error (%)
+                                            35                                                                              +6 standard deviation error (%)
+                                            30
+                                            25
+                                            20
+           Current mirror total error (%)
+
+
+
+
+                                            15
+                                            10
+                                             5
+                                             0
+                                             -5
+                                            -10
+                                            -15
+                                            -20
+                                            -25
+                                            -30
+                                            -35
+                                                  0   0.2    0.4        0.6         0.8         1            1.2   1.4          1.6          1.8              2
+                                                                                          IOUT current (A)
+
+                                                            Figure 7-5. Current mirror scaling factor, VM = 1.65 V to 3.3 V
+
+
+
+
+                                                            Figure 7-6. Current mirror scaling factor, VM = 3.3 V to 11 V
+
+
+
+
+10    Submit Document Feedback                                                                                           Copyright © 2024 Texas Instruments Incorporated
+
+                                                                              Product Folder Links: DRV8411A
+                                                                                                                                   DRV8411A
+www.ti.com                                                                                          SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+8 Detailed Description
+8.1 Overview
+The DRV8411A device is a dual H-bridge motor driver for driving two brushed DC motors or one stepper motor
+from a 1.65V to 11V supply rail. The integrated current regulation feature limits motor current to a predefined
+maximum based on the VREF and xIPROPI settings. The xIPROPI signal can provide current feedback to a
+microcontroller during both the drive and brake/slow-decay states of the H-bridge.
+Two logic inputs control each H-bridge, which consists of four N-channel MOSFETs that have a typical RDS(ON)
+of 400mΩ (including one high-side and one low-side FET). A single power input, VM, serves as both device
+power and the motor winding bias voltage. The integrated charge pump of the device boosts VM internally and
+fully enhances the high-side FETs. Motor speed can be controlled with pulse-width modulation, at frequencies
+between 0 to 100kHz. The device enters a low-power sleep mode by bringing all four inputs low.
+A variety of integrated protection features protect the device in the case of a system fault. These include
+undervoltage lockout (UVLO), overcurrent protection (OCP), and overtemperature shutdown (TSD).
+8.2 Functional Block Diagram
+
+                                 VM      Power                                    VCP         VM
+                                        VM VCP
+ bulk        0.1 µF
+                                        Charge
+                                        Pump                                     Gate                        AOUT1
+             VMCU                GND
+                                                                                 Drive
+                                         Logic                                                       OCP
+                                                                                                   AISEN1
+                                                                                                   PGNDA                              Step
+                   nFAULT                                                         VCP         VM                     BDC
+  To                                                                                                                                  Motor
+  Microcontroller
+
+                                AIN1
+                                                               Core Logic                                    AOUT2
+                                                                                 Gate
+                                                                                 Drive
+                                                                                                     OCP
+                                AIN2     Control                                                   AISEN2
+                                         Inputs                                                              PGNDA
+
+ From                           BIN1                                              VCP         VM
+ Microcontroller
+                                                               Overcurrent
+                                BIN2                          Undervoltage
+                                                                                  Gate                       BOUT1
+                                                                  Thermal         Drive
+                                                                                                     OCP
+                                VREF                                                             BISEN1
+                                                         +
+                                                                                                PGNDB
+                                        IPROPI           -                        VCP         VM                      BDC
+                                         Clamp
+                    AIPROPI
+                     RAIPROPI
+
+
+
+
+                                                                                                             BOUT2
+                                          Current            AISEN1               Gate
+                                          Sense              AISEN2               Drive
+ To                                                                                                  OCP
+ Microcontroller                                    +                                              BISEN2
+ ADC                                                                                                         PGNDB
+                                       IPROPI       -
+                                        Clamp
+                    BIPROPI                             Current       BISEN1
+                                                        Sense         BISEN2
+                    RBIPROPI
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                               Submit Document Feedback        11
+                                                             Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                           www.ti.com
+
+8.3 External Components
+Table 8-1 lists the recommended values of the external components for the driver.
+                                         Table 8-1. DRV8411A External Components
+ COMPONENT                PIN 1                PIN 2              RECOMMENDED
+            CVM1                  VM               GND            VM-rated capacitor, 10 µF minimum
+            CVM2                  VM               GND            0.1-µF, VM rated ceramic capacitor
+        RnFAULT                VEXT(1)            nFAULT          Pullup resistor, IOD ≤ 5 mA
+        RAIPROPI              AIPROPI              GND            Sense resistor, see Section 8.4.2.1 for sizing
+        RBIPROPI              BIPROPI              GND            Sense resistor, see Section 8.4.2.1 for sizing
+
+(1)   VEXT is not a pin on the DRV8411A, but a pullup resistor on the VEXT external supply voltage is required for the open-drain output,
+      nFAULT.
+
+8.4 Feature Description
+8.4.1 Bridge Control
+The DRV8411A has two identical H-bridge motor drivers. The input pins, AINx and BINx, control the
+corresponding outputs, AOUTx and BOUTx, respectively. Table 8-2 shows how the inputs control the H-bridge
+outputs.
+                                                       Table 8-2. H-Bridge Control
+      xIN1             xIN2              xOUT1             xOUT2                                     DESCRIPTION
+        X                X               High-Z            High-Z         Low-power sleep mode
+        0                0               High-Z            High-Z         Coast/ fast decay; H-bridge disabled to High-Z
+        0                1                 L                  H           Reverse (Current OUT2 → OUT1)
+        1                0                 H                  L           Forward (Current OUT1 → OUT2)
+        1                1                 L                  L           Brake; low-side slow decay
+
+
+The inputs can be set to constant voltages for 100% duty cycle drive, or they can be pulse-width modulated
+(PWM) for variable motor speed. When using PWM, switching between driving (forward or reverse) and slow-
+decay states typically works best. For example, to drive a motor forward with 50% of the maximum RPM, IN1 = 1
+and IN2 = 0 during the driving period or PWM "on" time, and IN1 = 1 and IN2 = 1 during the PWM "off" time.
+Alternatively, the coast mode (IN1 = 0, IN2 = 0) for fast current decay is also available. To PWM using fast decay,
+the PWM signal is applied to one xIN pin while the other is held low, as shown below.
+                                            Table 8-3. PWM Control of Motor Speed
+         xIN1                     xIN2                                                   DESCRIPTION
+
+        PWM                        0                                                Forward PWM, fast decay
+
+            1                     PWM                                              Forward PWM, slow decay
+
+            0                     PWM                                               Reverse PWM, fast decay
+
+        PWM                        1                                               Reverse PWM, slow decay
+
+
+Figure 8-1 shows how the motor current flows through the H-bridge. The input pins can be powered before VM is
+applied.
+
+
+
+
+12    Submit Document Feedback                                                                       Copyright © 2024 Texas Instruments Incorporated
+
+                                                        Product Folder Links: DRV8411A
+                                                                                                                                 DRV8411A
+www.ti.com                                                                                       SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+                       VM                                                                         VM
+
+
+
+
+                                                        1 Forward drive                                                  1 Reverse drive
+
+                                                        2 Slow decay (brake)                                             22 Slow decay (brake)
+                       1                                                                          1
+                                                        3 High-Z (coast)                                                 3 High-Z (coast)
+ OUT1                                      OUT2                                    OUT1                           OUT2
+                        2                                                                         2
+                       3                                                                          3
+
+
+
+
+                    Forward                                                                     Reverse
+
+                                                        Figure 8-1. H-Bridge Current Paths
+
+When an output changes from driving high to driving low, or driving low to driving high, dead time is automatically
+inserted to prevent shoot-through. The tDEAD time is the time in the middle when the output is High-Z. If the
+output pin is measured during tDEAD, the voltage depends on the direction of current. If the current is leaving the
+pin, the voltage is a diode drop below ground. If the current is entering the pin, the voltage is a diode drop above
+VM. This diode is the body diode of the high-side or low-side FET.
+The propagation delay time (tPD) is measured as the time between an input edge to output change. This time
+accounts for input deglitch time and other internal logic propagation delays. The input deglitch time prevents
+noise on the input pins from affecting the output state. Additional output slew delay timing accounts for FET turn
+on or turn off times (tRISE and tFALL).
+Figure 8-2 below shows the timing of the inputs and outputs of the motor driver.
+
+                            IN1 (V)
+
+
+
+                            IN2 (V)
+
+
+
+
+                        OUT1 (V)
+
+
+
+                                                  tPD         tRISE        tDEAD          tPD   tFALL     tDEAD
+
+
+
+                        OUT2 (V)
+
+
+
+                                                  tPD        tFALL         tDEAD          tPD   tRISE     tDEAD
+
+                                                    Figure 8-2. H-Bridge Timing Diagram
+
+Copyright © 2024 Texas Instruments Incorporated                                                             Submit Document Feedback        13
+                                                               Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                           www.ti.com
+
+8.4.1.1 Parallel Bridge Interface
+In the parallel bridge interface, the DRV8411A device is configured to drive a higher current brush DC (BDC)
+motor by connecting the driver outputs in parallel to reduce the RDS(on) by a factor of two. Figure 8-3 shows
+an example of how to connect the pins on the device. To use parallel bridge interface operation, connect AIN1
+and BIN1 to the same control signal, IN1, and connect AIN2 and BIN2 to the same control signal, IN2. Similarly,
+connect AOUT1 and BOUT1 to the same output node, OUT1, and connect AOUT2 and BOUT2 to the same
+output node, OUT2.
+
+                                                      Note
+       Current regulation must not be used with parallel mode. The internal current regulation and current
+       feedback should be disabled by tying IPROPI to GND and setting the VREF pin voltage to greater
+       than GND.
+
+                                                                               VM
+
+
+                                                                                                     +      CBULK
+                                                                                      100 nF
+                                                                                                            10 µF
+                                                               DRV8411A
+
+
+
+
+                                                                               VM
+                                  IN1                             AIN1
+                                  IN2                             AIN2                                   OUT1
+                                                                                     AOUT1
+                                                                  BIN1               AOUT2
+                                        VMCU
+                                                                  BIN2
+                                                                                                          BDC
+                                                 VREF             VREF
+                            nFAULT                                nFAULT             BOUT1
+                                                                                     BOUT2
+                                              IPROPI              AIPROPI                                OUT2
+                                                                             PPAD
+                                                                             GND
+
+
+
+
+                                                                                    PGNDA
+                                                                  BIPROPI
+                                                                                    PGNDB
+
+
+
+
+                                              Figure 8-3. Parallel Mode Connections
+
+This mode can deliver the full functionality of the BDC motor control with all four modes (forward, reverse, coast,
+and brake mode). Table 8-4 shows the control interface states in parallel mode.
+                                                       Table 8-4. H-Bridge Control
+                                   OUT1 (AOUT1          OUT2 (AOUT2
+     IN1 (AIN1)    IN2 (AIN2)                                                                        DESCRIPTION
+                                    & BOUT1              & BOUT2)
+                                                                            Coast; H-bridge disabled to High-Z, automatic low-power sleep mode
+         0              0               High-Z             High-Z
+                                                                            entered after 1ms)
+         0              1                 L                   H             Reverse (Current OUT2 → OUT1)
+         1              0                 H                   L             Forward (Current OUT1 → OUT2)
+         1              1                 H                   H             Brake; high-side slow decay
+
+
+
+
+14     Submit Document Feedback                                                                      Copyright © 2024 Texas Instruments Incorporated
+
+                                                        Product Folder Links: DRV8411A
+                                                                                                                                 DRV8411A
+www.ti.com                                                                                        SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+8.4.2 Current Sense and Regulation
+The DRV8411A integrates current sensing, regulation, and feedback as part of the IPROPI feature on the
+AIPROPI and BIPROPI pins. These features allow the device to sense the output current without an external
+sense resistor or sense circuitry, thereby reducing solution size, cost, and complexity. This also allows for the
+device to limit the output current in the case of motor stall or high torque events and give detailed feedback to
+the controller about the load current through a current proportional output. Figure 8-4 shows the IPROPI timings
+specified in the Electrical Characteristics table.
+
+                                         xINx
+                                                                        tRISE             tFALL
+
+                                                     ttPDt
+
+
+                                   xOUTx (V)
+
+
+                                                       ttBLANKt                        ttOFFt
+
+
+                                                                                                             ITRIP
+                                    IMOTOR (A)
+
+
+
+                                                                                tDEG
+
+
+                                                                                                             VREF
+                                 xIPROPI (V)
+
+
+                                                             ttDELAYt
+
+
+                                             Figure 8-4. Detailed IPROPI Timing Diagram
+
+8.4.2.1 Current Sensing
+The IPROPI pins, AIPROPI and BIPROPI, output analog current proportional to the current flowing through the
+low-side power MOSFETs in the H-bridge scaled by AIPROPI. The IPROPI output current can be calculated by
+Equation 1. The ILSx in Equation 1 is only valid when the current flows from drain to source in the low-side
+MOSFET. If current flows from source to drain or through the body diode, the value of ILSx for that channel
+is zero. For instance, if the bridge is in the brake, slow-decay state, then the current out of IPROPI is only
+proportional to the current in one of the low-side MOSFETs.
+
+      IPROPI (μA) = (ILS1 + ILS2) (A) x AIPROPI (μA/A)                                                                              (1)
+
+The AERR parameter in the Electrical Characteristics table is the error associated with the AIPROPI gain. It
+indicates the combined effect of offset error added to the IOUT current and gain error.
+The motor current is measured by an internal current mirror architecture on the low-side FETs which removes
+the need for an external power sense resistor as shown in Figure 8-5. The current mirror architecture allows
+for the motor winding current to be sensed in both the drive and brake/low-side slow-decay periods allowing
+for continuous current monitoring in typical bidirectional brushed DC motor applications. In coast mode, the
+current is freewheeling and cannot be sensed because it flows from source to drain. However, the current can be
+sampled by briefly reenabling the driver in either drive or slow-decay modes and measuring the current before
+switching back to coast mode again.
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                             Submit Document Feedback      15
+                                                      Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                   www.ti.com
+
+
+
+                                                                           Control                                    xOUTx
+                                                                           Inputs                                       ILOAD
+
+
+
+                                               VREF
+                                                                       +                LS
+                                                                       –
+
+                                                             IPROPI                                                   xPGND
+                                                              Clamp
+                                                                                              Integrated
+                                                                                             Current Sense
+                           MCU               xIPROPI                           IPROPI
+                           ADC
+                                        +
+                                    VPROPI     RIPROPI                                          AIPROPI
+                                        –
+
+
+
+                                         Figure 8-5. Integrated Current Sensing
+
+The IPROPI pin should be connected to an external resistor (RIPROPI) to ground in order to generate a
+proportional voltage (VIPROPI) on the IPROPI pin with the IIPROPI analog current output. This allows for the
+load current to be measured as the voltage drop across the RIPROPI resistor with a standard analog to digital
+converter (ADC). The RIPROPI resistor can be sized based on the expected load current in the application so that
+the full range of the controller ADC is utilized. Additionally, the DRV8411A device implements an internal IPROPI
+voltage clamp circuit to limit VIPROPI with respect to VVREF on the VREF pin and protect the external ADC in case
+of output overcurrent or unexpected high current events.
+TI recommends designing for at least 1.25 V of headroom between VVM and the maximum VIPROPI voltage to be
+measured by the ADC, VIPROPI_MAX. For instance, if VVM is 4.55 V to 11 V, VIPROPI_MAX can be as high as 3.3 V.
+The corresponding IPROPI voltage to the output current can be calculated by Equation 2.
+
+     VIPROPI (V) = IPROPI (A) x RIPROPI (Ω)                                                                                                      (2)
+
+The IPROPI output bandwidth is limited by the sense delay time (tDELAY) of the internal current sensing circuit.
+This time is the delay from the low-side MOSFET enable command (from the INx pins) to the IPROPI output
+being ready.
+If the device is alternating between drive and slow-decay (brake) in an H-bridge PWM pattern then the low-side
+MOSFET sensing the current is continuously on and the sense delay time has no impact to the IPROPI output. If
+a command on the INx pins disables the low-side MOSFETs (according to the logic tables in Section 8.4.1), the
+IPROPI output will disable with the input logic signal. Although the low-side MOSFETs may still conduct current
+as they disable according to the device slew rate (noted in the Electrical Characteristics table by tRISE time),
+IPROPI will not represent the current in the low-side MOSFETs during this turnoff time.
+8.4.2.2 Current Regulation
+The DRV8411A integrates current regulation using a fixed off-time current chopping scheme. This allows the
+devices to limit the output current in case of motor stall, high torque, or other high current load events without
+involvement from the external controller as shown in Figure 8-6.
+
+
+
+
+16    Submit Document Feedback                                                                               Copyright © 2024 Texas Instruments Incorporated
+
+                                                         Product Folder Links: DRV8411A
+                                                                                                                               DRV8411A
+www.ti.com                                                                                      SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+                                                             ITRIP
+                                                   IMOTOR
+
+
+
+
+                                                   VMOTOR
+
+
+                                             Control Input
+                                            (xIN1 or xIN2)
+                                                                           tOFF   tOFF   tOFF
+
+                                                  Figure 8-6. Off-Time Current-Regulation
+
+The current chopping threshold (ITRIP) is set through a combination of the VREF voltage (VVREF) and IPROPI
+output resistor (RIPROPI). This is done by comparing the voltage drop across the external RIPROPI resistor to
+VVREF with an internal comparator.
+
+      ITRIP (A) x AIPROPI (μA/A) = VVREF (V) / RIPROPI (Ω)                                                                        (3)
+For example, if VVREF = 3.3 V, RIPROPI = 10 kΩ, and AIPROPI = 200 μA/A, then ITRIP will be approximately 1.65 A.
+When VVM ≥ 3.6 V, VVREF can have be set to a voltage up to 3.6 V. When VVM < 3.6 V, VVREF must be ≤ VVM.
+The fixed off-time current chopping scheme supports up to 100% duty cycle current regulation since the H-bridge
+automatically enables after the tOFF period and does not require a new control input edge on the xINx pins to
+reset the outputs. When the motor current exceeds the ITRIP threshold, the outputs will enter a current chopping
+mode with a fixed off time (tOFF). During tOFF, the H-bridge enters a brake/low-side slow decay state (both
+low-side MOSFETs ON) for tOFF duration after IOUT exceeds ITRIP. After tOFF, the outputs re-enable according to
+the control inputs if IOUT is less than ITRIP. If IOUT is still greater than ITRIP, the H-bridge enters another period
+of brake/low-side slow decay for tOFF. If the state of the xINx control pins changes during the tOFF time, the
+remainder of the tOFF time is ignored, and the outputs will again follow the inputs.
+The ITRIP comparator has both a blanking time (tBLANK) and a deglitch time (tDEG). The internal blanking time
+helps to prevent voltage and current transients during output switching from effecting the current regulation.
+These transients may be caused by a capacitor inside the motor or on the connections to the motor terminals.
+The internal deglitch time ensures that transient conditions do not prematurely trigger the current regulation. In
+certain cases where the transient conditions are longer than the deglitch time, placing a 10-nF capacitor on the
+IPROPI pin, close to the device, will help filter the transients on IPROPI output so current regulation does not
+prematurely trigger. The capacitor value can be adjusted as needed, however large capacitor values may slow
+down the response time of the current regulation circuitry.
+The internal current regulation and current feedback can be disabled by tying IPROPI to GND and setting the
+VREF pin voltage greater than GND. If current feedback is required and current regulation is not required, set
+VVREF and RIPROPI such that VIPROPI never reaches the VVREF threshold. For proper operation of the current
+regulation circuit, VVREF must be within the range of the VREF pin voltages specified in the Recommended
+Operating Conditions table.
+8.4.3 Protection Circuits
+The DRV8411A is fully protected against undervoltage, overcurrent and overtemperature events.
+8.4.3.1 Overcurrent Protection (OCP)
+An analog current limit circuit on each FET limits the current through the FET by limiting the gate drive internally.
+If this current limit persists for longer than the OCP deglitch time (tOCP), all FETs in the H-bridge will disable and
+the nFAULT pin will assert low. The driver re-enables after the OCP retry period (tRETRY) has passed. nFAULT
+becomes high again at this time and normal operation resumes. If the fault condition is still present, the cycle
+repeats as shown in Figure 8-7. Please note that only the H-bridge where an overcurrent condition is detected
+will be disabled while the other bridge will function normally.
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                           Submit Document Feedback      17
+                                                             Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                         www.ti.com
+
+                                                                   Overshoot due to OCP
+                                                                    deglitch time (tOCP)
+                                              IOCP
+
+
+
+
+                                  Motor
+                                 Current
+
+
+
+
+                                                     tOCP                                      Time
+                                                                      tRETRY
+
+
+                                                      Figure 8-7. OCP Operation
+
+Overcurrent conditions are detected independently on both high- and low-side FETs. This means that a short
+to ground, supply, or across the motor winding will all result in an overcurrent shutdown. Overcurrent protection
+does not use the current sense circuitry used for current regulation, so it functions regardless of VREF and
+IPROPI settings.
+8.4.3.2 Thermal Shutdown (TSD)
+If the die temperature exceeds safe limits, all FETs in the H-bridge will be disabled and the nFAULT pin asserts
+low. Once the die temperature has fallen to a safe level, operation will automatically resume.
+Any tendency of the device to enter TSD is an indication of either excessive power dissipation, insufficient
+heatsinking, or an ambient temperature outside of the Recommended Operating Conditions.
+8.4.3.3 Undervoltage Lockout (UVLO)
+Whenever the voltage on the VM pin falls below the UVLO falling threshold voltage, VUVLO, all circuitry in the
+device is disabled, the output FETS are disabled, and all internal logic is reset. Normal operation resumes when
+the VVM voltage rises above the UVLO rising threshold as shown in Figure 8-8. The nFAULT pin is driven low
+during an undervoltage condition and is released after operation starts again.
+When VVM is close to 0 V, the internal circuitry may not bias properly, and the open-drain pull-down on the
+nFAULT pin may release.
+
+
+
+
+          VUVLO (max) rising
+          VUVLO (min) rising
+
+
+
+          VUVLO (max) falling
+          VUVLO (min) falling                                                  VVM
+
+
+
+
+                                           DEVICE ON                                  DEVICE OFF                       DEVICE ON
+                       nFAULT
+                                                                               Time
+
+
+                                                Figure 8-8. VM UVLO Operation
+
+
+
+
+18    Submit Document Feedback                                                                     Copyright © 2024 Texas Instruments Incorporated
+
+                                                       Product Folder Links: DRV8411A
+                                                                                                                                      DRV8411A
+www.ti.com                                                                                        SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+8.5 Device Functional Modes
+Table 8-5 summarizes the DRV8411A functional modes described in this section.
+                                                      Table 8-5. Modes of Operation
+              MODE                                      CONDITION                              H-BRIDGE             INTERNAL CIRCUITS
+           Active Mode                    AIN1 or AIN2 or BIN1 or BIN2 = logic high            Operating                  Operating
+     Low-Power Sleep Mode                  AIN1 = AIN2 = BIN1 = BIN2 = logic low               Disabled                   Disabled
+            Fault Mode                             Any fault condition met                     Disabled                 See Table 8-6
+
+
+8.5.1 Active Mode
+After the supply voltage on the VM pin has crossed the undervoltage threshold VUVLO, any of the the xINx pins
+are in a state other than AIN1 = AIN2 = BIN1 = BIN2 = 0, and tWAKE has elapsed, the device enters active mode.
+In this mode, the H-bridge, charge pump, and internal logic are active and the device is ready to receive inputs.
+8.5.2 Low-Power Sleep Mode
+The DRV8411A device supports a low power mode to reduce current consumption from the VM pin when the
+driver is not active. When the AIN1, AIN2, BIN1, and BIN2 pins are all low for time tSLEEP, the DRV8411A device
+enters a low-power sleep mode.
+In sleep mode, the H-bridge, charge pump, internal regulator, and internal logic are disabled and the device
+draws minimal current from the supply pin (IVMQ). The device relies on a weak pulldown to ensure all of the
+internal MOSFETs remain disabled. If the device is powered up while all inputs are low, it immediately enters
+sleep mode. After any of the input pins are high for longer than the duration of tWAKE, the device becomes fully
+operational.
+The following timing diagram shows an example of entering and leaving sleep mode.
+
+                                                                             Sleep
+                                                   Active Mode                        Wakeup      Active Mode
+                                                                             Mode
+
+                                    IN1
+
+
+                                                              tSLEEP                   tWAKE
+
+
+                                    IN2
+
+
+
+
+                                 OUT1                                        Hi-Z
+
+
+
+
+                                 OUT2                                        Hi-Z
+
+
+
+
+                                  Figure 8-9. Sleep Mode Entry and Wakeup Timing Diagram
+
+8.5.3 Fault Mode
+The DRV8411A device enters a fault mode when a fault is encountered. This protects the device and the load on
+the outputs. The device behavior in the fault mode is described in Table 8-6 and depends on the fault condition.
+The device will leave the fault mode and re-enter the active mode when the recovery condition is met.
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                                 Submit Document Feedback    19
+                                                         Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                           www.ti.com
+
+                                              Table 8-6. Fault Conditions Summary
+                                                                                       INTERNAL
+          FAULT            CONDITION            ERROR REPORT              H-BRIDGE                             RECOVERY
+                                                                                        CIRCUITS
+     VM undervoltage
+                         VM < VUVLO,falling         nFAULT                Disabled      Disabled             VM > VUVLO,rising
+         (UVLO)
+                                                                                                              Automatic retry:
+     Overcurrent (OCP)     IOUT > IOCP              nFAULT                Disabled     Operating
+                                                                                                                  tRETRY
+     Thermal Shutdown                                                                                      Automatic: TJ < TTSD
+                            TJ > TTSD               nFAULT                Disabled     Operating
+          (TSD)                                                                                                 – THYS
+
+
+8.6 Pin Diagrams
+8.6.1 Logic-Level Inputs
+Figure 8-10 shows the input structure for the logic-level input pins AIN1, AIN2, BIN1, and BIN2.
+
+
+
+
+                                                                  100 k
+
+
+
+
+                                                 Figure 8-10. Logic-level input
+
+
+
+
+20      Submit Document Feedback                                                     Copyright © 2024 Texas Instruments Incorporated
+
+                                                   Product Folder Links: DRV8411A
+                                                                                                                                         DRV8411A
+www.ti.com                                                                                         SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+9 Application and Implementation
+                                                                      Note
+       Information in the following applications sections is not part of the TI component specification,
+       and TI does not warrant its accuracy or completeness. TI’s customers are responsible for
+       determining suitability of components for their purposes, as well as validating and testing their design
+       implementation to confirm system functionality.
+
+9.1 Application Information
+The DRV8411A is used in brushed-DC or stepper motor control as shown in the following applications examples.
+9.1.1 Typical Application
+The user can configure the DRV8411A for stepper motor, dual BDC, or single BDC motor applications as
+described in this section.
+9.1.1.1 Stepper Motor Application
+Figure 9-1 shows the typical application of the DRV8411A device to drive a stepper motor.
+                                                                                VM
+
+
+                                                                                                       +
+                                      VMCU                                                                           CBULK
+                                                                                           100nF
+                                                                                                                      10µF
+                                                                     DRV8411A
+                                            PWM                        AIN1
+                                                                                 VM
+
+
+                                                                                        AOUT1
+                                            PWM                        AIN2
+                                                                                        AOUT2
+                                                                                                                    Stepper
+                                            PWM                        BIN1
+                                            PWM                        BIN2
+                                                                                        BOUT1
+                                  Microcontroller         VMCU                          BOUT2
+                                      (MCU)                            VREF
+                                                                                       AIPROPI
+                                                                                       BIPROPI
+                                                                                                       RIPROPI_B
+
+
+
+                                                                                                                        RIPROPI_A
+                                                                                PPAD
+
+
+
+
+                                                                                        PGNDA
+                                                                                GND
+
+
+
+
+                                                    I                  nFAULT
+                                                                                        PGNDB
+
+
+
+
+                    Figure 9-1. Typical Application Schematic of DRV8411A Driving Stepper Motor
+
+9.1.1.1.1 Design Requirements
+Table 9-1 lists design input parameters for system design.
+                                                        Table 9-1. Design Parameters
+                    DESIGN PARAMETER                                   REFERENCE                   EXAMPLE VALUE
+                    Motor supply voltage                                         VM                                   11 V
+                    Motor winding resistance                                     RL                                34 Ω/phase
+                    Motor winding inductance                                     LL                                33 mH/phase
+                    Target trip current                                         ITRIP                                500 mA
+
+
+9.1.1.1.2 Detailed Design Procedure
+9.1.1.1.2.1 Stepper Motor Speed
+The first step in configuring the DRV8411A requires the desired motor speed and stepping level. The device can
+support full- and half-stepping modes using the PWM interface.
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                                       Submit Document Feedback   21
+                                                          Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                www.ti.com
+
+
+If the target motor speed is too high, the motor does not spin. Ensure that the motor can support the target
+speed.
+For a desired motor speed (v), microstepping level (nm), and motor full step angle (θstep),
+
+                         v(rpm) u nm steps u 360q / rot
+     ¦step VWHSV V
+                           Tstep q / step u 60 s / min                                                                        (4)
+9.1.1.1.2.2 Current Regulation
+The trip current (ITRIP) is the maximum current driven through either winding. This setting determines the amount
+of torque the stepper motor will produce when operating in full stepping or half stepping control schemes. For an
+ITRIP value of 500 mA, the value of the sense resistor (RxIPROPI) is calculated as shown in Equation 5.
+
+     RAIPROPI = RBIPROPI = VVREF (V) / [ITRIP (A) x AIPROPI (μA/A)] = 3.3 / [0.5 x 0.0002] = 33 kΩ                            (5)
+
+Select the closest available value of 33 kΩ for the sense resistors.
+
+
+
+
+22    Submit Document Feedback                                                            Copyright © 2024 Texas Instruments Incorporated
+
+                                                 Product Folder Links: DRV8411A
+                                                                                                                         DRV8411A
+www.ti.com                                                                                SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+9.1.1.1.2.3 Stepping Modes
+The DRV8411A is used to drive a stepper motor in full-stepping mode or non-circulating half-stepping mode
+using the following bridge configurations:
+• Full-stepping mode
+• Half-stepping mode with slow decay
+• Half-stepping mode with fast decay
+9.1.1.1.2.3.1 Full-Stepping Operation
+In full-stepping mode, the full-bridge operates in either of two modes (forward or reverse mode) with a phase
+shift of 90° between the two windings. Full stepping is simplest stepper control mode to implement in firmware
+and offers the best performance at high speeds.
+The controller applies the PWM input to the AIN1, AIN2, BIN1, and BIN2 pins as shown in Figure 9-2 and the
+driver operates only in forward (FRW) and reverse (REV) mode.
+
+                                             90o
+                                            Phase
+
+
+
+                        AIN1
+
+
+
+
+                        AIN2
+
+
+
+
+                        BIN1
+
+
+
+
+                        BIN2
+
+
+
+                                 AOUT12 FRW                               AOUT12 FRW
+                    AOUT12
+                                                      AOUT12 REV                           AOUT12 REV
+
+
+
+
+                                              BOUT12 FRW                           BOUT12 FRW
+                    BOUT12
+                                                               BOUT12 REV                          BOUT12 REV
+
+
+
+                                                                   Time
+
+                                            Figure 9-2. Timing Diagram for Full-Stepping
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                     Submit Document Feedback      23
+                                                       Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                     www.ti.com
+
+9.1.1.1.2.3.2 Half-Stepping Operation with Fast Decay
+In half-stepping mode, the full-bridge operates in one of the three modes (forward, reverse, or coast mode)
+to position the rotor half-way between two full-step positions. The coast state allows the current in the motor
+winding to decay quickly to 0 A. This mode is best-used when half-stepping at high speeds.
+The controller applies the PWM input to the AIN1, AIN2, BIN1, and BIN2 pins as shown in Figure 9-3, and the
+driver operates in forward, reverse, and coast mode.
+                                                              45o
+                                                             Phase
+
+                     AIN1
+
+
+
+
+                     AIN2
+
+
+
+                     BIN1
+
+
+
+
+                     BIN2
+                                                                              COAST
+                            COAST
+
+
+
+
+                                                                                                      COAST
+
+
+
+
+                                                                                                                              COAST
+                                                    COAST
+
+
+
+
+                                    AOUT12 FRW                                        AOUT12 FRW
+                  AOUT12
+                                                             AOUT12 REV                                       AOUT12 REV
+
+
+
+                                                BOUT12 FRW                                        BOUT12 FRW
+                  BOUT12
+                                                                  COAST
+                                        COAST
+
+
+
+
+                                                                                          COAST
+
+
+
+
+                                                                                                                  COAST
+                                                                          BOUT12 REV                                      BOUT12 REV
+
+
+
+                                                                               Time
+
+                            Figure 9-3. Timing Diagram for Half-Stepping with Fast Decay
+
+
+
+
+24    Submit Document Feedback                                                                                 Copyright © 2024 Texas Instruments Incorporated
+
+                                                            Product Folder Links: DRV8411A
+                                                                                                                                                    DRV8411A
+www.ti.com                                                                                                         SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+9.1.1.1.2.3.3 Half-Stepping Operation with Slow Decay
+In this half-stepping mode, the driver achieves the 0-A state using the slow decay control state (known as
+"brake mode" for BDC driving). Therefore, the full-bridge operates in one of the three modes (forward, reverse,
+or brake/slow-decay mode) to position the rotor half-way between two full-step positions. The slow decay state
+allows the current in the motor winding to decay slowly to 0 A. This mode is best-used when half-stepping at
+slow speeds and may help to reduce stepper noise and vibration.
+The controller applies the PWM input to the AIN1, AIN2, BIN1, and BIN2 pins as shown in Figure 9-4, and the
+driver operates in forward, reverse, and brake mode.
+                                                                   45o
+                                                                  Phase
+                         AIN1
+
+
+
+
+                         AIN2
+
+
+
+                         BIN1
+
+
+
+
+                         BIN2
+                                                                                   BRAKE
+                                 BRAKE
+
+
+
+
+                                                                                                           BRAKE
+
+
+
+
+                                                                                                                                     BRAKE
+                                                         BRAKE
+
+
+
+
+                                         AOUT12 FRW                                        AOUT12 FRW
+                      AOUT12
+                                                                  AOUT12 REV                                        AOUT12 REV
+
+
+
+                                                     BOUT12 FRW                                        BOUT12 FRW
+                      BOUT12
+                                                                       BRAKE
+                                             BRAKE
+
+
+
+
+                                                                                               BRAKE
+
+
+
+
+                                                                                                                         BRAKE
+                                                                               BOUT12 REV                                        BOUT12 REV
+
+
+
+                                                                                    Time
+
+                                Figure 9-4. Timing Diagram for Half-Stepping with Slow Decay
+
+9.1.1.1.3 Application Curves
+Ch 1 = AIN1, Ch 2 = AIN2, Ch 3 = BIN1, Ch 4 = BIN2, Ch 5 = AOUT12, Ch 6 = BOUT12, Ch 7 = AOUT12
+current, Ch 8 = BOUT12 current
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                                                  Submit Document Feedback   25
+                                                                 Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                     www.ti.com
+
+
+
+
+                                    Figure 9-5. Stepper Motor Full-Step Operation
+
+
+
+
+                          Figure 9-6. Stepper Motor Half-Step Operation With Fast Decay
+
+
+
+26    Submit Document Feedback                                                 Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: DRV8411A
+                                                                                                                  DRV8411A
+www.ti.com                                                                         SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+
+
+                              Figure 9-7. Stepper Motor Half-Step Operation With Slow Decay
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                              Submit Document Feedback      27
+                                                  Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                   www.ti.com
+
+9.1.1.2 Dual BDC Motor Application
+Figure 9-8 shows the typical application of DRV8411A to drive two BDC motors.
+                                                                                            VM
+
+
+                                   VMCU                                                                      +     CBULK
+                                                                                                    100 nF
+                                                              VMCU                                                 10 µF
+                                                                                  DRV8411A
+                               Microcontroller
+
+
+
+
+                                                                                             VM
+                                                                                  NC                    NC
+                                   (MCU)      I                                   nFAULT             AOUT1   BDC
+                                        PWM                                       AIN1
+                                        PWM                                       AIN2               AOUT2
+                                          PWM                                     BIN1
+                                                                                                     BOUT1   BDC
+                                          PWM                                     BIN2
+                                             O                                                      BOUT2
+
+
+
+
+                                                                                            PPAD
+                                          ADC                                     AIPROPI           PGNDA
+
+
+
+
+                                                                                            GND
+                                          ADC                                     BIPROPI           PGNDB
+                                                  RIPROPI_A
+
+
+
+
+                                                                      RIPROPI_B
+
+
+
+                 Figure 9-8. Typical Application Schematic of Device Driving Two BDC Motors
+
+9.1.1.2.1 Design Requirements
+Table 9-2 lists the design input parameters for system design.
+                                                      Table 9-2. Design Parameters
+                 DESIGN PARAMETER                                                    REFERENCE                EXAMPLE VALUE
+                 Motor supply voltage                                                        VM                       7V
+                 Motor winding resistance                                                    RL                      7.8 Ω
+                 Motor winding inductance                                                    LL                     500 µH
+                 Motor RMS current                                                          IRMS                    600 mA
+                 Motor start-up current                                                     ISTART                  900 mA
+                 Target trip current                                                        ITRIP                     1A
+                 Trip current reference voltage (internal voltage)                          VTRIP                   200 mV
+
+
+9.1.1.2.2 Detailed Design Procedure
+9.1.1.2.2.1 Motor Voltage
+The motor voltage used in an application depends on the rating of the selected motor and the desired revolutions
+per minute (RPM). A higher voltage spins a brushed DC motor faster with the same PWM duty cycle applied
+to the power FETs. A higher voltage also increases the rate of current change through the inductive motor
+windings.
+9.1.1.2.2.2 Current Regulation
+The trip current (ITRIP) is the maximum current driven through either winding. Because the peak current (start
+current) of the motor is 900 mA, the ITRIP current level is selected to be just greater than the peak current. The
+selected ITRIP value for this example is 1 A. Therefore, use Equation 6 to select the value of the sense resistors
+(RAIPROPI and RBIPROPI) connected to the AIPROPI and BIPROPI pins.
+
+     RAIPROPI = RBIPROPI = VVREF (V) / [ITRIP (A) x AIPROPI (μA/A)] = 3.3 / [1 x 0.0002] = 16.5 kΩ                                               (6)
+9.1.1.2.3 Application Curves
+Ch 1 = AOUT2, Ch 2 = BIN2, Ch 3 = AIN1, Ch 4 = BOUT1, Ch 6 = AIN2, Ch 7 = AOUT12 current, Ch M7 =
+BOUT12 current
+
+28    Submit Document Feedback                                                                               Copyright © 2024 Texas Instruments Incorporated
+
+                                                              Product Folder Links: DRV8411A
+                                                                                                                      DRV8411A
+www.ti.com                                                                             SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+
+
+                                                  Figure 9-9. No Current Regulation
+
+
+
+
+                                                   Figure 9-10. Current Regulation
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                  Submit Document Feedback      29
+                                                      Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                        www.ti.com
+
+9.1.1.3 Thermal Considerations
+9.1.1.3.1 Maximum Output Current
+In actual operation, the maximum output current achievable with a motor driver is a function of die temperature.
+This, in turn, is greatly affected by ambient temperature and PCB design. Basically, the maximum motor current
+will be the amount of current that results in a power dissipation level that, along with the thermal resistance of the
+package and PCB, keeps the die at a low enough temperature to stay out of thermal shutdown.
+The dissipation ratings given in the data sheet can be used as a guide to calculate the approximate maximum
+power dissipation that can be expected to be possible without entering thermal shutdown for several different
+PCB constructions. However, for accurate data, the actual PCB design must be analyzed through measurement
+or thermal simulation.
+9.1.1.3.2 Power Dissipation
+Power dissipation in the device is dominated by the DC power dissipated in the output FET resistance, or
+RDS(ON). There is additional power dissipated due to PWM switching losses, which are dependent on PWM
+frequency, rise and fall times, and VM supply voltages.
+The DC power dissipation of one H-bridge can be roughly estimated by Equation 7.
+
+     3TOT      +6 ± 5DS(ON) u ,OUT(RMS)2      /6 ± 5DS(ON) u ,OUT(RMS)2
+                                                                                                                      (7)
+
+where
+•    PTOT is the total power dissipation
+•    HS - RDS(ON) is the resistance of the high-side FET
+•    LS - RDS(ON) is the resistance of the low-side FET
+•    IOUT(RMS) is the RMS output current being applied to the motor
+RDS(ON) increases with temperature, so as the device heats, the power dissipation increases. This must be taken
+into consideration when estimating the maximum output current.
+9.1.1.3.3 Thermal Performance
+The datasheet-specified junction-to-ambient thermal resistance, RθJA, is primarily useful for comparing various
+drivers or approximating thermal performance. However, the actual system performance may be better or worse
+than this value depending on PCB stackup, routing, number of vias, and copper area around the thermal
+pad. The length of time the driver drives a particular current will also impact power dissipation and thermal
+performance. This section considers how to design for steady-state and transient thermal conditions.
+The data in this section was simulated using the following criteria:
+HTSSOP (PWP package)
+•    2-layer PCB (size 114.3 x 76.2 x 1.6 mm), standard FR4, 1-oz (35 mm copper thickness) or 2-oz copper
+     thickness. Thermal vias are only present under the thermal pad (12 vias in 4 x 3 array, 1 mm pitch, 0.2 mm
+     diameter, 0.025 mm Cu plating).
+     – Top layer: HTSSOP package footprint and copper plane heatsink. Top layer copper area is varied in
+         simulation.
+     – Bottom layer: ground plane thermally connected through vias under the thermal pad for the driver. Bottom
+         layer copper area varies with top copper area.
+•    4-layer PCB (size 114.3 x 76.2 x 1.6 mm), standard FR4. Outer planes are 1-oz (35 mm copper thickness)
+     or 2-oz copper thickness. Inner planes are kept at 1-oz. Thermal vias are only present under the thermal pad
+     (12 vias in 4 x 3 array, 1 mm pitch, 0.2 mm diameter, 0.025 mm Cu plating).
+     – Top layer: HTSSOP package footprint and copper plane heatsink. Top layer copper area is varied in
+         simulation.
+     – Mid layer 1: GND plane thermally connected to thermal pad through vias. The area of the ground plane is
+         74.2 mm x 74.2 mm.
+     – Mid layer 2: power plane, no thermal connection. The area of the power plane is 74.2 mm x 74.2 mm.
+
+30    Submit Document Feedback                                                    Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: DRV8411A
+                                                                                                                        DRV8411A
+www.ti.com                                                                               SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+     – Bottom layer: signal layer with small copper pad underneath the driver and thermally connected through
+       via stitching from the TOP and internal GND plane. Bottom layer thermal pad is the same size as the
+       package (5 mm x 4.4 mm). Bottom pad size remains constant as top copper plane is varied.
+Figure 9-11 shows an example of the simulated board for the HTSSOP package. Table 9-3 shows the
+dimensions of the board that were varied for each simulation.
+
+
+
+
+                                              Figure 9-11. HTSSOP PCB model top layer
+
+                                          Table 9-3. Dimension A for 16-pin PWP package
+                  Cu area (cm2)                                                  Dimension A (mm)
+                         2                                                             16.43
+                         4                                                             22.23
+                         8                                                             30.59
+                        16                                                             42.37
+
+
+WQFN (RTE package)
+•    2-layer PCB (size 114.3 x 76.2 x 1.6 mm), standard FR4, 1-oz (35 mm copper thickness) or 2-oz copper
+     thickness. Thermal vias are only present under the package footprint (5 vias, 1 mm pitch, 0.2 mm diameter,
+     0.025 mm Cu plating).
+     – Top layer: WQFN package footprint and traces.
+     – Bottom layer: ground plane thermally connected through vias under the package footprint. Bottom layer
+         copper area is varied in simulation.
+•    4-layer PCB (size 114.3 x 76.2 x 1.6 mm), standard FR4. Outer planes are 1-oz (35 mm copper thickness)
+     or 2-oz copper thickness. Inner planes are kept at 1-oz. Thermal vias are only present under the package
+     footprint (5 vias, 1 mm pitch, 0.2 mm diameter, 0.025 mm Cu plating).
+     – Top layer: WQFN package footprint and traces.
+     – Mid layer 1: GND plane thermally connected under package footprint through vias. The area of the ground
+         plane is 74.2 mm x 74.2 mm.
+     – Mid layer 2: power plane, no thermal connection. The area of the power plane is 74.2 mm x 74.2 mm.
+     – Bottom layer: signal layer with small copper pad underneath the driver and thermally connected through
+         via stitching from the TOP and internal GND plane. Bottom layer thermal pad is 1.55 mm x 1.55 mm.
+         Bottom layer thermal pad is the same size as the package (3 mm x 3 mm). Bottom pad size remains
+         constant.
+Figure 9-12 shows an example of the simulated board for the HTSSOP package. Table 9-4 shows the
+dimensions of the board that were varied for each simulation.
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                     Submit Document Feedback     31
+                                                      Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                              www.ti.com
+
+
+
+
+                                                Figure 9-12. WQFN PCB model top layer
+
+                                             Table 9-4. Dimension A for 16-pin RTE package
+                         Cu area (cm2)                                                 Dimension A (mm)
+                                  2                                                         14.14
+                                  4                                                         20.00
+                                  8                                                         28.28
+                                  16                                                        40.00
+
+
+9.1.1.3.3.1 Steady-State Thermal Performance
+"Steady-state" conditions assume that the motor driver operates with a constant RMS current over a long
+period of time. The figures in this section show how RθJA and ΨJB (junction-to-board characterization parameter)
+change depending on copper area, copper thickness, and number of layers of the PCB. More copper area, more
+layers, and thicker copper planes decrease RθJA and ΨJB, which indicate better thermal performance from the
+PCB layout.
+                         90
+                                                                                                                        4 layer, 2 oz
+                                                                                                                        4 layer, 1 oz
+                         80                                                                                             2 layer, 2 oz
+                                                                                                                        2 layer, 1 oz
+
+
+                         70
+           RJA (C/W)
+
+
+
+
+                         60
+
+
+                         50
+
+
+                         40
+
+
+                         30
+
+
+                         20
+                              2          4          6            8                10            12                14                16
+                                                                  Copper area (cm2)
+
+                         Figure 9-13. HTSSOP, PCB junction-to-ambient thermal resistance vs copper area
+
+
+
+
+32    Submit Document Feedback                                                                       Copyright © 2024 Texas Instruments Incorporated
+
+                                                        Product Folder Links: DRV8411A
+                                                                                                                                       DRV8411A
+www.ti.com                                                                                        SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+                           17
+                                                                                                                      4 layer, 2 oz
+                                                                                                                      4 layer, 1 oz
+                                                                                                                      2 layer, 2 oz
+                           16                                                                                         2 layer, 1 oz
+
+
+
+                           15
+             JB (C/W)
+
+
+
+
+                           14
+
+
+
+                           13
+
+
+
+                           12
+
+
+
+                           11
+                                2       4          6                 8                10          12            14                16
+                                                                      Copper area (cm2)
+
+                           Figure 9-14. HTSSOP, junction-to-board characterization parameter vs copper area
+                           120
+                                                                                                                      2 layer, 2 oz
+                           115                                                                                        2 layer, 1 oz
+
+
+                           110
+
+                           105
+
+                           100
+             RJA (C/W)
+
+
+
+
+                            95
+
+                            90
+
+                            85
+
+                            80
+
+                            75
+
+                            70
+                                 2      4           6                 8                 10         12            14               16
+                                                                 Bottom layer copper area (cm2)
+
+                            Figure 9-15. WQFN, PCB junction-to-ambient thermal resistance vs copper area
+                           34.5
+                                                                                                                      2 layer, 2 oz
+                            34                                                                                        2 layer, 1 oz
+
+                           33.5
+
+                            33
+
+                           32.5
+
+                            32
+             JB (C/W)
+
+
+
+
+                           31.5
+
+                            31
+
+                           30.5
+
+                            30
+
+                           29.5
+
+                            29
+
+                           28.5
+                                    2       4          6              8                 10         12            14               16
+                                                                 Bottom layer copper area (cm2)
+
+                            Figure 9-16. WQFN, junction-to-board characterization parameter vs copper area
+
+Copyright © 2024 Texas Instruments Incorporated                                                             Submit Document Feedback         33
+                                                           Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                               www.ti.com
+
+9.1.1.3.3.2 Transient Thermal Performance
+The motor driver may experience different transient driving conditions that cause large currents to flow for a
+short duration of time. These may include -
+•    Motor start-up when the rotor is initially stationary.
+•    Fault conditions when there is a supply or ground short to one of the motor outputs, and the overcurrent
+     protection triggers.
+•    Briefly energizing a motor or solenoid for a limited time, then de-energizing.
+For these transient cases, the duration of drive time is another factor that impacts thermal performance in
+addition to copper area and thickness. In transient cases, the thermal impedance parameter ZθJA denotes the
+junction-to-ambient thermal performance. The figures in this section show the simulated thermal impedances for
+1-oz and 2-oz copper layouts for the HTSSOP and WQFN packages. These graphs indicate better thermal
+performance with short current pulses. For short periods of drive time, the device die size and package
+dominates the thermal performance. For longer drive pulses, board layout has a more significant impact on
+thermal performance. Both graphs show the curves for thermal impedance split due to number of layers and
+copper area as the duration of the drive pulse duration increases. Long pulses can be considered steady-state
+performance.
+                         100
+                                  2 layer, 4 cm2
+                          70      4 layer, 4 cm2
+                                  2 layer, 8 cm2
+                          50      4 layer, 8 cm2
+                          40      2 layer, 16 cm2
+                          30      4 layer, 16 cm2
+
+                          20
+           ZJA (C/W)
+
+
+
+
+                          10
+
+                          7
+                          5
+                          4
+                          3
+
+                          2
+
+
+
+                          1
+                          0.001 0.002   0.005 0.01   0.02   0.05   0.1   0.2 0.3 0.50.7 1       2 3 4 5 6 78 10   20 30   50 70 100   200300 500   1000
+                                                                                 Pulse duration (s)
+
+       Figure 9-17. HTSSOP package junction-to-ambient thermal impedance for 1-oz copper layouts
+                         100
+                                  2 layer, 4 cm2
+                          70      4 layer, 4 cm2
+                                  2 layer, 8 cm2
+                          50      4 layer, 8 cm2
+                          40      2 layer, 16 cm2
+                          30      4 layer, 16 cm2
+
+                          20
+           ZJA (C/W)
+
+
+
+
+                          10
+
+                          7
+                          5
+                          4
+                          3
+
+                          2
+
+
+
+                          1
+                          0.001 0.002   0.005 0.01   0.02   0.05   0.1   0.2 0.3 0.50.7 1       2 3 4 5 6 78 10   20 30   50 70 100   200300 500   1000
+                                                                                 Pulse duration (s)
+
+       Figure 9-18. HTSSOP package junction-to-ambient thermal impedance for 2-oz copper layouts
+
+
+34    Submit Document Feedback                                                                                      Copyright © 2024 Texas Instruments Incorporated
+
+                                                                   Product Folder Links: DRV8411A
+                                                                                                                                                            DRV8411A
+www.ti.com                                                                                                          SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+                           200
+                                    2 layer, 4 cm2
+                                    2 layer, 8 cm2
+                           100      2 layer, 16 cm2
+                            70
+                            50
+                            40
+                            30
+             ZJA (C/W)
+
+
+
+
+                            20
+
+
+                            10
+                            7
+                            5
+                            4
+                            3
+
+                            2
+
+
+                            1
+                            0.001 0.002   0.005 0.01   0.02   0.05   0.1   0.2 0.3 0.50.7 1       2 3 4 5 6 78 10   20 30   50 70 100   200300 500   1000
+                                                                                   Pulse duration (s)
+
+          Figure 9-19. WQFN package junction-to-ambient thermal impedance for 1-oz copper layouts
+                           100
+                                    2 layer, 4 cm2
+                            70      2 layer, 8 cm2
+                                    2 layer, 16 cm2
+                            50
+                            40
+                            30
+
+                            20
+             ZJA (C/W)
+
+
+
+
+                            10
+
+                            7
+                            5
+                            4
+                            3
+
+                            2
+
+
+
+                            1
+                            0.001 0.002   0.005 0.01   0.02   0.05   0.1   0.2 0.3 0.50.7 1       2 3 4 5 6 78 10   20 30   50 70 100   200300 500   1000
+                                                                                   Pulse duration (s)
+
+          Figure 9-20. WQFN package junction-to-ambient thermal impedance for 2-oz copper layouts
+
+9.2 Power Supply Recommendations
+9.2.1 Bulk Capacitance
+Having an appropriate local bulk capacitance is an important factor in motor drive system design. It is generally
+beneficial to have more bulk capacitance, while the disadvantages are increased cost and physical size.
+The amount of local capacitance needed depends on a variety of factors, including:
+• The highest current required by the motor system
+• The capacitance and ability to source current
+• The amount of parasitic inductance between the power supply and motor system
+• The acceptable voltage ripple
+• The type of motor used (brushed DC, brushless DC, stepper)
+• The motor braking method
+The inductance between the power supply and the motor drive system limits the rate current can change from
+the power supply. If the local bulk capacitance is too small, the system responds to excessive current demands
+or dumps from the motor with a change in voltage. When adequate bulk capacitance is used, the motor voltage
+remains stable and high current can be quickly supplied.
+
+Copyright © 2024 Texas Instruments Incorporated                                                                                 Submit Document Feedback          35
+                                                                     Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                           www.ti.com
+
+
+The data sheet generally provides a recommended value, but system-level testing is required to determine the
+appropriate sized bulk capacitor.
+
+                                          Parasitic Wire
+                                           Inductance
+                 Power Supply                                              Motor Drive System
+
+                                                                                           VM
+
+
+
+                        +                                            +                               Motor
+                        ±                                                                            Driver
+
+                                                                                         GND
+
+
+                                                                  Local           IC Bypass
+                                                              Bulk Capacitor      Capacitor
+
+
+                Figure 9-21. Example Setup of Motor Drive System With External Power Supply
+
+The voltage rating for bulk capacitors should be higher than the operating voltage, to provide margin for cases
+when the motor transfers energy to the supply.
+9.2.2 Power Supply and Logic Sequencing
+There is no specific sequence for powering up the DRV8411A. The presence of digital input signals is
+acceptable before VM is applied. After VM is applied to the DRV8411A, the device begins operation based
+on the status of the control pins.
+9.3 Layout
+9.3.1 Layout Guidelines
+Since the DRV8411A device has integrated power MOSFETs capable of driving high current, careful attention
+should be paid to the layout design and external component placement. Some design and layout guidelines
+are provided below. For more information on layout recommendations, please see the application note Best
+Practices for Board Layout of Motor Drivers.
+•    Low ESR ceramic capacitors should be utilized for the VM-to-GND. X5R and X7R types are recommended.
+•    The VM power supply capacitor should be placed as close to the device as possible to minimize the loop
+     inductance.
+•    The VM power supply bulk capacitor can be of ceramic or electrolytic type, but should also be placed as
+     close as possible to the device to minimize the loop inductance.
+•    VM, xOUTx, and GND pins carry the high current from the power supply to the outputs and back to ground.
+     Thick metal routing should be utilized for these traces as is feasible.
+•    GND should connect directly on the PCB ground plane.
+•    The device thermal pad should be attached to the PCB top layer ground plane and internal ground plane
+     (when available) through thermal vias to maximize the PCB heat sinking.
+•    The copper plane area attached to the thermal pad should be maximized to ensure optimal heat sinking.
+
+
+
+
+36    Submit Document Feedback                                                       Copyright © 2024 Texas Instruments Incorporated
+
+                                                Product Folder Links: DRV8411A
+                                                                                                                                                      DRV8411A
+www.ti.com                                                                                                           SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+9.3.2 Layout Example
+
+
+
+
+                                             VREF               1                                         16              AIN1
+
+                                                  AOUT1         2                                         15              AIN2
+
+                                                  PGNDA         3                                         14         AIPROPI
+                                                                                                                                    RAIPROPI
+                                                  AOUT2         4                    Thermal              13         GND
+
+                                                  BOUT2                                Pad                                       100 nF
+                                                                5                                         12         VM
+
+                                                  PGNDB         6                                         11         BIPROPI
+
+                                                  BOUT1                                                                                   CBULK
+                                                                7                                         10              BIN2
+                                                                                                                                   RBIPROPI
+                                                  nFAULT        8                                          9              BIN1
+
+
+
+                                              VMCU
+
+
+
+
+                        Figure 9-22. Recommended Layout Example for PWP (HTSSOP) Package
+                                                                            VREF
+
+                                                                                       AIN1
+
+                                                                                              AIN2
+                                                                    AOUT1
+
+
+
+
+                                                     GND                                                                    GND
+                                                                    16
+
+                                                                            15
+
+                                                                                       14
+
+                                                                                              13
+
+
+
+
+                                                  APGND         1                                    12        AIPROPI
+                                                                                                                                  RAIPROPI
+                                                  AOUT2         2           Thermal                  11        GND    100 nF
+
+                                                  BOUT2         3               Pad                  10        VM
+                                                                                                                                  GND
+                                                  BPGND         4                                     9        BIPROPI
+                                                                                                                    CBULK         RBIPROPI
+                                                                    5
+
+                                                                            6
+
+                                                                                       7
+
+                                                                                              8
+                                                                    BOUT1
+
+                                                                            nFAULT
+
+                                                                                       BIN1
+
+                                                                                              BIN2
+
+
+
+
+                                                     GND                                                                    GND
+
+
+
+
+                                                                            VMCU
+
+                          Figure 9-23. Recommended Layout Example for RTE (WQFN) Package
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                                                    Submit Document Feedback   37
+                                                           Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                    www.ti.com
+
+10 Device and Documentation Support
+10.1 Documentation Support
+10.1.1 Related Documentation
+For related documentation see the following:
+• Texas Instruments, Calculating Motor Driver Power Dissipation application report
+• Texas Instruments, PowerPAD™ Made Easy application report application report
+• Texas Instruments, PowerPAD™ Thermally Enhanced Package application report
+• Texas Instruments, Understanding Motor Driver Current Ratings application report
+• Texas Instruments, Best Practices for Board Layout of Motor Drivers application report
+10.2 Receiving Notification of Documentation Updates
+To receive notification of documentation updates, navigate to the device product folder on ti.com. In the upper
+right corner, click on Subscribe to updates to register and receive a weekly digest of any product information that
+has changed. For change details, review the revision history included in any revised document.
+10.3 Community Resources
+TI E2E™ support forums are an engineer's go-to source for fast, verified answers and design help — straight
+from the experts. Search existing answers or ask your own question to get the quick design help you need.
+Linked content is provided "AS IS" by the respective contributors. They do not constitute TI specifications and do
+not necessarily reflect TI's views; see TI's Terms of Use.
+10.4 Trademarks
+All trademarks are the property of their respective owners.
+
+11 Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+
+Changes from Revision A (October 2022) to Revision B (July 2023)                                                                                     Page
+• Removed the referenced to Thin-SOT (16) Package throughout the data sheet. ............................................. 1
+• Added current regulation note.......................................................................................................................... 14
+
+
+
+Changes from Revision * (October 2022) to Revision A (July 2023)                                                                  Page
+• Update BODY SIZE (NOM) in Device Information table.................................................................................... 1
+
+
+
+
+38     Submit Document Feedback                                                                             Copyright © 2024 Texas Instruments Incorporated
+
+                                                           Product Folder Links: DRV8411A
+                                                                                                                  DRV8411A
+www.ti.com                                                                         SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+12 Mechanical, Packaging, and Orderable Information
+The following pages include mechanical, packaging, and orderable information. This information is the most
+current data available for the designated devices. This data is subject to change without notice and revision of
+this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                              Submit Document Feedback      39
+                                                  Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                                                            www.ti.com
+
+
+
+
+                                                                                                                                      PACKAGE OUTLINE
+              PWP0016-C01                                               SCALE 2.500
+                                                                                                                         TM
+                                                                                                   PowerPAD TSSOP - 1.2 mm max height
+                                                                                                                                                  SMALL OUTLINE PACKAGE
+
+
+
+                                               6.6                                                                                           C
+                                                   TYP
+                         A                     6.2
+                                                               PIN 1 INDEX                                                            0.1 C
+                                                               AREA                                         14X 0.65                                             SEATING
+                                                                                                 16                                                              PLANE
+                                1
+
+
+
+
+                                                                                                           2X
+                       5.1
+                                                                                                           4.55
+                       4.9
+                      NOTE 3
+
+
+
+
+                                8
+                                                                                             9
+                                                                                                                  0.30
+                                                         4.5                                                16X
+                                    B                                                                             0.19
+                                                         4.3
+                                                                                                                  0.1     C A B
+                         SEE DETAIL A
+
+
+
+                                                                                                                         ALTERNATE THERMAL PAD DIMENSIONS
+                                                                                                                              OPTION              DIM A              DIM B
+                                                                                                                                                 (MAX/MIN)          (MAX/MIN)
+
+                                                                                                                                 01              2.46/1.75          2.31/1.75
+                                                                                      (0.15) TYP                                 02               2.5/1.8           2.64/1.94
+                                        2X 0.95 MAX
+                                             NOTE 5                 4X (0.3)
+                                8                                                                  9
+                                                                                                           2X 0.23 MAX
+                                                                                                           NOTE 5
+
+
+
+
+                                                         17
+                        DIM B                                                                                  0.25
+                                                                                                        GAGE PLANE                                                         1.2 MAX
+
+
+
+
+                                                                                                                                      0.75                                      0.15
+                                1                                                                  16       0 -8                      0.50                                      0.05
+                                                                                                                                                    DETAIL A
+                                                                                                                                                          A 20
+
+
+
+
+                             THERMAL                                                                                                                 TYPICAL
+                                                       DIM A
+                                 PAD
+
+                                                                                                                                                                 4229315/A 12/2022
+                                                                                                                              PowerPAD is a trademark of Texas Instruments.
+              NOTES:
+
+              1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+                 per ASME Y14.5M.
+              2. This drawing is subject to change without notice.
+              3. This dimension does not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not
+                 exceed 0.15 mm per side.
+              4. Reference JEDEC registration MO-153.
+              5. Features may differ or may not be present.
+
+
+
+
+                                                                                             www.ti.com
+
+
+
+
+40    Submit Document Feedback                                                                                                               Copyright © 2024 Texas Instruments Incorporated
+
+                                                                Product Folder Links: DRV8411A
+                                                                                                                                                                 DRV8411A
+www.ti.com                                                                                                           SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024
+
+
+
+
+                                                                                                           EXAMPLE BOARD LAYOUT
+                 PWP0016-C01                                                                                 TM
+                                                                                            PowerPAD TSSOP - 1.2 mm max height
+                                                                                                                              SMALL OUTLINE PACKAGE
+
+
+
+
+                                                                                         (3.4)
+                                                                                        NOTE 9
+                                                                                         (2.5)
+                                            16X (1.5)
+                                                                                        SYMM                  METAL COVERED
+                                                                                                              BY SOLDER MASK
+                                                         1
+                                          16X (0.45)                                                                 16         (1.2) TYP
+
+
+
+                                     (R0.05) TYP
+
+                                        SYMM                                                17                                      (2.64)
+                                                                                                                                               (5)
+                                                                                                                            (0.6)            NOTE 9
+                                            14X (0.65)
+
+
+
+                                      ( 0.2) TYP
+                                              VIA        8                                                           9
+
+                                      SOLDER MASK                                                (1) TYP
+                                       DEFINED PAD                                                                       SEE DETAILS
+                                                                                         (5.8)
+
+                                                                     LAND PATTERN EXAMPLE
+                                                                        EXPOSED METAL SHOWN
+                                                                             SCALE: 10X
+
+
+
+
+                                 SOLDER MASK                                                      METAL UNDER                 SOLDER MASK
+                                                                  METAL
+                                     OPENING                                                      SOLDER MASK                 OPENING
+
+
+                        EXPOSED METAL                                                                                                    EXPOSED METAL
+
+                                                    0.05 MAX                                                        0.05 MIN
+                                                    ALL AROUND                                                      ALL AROUND
+
+                                             NON-SOLDER MASK                                                      SOLDER MASK
+                                                 DEFINED                                                            DEFINED
+                                                                       SOLDER MASK DETAILS
+                                                                               15.000
+
+
+
+
+                                                                                                                                             4229315/A 12/2022
+                NOTES: (continued)
+
+                 6. Publication IPC-7351 may have alternate designs.
+                 7. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+                 8. This package is designed to be soldered to a thermal pad on the board. For more information, see Texas Instruments literature
+                    numbers SLMA002 (www.ti.com/lit/slma002) and SLMA004 (www.ti.com/lit/slma004).
+                 9. Size of metal pad may vary due to creepage requirement.
+                10. Vias are optional depending on application, refer to device data sheet. It is recommended that vias under paste be filled, plugged
+                    or tented.
+
+
+
+
+                                                                                         www.ti.com
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                                                        Submit Document Feedback        41
+                                                                Product Folder Links: DRV8411A
+DRV8411A
+SLVSGI9B – OCTOBER 2022 – REVISED JULY 2024                                                                                                          www.ti.com
+
+
+
+
+                                                                                            EXAMPLE STENCIL DESIGN
+              PWP0016-C01                                                                          TM
+                                                                                  PowerPAD TSSOP - 1.2 mm max height
+                                                                                                                       SMALL OUTLINE PACKAGE
+
+
+
+
+                                                                               (2.5)
+                                                                            BASED ON
+                                         16X (1.5)                                                      METAL COVERED
+                                                                           0.125 THICK
+                                                                             STENCIL                    BY SOLDER MASK
+                                                     1
+                                        16X (0.45)                                                            16
+
+
+
+                                   (R0.05) TYP
+
+                                                                                                                      (2.64)
+                                      SYMM                                         17                               BASED ON
+                                                                                                                   0.125 THICK
+                                                                                                                     STENCIL
+                                        14X (0.65)
+
+
+
+
+                                                     8                                                        9
+
+                                                                              SYMM                            SEE TABLE FOR
+                                                                                                              DIFFERENT OPENINGS
+                                                                                                              FOR OTHER STENCIL
+                                                                               (5.8)                          THICKNESSES
+
+                                                                 SOLDER PASTE EXAMPLE
+                                                               BASED ON 0.125 mm THICK STENCIL
+                                                                         SCALE: 10X
+
+
+
+
+                                                                STENCIL          SOLDER STENCIL
+                                                               THICKNESS            OPENING
+                                                                   0.1                2.80 X 2.95
+                                                                  0.125          2.5 X 2.64 (SHOWN)
+                                                                  0.15                2.28 X 2.41
+                                                                  0.175               2.11 X 2.23
+
+
+
+
+                                                                                                                                 4229315/A 12/2022
+              NOTES: (continued)
+
+              11. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+                  design recommendations.
+              12. Board assembly site may have different recommendations for stencil design.
+
+
+
+
+                                                                               www.ti.com
+
+
+
+
+42    Submit Document Feedback                                                                                     Copyright © 2024 Texas Instruments Incorporated
+
+                                                             Product Folder Links: DRV8411A
+                                                                                                                                                                      PACKAGE OPTION ADDENDUM
+
+       www.ti.com                                                                                                                                                                                                   23-May-2025
+
+
+
+
+PACKAGING INFORMATION
+
+       Orderable part number          Status     Material type      Package | Pins      Package qty | Carrier        RoHS             Lead finish/              MSL rating/               Op temp (°C)          Part marking
+                                        (1)            (2)                                                             (3)            Ball material             Peak reflow                                           (6)
+                                                                                                                                            (4)                      (5)
+
+          DRV8411APWPR                Active      Production     HTSSOP (PWP) | 16       3000 | LARGE T&R             Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125               8411A
+         DRV8411APWPR.A               Active      Production     HTSSOP (PWP) | 16       3000 | LARGE T&R             Yes                NIPDAU            Level-3-260C-168 HR             -40 to 125               8411A
+          DRV8411ARTER                Active      Production       WQFN (RTE) | 16       5000 | LARGE T&R             Yes                NIPDAU            Level-1-260C-UNLIM              -40 to 125               8411A
+         DRV8411ARTER.A               Active      Production       WQFN (RTE) | 16       5000 | LARGE T&R             Yes                NIPDAU            Level-1-260C-UNLIM              -40 to 125               8411A
+
+(1)
+      Status: For more details on status, see our product life cycle.
+
+(2)
+   Material type: When designated, preproduction parts are prototypes/experimental devices, and are not yet approved or released for full production. Testing and final process, including without limitation quality assurance,
+reliability performance testing, and/or process qualification, may not yet be complete, and this item is subject to further changes or possible discontinuation. If available for ordering, purchases will be subject to an additional
+waiver at checkout, and are intended for early internal evaluation purposes only. These items are sold without warranties of any kind.
+
+(3)
+      RoHS values: Yes, No, RoHS Exempt. See the TI RoHS Statement for additional information and value definition.
+
+(4)
+   Lead finish/Ball material: Parts may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum
+column width.
+
+(5)
+  MSL rating/Peak reflow: The moisture sensitivity level ratings and peak solder (reflow) temperatures. In the event that a part has multiple moisture sensitivity ratings, only the lowest level per JEDEC standards is shown.
+Refer to the shipping label for the actual reflow temperature that will be used to mount the part to the printed circuit board.
+
+(6)
+      Part marking: There may be an additional marking, which relates to the logo, the lot trace code information, or the environmental category of the part.
+
+Multiple part markings will be inside parentheses. Only one part marking contained in parentheses and separated by a "~" will appear on a part. If a line is indented then it is a continuation of the previous line and the two
+combined represent the entire part marking for that device.
+
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and
+makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative
+and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers
+and other limited information may not be available for release.
+
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.
+
+
+
+
+                                                                                                          Addendum-Page 1
+                                                                                PACKAGE MATERIALS INFORMATION
+
+www.ti.com                                                                                                                                        24-Jul-2025
+
+
+
+TAPE AND REEL INFORMATION
+
+       REEL DIMENSIONS                                                                       TAPE DIMENSIONS
+                                                                                        K0       P1
+
+
+
+                                                                                                                       B0 W
+                                         Reel
+                                       Diameter
+                                                                                     Cavity           A0
+                                                                 A0   Dimension designed to accommodate the component width
+                                                                 B0   Dimension designed to accommodate the component length
+                                                                 K0   Dimension designed to accommodate the component thickness
+                                                                 W    Overall width of the carrier tape
+                                                                 P1   Pitch between successive cavity centers
+
+
+                                        Reel Width (W1)
+                              QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+
+                                                                                                      Sprocket Holes
+
+
+                                                  Q1        Q2          Q1    Q2
+
+                                                  Q3        Q4          Q3    Q4                  User Direction of Feed
+
+
+
+                                                             Pocket Quadrants
+
+
+*All dimensions are nominal
+             Device           Package Package Pins               SPQ       Reel   Reel   A0                  B0         K0     P1     W     Pin1
+                               Type Drawing                              Diameter Width (mm)                (mm)       (mm)   (mm)   (mm) Quadrant
+                                                                           (mm) W1 (mm)
+    DRV8411APWPR              HTSSOP     PWP           16        3000        330.0        12.4        6.9    5.6       1.6    8.0    12.0    Q1
+     DRV8411ARTER             WQFN       RTE           16        5000        330.0        12.4        3.3    3.3       1.1    8.0    12.0    Q2
+
+
+
+
+                                                                       Pack Materials-Page 1
+                                                                PACKAGE MATERIALS INFORMATION
+
+www.ti.com                                                                                                              24-Jul-2025
+
+
+
+ TAPE AND REEL BOX DIMENSIONS
+
+
+
+
+                                                               Width (mm)
+                                                                              H
+                      W
+
+
+
+
+                                                          L
+
+
+
+
+*All dimensions are nominal
+             Device           Package Type   Package Drawing   Pins         SPQ    Length (mm)   Width (mm)   Height (mm)
+     DRV8411APWPR               HTSSOP            PWP           16          3000      353.0        353.0         32.0
+     DRV8411ARTER                WQFN             RTE           16          5000      367.0        367.0         35.0
+
+
+
+
+                                                        Pack Materials-Page 2
+                                                                  GENERIC PACKAGE VIEW
+RTE 16                                                                  WQFN - 0.8 mm max height
+3 x 3, 0.5 mm pitch                                                         PLASTIC QUAD FLATPACK - NO LEAD
+
+
+
+
+               This image is a representation of the package family, actual package may vary.
+                             Refer to the product data sheet for package details.
+
+
+
+
+                                                                                                   4225944/A
+
+
+
+
+                                                    www.ti.com
+                                                                                                                    PACKAGE OUTLINE
+RTE0016C                                                             SCALE 3.600
+                                                                                                                 WQFN - 0.8 mm max height
+                                                                                                                    PLASTIC QUAD FLATPACK - NO LEAD
+
+
+
+
+                                                       3.1                                      B
+                                  A
+                                                       2.9
+
+
+
+
+               PIN 1 INDEX AREA
+                                                                                                3.1
+                                                                                                2.9
+
+
+
+
+                                                                                                                                SIDE WALL
+                                                                                                                            METAL THICKNESS
+                                                                                                                                   DIM A
+                                                                                                                           OPTION 1     OPTION 2
+                                                                                                                             0.1          0.2
+                                                                                                      C
+                        0.8 MAX
+
+                                                                                                            SEATING PLANE
+                           0.05
+                           0.00                                                                             0.08
+
+
+
+
+                                                     1.68 0.07                                                                           (DIM A) TYP
+                                            5                                      8
+                                                                                              EXPOSED
+                                                                                              THERMAL PAD
+                      12X 0.5
+                                      4
+                                                                                         9
+
+                           4X                             17                                 SYMM
+                           1.5
+
+
+
+                                      1
+                                                                                         12
+                                                                                                          0.30
+                                                                                                    16X
+                                                                                                          0.18
+                        PIN 1 ID                16               13                                       0.1      C A B
+                     (OPTIONAL)                      SYMM
+                                                                                                          0.05
+
+                                                               0.5
+                                                        16X
+                                                               0.3
+
+                                                                                                                                    4219117/B 04/2022
+
+NOTES:
+
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+   per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. The package thermal pad must be soldered to the printed circuit board for thermal and mechanical performance.
+
+
+
+
+                                                                                   www.ti.com
+                                                                                        EXAMPLE BOARD LAYOUT
+RTE0016C                                                                                         WQFN - 0.8 mm max height
+                                                                                                          PLASTIC QUAD FLATPACK - NO LEAD
+
+
+
+
+                                                                    ( 1.68)
+                                                                     SYMM
+                                                         16                      13
+
+
+                             16X (0.6)
+
+                                          1
+                                                                                                     12
+
+                        16X (0.24)
+                                                                         17                                        SYMM
+                                                                                                                          (2.8)
+                                                                                                          (0.58)
+                                                                                                           TYP
+                            12X (0.5)
+                                                                                                     9
+                                          4
+
+                            ( 0.2) TYP
+                                    VIA
+
+
+                                                         5                        8
+                              (R0.05)                  (0.58) TYP
+                    ALL PAD CORNERS
+                                                                     (2.8)
+
+
+                                                     LAND PATTERN EXAMPLE
+                                                        EXPOSED METAL SHOWN
+                                                             SCALE:20X
+
+
+
+
+                            0.07 MAX                                                      0.07 MIN
+                        ALL AROUND                                                    ALL AROUND
+
+                                                                                                                    SOLDER MASK
+                                                     METAL                                                          OPENING
+
+
+                     EXPOSED                                                     EXPOSED
+                                                      SOLDER MASK                  METAL                              METAL UNDER
+                       METAL
+                                                      OPENING                                                         SOLDER MASK
+
+                               NON SOLDER MASK
+                                                                                              SOLDER MASK
+                                   DEFINED
+                                                                                                DEFINED
+                                 (PREFERRED)
+
+                                                             SOLDER MASK DETAILS
+                                                                                                                                  4219117/B 04/2022
+
+NOTES: (continued)
+
+4. This package is designed to be soldered to a thermal pad on the board. For more information, see Texas Instruments literature
+   number SLUA271 (www.ti.com/lit/slua271).
+5. Vias are optional depending on application, refer to device data sheet. If any vias are implemented, refer to their locations shown
+   on this view. It is recommended that vias under paste be filled, plugged or tented.
+
+
+
+
+                                                                       www.ti.com
+                                                                              EXAMPLE STENCIL DESIGN
+RTE0016C                                                                                 WQFN - 0.8 mm max height
+                                                                                              PLASTIC QUAD FLATPACK - NO LEAD
+
+
+
+
+                                                            ( 1.55)
+                                              16                                  13
+
+
+
+
+                   16X (0.6)
+
+                               1
+                                                                                                 12
+
+              16X (0.24)
+
+                                                                  17                                  SYMM
+                                                                                                             (2.8)
+
+
+
+                   12X (0.5)
+
+                                                                                                 9
+                               4
+
+
+                       METAL
+                  ALL AROUND
+
+
+                                                   5                          8
+                                                             SYMM
+                     (R0.05) TYP
+
+                                                              (2.8)
+
+
+                                                SOLDER PASTE EXAMPLE
+                                              BASED ON 0.125 mm THICK STENCIL
+
+                                                     EXPOSED PAD 17:
+                                   85% PRINTED SOLDER COVERAGE BY AREA UNDER PACKAGE
+                                                        SCALE:25X
+
+
+
+
+                                                                                                                     4219117/B 04/2022
+
+NOTES: (continued)
+
+6. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+  design recommendations.
+
+
+
+
+                                                                 www.ti.com
+                                       IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATA SHEETS), DESIGN RESOURCES (INCLUDING REFERENCE
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS”
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you
+will fully indemnify TI and its representatives against, any claims, damages, costs, losses, and liabilities arising out of your use of these
+resources.
+TI’s products are provided subject to TI’s Terms of Sale or other applicable terms available either on ti.com or provided in conjunction with
+such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable warranties or warranty disclaimers for
+TI products.
+TI objects to and rejects any additional or different terms you may have proposed. IMPORTANT NOTICE
+
+                              Mailing Address: Texas Instruments, Post Office Box 655303, Dallas, Texas 75265
+                                             Copyright © 2025, Texas Instruments Incorporated
+

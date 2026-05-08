@@ -1,0 +1,10 @@
+Improvements:
+
+- Paper structure revised (reviewer: too much like technical report)
+- Added functional block diagram (reviewer: clarity/structure)
+- Added Results section with subsystem status table (reviewer: missing evaluation)
+- More references (datasheets, application notes, prior work)
+- References now link to specific sources (reviewer: insufficient referencing)
+- Technical terms/acronyms clarified (reviewer: unclear abbreviations)
+- More precise technical details (components, interfaces)
+- Limitations and open issues explicitly described
