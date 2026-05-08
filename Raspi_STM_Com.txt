@@ -1,0 +1,86 @@
+```python
+#!/usr/bin/env python3
+
+import serial
+import time
+
+# UART öffnen
+ser = serial.Serial(
+    port='/dev/serial0',   # GPIO14 TX / GPIO15 RX
+    baudrate=115200,
+    timeout=0.1
+)
+
+print("UART verbunden")
+
+try:
+    while True:
+
+        # Beispiel:
+        # M Motor1 Motor2 Motor3 Motor4 Motor5 Motor6
+        #
+        # Werte:
+        # -100 bis +100
+        #
+        # Beispiel:
+        # Motor1 vorwärts 50%
+        # Motor2 rückwärts 30%
+        # Rest stop
+
+        command = "M 50 -30 0 0 0 0\r\n"
+
+        ser.write(command.encode())
+	print("Gesendet:", command.strip())
+
+	for _ in range(3):
+    		line = ser.readline().decode(errors="ignore").strip()
+    		if line:
+        		print("Empfangen:", line)
+	
+	time.sleep(1)
+
+
+except KeyboardInterrupt:
+    print("\nBeendet")
+
+finally:
+    ser.close()
+```
+
+Benötigt:
+
+```bash
+pip install pyserial
+```
+
+UART am Raspberry Pi aktivieren:
+
+```bash
+sudo raspi-config
+```
+
+Dann:
+
+* Interface Options
+* Serial Port
+* Login shell: **No**
+* Serial hardware: **Yes**
+
+Danach reboot:
+
+```bash
+sudo reboot
+```
+
+Testen:
+
+```bash
+python3 motor_uart.py
+```
+
+Der STM32 sollte dann z. B. senden:
+
+```text
+STM32 booted, PWM active
+ENC 0 0 0 0 0 0 ADC 123 456 789 1000 2000
+```
