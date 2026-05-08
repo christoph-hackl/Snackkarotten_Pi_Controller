@@ -22,6 +22,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <stdio.h>
+#include <stdlib.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,6 +38,8 @@
 #define PWM_PERIOD_TICKS        2559U
 #define PWM_MAX_DUTY_TICKS      PWM_PERIOD_TICKS
 #define UART_HEARTBEAT_MS       1000U
+#define ADC_CHANNEL_COUNT       5U
+#define PI_UART_RX_BUFFER_SIZE  64U
 
 /* USER CODE END PD */
 
@@ -45,8 +50,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
-
-SPI_HandleTypeDef hspi2;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
@@ -64,6 +67,16 @@ typedef struct
   uint32_t in2_channel;
 } MotorChannel_t;
 
+typedef struct
+{
+  GPIO_TypeDef *a_port;
+  uint16_t a_pin;
+  GPIO_TypeDef *b_port;
+  uint16_t b_pin;
+  volatile int32_t count;
+  uint8_t last_state;
+} EncoderChannel_t;
+
 static const MotorChannel_t motors[] =
 {
   /* Motor 1: U500 A bridge, Motor_10/Motor_11 */
@@ -80,12 +93,27 @@ static const MotorChannel_t motors[] =
   { &htim2, TIM_CHANNEL_3, &htim2, TIM_CHANNEL_1 },
 };
 
+static EncoderChannel_t encoders[] =
+{
+  /* Encoder 1: MotEnc_10/MotEnc_11 */
+  { GPIOC, GPIO_PIN_14, GPIOC, GPIO_PIN_15, 0, 0U },
+  /* Encoder 2: MotEnc_20/MotEnc_21 */
+  { GPIOC, GPIO_PIN_13, GPIOB, GPIO_PIN_8, 0, 0U },
+  /* Encoder 3: MotEnc_30/MotEnc_31 */
+  { GPIOB, GPIO_PIN_6, GPIOB, GPIO_PIN_7, 0, 0U },
+  /* Encoder 4: MotEnc_40/MotEnc_41 */
+  { GPIOB, GPIO_PIN_5, GPIOB, GPIO_PIN_4, 0, 0U },
+  /* Encoder 5: MotEnc_50/MotEnc_51 */
+  { GPIOC, GPIO_PIN_12, GPIOD, GPIO_PIN_2, 0, 0U },
+  /* Encoder 6: MotEnc_60/MotEnc_61 */
+  { GPIOC, GPIO_PIN_11, GPIOC, GPIO_PIN_10, 0, 0U },
+};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_SPI2_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM8_Init(void);
@@ -98,6 +126,13 @@ static void StartAllPwmChannels(void);
 static void Motor_SetSpeed(uint8_t motor_index, int16_t duty_ticks);
 static void Motor_SetPercent(uint8_t motor_index, int8_t duty_percent);
 static void Motor_CoastAll(void);
+static void Encoder_InitStates(void);
+static void Encoder_UpdateByPin(uint16_t gpio_pin);
+static int32_t Encoder_GetCount(uint8_t encoder_index);
+static uint16_t ADC_ReadChannel(uint32_t channel, uint32_t single_diff);
+static void ADC_ReadAll(uint16_t adc_values[ADC_CHANNEL_COUNT]);
+static void PiUart_ProcessCommand(char *command);
+static void PiUart_Poll(void);
 
 /* USER CODE END PFP */
 
@@ -203,6 +238,178 @@ static void Motor_CoastAll(void)
   }
 }
 
+static uint8_t Encoder_ReadState(const EncoderChannel_t *encoder)
+{
+  uint8_t state = 0U;
+
+  if (HAL_GPIO_ReadPin(encoder->a_port, encoder->a_pin) == GPIO_PIN_SET)
+  {
+    state |= 0x02U;
+  }
+  if (HAL_GPIO_ReadPin(encoder->b_port, encoder->b_pin) == GPIO_PIN_SET)
+  {
+    state |= 0x01U;
+  }
+
+  return state;
+}
+
+static void Encoder_InitStates(void)
+{
+  uint8_t encoder_index;
+
+  for (encoder_index = 0U; encoder_index < (sizeof(encoders) / sizeof(encoders[0])); encoder_index++)
+  {
+    encoders[encoder_index].last_state = Encoder_ReadState(&encoders[encoder_index]);
+  }
+}
+
+static void Encoder_UpdateByPin(uint16_t gpio_pin)
+{
+  static const int8_t step_table[16] =
+  {
+     0, -1,  1,  0,
+     1,  0,  0, -1,
+    -1,  0,  0,  1,
+     0,  1, -1,  0
+  };
+  uint8_t encoder_index;
+
+  for (encoder_index = 0U; encoder_index < (sizeof(encoders) / sizeof(encoders[0])); encoder_index++)
+  {
+    EncoderChannel_t *encoder = &encoders[encoder_index];
+
+    if ((encoder->a_pin == gpio_pin) || (encoder->b_pin == gpio_pin))
+    {
+      uint8_t new_state = Encoder_ReadState(encoder);
+      uint8_t table_index = (uint8_t)((encoder->last_state << 2U) | new_state);
+
+      encoder->count += step_table[table_index];
+      encoder->last_state = new_state;
+      return;
+    }
+  }
+}
+
+static int32_t Encoder_GetCount(uint8_t encoder_index)
+{
+  int32_t count = 0;
+
+  if (encoder_index < (sizeof(encoders) / sizeof(encoders[0])))
+  {
+    __disable_irq();
+    count = encoders[encoder_index].count;
+    __enable_irq();
+  }
+
+  return count;
+}
+
+static uint16_t ADC_ReadChannel(uint32_t channel, uint32_t single_diff)
+{
+  ADC_ChannelConfTypeDef sConfig = {0};
+  uint16_t value = 0U;
+
+  sConfig.Channel = channel;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+  sConfig.SingleDiff = single_diff;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) == HAL_OK)
+  {
+    if (HAL_ADC_Start(&hadc1) == HAL_OK)
+    {
+      if (HAL_ADC_PollForConversion(&hadc1, 2U) == HAL_OK)
+      {
+        value = (uint16_t)HAL_ADC_GetValue(&hadc1);
+      }
+      HAL_ADC_Stop(&hadc1);
+    }
+  }
+
+  return value;
+}
+
+static void ADC_ReadAll(uint16_t adc_values[ADC_CHANNEL_COUNT])
+{
+  adc_values[0] = ADC_ReadChannel(ADC_CHANNEL_1, ADC_SINGLE_ENDED);        /* ADC_SE_1: PA1 */
+  adc_values[1] = ADC_ReadChannel(ADC_CHANNEL_3, ADC_SINGLE_ENDED);        /* ADC_SE_2: PA6 */
+  adc_values[2] = ADC_ReadChannel(ADC_CHANNEL_4, ADC_SINGLE_ENDED);        /* ADC_SE_3: PC4 */
+  adc_values[3] = ADC_ReadChannel(ADC_CHANNEL_5, ADC_DIFFERENTIAL_ENDED);  /* ADC_Diff1: PB1/PB0 */
+  adc_values[4] = ADC_ReadChannel(ADC_CHANNEL_10, ADC_DIFFERENTIAL_ENDED); /* ADC_Diff2: PC0/PC1 */
+}
+
+static void PiUart_ProcessCommand(char *command)
+{
+  uint8_t motor_index = 0U;
+  char *cursor = command;
+
+  if ((*cursor != 'M') && (*cursor != 'm'))
+  {
+    return;
+  }
+  cursor++;
+
+  while ((motor_index < (sizeof(motors) / sizeof(motors[0]))) && (*cursor != '\0'))
+  {
+    long percent;
+
+    while ((*cursor == ' ') || (*cursor == '\t') || (*cursor == ',') || (*cursor == ';'))
+    {
+      cursor++;
+    }
+
+    if (*cursor == '\0')
+    {
+      break;
+    }
+
+    percent = strtol(cursor, &cursor, 10);
+    if (percent > 100L)
+    {
+      percent = 100L;
+    }
+    else if (percent < -100L)
+    {
+      percent = -100L;
+    }
+
+    Motor_SetPercent(motor_index, (int8_t)percent);
+    motor_index++;
+  }
+}
+
+static void PiUart_Poll(void)
+{
+  static char rx_buffer[PI_UART_RX_BUFFER_SIZE];
+  static uint8_t rx_length = 0U;
+  uint8_t rx_byte;
+
+  while (HAL_UART_Receive(&huart1, &rx_byte, 1U, 0U) == HAL_OK)
+  {
+    if ((rx_byte == '\n') || (rx_byte == '\r'))
+    {
+      if (rx_length > 0U)
+      {
+        rx_buffer[rx_length] = '\0';
+        PiUart_ProcessCommand(rx_buffer);
+        rx_length = 0U;
+      }
+    }
+    else if (rx_length < (PI_UART_RX_BUFFER_SIZE - 1U))
+    {
+      rx_buffer[rx_length] = (char)rx_byte;
+      rx_length++;
+    }
+    else
+    {
+      rx_length = 0U;
+    }
+  }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -234,7 +441,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI2_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_TIM8_Init();
@@ -252,12 +458,7 @@ int main(void)
 
   StartAllPwmChannels();
   Motor_CoastAll();
-  Motor_SetPercent(0U, -90);
-  Motor_SetPercent(1U, -90);
-  Motor_SetPercent(2U, -90);
-  Motor_SetPercent(3U, -90);
-  Motor_SetPercent(4U, -90);
-  Motor_SetPercent(5U, -90);
+  Encoder_InitStates();
 
   HAL_UART_Transmit(&huart1, boot_message, sizeof(boot_message) - 1U, HAL_MAX_DELAY);
 
@@ -270,12 +471,33 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    PiUart_Poll();
+
     if ((HAL_GetTick() - last_uart_tick) >= UART_HEARTBEAT_MS)
     {
-      const uint8_t heartbeat_message[] = "STM32 heartbeat\r\n";
+      char heartbeat_message[128];
+      int heartbeat_length;
+      uint16_t adc_values[ADC_CHANNEL_COUNT];
 
       last_uart_tick = HAL_GetTick();
-      HAL_UART_Transmit(&huart1, heartbeat_message, sizeof(heartbeat_message) - 1U, HAL_MAX_DELAY);
+      ADC_ReadAll(adc_values);
+      heartbeat_length = snprintf(heartbeat_message, sizeof(heartbeat_message),
+                                  "ENC %ld %ld %ld %ld %ld %ld ADC %u %u %u %u %u\r\n",
+                                  (long)Encoder_GetCount(0U),
+                                  (long)Encoder_GetCount(1U),
+                                  (long)Encoder_GetCount(2U),
+                                  (long)Encoder_GetCount(3U),
+                                  (long)Encoder_GetCount(4U),
+                                  (long)Encoder_GetCount(5U),
+                                  adc_values[0],
+                                  adc_values[1],
+                                  adc_values[2],
+                                  adc_values[3],
+                                  adc_values[4]);
+      if (heartbeat_length > 0)
+      {
+        HAL_UART_Transmit(&huart1, (uint8_t *)heartbeat_message, (uint16_t)heartbeat_length, HAL_MAX_DELAY);
+      }
     }
   }
   /* USER CODE END 3 */
@@ -425,53 +647,6 @@ static void MX_ICACHE_Init(void)
   /* USER CODE BEGIN ICACHE_Init 2 */
 
   /* USER CODE END ICACHE_Init 2 */
-
-}
-
-/**
-  * @brief SPI2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_SPI2_Init(void)
-{
-
-  /* USER CODE BEGIN SPI2_Init 0 */
-
-  /* USER CODE END SPI2_Init 0 */
-
-  /* USER CODE BEGIN SPI2_Init 1 */
-
-  /* USER CODE END SPI2_Init 1 */
-  /* SPI2 parameter configuration*/
-  hspi2.Instance = SPI2;
-  hspi2.Init.Mode = SPI_MODE_SLAVE;
-  hspi2.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi2.Init.CRCPolynomial = 0x7;
-  hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
-  hspi2.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
-  hspi2.Init.FifoThreshold = SPI_FIFO_THRESHOLD_01DATA;
-  hspi2.Init.MasterSSIdleness = SPI_MASTER_SS_IDLENESS_00CYCLE;
-  hspi2.Init.MasterInterDataIdleness = SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;
-  hspi2.Init.MasterReceiverAutoSusp = SPI_MASTER_RX_AUTOSUSP_DISABLE;
-  hspi2.Init.MasterKeepIOState = SPI_MASTER_KEEP_IO_STATE_DISABLE;
-  hspi2.Init.IOSwap = SPI_IO_SWAP_DISABLE;
-  hspi2.Init.ReadyMasterManagement = SPI_RDY_MASTER_MANAGEMENT_INTERNALLY;
-  hspi2.Init.ReadyPolarity = SPI_RDY_POLARITY_HIGH;
-  if (HAL_SPI_Init(&hspi2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN SPI2_Init 2 */
-
-  /* USER CODE END SPI2_Init 2 */
 
 }
 
@@ -804,7 +979,7 @@ static void MX_GPIO_Init(void)
                            PC11 PC12 */
   GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15|GPIO_PIN_10
                           |GPIO_PIN_11|GPIO_PIN_12;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
@@ -816,7 +991,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : PD2 */
   GPIO_InitStruct.Pin = GPIO_PIN_2;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
@@ -824,7 +999,7 @@ static void MX_GPIO_Init(void)
                            PB8 */
   GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7
                           |GPIO_PIN_8;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
@@ -871,6 +1046,16 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin)
+{
+  Encoder_UpdateByPin(GPIO_Pin);
+}
+
+void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin)
+{
+  Encoder_UpdateByPin(GPIO_Pin);
+}
 
 /* USER CODE END 4 */
 
