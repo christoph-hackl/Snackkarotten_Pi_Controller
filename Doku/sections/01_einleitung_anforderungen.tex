@@ -1,0 +1,30 @@
+\section{Einleitung}
+Im Rahmen der Projektarbeit wurde eine eigene Erweiterungsplatine für den Raspberry Pi entwickelt. Ziel war es, die für Wettbewerbs- und Schulprojekte benötigten Funktionen auf einer Leiterplatte zusammenzufassen.
+
+Die Platine verbindet den Raspberry Pi 5 mit Motor- und Servoansteuerung, Sensoranschlüssen, IMUs und der Spannungsversorgung. Ein zusätzlicher STM32-Mikrocontroller übernimmt zeitkritische und Analog-Pin Aufgaben, die auf dem Raspberry Pi nicht zuverlässig abgearbeitet werden können.
+
+Die Dokumentation beschreibt den aktuellen Stand des Systems, den Hardwareaufbau, die Auswahl der Bauteile, wichtige Entwurfsentscheidungen sowie bereits erkannte Fehler und mögliche Verbesserungen.
+
+\section{Ausgangslage, Zielsetzung und Anforderungen}
+Der Raspberry Pi bietet für Robotikanwendungen eine hohe Rechenleistung und eine flexible Softwareplattform. Für den direkten Einsatz in einem Roboter bringt er aber auch Einschränkungen mit sich. Es sind keine Analogeingänge vorhanden, und das Linux-Betriebssystem ist für zeitkritische Aufgaben nur eingeschränkt geeignet.
+
+Aus diesem Grund wurde eine eigene Pi-Erweiterungsplatine entwickelt, die möglichst viele benötigte Funktionen direkt integriert. Das Ziel war ein kompakterer und robusterer Aufbau, bei dem Rechenleistung, hardwarenahe Steuerung und Sensoranbindung auf einer gemeinsamen Platine zusammengeführt werden.
+
+
+\subsection{Funktionale Anforderungen}
+\begin{itemize}
+	\item Der Raspberry Pi muss als zentrale Recheneinheit direkt auf die Platine aufgesetzt werden können.
+	\item Mehrere DC-Motoren müssen über passende Treiber angesteuert werden können.
+	\item Servos müssen über eigene Anschlüsse und getrennte Versorgungsbereiche betrieben werden können.
+	\item Digitale und analoge Sensoren müssen ohne Zusatzboards anschließbar sein.
+	\item Mindestens ein IMU-System für Bewegungsdaten muss vorhanden sein.
+	\item Der STM32 muss zeitkritische Aufgaben übernehmen und mit dem Raspberry Pi kommunizieren können.
+\end{itemize}
+
+\subsection{Nichtfunktionale Anforderungen}
+\begin{itemize}
+	\item Leistungselektronik und Logikbereich sollen möglichst sauber getrennt werden.
+	\item Die Leiterplatte soll mechanisch und elektrisch für den mobilen Robotikeinsatz geeignet sein.
+	\item Die Entwicklungsplattform soll auch für spätere Projekte weiterverwendbar sein.
+\end{itemize}
+

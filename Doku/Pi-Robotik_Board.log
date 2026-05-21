@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.18)  19 MAY 2026 22:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.18)  21 MAY 2026 17:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -552,6 +552,74 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count322
 \@thisrulewidth=\dimen289
 )
+(C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip67
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks38
+\ex@=\dimen290
+))
+(C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen291
+)
+(C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count323
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count324
+\leftroot@=\count325
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count326
+\DOTSCASE@=\count327
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box70
+\strutbox@=\box71
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen292
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count328
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count329
+\dotsspace@=\muskip17
+\c@parentequation=\count330
+\dspbrk@lvl=\count331
+\tag@help=\toks39
+\row@=\count332
+\column@=\count333
+\maxfields@=\count334
+\andhelp@=\toks40
+\eqnshift@=\dimen293
+\alignsep@=\dimen294
+\tagshift@=\dimen295
+\tagwidth@=\dimen296
+\totwidth@=\dimen297
+\lineht@=\dimen298
+\@envbody=\toks41
+\multlinegap=\skip68
+\multlinetaggap=\skip69
+\mathdisplay@stack=\toks42
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
 
@@ -598,20 +666,20 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count323
+\c@section@level=\count335
 )
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count324
+\etb@tempcnta=\count336
 )
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
 ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen290
-\Hy@linkcounter=\count325
-\Hy@pagecounter=\count326
+\@linkdim=\dimen299
+\Hy@linkcounter=\count337
+\Hy@pagecounter=\count338
  (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -619,7 +687,7 @@ Now handling font encoding PD1 ...
 ) (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count327
+\Hy@SavedSpaceFactor=\count339
  (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -632,14 +700,14 @@ Package hyperref Info: Plain pages OFF on input line 4216.
 Package hyperref Info: Backreferencing OFF on input line 4221.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4468.
-\c@Hy@tempcnt=\count328
+\c@Hy@tempcnt=\count340
 
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
-\Urlmuskip=\muskip17
+\Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4807.
-\XeTeXLinkMargin=\dimen291
+\XeTeXLinkMargin=\dimen300
 
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -649,9 +717,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count329
-\Field@Width=\dimen292
-\Fld@charsize=\dimen293
+\Fld@menulength=\count341
+\Field@Width=\dimen301
+\Fld@charsize=\dimen302
 Package hyperref Info: Hyper figures OFF on input line 6084.
 Package hyperref Info: Link nesting OFF on input line 6089.
 Package hyperref Info: Hyper index ON on input line 6092.
@@ -659,16 +727,16 @@ Package hyperref Info: backreferencing OFF on input line 6099.
 Package hyperref Info: Link coloring OFF on input line 6104.
 Package hyperref Info: Link coloring with OCG OFF on input line 6109.
 Package hyperref Info: PDF/A mode OFF on input line 6114.
-\Hy@abspage=\count330
-\c@Item=\count331
-\c@Hfootnote=\count332
+\Hy@abspage=\count342
+\c@Item=\count343
+\c@Hfootnote=\count344
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
-\Fld@listcount=\count333
-\c@bookmark@seq@number=\count334
+\Fld@listcount=\count345
+\c@bookmark@seq@number=\count346
 
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -681,16 +749,16 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip67
+\Hy@SectionHShift=\skip70
 )
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip68
-\enit@outerparindent=\dimen294
-\enit@toks=\toks38
-\enit@inbox=\box70
-\enit@count@id=\count335
-\enitdp@description=\count336
+\labelindent=\skip71
+\enit@outerparindent=\dimen303
+\enit@toks=\toks43
+\enit@inbox=\box72
+\enit@count@id=\count347
+\enitdp@description=\count348
 )
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibraryshapes.code.tex
@@ -739,26 +807,26 @@ File: tikzlibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
 pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfnodepartlowerbox=\box71
-\pgfnodeparttwobox=\box72
-\pgfnodepartthreebox=\box73
-\pgfnodepartfourbox=\box74
-\pgfnodeparttwentybox=\box75
-\pgfnodepartnineteenbox=\box76
-\pgfnodeparteighteenbox=\box77
-\pgfnodepartseventeenbox=\box78
-\pgfnodepartsixteenbox=\box79
-\pgfnodepartfifteenbox=\box80
-\pgfnodepartfourteenbox=\box81
-\pgfnodepartthirteenbox=\box82
-\pgfnodeparttwelvebox=\box83
-\pgfnodepartelevenbox=\box84
-\pgfnodeparttenbox=\box85
-\pgfnodepartninebox=\box86
-\pgfnodeparteightbox=\box87
-\pgfnodepartsevenbox=\box88
-\pgfnodepartsixbox=\box89
-\pgfnodepartfivebox=\box90
+\pgfnodepartlowerbox=\box73
+\pgfnodeparttwobox=\box74
+\pgfnodepartthreebox=\box75
+\pgfnodepartfourbox=\box76
+\pgfnodeparttwentybox=\box77
+\pgfnodepartnineteenbox=\box78
+\pgfnodeparteighteenbox=\box79
+\pgfnodepartseventeenbox=\box80
+\pgfnodepartsixteenbox=\box81
+\pgfnodepartfifteenbox=\box82
+\pgfnodepartfourteenbox=\box83
+\pgfnodepartthirteenbox=\box84
+\pgfnodeparttwelvebox=\box85
+\pgfnodepartelevenbox=\box86
+\pgfnodeparttenbox=\box87
+\pgfnodepartninebox=\box88
+\pgfnodeparteightbox=\box89
+\pgfnodepartsevenbox=\box90
+\pgfnodepartsixbox=\box91
+\pgfnodepartfivebox=\box92
 )))
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibraryarrows.code.tex
@@ -767,7 +835,7 @@ File: tikzlibraryarrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryarrows.code.tex
 File: pgflibraryarrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\arrowsize=\dimen295
+\arrowsize=\dimen304
 ))
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarypositioning.code.tex
@@ -780,10 +848,14 @@ File: tikzlibraryfit.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@layerbox@background=\box91
-\pgf@layerboxsaved@background=\box92
+\pgf@layerbox@background=\box93
+\pgf@layerboxsaved@background=\box94
 )
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 45
+(C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 46
 .
 
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
@@ -792,31 +864,31 @@ File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count337
+\l__color_backend_stack_int=\count349
 ) (Pi-Robotik_Board.aux
 Package babel Info: 'ngerman' activates 'german' shorthands.
 (babel)             Reported on input line 8.
 )
 \openout1 = `Pi-Robotik_Board.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -856,17 +928,17 @@ LaTeX Font Info:    ... okay on input line 45.
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count338
-\scratchdimen=\dimen296
-\scratchbox=\box93
-\nofMPsegments=\count339
-\nofMParguments=\count340
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count341
-\MPscratchDim=\dimen297
-\MPnumerator=\count342
-\makeMPintoPDFobject=\count343
-\everyMPtoPDFconversion=\toks40
+\scratchcounter=\count350
+\scratchdimen=\dimen305
+\scratchbox=\box95
+\nofMPsegments=\count351
+\nofMParguments=\count352
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count353
+\MPscratchDim=\dimen306
+\MPnumerator=\count354
+\makeMPintoPDFobject=\count355
+\everyMPtoPDFconversion=\toks45
 )
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -878,8 +950,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count344
-Package hyperref Info: Link coloring OFF on input line 45.
+\c@lstlisting=\count356
+Package hyperref Info: Link coloring OFF on input line 46.
  (Pi-Robotik_Board.out) (Pi-Robotik_Board.out)
 \@outlinefile=\write4
 \openout4 = `Pi-Robotik_Board.out'.
@@ -893,31 +965,27 @@ t/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}] [2])
 \openout5 = `Pi-Robotik_Board.toc'.
 
  [3]
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 6
-5.
+(sections/01_einleitung_anforderungen.tex
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
+6.
 
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
-)
-[4
+))
+(sections/02_gesamtsystem_architektur.tex [4
 
-]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 102.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 102.
- [5] [6]
-<Board.png, id=245, 417.9615pt x 534.798pt>
+]) (sections/03_hardwareentwurf.tex [5]) (sections/04_pcb_design_layout.tex [6]
+<Board.png, id=230, 417.9615pt x 534.798pt>
 File: Board.png Graphic file (type png)
 <use Board.png>
-Package pdftex.def Info: Board.png  used on input line 167.
+Package pdftex.def Info: Board.png  used on input line 13.
 (pdftex.def)             Requested size: 455.47083pt x 582.82034pt.
- [7 <./Board.png>]
-Underfull \hbox (badness 10000) in alignment at lines 227--227
+) (sections/05_fertigung_fehler.tex [7 <./Board.png>]
+Underfull \hbox (badness 10000) in alignment at lines 20--20
 [][][][] 
  []
 
-[8] [9]
+[8]) (sections/06_firmware_stm32.tex [9]
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
@@ -927,47 +995,67 @@ File: lstlang1.sty 2025/11/14 1.11b listings language file
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 )
-[10] [11]
-Underfull \hbox (badness 10000) in alignment at lines 405--405
+[10]) (sections/07_messungen_auswertungen.tex [11]
+Underfull \hbox (badness 10000) in alignment at lines 69--69
 [][][][][][] 
  []
 
-[12]
-Underfull \hbox (badness 10000) in alignment at lines 480--480
+[12] [13]
+<Messungen/vorwaerts.png, id=280, 803.0pt x 504.88625pt>
+File: Messungen/vorwaerts.png Graphic file (type png)
+<use Messungen/vorwaerts.png>
+Package pdftex.def Info: Messungen/vorwaerts.png  used on input line 186.
+(pdftex.def)             Requested size: 237.6353pt x 149.41008pt.
+<Messungen/rueckwaerts.png, id=281, 803.0pt x 504.88625pt>
+File: Messungen/rueckwaerts.png Graphic file (type png)
+<use Messungen/rueckwaerts.png>
+Package pdftex.def Info: Messungen/rueckwaerts.png  used on input line 192.
+(pdftex.def)             Requested size: 237.6353pt x 149.41008pt.
+
+Underfull \hbox (badness 10000) in alignment at lines 207--207
 [][][][][] 
  []
 
-[13] [14]
-Underfull \hbox (badness 10000) in alignment at lines 557--557
+[14 <./Messungen/vorwaerts.png (PNG copy)> <./Messungen/rueckwaerts.png (PNG co
+py)>] [15]
+Underfull \hbox (badness 10000) in alignment at lines 288--288
 [][][][][][] 
  []
 
-[15] [16] (Pi-Robotik_Board.aux)
+[16]) (sections/08_ausblick_fazit.tex) [17] (Pi-Robotik_Board.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `Pi-Robotik_Board.out' has not changed.
-(rerunfilecheck)             Checksum: E4DA1B06E8D6FE5E8BC4D92DBA030C77;7980.
+(rerunfilecheck)             Checksum: F35F7C6E9ED78BCD682A17B706CE3DE5;7203.
  ) 
 Here is how much of TeX's memory you used:
- 26575 strings out of 467867
- 516403 string characters out of 5418334
- 1139711 words of memory out of 5000000
- 54937 multiletter control sequences out of 15000+600000
- 672843 words of font info for 84 fonts, out of 8000000 for 9000
+ 27473 strings out of 467867
+ 531776 string characters out of 5418334
+ 1151490 words of memory out of 5000000
+ 55791 multiletter control sequences out of 15000+600000
+ 674196 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,19n,108p,598b,1282s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,19n,108p,741b,1295s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\morit\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
 1000.pk> <C:\Users\morit\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ectt1095.pk><C:/Users/morit/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmmi8.pfb><C:/Users/morit/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr6.pfb><C:/Users/morit/AppData/Local/Programs/MiKTeX/font
-s/type1/urw/helvetic/uhvb8a.pfb><C:/Users/morit/AppData/Local/Programs/MiKTeX/f
-onts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Pi-Robotik_Board.pdf (16 pages, 353146 bytes).
+amsfonts/cm/cmmi10.pfb><C:/Users/morit/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmmi6.pfb><C:/Users/morit/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/morit/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/morit/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/morit/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/morit/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
+/morit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
+C:/Users/morit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
+y8.pfb><C:/Users/morit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/u
+hvb8a.pfb><C:/Users/morit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helveti
+c/uhvr8a.pfb>
+Output written on Pi-Robotik_Board.pdf (17 pages, 472716 bytes).
 PDF statistics:
- 373 PDF objects out of 1000 (max. 8388607)
- 79 named destinations out of 1000 (max. 500000)
- 354 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 395 PDF objects out of 1000 (max. 8388607)
+ 74 named destinations out of 1000 (max. 500000)
+ 340 words of extra memory for PDF output out of 10000 (max. 10000000)
 

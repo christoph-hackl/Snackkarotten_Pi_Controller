@@ -1,0 +1,88 @@
+﻿\section{Firmware des STM32-Mikrocontrollers}
+\subsection{Rolle des Mikrocontrollers}
+Der STM32 ist als echtzeitfähiger Co-Prozessor des Raspberry Pi vorgesehen. Er soll später die hardwarenahen Aufgaben übernehmen, insbesondere PWM-Ausgabe, ADC-Erfassung und die Kommunikation mit dem Raspberry Pi.
+
+\subsection{Aktueller Stand der Firmware}
+Im aktuellen Projektstand ist die Grundkonfiguration des Mikrocontrollers bereits in STM32CubeIDE angelegt. Dazu gehören:
+
+\begin{itemize}
+	\item Auslesen analoger Sensoren über den ADC
+	\item Ansteuerung von Motoren über PWM
+	\item Kommunikation mit dem Raspberry Pi über UART
+	\item Rückmeldung von Zustands- und Sensordaten an den Raspberry Pi
+\end{itemize}
+
+\subsection{Ablauf des aktuellen STM32-Programms}
+Der aktuelle Ablauf: Nach der Initialisierung der HAL, des Systemtakts und der Peripherie werden die PWM-Ausgänge gestartet, alle Motoren zunächst auf Freilauf gesetzt und die Anfangszustände der Encoder gespeichert. Danach läuft das Programm dauerhaft in einer Hauptschleife.
+
+\begin{figure}[H]
+	\centering
+	\resizebox{\textwidth}{!}{%
+	\begin{tikzpicture}[
+		font=\footnotesize,
+		node distance=0.72cm,
+		process/.style={draw, rectangle, rounded corners=2pt, align=center, minimum width=5.5cm, minimum height=0.8cm, fill=blue!10},
+		decision/.style={draw, diamond, aspect=2.2, align=center, inner sep=1pt, minimum width=4.0cm, fill=yellow!15},
+		io/.style={draw, trapezium, trapezium left angle=70, trapezium right angle=110, align=center, minimum width=5.2cm, minimum height=0.8cm, fill=green!12},
+		interrupt/.style={draw, rectangle, rounded corners=2pt, align=center, minimum width=4.4cm, minimum height=0.8cm, fill=red!10},
+		line/.style={draw, -latex'}
+	]
+		\node[process] (start) {Reset / Programmstart};
+		\node[process, below=of start] (hal) {HAL initialisieren\\Systemtakt konfigurieren};
+		\node[process, below=of hal] (peripherals) {GPIO, TIM1, TIM2, TIM8,\\USART1, ADC1 und ICACHE initialisieren};
+		\node[decision, below=of peripherals] (pwmcheck) {PWM-Grenzen\\gueltig?};
+		\node[process, right=2.2cm of pwmcheck] (error) {Error\_Handler\\Interrupts aus, Endlosschleife};
+		\node[process, below=of pwmcheck] (startup) {PWM-Kanaele starten\\Motoren auf 0 setzen\\Encoder-Zustaende speichern};
+		\node[io, below=of startup] (bootmsg) {Bootmeldung ueber USART1 senden};
+		\node[process, below=of bootmsg] (loop) {Hauptschleife};
+		\node[io, below=of loop] (uart) {UART pollen\\Motor-Kommandos auswerten};
+		\node[decision, below=of uart] (tick) {1 s seit letzter\\Rueckmeldung?};
+		\node[process, below=of tick] (read) {ADC-Kanaele lesen\\Encoder-Zaehler kopieren};
+		\node[io, below=of read] (send) {Heartbeat senden:\\Encoder- und ADC-Werte};
+		\node[interrupt, left=2.1cm of read] (exti) {EXTI-Interrupt\\bei Encoder-Flanke};
+		\node[interrupt, below=of exti] (encupdate) {Encoder-Zustand lesen\\Zaehler aktualisieren};
+
+		\draw[line] (start) -- (hal);
+		\draw[line] (hal) -- (peripherals);
+		\draw[line] (peripherals) -- (pwmcheck);
+		\draw[line] (pwmcheck) -- node[above] {nein} (error);
+		\draw[line] (pwmcheck) -- node[right] {ja} (startup);
+		\draw[line] (startup) -- (bootmsg);
+		\draw[line] (bootmsg) -- (loop);
+		\draw[line] (loop) -- (uart);
+		\draw[line] (uart) -- (tick);
+		\draw[line] (tick) -- node[right] {ja} (read);
+		\draw[line] (read) -- (send);
+		\draw[line] (send.east) -- ++(1.1,0) |- (loop.east);
+		\draw[line] (tick.west) -- node[above] {nein} ++(-1.2,0) |- (loop.west);
+		\draw[line] (exti) -- (encupdate);
+		\draw[line] (encupdate.east) -- ++(0.8,0) |- (read.west);
+	\end{tikzpicture}
+	}
+	\caption{Programmablauf der aktuellen STM32-Firmware}
+\end{figure}
+
+\subsection{UART-Kommunikationsprotokoll}
+Die Kommunikation zwischen Raspberry Pi und STM32 erfolgt im aktuellen Firmwarestand über USART1 mit 115200 Baud, 8 Datenbits, keiner Parität und einem Stoppbit. Diese Geschwindigkeit ist für die geplanten Steuerbefehle und Statusdaten ausreichend, da nur kurze Textnachrichten übertragen werden.
+
+Kommandos vom Raspberry Pi werden zeichenweise eingelesen. Der Empfangspuffer ist 64 Byte groß. Ein Motorbefehl beginnt mit \texttt{M} und enthält anschließend bis zu sechs Prozentwerte für die Motoren. Leerzeichen, Tabulatoren, Kommas und Semikolons können als Trennzeichen verwendet werden. Die Werte werden im STM32 auf den Bereich von -100 bis 100 begrenzt und danach auf die PWM-Tastverhältnisse umgerechnet.
+
+\begin{codeblock}
+M 20 -10 0 0 50 -50
+\end{codeblock}
+
+Die Rückmeldung vom STM32 erfolgt einmal pro Sekunde. Dabei werden zuerst die sechs Encoderzähler und danach die fünf ADC-Werte übertragen. Das Format ist als einfache ASCII-Zeile aufgebaut und kann auf dem Raspberry Pi ohne großen Aufwand geparst werden.
+
+\begin{codeblock}
+ENC 120 118 0 0 -34 -31 ADC 2048 2011 1995 1020 980
+\end{codeblock}
+
+Zusätzlich sendet der STM32 nach dem Start eine kurze Bootmeldung. Damit kann der Raspberry Pi erkennen, dass die Firmware gestartet ist und die PWM-Ausgänge initialisiert wurden.
+
+\subsection{Programmierung über SWD}
+Beim ursprünglich geplanten Flashen des STM32 über den USART-Bootloader zeigte sich ein Problem: Der Bootloader unterstützt USART nur auf festgelegten Pins. Nach AN2606, Abschnitt 57.1 und Tabelle 127, liegen die dafür vorgesehenen Pins beim STM32H562xx für USART1 auf PA9/PA10, für USART2 auf PA2/PA3 und für USART3 auf PD8/PD9. Diese Pinbelegung stimmt nicht mit den ursprünglich für den Boot- und Flash-Vorgang geplanten Pins überein.
+
+Deshalb wird der STM32 nun über SWD programmiert und debuggt. UART bleibt weiterhin erhalten, wird aber nur für die Kommunikation zwischen Raspberry Pi und STM32 verwendet. Für die geplanten Steuerbefehle und Statusdaten ist UART schnell genug und reduziert den Aufwand für das Kommunikationsprotokoll.
+
+
+

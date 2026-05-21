@@ -458,6 +458,7 @@ int main(void)
 
   StartAllPwmChannels();
   Motor_CoastAll();
+
   Encoder_InitStates();
 
   HAL_UART_Transmit(&huart1, boot_message, sizeof(boot_message) - 1U, HAL_MAX_DELAY);
@@ -471,7 +472,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    PiUart_Poll();
+//    PiUart_Poll();
+	  Motor_SetPercent(5, 50);
 
     if ((HAL_GetTick() - last_uart_tick) >= UART_HEARTBEAT_MS)
     {

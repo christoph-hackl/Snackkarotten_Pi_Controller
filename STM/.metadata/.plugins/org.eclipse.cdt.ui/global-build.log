@@ -46,3 +46,318 @@ Finished building: default.size.stdout
  
 Finished building: Robotik2.list
  
+16:13:38 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:461:26: error: incompatible type for argument 1 of 'Motor_SetPercent'
+  461 |   Motor_SetPercent(motors[6], 50);
+      |                    ~~~~~~^~~
+      |                          |
+      |                          MotorChannel_t
+../Core/Src/main.c:214:38: note: expected 'uint8_t' {aka 'unsigned char'} but argument is of type 'MotorChannel_t'
+  214 | static void Motor_SetPercent(uint8_t motor_index, int8_t duty_percent)
+      |                              ~~~~~~~~^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:15:06 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  53032	    236	   2452	  55720	   d9a8	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+16:15:46 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  53032	    236	   2452	  55720	   d9a8	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+16:21:13 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  53032	    236	   2452	  55720	   d9a8	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+16:22:17 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  53032	    236	   2452	  55720	   d9a8	Robotik2.elf
+Finished building: default.size.stdout
+ 
+16:24:44 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:384:13: warning: 'PiUart_Poll' defined but not used [-Wunused-function]
+  384 | static void PiUart_Poll(void)
+      |             ^~~~~~~~~~~
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+16:25:23 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+16:27:21 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+16:28:11 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+16:29:15 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+16:29:53 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+16:30:27 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+16:31:04 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:384:13: warning: 'PiUart_Poll' defined but not used [-Wunused-function]
+  384 | static void PiUart_Poll(void)
+      |             ^~~~~~~~~~~
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+16:39:09 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:394:13: warning: 'PiUart_Poll' defined but not used [-Wunused-function]
+  394 | static void PiUart_Poll(void)
+      |             ^~~~~~~~~~~
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  51800	    236	   2388	  54424	   d498	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+16:42:02 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  53104	    236	   2452	  55792	   d9f0	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+16:44:19 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  53100	    236	   2452	  55788	   d9ec	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+16:46:10 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  53128	    240	   2456	  55824	   da10	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+16:46:32 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  53128	    240	   2456	  55824	   da10	Robotik2.elf
+Finished building: default.size.stdout
+ 
+17:12:53 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  53128	    240	   2456	  55824	   da10	Robotik2.elf
+Finished building: default.size.stdout
+ 
+11:40:44 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:476:11: error: 'Motor' undeclared (first use in this function); did you mean 'motors'?
+  476 |           Motor
+      |           ^~~~~
+      |           motors
+../Core/Src/main.c:476:11: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:476:16: error: expected ';' before 'if'
+  476 |           Motor
+      |                ^
+      |                ;
+  477 | 
+  478 |     if ((HAL_GetTick() - last_uart_tick) >= UART_HEARTBEAT_MS)
+      |     ~~          
+../Core/Src/main.c:451:12: warning: unused variable 'last_uart_tick' [-Wunused-variable]
+  451 |   uint32_t last_uart_tick = 0;
+      |            ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:384:13: warning: 'PiUart_Poll' defined but not used [-Wunused-function]
+  384 | static void PiUart_Poll(void)
+      |             ^~~~~~~~~~~
+../Core/Src/main.c:335:13: warning: 'ADC_ReadAll' defined but not used [-Wunused-function]
+  335 | static void ADC_ReadAll(uint16_t adc_values[ADC_CHANNEL_COUNT])
+      |             ^~~~~~~~~~~
+../Core/Src/main.c:294:16: warning: 'Encoder_GetCount' defined but not used [-Wunused-function]
+  294 | static int32_t Encoder_GetCount(uint8_t encoder_index)
+      |                ^~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+11:41:24 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:384:13: warning: 'PiUart_Poll' defined but not used [-Wunused-function]
+  384 | static void PiUart_Poll(void)
+      |             ^~~~~~~~~~~
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+11:45:37 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+11:45:55 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+11:46:45 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:384:13: warning: 'PiUart_Poll' defined but not used [-Wunused-function]
+  384 | static void PiUart_Poll(void)
+      |             ^~~~~~~~~~~
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  51656	    236	   2380	  54272	   d400	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 
+11:55:36 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-size  Robotik2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51656	    236	   2380	  54272	   d400	Robotik2.elf
+Finished building: default.size.stdout
+ 
+11:56:27 **** Incremental Build of configuration Debug for project Robotik2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H562xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:384:13: warning: 'PiUart_Poll' defined but not used [-Wunused-function]
+  384 | static void PiUart_Poll(void)
+      |             ^~~~~~~~~~~
+arm-none-eabi-g++ -o "Robotik2.elf" @"objects.list"   -mcpu=cortex-m33 -T"C:\Users\morit\OneDrive - HTBLuVA St. Pölten\SCHULE\Projektarbeit\Snackkarotten_Pi_Controller\STM\Robotik2\STM32H562RITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Robotik2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: Robotik2.elf
+ 
+arm-none-eabi-size  Robotik2.elf 
+arm-none-eabi-objdump -h -S Robotik2.elf  > "Robotik2.list"
+   text	   data	    bss	    dec	    hex	filename
+  51764	    236	   2380	  54380	   d46c	Robotik2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Robotik2.list
+ 

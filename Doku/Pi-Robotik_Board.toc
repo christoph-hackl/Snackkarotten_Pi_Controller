@@ -22,22 +22,19 @@
 \contentsline {subsection}{\numberline {8.3}Ablauf des aktuellen STM32-Programms}{9}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}UART-Kommunikationsprotokoll}{10}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}Programmierung über SWD}{11}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Geplante Messungen und Auswertungen}{11}{section.9}%
+\contentsline {section}{\numberline {9}Messungen und Auswertungen}{11}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Messungen an den Powerrails}{11}{subsection.9.1}%
-\contentsline {subsubsection}{\numberline {9.1.1}Messziel}{11}{subsubsection.9.1.1}%
-\contentsline {subsubsection}{\numberline {9.1.2}Messaufbau}{12}{subsubsection.9.1.2}%
-\contentsline {subsubsection}{\numberline {9.1.3}Messschaltung}{12}{subsubsection.9.1.3}%
-\contentsline {subsubsection}{\numberline {9.1.4}Auswertung und Interpretation}{12}{subsubsection.9.1.4}%
-\contentsline {subsection}{\numberline {9.2}Messungen an den Encodersignalen}{13}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.1.1}Messaufbau}{11}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}Messschaltung}{13}{subsubsection.9.1.2}%
+\contentsline {subsubsection}{\numberline {9.1.3}Auswertung und Interpretation}{13}{subsubsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.2}Messung an einem Encoder-Ausgang}{13}{subsection.9.2}%
 \contentsline {subsubsection}{\numberline {9.2.1}Messziel}{13}{subsubsection.9.2.1}%
-\contentsline {subsubsection}{\numberline {9.2.2}Messaufbau}{13}{subsubsection.9.2.2}%
-\contentsline {subsubsection}{\numberline {9.2.3}Messschaltung}{14}{subsubsection.9.2.3}%
-\contentsline {subsubsection}{\numberline {9.2.4}Auswertung und Interpretation}{14}{subsubsection.9.2.4}%
-\contentsline {subsection}{\numberline {9.3}Messungen an Motoren und Servos}{14}{subsection.9.3}%
-\contentsline {subsubsection}{\numberline {9.3.1}Messziel}{14}{subsubsection.9.3.1}%
-\contentsline {subsubsection}{\numberline {9.3.2}Messaufbau}{14}{subsubsection.9.3.2}%
-\contentsline {subsubsection}{\numberline {9.3.3}Messschaltung}{15}{subsubsection.9.3.3}%
-\contentsline {subsubsection}{\numberline {9.3.4}Auswertung und Interpretation}{15}{subsubsection.9.3.4}%
-\contentsline {subsection}{\numberline {9.4}Darstellung der Messungen in der finalen Dokumentation}{15}{subsection.9.4}%
-\contentsline {section}{\numberline {10}Geplante Erweiterungen und nächste Schritte}{16}{section.10}%
-\contentsline {section}{\numberline {11}Fazit}{16}{section.11}%
+\contentsline {subsubsection}{\numberline {9.2.2}Messaufbau}{14}{subsubsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.3}Messschaltung}{15}{subsubsection.9.2.3}%
+\contentsline {subsubsection}{\numberline {9.2.4}Auswertung und Interpretation}{15}{subsubsection.9.2.4}%
+\contentsline {subsection}{\numberline {9.3}Messungen an Motoren und Servos}{15}{subsection.9.3}%
+\contentsline {subsubsection}{\numberline {9.3.1}Messziel}{15}{subsubsection.9.3.1}%
+\contentsline {subsubsection}{\numberline {9.3.2}Messaufbau}{16}{subsubsection.9.3.2}%
+\contentsline {subsubsection}{\numberline {9.3.3}Messschaltung}{16}{subsubsection.9.3.3}%
+\contentsline {subsubsection}{\numberline {9.3.4}Auswertung und Interpretation}{17}{subsubsection.9.3.4}%
+\contentsline {section}{\numberline {10}Fazit}{17}{section.10}%

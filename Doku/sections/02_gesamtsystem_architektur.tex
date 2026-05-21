@@ -1,0 +1,48 @@
+\section{Gesamtsystem und Architektur}
+Das Gesamtsystem besteht aus zwei Rechenebenen. Der Raspberry Pi 5 übernimmt die übergeordnete Programmlogik, zum Beispiel Bildverarbeitung, Ablaufsteuerung und strategische Entscheidungen. Zusätzlich bindet er die digitalen Peripheriebausteine an, darunter die IMUs und die Servoansteuerung über den PCA9685.
+
+Der STM32H562RIT6 übernimmt die Motoransteuerung und die Erfassung analoger Sensorsignale. Die Kommunikation zwischen Raspberry Pi und STM32 erfolgt inzwischen über UART. Für die vorgesehenen Datenmengen ist diese Schnittstelle ausreichend schnell und einfacher umzusetzen als ein zusätzliches SPI-Protokoll.
+
+Programmiert und debuggt wird der STM32 über SWD. Das ursprünglich geplante Flashen über den USART-Bootloader wurde verworfen, weil die dafür nutzbaren Bootloader-Pins nicht zu den geplanten Pins auf der Platine passen. Laut ST-Dokumentation AN2606, Abschnitt 57.1 und Tabelle 127, verwendet der System-Memory-Bootloader beim STM32H562xx unter anderem USART1 auf PA9/PA10, USART2 auf PA2/PA3 und USART3 auf PD8/PD9. Da diese Zuordnung im Layout nicht passend vorgesehen wurde, ist SWD für Programmierung und Debugging nachträglich erweitert worden.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[auto, font=\footnotesize, scale=0.9, transform shape]
+		\tikzstyle{block} = [draw, fill=blue!20, rectangle,
+		minimum height=2.6em, minimum width=2cm, align=center]
+		\tikzstyle{io} = [draw, fill=green!15, rectangle,
+		minimum height=2.4em, minimum width=2cm, align=center]
+		\tikzstyle{line} = [draw, -latex']
+		\tikzstyle{boardbox} = [draw, rounded corners, thick, dashed, inner sep=0.35cm]
+		\node [io] (power) at (7.8,3.0) {Power Distribution};
+		\node [io] (imu) at (4,-3.0) {IMUs};
+		\node [block] (rpi) at (5.4,0) {Raspberry Pi 5\\Main Control};
+		\node [block] (stm) at (10.8,0) {STM32H562\\Motor Control};
+		\node [block] (motor) at (15.6,0) {Motor Drivers};
+		\node [io] (motors) at (15.6,-3.0) {DC Motors};
+		\node [block] (servoctl) at (0,0) {I\textsuperscript{2}C Servo Controller};
+		\node [io] (digital) at (6.8,-3.0) {Digital Sensors};
+		\node [io] (analog) at (10.8,-3.0) {Analog Sensors};
+		\node [io] (servos) at (0,-3.0) {Servos};
+
+		\draw [line] (power) -| node[pos=0.72, right] {5V/6A} (rpi);
+		\draw [line] (power) -| node[pos=0.72, right] {3.3V/1A} (stm);
+		\draw [line] (power) -| node[pos=0.72, right] {6V/20A} (motor);
+		\draw [line] (power) -| node[pos=0.72, right] {6V/10A} (servoctl);
+		\draw [line] (imu) -- node[left] {I\textsuperscript{2}C} (rpi);
+		\draw [<->, >=latex'] (rpi) -- node[above] {UART} (stm);
+		\draw [line] (stm) -- node[above] {PWM} (motor);
+		\draw [line] (motor) -- node[right] {PWM} (motors);
+		\draw [line] (motors) -- node[right] {Encoder} (stm);
+		\draw [line] (servoctl) -- node[right] {PWM} (servos);
+		\draw [line] (rpi) -- node[above] {I\textsuperscript{2}C} (servoctl);
+		\draw [line] (digital) -- node[right] {GPIO} (rpi);
+		\draw [line] (analog) -- node[right] {ADC} (stm);
+		\begin{scope}[on background layer]
+			\node [boardbox, fit=(power) (imu) (rpi) (stm) (motor) (servoctl),
+			label={[align=center]above:Extension Board}] {};
+		\end{scope}
+	\end{tikzpicture}
+	\caption{Funktionales Blockschaltbild des geplanten Gesamtsystems}
+\end{figure}
+
