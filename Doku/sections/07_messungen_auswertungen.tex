@@ -116,6 +116,32 @@ Aus den gemessenen Größen lassen sich Eingangsleistung und Ausgangsleistung de
 
 Für das vorliegende Projekt ist diese Messung besonders relevant, weil bereits ein reales Problem beim 5-V-Wandler beobachtet wurde. Das Verhalten beim Abziehen des Akkus beziehungsweise beim Abschalten der Versorgung muss deshalb besonders kritisch betrachtet werden.
 
+\subsubsection{Schaltverhalten der Motorrail}
+Zusätzlich zur statischen Spannungs- und Strommessung wurde das Einschaltverhalten der Motorrail mit dem Oszilloskop betrachtet. Ziel dieser Messung war es zu überprüfen, ob die 6-V-Motorversorgung beim Aktivieren sauber hochläuft oder ob dabei starke Einbrüche, Überschwinger oder instabile Schwingungen auftreten. Gerade bei Motoren ist dieses Verhalten relevant, weil beim Zuschalten der Last kurzzeitig hohe Stromspitzen auftreten können.
+
+Die folgenden Aufnahmen zeigen zunächst den allgemeinen Spannungsverlauf der Motorrail beim Einschalten und anschließend eine vergrößerte Darstellung des Übergangsbereichs.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Messungen/Motor_Anschalten_rail.png}
+		\caption{Motorrail beim Einschalten, Gesamtansicht}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Messungen/Motor_rail_anschalten_zoom (1).png}
+		\caption{Motorrail beim Einschalten, Zoomaufnahme}
+	\end{minipage}
+\end{figure}
+
+In der Gesamtansicht ist zu erkennen, dass die Motorrail nach dem Einschalten auf ein Spannungsniveau von ungefähr 5,5\,V ansteigt. Nach dem Übergang bleibt die Versorgung grundsätzlich bestehen, auf der Spannung ist jedoch ein sichtbarer hochfrequenter Ripple überlagert. Die Zoomaufnahme zeigt den Einschaltmoment genauer. Dort ist erkennbar, dass die Spannung nicht völlig sprunghaft und ideal ansteigt, sondern von einem kurzzeitigen Stör- beziehungsweise Schwinganteil begleitet wird.
+
+Aus der Cursoranzeige der Zoomaufnahme ergibt sich für den markierten Bereich ein Spannungsunterschied von ungefähr 637,5\,mV. Dieser Wert ist nicht als dauerhafter Spannungsfehler zu interpretieren, sondern beschreibt die Größenordnung des beobachteten Einschaltvorgangs im vergrößerten Ausschnitt. Kritische Einbrüche bis auf 0\,V oder ein offensichtliches vollständiges Zusammenbrechen der Motorrail sind in den gezeigten Aufnahmen nicht zu erkennen.
+
+Für die praktische Bewertung bedeutet das: Die Motorrail schaltet grundsätzlich funktionsfähig ein, zeigt beim Übergang aber ein erkennbares Störverhalten, das bei empfindlicher Last oder bei gleichzeitigem Betrieb mehrerer Motoren weiter beobachtet werden sollte. Für eine endgültige Beurteilung wäre es sinnvoll, dieselbe Messung zusätzlich unter realer Motorlast und mit definiertem Einschaltstrom zu wiederholen. Damit ließe sich besser abschätzen, ob das beobachtete Verhalten lediglich normales Schaltwandler-Ripple ist oder ob im realen Betrieb zusätzliche Maßnahmen zur Entstörung notwendig werden.
+
 \subsection{Messung an einem Encoder-Ausgang}
 Die Encoder dienen als Rückführung für die spätere Motorregelung. In dieser Messung wurde nicht jeder Encoderanschluss einzeln geprüft, sondern ein Encoder-Ausgang exemplarisch untersucht.
 
@@ -177,19 +203,19 @@ Das Ergebnis soll sowohl elektrisch als auch funktional bewertet werden. Neben d
 	\caption{Messaufbau zur Prüfung eines einzelnen Encoder-Ausgangs}
 \end{figure}
 
-Die folgenden Oszilloskopbilder zeigen den gemessenen Encoder-Ausgang bei Bewegung in beide Richtungen. Kanal 1 ist orange dargestellt, Kanal 2 grün. Beide Kanäle wurden mit 1 V/div aufgenommen.
+Die folgenden Oszilloskopbilder zeigen den gemessenen Encoder-Ausgang bei konstanter halber Motorgeschwindigkeit in beide Richtungen. Kanal 1 ist orange dargestellt, Kanal 2 grün. Beide Kanäle wurden mit 1 V/div und derselben Zeitbasis aufgenommen, wodurch sich die Vorwärts- und Rückwärtsmessung direkt vergleichen lassen.
 
 \begin{figure}[H]
 	\centering
 	\begin{minipage}{0.48\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{Messungen/vorwaerts.png}
+		\includegraphics[width=\linewidth]{Messungen/vor_neuneu.png}
 		\caption{Encoder-Ausgang bei Vorwärtsbewegung}
 	\end{minipage}
 	\hfill
 	\begin{minipage}{0.48\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{Messungen/rueckwaerts.png}
+		\includegraphics[width=\linewidth]{Messungen/rueck_neuneu.png}
 		\caption{Encoder-Ausgang bei Rückwärtsbewegung}
 	\end{minipage}
 \end{figure}
@@ -202,8 +228,8 @@ Die folgenden Oszilloskopbilder zeigen den gemessenen Encoder-Ausgang bei Bewegu
 	\begin{tabularx}{\linewidth}{L{0.17\linewidth}|L{0.14\linewidth}|L{0.14\linewidth}|L{0.16\linewidth}|L{0.23\linewidth}}
 		\hline
 		\textbf{Messpunkt} & \textbf{Pegel} & \textbf{Frequenz} & \textbf{Phasenlage} & \textbf{Bewertung} \\\hline
-		Vorwärts, Kanal A/B & ca. 3 V$_{SS}$ & nicht numerisch abgelesen & visuell etwa 90$^\circ$ versetzt & Rechtecksignale erkennbar, Phasenlage nur aus dem Bild abgeschätzt \\\hline
-		Rückwärts, Kanal A/B & 3,10 V$_{SS}$ & 77,46 Hz & -88,1$^\circ$ & Quadratur-Signal plausibel, Richtung gegenüber Vorwärts invertiert \\\hline
+		Vorwärts, Kanal A/B & ca. 3 V$_{SS}$ & 362,23 Hz / 363,19 Hz & +89,63$^\circ$ & sauberes Quadratur-Signal bei konstanter halber Geschwindigkeit \\\hline
+		Rückwärts, Kanal A/B & ca. 3 V$_{SS}$ & 380,60 Hz / 377,96 Hz & -89,97$^\circ$ & Quadratur-Signal plausibel, Richtung gegenüber Vorwärts invertiert \\\hline
 	\end{tabularx}
 	\caption{Messwerttabelle für den gemessenen Encoder-Ausgang}
 \end{table}
@@ -214,9 +240,9 @@ Die Signale des gemessenen Encoders werden über die dafür vorgesehenen Leitung
 \subsubsection{Auswertung und Interpretation}
 Ausgewertet werden insbesondere Tastverhältnis, Signalpegel und Phasenlage der beiden Kanäle des gemessenen Encoder-Ausgangs. Die Phasenverschiebung zwischen den Kanälen gibt dabei Aufschluss über die Drehrichtung. Unscharfe Flanken, starke Störungen oder Pegelprobleme würden auf Schwachstellen in der Signalaufbereitung, Leitungsführung oder Pegelanpassung hinweisen.
 
-Die aufgenommenen Signale zeigen grundsätzlich das erwartete Verhalten eines Quadratursignals. Bei steigender Drehzahl werden die Impulse dichter, die Signalform bleibt aber weiterhin als digitales Rechtecksignal erkennbar. Im Rückwärts-Bild wurde vom Oszilloskop eine Spitze-Spitze-Spannung von 3,10 V, eine Frequenz von 77,46 Hz und eine Phasenlage von -88,1$^\circ$ angezeigt. Damit liegt die Phasenverschiebung sehr nahe bei den für einen Quadraturencoder erwarteten 90$^\circ$.
+Die neu aufgenommenen Signale zeigen das erwartete Verhalten eines Quadratursignals bei konstanter halber Motorgeschwindigkeit. In beiden Bildern sind zwei saubere Rechtecksignale mit nahezu gleicher Frequenz erkennbar. Für die Vorwärtsbewegung wurden 362,23 Hz auf Kanal 1 und 363,19 Hz auf Kanal 2 gemessen, bei einer Phasenlage von +89,63$^\circ$. Für die Rückwärtsbewegung wurden 380,60 Hz auf Kanal 1 und 377,96 Hz auf Kanal 2 mit einer Phasenlage von -89,97$^\circ$ gemessen. Damit liegt die Phasenverschiebung in beiden Fällen praktisch ideal bei 90$^\circ$ und das Vorzeichen der Phasenlage wechselt wie erwartet mit der Drehrichtung.
 
-Kritisch betrachtet ist die Phasenlage aus den Screenshots aber nicht vollständig belastbar. Nur beim Rückwärts-Bild ist ein numerischer Phasenwert eingeblendet. Beim Vorwärts-Bild kann die Phasenlage nur optisch abgeschätzt werden. Zusätzlich ändert sich im Rückwärts-Screenshot die Drehzahl während der Aufnahme, da die Impulse nach rechts hin dichter werden. Für eine endgültige Aussage zur Drehrichtung muss daher sichergestellt werden, welcher reale Encoderkanal auf CH1 beziehungsweise CH2 lag. Die Messung zeigt aber, dass der Encoder elektrisch verwendbare Signale liefert und dass der STM32 die Flanken grundsätzlich auswerten kann.
+Gegenüber den früheren Aufnahmen sind diese Messungen deutlich belastbarer, weil Vorwärts- und Rückwärtsfahrt bei konstanter halber Geschwindigkeit aufgenommen wurden und das Oszilloskop in beiden Fällen numerische Werte für Frequenz und Phasenlage anzeigt. Kleine Frequenzabweichungen zwischen den beiden Drehrichtungen sind bei manuell eingestellter Geschwindigkeit plausibel und ändern nichts an der grundsätzlichen Aussage. Die Messung zeigt damit, dass der Encoder elektrisch saubere Signale liefert und dass der STM32 die Flanken für eine spätere Richtungs- und Drehzahlauswertung grundsätzlich zuverlässig erfassen kann.
 
 \subsection{Messungen an Motoren und Servos}
 Die dritte im Antrag vorgesehene Messgruppe betrifft die Leistungsaufnahme und die Funktion von Motoren und Servos unter Last. Die grundsätzliche Stabilität der Powerrails wurde bereits in Abschnitt 9.1 betrachtet. Hier geht es daher um den realen Betrieb der Aktoren: Wie viel Strom beziehungsweise Leistung wird benötigt und funktioniert die Ansteuerung auch unter Belastung zuverlässig.
