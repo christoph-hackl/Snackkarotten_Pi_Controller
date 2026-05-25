@@ -1,14 +1,14 @@
 \section{Einleitung}
-Im Rahmen der Projektarbeit wurde eine eigene Erweiterungsplatine für den Raspberry Pi entwickelt. Ziel war es, die für Wettbewerbs- und Schulprojekte benötigten Funktionen auf einer Leiterplatte zusammenzufassen.
+In dieser Projektarbeit wurde eine Erweiterungsplatine für den Raspberry Pi entwickelt. Ziel war es, die wichtigsten Funktionen für Robotik- und Schulprojekte auf einer Platine zusammenzufassen.
 
-Die Platine verbindet den Raspberry Pi 5 mit Motor- und Servoansteuerung, Sensoranschlüssen, IMUs und der Spannungsversorgung. Ein zusätzlicher STM32-Mikrocontroller übernimmt zeitkritische und Analog-Pin Aufgaben, die auf dem Raspberry Pi nicht zuverlässig abgearbeitet werden können.
+Die Platine verbindet den Raspberry Pi 5 mit Motoren, Servos, Sensoren, IMUs und der Spannungsversorgung. Ein STM32-Mikrocontroller übernimmt Aufgaben, die zeitkritisch sind oder analoge Eingänge brauchen. Das kann der Raspberry Pi alleine nicht erledigen.
 
-Die Dokumentation beschreibt den aktuellen Stand des Systems, den Hardwareaufbau, die Auswahl der Bauteile, wichtige Entwurfsentscheidungen sowie bereits erkannte Fehler und mögliche Verbesserungen.
+Diese Dokumentation beschreibt den aktuellen Stand der Platine. Es geht um den Aufbau, die Bauteile, wichtige Entscheidungen, erkannte Fehler und mögliche Verbesserungen.
 
 \section{Ausgangslage, Zielsetzung und Anforderungen}
-Der Raspberry Pi bietet für Robotikanwendungen eine hohe Rechenleistung und eine flexible Softwareplattform. Für den direkten Einsatz in einem Roboter bringt er aber auch Einschränkungen mit sich. Es sind keine Analogeingänge vorhanden, und das Linux-Betriebssystem ist für zeitkritische Aufgaben nur eingeschränkt geeignet.
+Der Raspberry Pi hat genug Rechenleistung für Robotikprojekte. Er ist auch softwareseitig sehr flexibel. Für einen Roboter hat er aber auch Nachteile. Er hat keine Analogeingänge. Außerdem ist Linux für sehr zeitkritische Aufgaben nicht ideal.
 
-Aus diesem Grund wurde eine eigene Pi-Erweiterungsplatine entwickelt, die möglichst viele benötigte Funktionen direkt integriert. Das Ziel war ein kompakterer und robusterer Aufbau, bei dem Rechenleistung, hardwarenahe Steuerung und Sensoranbindung auf einer gemeinsamen Platine zusammengeführt werden.
+Deshalb wurde eine eigene Erweiterungsplatine entwickelt. Sie soll viele benötigte Funktionen direkt auf einem Board bereitstellen. Dadurch wird der Aufbau kompakter und robuster.
 
 
 \subsection{Funktionale Anforderungen}
@@ -24,7 +24,7 @@ Aus diesem Grund wurde eine eigene Pi-Erweiterungsplatine entwickelt, die mögli
 \subsection{Nichtfunktionale Anforderungen}
 \begin{itemize}
 	\item Leistungselektronik und Logikbereich sollen möglichst sauber getrennt werden.
-	\item Die Leiterplatte soll mechanisch und elektrisch für den mobilen Robotikeinsatz geeignet sein.
-	\item Die Entwicklungsplattform soll auch für spätere Projekte weiterverwendbar sein.
+	\item Die Leiterplatte soll mechanisch und elektrisch für den Robotikeinsatz geeignet sein.
+	\item Die Plattform soll auch für spätere Projekte weiterverwendbar sein.
 \end{itemize}
 

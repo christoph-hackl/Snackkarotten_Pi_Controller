@@ -1,36 +1,55 @@
-﻿\section{Fertigung, Bestückung und Inbetriebnahme}
+\section{Fertigung, Bestückung und Inbetriebnahme}
 Nach Abschluss des Layouts wurden Fertigungsdaten erzeugt, die Platine bestellt und bestückt. In der ersten Inbetriebnahme stand die grundlegende elektrische Funktionsprüfung im Vordergrund. Ziel dieser Phase war es, die Versorgung, die Erreichbarkeit der zentralen Komponenten und offensichtliche Hardwarefehler früh zu prüfen.
 
-Die folgende Tabelle fasst den aktuellen Stand der Inbetriebnahme zusammen. Dabei handelt es sich um Funktionsprüfungen und grobe Spannungsprüfungen, noch nicht um eine vollständige messtechnische Charakterisierung.
+Tabelle~\ref{tab:inbetriebnahme} fasst den aktuellen Stand der Inbetriebnahme zusammen. Dabei handelt es sich um Funktionsprüfungen und grobe Spannungsprüfungen, noch nicht um eine vollständige Messung.
 
 \begin{table}[H]
+	\hbadness=10000
 	\centering
 	\small
 	\renewcommand{\arraystretch}{1.35}
-	\begin{tabularx}{\linewidth}{>{\RaggedRight\arraybackslash}m{0.22\linewidth}|>{\RaggedRight\arraybackslash}m{0.29\linewidth}|>{\RaggedRight\arraybackslash}m{0.25\linewidth}|>{\Centering\arraybackslash}m{0.11\linewidth}}
+	\begin{tabularx}{\linewidth}{|>{\RaggedRight\arraybackslash}m{0.22\linewidth}|>{\RaggedRight\arraybackslash}m{0.29\linewidth}|>{\RaggedRight\arraybackslash}m{0.27\linewidth}|>{\RaggedRight\arraybackslash}m{0.119\linewidth}|}
 		\hline
 		\textbf{Teilbereich} & \textbf{Prüfung} & \textbf{Ergebnis} & \textbf{Status} \\\hline
 		Spannungsversorgung & Kontrolle der erzeugten Versorgungsschienen & 6-V-Bereiche liefern ca. 6 V, Raspberry-Pi-Schiene ca. 5 V, Logikversorgung ca. 3,3 V & funktioniert \\\hline
 		STM32 & Programmieren und Erreichen des Mikrocontrollers über SWD & STM32 kann geflasht werden & funktioniert \\\hline
-		Motoransteuerung & STM32 setzt PWM-Signale an den Motortreibern & Motortreiber reagieren auf die vom STM32 ausgegebenen Steuersignale & funktioniert \\\hline
-		UART-Kommunikation & Steuerbefehle vom Raspberry Pi beziehungsweise Testsystem an den STM32 & UART-Kommandos können verarbeitet und in PWM-Werte umgesetzt werden & funktioniert \\\hline
+		Motoransteuerung & STM32 setzt PWM-Signale an den Motortreibern und bekommt auch sinnvolle Encoder-Werte zurück & Motortreiber reagieren auf die vom STM32 ausgegebenen Steuersignale und die Encoder liefern Daten & funktioniert \\\hline
+		UART-Kommunikation & Steuerbefehle vom Raspberry Pi an den STM32 & UART-Kommandos können verarbeitet und in PWM-Werte umgesetzt werden & funktioniert \\\hline
 		IMU LSM6DSO & Zugriff vom Raspberry Pi über die verwendete Softwarebibliothek & Sensor ist erreichbar und kann angesprochen werden & funktioniert \\\hline
-		IMU BNO085 & Zugriff vom Raspberry Pi über die verwendete Softwarebibliothek & Sensor ist derzeit nicht erreichbar & offen \\\hline
+		IMU BNO085 & Zugriff vom Raspberry Pi über die verwendete Softwarebibliothek und I2C-Finder & Sensor ist derzeit nicht erreichbar und wird auch beim I2C-Scan nicht gefunden & offen \\\hline
 		Servoansteuerung & Ansteuerung des PCA9685 und Prüfung des PWM-Ausgangs & Gewünschtes PWM-Signal wird erzeugt & funktioniert \\\hline
 	\end{tabularx}
 	\caption{Aktueller Stand der Inbetriebnahme}
+	\label{tab:inbetriebnahme}
 \end{table}
 
 
 \section{Fehler, Probleme und bereits umgesetzte Verbesserungen}
 \subsection{Fehler im Schaltplan aus dem Power-Designer}
-Ein konkreter Fehler trat bei der Übernahme eines Schaltungsteils aus dem Texas-Instruments-Power-Designer auf. Beim Abzeichnen der erzeugten Schematic wurde ein Fehler übernommen, der erst im späteren Verlauf erkannt wurde.
+Ein konkreter Fehler trat bei der Übernahme eines Schaltungsteils aus dem Texas-Instruments-Power-Designer auf. Beim Abzeichnen der erzeugten Schematic wurde ein Fehler übernommen, der erst im späteren Verlauf erkannt wurde, da alle 6V-Wandler nur 0,8 V erzeugten.
 
-Die Korrektur erfolgte direkt an der aufgebauten Platine durch das Auftrennen einer Leiterbahn. Damit konnte der Fehler behoben werden. Für eine nächste Platinenrevision muss diese Änderung jedoch sauber in Schaltplan und Layout zurückgeführt werden.
+Die Korrektur erfolgte direkt an der aufgebauten Platine durch das Auftrennen einer Leiterbahn. Damit konnte der Fehler behoben werden. Der Fehler wurde in der Schematic und im PCB ausgebessert.
 
 \subsection{Empfindlichkeit des 5-V-Wandlers beim Abziehen des Akkus}
 Ein weiteres Problem betrifft den 5-V-Wandler für den Raspberry Pi. Wenn der Akku während des Betriebs einfach abgezogen wird, kann der Wandler beschädigt werden. Deshalb darf der Akku derzeit nur getrennt werden, nachdem der Raspberry Pi sauber heruntergefahren und abgeschaltet wurde.
 
-Für eine zukünftige Revision sollte daher geprüft werden, ob zusätzliche Schutzmaßnahmen, ein geänderter Abschaltpfad oder eine robustere Wandlerlösung notwendig sind.
+Für eine zukünftige Revision sollten daher zusätzliche Schutzmaßnahmen, ein geänderter Abschaltpfad oder eine robustere Wandlerlösung in Betracht gezogen werden.
+
+\subsection{BNO085 nicht erreichbar}
+Der BNO085 kann aktuell nicht angesprochen werden. Er wird auch mit dem I2C-Finder nicht gefunden. Der LSM6DSO ist dagegen erreichbar. Deshalb liegt das Problem wahrscheinlich nicht am kompletten I2C-Bus.
+
+Die wahrscheinlichste Ursache ist ein Lötproblem am BNO085 oder an den dazugehörigen Leitungen. 
+
+\subsection{Reset-Pin des STM32}
+Beim ersten Aufbau war der Reset-Pin des STM32 nicht dauerhaft auf High gelegt. Ursprünglich war geplant, den Reset über den Raspberry Pi zu steuern. Dadurch war der STM32 aber nicht unabhängig vom Raspberry Pi gut testbar.
+
+Deshalb wurde nachträglich ein Pullup am Reset-Pin ergänzt. Damit bleibt der STM32 auch ohne aktive Ansteuerung durch den Raspberry Pi sauber aus dem Reset-Zustand heraus. So können Tests direkt am STM32 einfacher durchgeführt werden.
+
+\subsection{Fehler am Feedback-Netzwerk des 5-V-Wandlers}
+Bei einer Messung wurde versehentlich in das Feedback-Netzwerk des 5V-Wandlers eingegriffen. Dadurch wurde die Ausgangsspannung des Wandlers stark verändert. Der Raspberry Pi 5 wurde dadurch vermutlich mit ungefähr 15 V versorgt.
+
+Diese Spannung liegt deutlich über der zulässigen Versorgungsspannung des Raspberry Pi. Dabei wurde der Power-Management-IC des Raspberry Pi beschädigt. Der Raspberry Pi ist dadurch nicht mehr funktionsfähig.
+
+Das Feedback-Netzwerk wurde folglich mit einem isolierenden Band bedeckt.
 
 

@@ -1,4 +1,4 @@
-﻿\section{Hardwareentwurf und Bauteilauswahl}
+\section{Hardwareentwurf und Bauteilauswahl}
 \subsection{Raspberry-Pi-Anbindung}
 Der Raspberry Pi 5 bildet die zentrale Recheneinheit des Systems. Die Erweiterungsplatine stellt die benötigten Signale und Versorgungen über die GPIO-Schnittstelle bereit. Dadurch lassen sich Steuerdaten, Kommunikationsschnittstellen und Hilfssignale direkt mit den Baugruppen auf der Platine verbinden.
 
@@ -12,7 +12,7 @@ Der Entwurf enthält drei 6-V-Versorgungsbereiche sowie eine 5-V-Versorgung für
 Bei der Auswahl der Spannungswandler stand die Stromtragfähigkeit im Vordergrund. Insbesondere für den Raspberry Pi und die Servoversorgung mussten ausreichende Reserven vorgesehen werden. Getrennte Versorgungspfade sind erforderlich, weil im Robotikbetrieb kurzzeitig hohe Ströme und Lastwechsel auftreten können.
 
 \subsection{Motoransteuerung}
-Die DC-Motoren werden über eigene Treiberstufen angesteuert. Im vorliegenden Entwurf kommen dafür drei DRV8411-Bausteine zum Einsatz. Sie übernehmen die leistungsseitige Ansteuerung, während die Steuersignale vom Mikrocontroller erzeugt werden.
+Die DC-Motoren werden über eigene Treiberstufen angesteuert. Dafür werden drei DRV8411 verwendet. Die Steuersignale kommen vom Mikrocontroller.
 
 Der STM32H562RIT6 wurde als Motor- und Echtzeitcontroller gewählt, weil er mehrere Timer mit PWM-Kanälen, ADC-Eingänge und UART bereitstellt. Dadurch kann er die zeitkritische Motoransteuerung, Encoder-Auswertung und analoge Signalerfassung übernehmen, während der Raspberry Pi die übergeordnete Logik ausführt.
 

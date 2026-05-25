@@ -1,15 +1,15 @@
 \section{Messungen und Auswertungen}
-Bereits in der Projektarbeitsanfrage wurden konkrete Messungen für das fertige System vorgesehen. Diese betreffen einerseits die Stromversorgung und andererseits die Aktorik sowie die Rückführung über Encoder. Dieser Abschnitt dokumentiert die durchgeführten Messungen sowie deren Auswertung.
+Im Projektarbeitsantrag wurden Messungen für das fertige System vorgesehen. Es geht um die Stromversorgung, die Motoren und Servos sowie die Rückmeldung über Encoder. In diesem Kapitel werden die Messungen und die Auswertung beschrieben.
 
 \subsection{Messungen an den Powerrails}
-Die Stromversorgung ist ein zentrales Teilsystem der gesamten Platine. Deshalb wurden die einzelnen Versorgungsschienen nicht nur auf ihre Sollspannung, sondern auch auf ihr Verhalten unter Last untersucht. Im Vordergrund standen dabei Spannung und Strom unter Last, Leistungsaufnahme, Wirkungsgrad und Stabilität.
+Die Stromversorgung ist ein wichtiger Teil der Platine. Deshalb wurden die Versorgungsschienen unter Last gemessen. Wichtig waren Spannung, Strom, Leistungsaufnahme, Wirkungsgrad und Stabilität.
 
-\subsubsection{Messaufbau}
-Als Spannungsquelle wurde ein Labornetzteil mit einer Ausgangsspannung von 12V angeschlossen. 
+\subsubsection{Messaufbau und Schaltung}
+Als Spannungsquelle wurde ein Labornetzteil mit 12 V verwendet.
 
-Nach der Leerlaufmessung wurden die Powerrails gemeinsam belastet. Für die 6V Rails kam je eine Elektronische Last und für die 5V Rail der Raspberry Pi zum Einsatz.
+Nach der Leerlaufmessung wurden die Powerrails gemeinsam belastet. Für die 6-V-Rails wurde jeweils eine elektronische Last verwendet. Die 5-V-Rail wurde mit dem Raspberry Pi belastet.
 
-Die 3,3-V-Logikversorgung wurde nicht als eigene Powerrail-Messung geführt, da sie aus der 5-V-Schiene abgeleitet wird.
+Die 3,3-V-Logikversorgung wurde nicht extra gemessen. Sie wird aus der 5-V-Schiene erzeugt.
 
 Gemessen wurden:
 
@@ -17,10 +17,9 @@ Gemessen wurden:
 	\item Eingangsspannung und Eingangsstrom des Wandlers
 	\item Ausgangsspannung und Ausgangsstrom der jeweiligen Schiene
 	\item eventuelle Spannungseinbrüche beim Lastwechsel
-	\item Schaltverhalten beim Ein- und Ausschalten
 \end{itemize}
 
-Die Messwerte wurden einheitlich in einer Tabelle erfasst. Die Spalte \glqq unter Last\grqq{} bezieht sich dabei auf die gemeinsame Belastung aller direkt genutzten Rails.
+Der allgemeine Messaufbau ist in Abbildung~\ref{fig:powerrail-messaufbau} dargestellt. Die Messwerte stehen in Tabelle~\ref{tab:powerrails}. Die Spalte \glqq gemeinsame Last\grqq{} bezieht sich auf die gleichzeitige Belastung aller direkt genutzten Rails.
 
 \begin{figure}[H]
 	\centering
@@ -36,117 +35,121 @@ Die Messwerte wurden einheitlich in einer Tabelle erfasst. Die Spalte \glqq unte
 		\node[above=0.28cm of source] {$U_\mathrm{in}$ / $I_\mathrm{in}$ am Netzteil};
 		
 		\path (aout) -- (load) coordinate[pos=0.5] (sense);
-		\node[meter, fill=orange!18] (vout) at ([yshift=-0.8cm]sense) {V};
-		\coordinate (gndL) at ([yshift=-1.55cm]source.south west);
-		\coordinate (gndR) at ([yshift=-1.55cm]load.south east);
+		\node[meter, fill=orange!18] (vout) at ([yshift=-1cm]sense) {V};
+		\coordinate (gndL) at ([yshift=-1.55cm]source.south);
+		\coordinate (gndR) at ([yshift=-1.55cm]load.south);
 		
 		\draw[line] (source) -- (board);
-		\draw[line] (board) -- node[above] {6 V / 5 V} (aout);
-		\draw[line] (aout) -- node[above] {$I_\mathrm{out}$} (load);
-		\node[left=0.1cm of vout] {$U_\mathrm{out}$};
+		\draw[line] (board) -- node[above]{}(aout);
+		\draw[line] (aout) -- node[above] {} (load);
+		\node[above=0.01cm of aout] {$I_\mathrm{out}$};
+		\node[left=0.01cm of vout] {$U_\mathrm{out}$};
 		\draw[draw] (sense) -- node[left] {} 	(vout.north);
-		\draw[draw] (gndL) -- node[below] {GND} (gndR);
+		\draw[draw] (gndL) -- node[below]{} (gndR);
 		\draw[draw] (source.south) -- (source.south |- gndL);
-		\draw[draw] (board.south) -- (board.south |- gndL);
+		\draw[draw] (board.south) -- (board.south |- gndL) node[ground]{};
 		\draw[draw] (load.south) -- (load.south |- gndL);
 		\draw[draw] (vout.south) -- (vout.south |- gndL);
 	\end{tikzpicture}
 	\caption{Messaufbau zur Überprüfung der Powerrails}
+	\label{fig:powerrail-messaufbau}
+\end{figure}
+
+Für die 6-V-Rails wurde eine einfache elektronische Last verwendet. Die Schaltung ist in Abbildung~\ref{fig:elektronische-last} dargestellt. Sie besteht aus einem 2N3055-Leistungstransistor und einem 390-\(\Omega\)-Widerstand am Basiseingang. Über die Steuerspannung wird eingestellt, wie stark der Transistor leitet. Dadurch kann die Powerrail gezielt belastet werden. In diesem Fall wurde der Basisstrom so angepasst, dass ca. 4A je Powerrail fließen können.
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}[font=\scriptsize, european resistors]
+		\ctikzset{transistors/scale=1.2}
+
+		\node[npn, xscale=-1] (q) at (4.0,2.2) {};
+		\node[left=1cm of q] {2N3055};
+
+		\draw (9.0,0)
+			to[V,l_=$U_\mathrm{steuer}$] (9.0,2.2)
+			to[R,l=$390\,\Omega$] (q.B);
+
+		\draw (q.E) -- (4.0,0) node[ground]{};
+		\draw (q.C) -- (4.0,4.0)
+			to[short, -o] (0,4.0) node[left] {$+U_\mathrm{out}$};
+		\draw (0,0) to[short, o-] (2.0,0) -- (9,0);
+			
+	\end{circuitikz}
+	\caption{Elektronische Last für die 6V-Powerrails}
+	\label{fig:elektronische-last}
 \end{figure}
 
 \begin{table}[H]
+	\hbadness=10000
 	\centering
 	\scriptsize
 	\renewcommand{\arraystretch}{1.25}
 	\setlength{\tabcolsep}{3pt}
-	\begin{tabularx}{\linewidth}{L{0.16\linewidth}|L{0.12\linewidth}|L{0.14\linewidth}|L{0.14\linewidth}|L{0.12\linewidth}|L{0.15\linewidth}}
+	\begin{tabularx}{\linewidth}{|L{0.16\linewidth}|L{0.12\linewidth}|L{0.14\linewidth}|L{0.14\linewidth}|L{0.12\linewidth}|L{0.2415\linewidth}|}
 		\hline
 		\textbf{Schiene} & \textbf{Sollwert} & \textbf{Leerlauf} & \textbf{gemeinsame Last} & \textbf{Laststrom} & \textbf{Bewertung} \\\hline
-		6 V Motor & 6 V & 6,03 V & 5,91 V & 4,12 A & stabil \\\hline
-		6 V Servo 1 & 6 V & 6,01 V & 5,94 V & 4,1 A &  \\\hline
-		6 V Servo 2 & 6 V & 6,08 V & 5,96 V & 4,1 A &  \\\hline
-		5 V Raspberry Pi & 5 V & 5,02 V & 4,84 V & 2,3 A & stabiler Betrieb, Spannung im zulässigen Bereich \\\hline
+		6 V Motor & 6 V & 6,03 V & 5,91 V & 4,12 A & Spannung beim Lastwechsel und generell stabil \\\hline
+		6 V Servo 1 & 6 V & 6,01 V & 5,94 V & 4,02 A & wie Motorrail \\\hline
+		6 V Servo 2 & 6 V & 6,08 V & 5,96 V & 4,09 A & wie Motorrail \\\hline
+		5 V Raspberry Pi & 5 V & 5,02 V & 4,94 V & 1,3 A & stabiler Betrieb, Spannung im zulässigen Bereich \\\hline
 	\end{tabularx}
 	\caption{Messwerttabelle für die gemeinsam belasteten Powerrails}
+	\label{tab:powerrails}
 \end{table}
 
-Die Leerlaufmessung wurde mit einer Versorgungsspannung von 12\,V am Labornetzteil durchgeführt. Der angezeigte Eingangsstrom betrug dabei 230\,mA, woraus sich eine Leerlauf-Leistungsaufnahme von
+Die Leerlaufmessung aus Tabelle~\ref{tab:powerrails} wurde mit 12\,V am Labornetzteil durchgeführt. Der angezeigte Eingangsstrom betrug 230\,mA. Daraus ergibt sich eine Leerlauf-Leistungsaufnahme von
 
 \[
 P = U \cdot I = 12\,\mathrm{V} \cdot 0{,}23\,\mathrm{A} \approx 2{,}76\,\mathrm{W}
 \]
 
-ergibt. Dieser Wert erscheint plausibel und entspricht dem zu erwartenden Eigenverbrauch der Wandler und Logikkomponenten im unbelasteten Zustand.
+Dieser Wert ist plausibel. Er entspricht dem Eigenverbrauch der Wandler und der Logik im unbelasteten Zustand.
 
-Anschließend wurden alle Rails gleichzeitig belastet. Die Lasten wurden so gewählt, dass jede Schiene deutlich belastet wird und der Aufbau einem realistischen Gesamtbetrieb nahekommt. Die Ausgangsspannungen blieben während der Messung stabil. Es wurden keine relevanten Spannungseinbrüche beobachtet und es trat keine auffällige Erwärmung auf.
+Danach wurden alle Rails gleichzeitig belastet. Die Lasten wurden so gewählt, dass jede Schiene deutlich belastet wird. Die Ausgangsspannungen blieben stabil. Es wurden keine relevanten Spannungseinbrüche beobachtet. Es trat auch keine auffällige Erwärmung auf.
 
-Die Motorrail und die beiden Servorails verwenden denselben Wandlertyp. Daher war ein ähnliches Verhalten dieser drei 6-V-Schienen zu erwarten. Die Messung bestätigte dies, da zwischen Motorrail und Servorails keine signifikanten Unterschiede auftraten. Die 5-V-Schiene blieb unter Last ebenfalls im zulässigen Bereich für den Raspberry Pi.
+Die Motorrail und die beiden Servorails verwenden denselben Wandlertyp. Deshalb war ein ähnliches Verhalten zu erwarten. Die Messung bestätigt das. Zwischen Motorrail und Servorails gab es keine signifikanten Unterschiede. Die 5-V-Schiene blieb ebenfalls im zulässigen Bereich für den Raspberry Pi.
 
-Aus den gleichzeitig gemessenen Ausgangswerten ergibt sich eine gesamte abgegebene Leistung von ungefähr
+Aus den gleichzeitig gemessenen Ausgangswerten ergibt sich eine gesamte Ausgangsleistung von ungefähr
 
 \[
 \begin{aligned}
 P_\mathrm{out} &= 5{,}91\,\mathrm{V} \cdot 4{,}12\,\mathrm{A}
-	+ 5{,}94\,\mathrm{V} \cdot 4{,}1\,\mathrm{A} \\
-&\quad + 5{,}96\,\mathrm{V} \cdot 4{,}1\,\mathrm{A}
-	+ 4{,}84\,\mathrm{V} \cdot 2{,}3\,\mathrm{A} \\
-&\approx 84\,\mathrm{W}.
+	+ 5{,}94\,\mathrm{V} \cdot 4{,}02\,\mathrm{A} \\
+&\quad + 5{,}96\,\mathrm{V} \cdot 4{,}09\,\mathrm{A}
+	+ 4{,}94\,\mathrm{V} \cdot 1{,}34\,\mathrm{A} \\
+&\approx 79\,\mathrm{W}.
 \end{aligned}
 \]
 
-Am Labornetzteil wurde bei 12\,V eine Eingangsleistung von etwa 89\,W aufgenommen. Das entspricht einem Eingangsstrom von ungefähr
+Am Labornetzteil wurde bei 12\,V ein Eingangsstrom von 7,1 A abgelesen. Das entspricht einer Eingangsleistung von ungefähr
 
 \[
-I_\mathrm{in} = \frac{89\,\mathrm{W}}{12\,\mathrm{V}} \approx 7{,}4\,\mathrm{A}.
+P_\mathrm{in} = 12\,\mathrm{V} \cdot 7{,}1\,\mathrm{A} \approx 85\,\mathrm{W}.
 \]
 
 Daraus ergibt sich für die gesamte Spannungsversorgung unter gemeinsamer Last ein Wirkungsgrad von ungefähr
 
 \[
-\eta = \frac{P_\mathrm{out}}{P_\mathrm{in}} = \frac{84\,\mathrm{W}}{89\,\mathrm{W}} \approx 94\,\%.
+\eta = \frac{P_\mathrm{out}}{P_\mathrm{in}} = \frac{79\,\mathrm{W}}{85\,\mathrm{W}} \approx 93\,\%.
 \]
 
-Dieser Wirkungsgrad beschreibt die gesamte Spannungsversorgung unter gemeinsamer Belastung. Ein Wirkungsgrad einzelner Wandler wird daraus nicht berechnet, weil der Eingangsstrom am gemeinsamen Eingang des gesamten Boards gemessen wird. Darin sind alle gleichzeitig aktiven Verbraucher und Verluste enthalten. Die Messung dient daher vor allem zur Beurteilung der Stabilität des gesamten Versorgungssystems unter gemeinsamer Belastung.
+Dieser Wirkungsgrad gilt für die gesamte Spannungsversorgung unter gemeinsamer Belastung. Der Wirkungsgrad einzelner Wandler wird daraus nicht berechnet, weil der Eingangsstrom am gemeinsamen Eingang des Boards gemessen wurde. Darin sind alle aktiven Verbraucher und Verluste enthalten.
 
-\subsubsection{Messschaltung}
-Die Strommessung kann entweder über das Labornetzteil, ein Multimeter in Serie oder einen niederohmigen Shunt-Widerstand mit Spannungsabfallmessung erfolgen. Die Spannungsmessung erfolgt direkt an den Testpunkten der jeweiligen Powerrail. Für das Beobachten von Einbrüchen oder Schaltspitzen ist zusätzlich ein Oszilloskop sinnvoll.
 
 \subsubsection{Auswertung und Interpretation}
-Aus den gemessenen Größen lassen sich Eingangsleistung und Ausgangsleistung der belasteten Schiene bestimmen. Ein genauer Wirkungsgrad einzelner Wandler ist nur dann sinnvoll berechenbar, wenn auch der Eingangsstrom des jeweiligen Wandlers separat gemessen wird. Außerdem kann beurteilt werden, ob die Spannungsversorgung für die jeweilige Last ausreichend stabil ist. Besonders wichtig ist dabei die Bewertung unter realistischen Lastbedingungen.
+Die 6-V-Schienen liegen laut Tabelle~\ref{tab:powerrails} unter Last zwischen 5,91 V und 5,96 V. Der Spannungsabfall gegenüber dem Leerlauf ist damit klein. Für Motoren und Servos ist das unkritisch, weil diese Verbraucher keine exakt geregelten 6,00 V benötigen. Wichtiger ist, dass die Spannung bei Belastung nicht stark einbricht und dass keine auffällige Erwärmung auftritt.
 
-Für das vorliegende Projekt ist diese Messung besonders relevant, weil bereits ein reales Problem beim 5-V-Wandler beobachtet wurde. Das Verhalten beim Abziehen des Akkus beziehungsweise beim Abschalten der Versorgung muss deshalb besonders kritisch betrachtet werden.
+Die 5-V-Schiene liegt unter Last bei 4,94 V. Das ist niedriger als im Leerlauf, aber noch im sinnvollen Bereich für den Raspberry Pi. Kritisch wäre hier ein stärkerer Einbruch, weil der Raspberry Pi bei zu niedriger Spannung instabil werden kann. Während der Messung wurde das nicht beobachtet.
 
-\subsubsection{Schaltverhalten der Motorrail}
-Zusätzlich zur statischen Spannungs- und Strommessung wurde das Einschaltverhalten der Motorrail mit dem Oszilloskop betrachtet. Ziel dieser Messung war es zu überprüfen, ob die 6-V-Motorversorgung beim Aktivieren sauber hochläuft oder ob dabei starke Einbrüche, Überschwinger oder instabile Schwingungen auftreten. Gerade bei Motoren ist dieses Verhalten relevant, weil beim Zuschalten der Last kurzzeitig hohe Stromspitzen auftreten können.
+Der berechnete Gesamtwirkungsgrad von ungefähr 93\,\% ist für die verwendeten Schaltwandler plausibel. Da am gemeinsamen Eingang gemessen wurde, enthält dieser Wert auch Verluste durch Leiterbahnen, Steckverbinder und gleichzeitig aktive Verbraucher. Er ist deshalb als Bewertung des ganzen Versorgungssystems zu verstehen und nicht als exakter Wirkungsgrad eines einzelnen Wandlers.
 
-Die folgenden Aufnahmen zeigen zunächst den allgemeinen Spannungsverlauf der Motorrail beim Einschalten und anschließend eine vergrößerte Darstellung des Übergangsbereichs.
-
-\begin{figure}[H]
-	\centering
-	\begin{minipage}{0.48\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{Messungen/Motor_Anschalten_rail.png}
-		\caption{Motorrail beim Einschalten, Gesamtansicht}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.48\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{Messungen/Motor_rail_anschalten_zoom (1).png}
-		\caption{Motorrail beim Einschalten, Zoomaufnahme}
-	\end{minipage}
-\end{figure}
-
-In der Gesamtansicht ist zu erkennen, dass die Motorrail nach dem Einschalten auf ein Spannungsniveau von ungefähr 5,5\,V ansteigt. Nach dem Übergang bleibt die Versorgung grundsätzlich bestehen, auf der Spannung ist jedoch ein sichtbarer hochfrequenter Ripple überlagert. Die Zoomaufnahme zeigt den Einschaltmoment genauer. Dort ist erkennbar, dass die Spannung nicht völlig sprunghaft und ideal ansteigt, sondern von einem kurzzeitigen Stör- beziehungsweise Schwinganteil begleitet wird.
-
-Aus der Cursoranzeige der Zoomaufnahme ergibt sich für den markierten Bereich ein Spannungsunterschied von ungefähr 637,5\,mV. Dieser Wert ist nicht als dauerhafter Spannungsfehler zu interpretieren, sondern beschreibt die Größenordnung des beobachteten Einschaltvorgangs im vergrößerten Ausschnitt. Kritische Einbrüche bis auf 0\,V oder ein offensichtliches vollständiges Zusammenbrechen der Motorrail sind in den gezeigten Aufnahmen nicht zu erkennen.
-
-Für die praktische Bewertung bedeutet das: Die Motorrail schaltet grundsätzlich funktionsfähig ein, zeigt beim Übergang aber ein erkennbares Störverhalten, das bei empfindlicher Last oder bei gleichzeitigem Betrieb mehrerer Motoren weiter beobachtet werden sollte. Für eine endgültige Beurteilung wäre es sinnvoll, dieselbe Messung zusätzlich unter realer Motorlast und mit definiertem Einschaltstrom zu wiederholen. Damit ließe sich besser abschätzen, ob das beobachtete Verhalten lediglich normales Schaltwandler-Ripple ist oder ob im realen Betrieb zusätzliche Maßnahmen zur Entstörung notwendig werden.
+Die Messung zeigt, dass die Versorgung bei der gewählten Belastung grundsätzlich funktioniert. 
 
 \subsection{Messung an einem Encoder-Ausgang}
-Die Encoder dienen als Rückführung für die spätere Motorregelung. In dieser Messung wurde nicht jeder Encoderanschluss einzeln geprüft, sondern ein Encoder-Ausgang exemplarisch untersucht.
+Die Encoder liefern die Rückmeldung für die spätere Motorregelung. Es wurde nicht jeder Encoderanschluss einzeln geprüft, sondern ein Encoder-Ausgang als Beispiel gemessen.
 
 \subsubsection{Messziel}
-Bei der Encodermessung soll anhand eines einzelnen Encoder-Ausgangs überprüft werden,
+Bei der Encodermessung soll anhand eines einzelnen Encoder-Ausgangs geprüft werden,
 
 \begin{itemize}
 	\item ob die Signale elektrisch sauber und störungsarm vorliegen,
@@ -155,18 +158,10 @@ Bei der Encodermessung soll anhand eines einzelnen Encoder-Ausgangs überprüft 
 	\item ob die Auflösung und Genauigkeit für die geplante Regelung ausreichend sind.
 \end{itemize}
 
-\subsubsection{Messaufbau}
-Ein Motor mit angeschlossenem Encoder wird kontrolliert betrieben. Gemessen wurde ein einzelner Encoder-Ausgang, bevor dessen Signale an die Zählereingänge des STM32 geführt werden. Dabei kann der Motor mit verschiedenen Drehzahlen und in beiden Drehrichtungen betrieben werden.
+\subsubsection{Messaufbau und Schaltung}
+Ein Motor mit Encoder wird kontrolliert betrieben. Gemessen wurde ein einzelner Encoder-Ausgang, bevor die Signale an die Zählereingänge des STM32 gehen. Der Motor läuft dabei mit 50\% Leistung und in beide Richtungen.
 
-Zur Untersuchung eignen sich vor allem:
-
-\begin{itemize}
-	\item Oszilloskop zur Darstellung des gemessenen Encoder-Ausgangs
-	\item Logikanalysator zur Impulszählung und Richtungsanalyse
-	\item Vergleich mit einer bekannten mechanischen Bewegung oder Umdrehungszahl
-\end{itemize}
-
-Das Ergebnis soll sowohl elektrisch als auch funktional bewertet werden. Neben den Pegeln ist vor allem wichtig, ob die Flanken sauber erkennbar sind und ob die Drehrichtung aus Kanal A und Kanal B dieses einen Encoders abgeleitet werden kann. Die Messung steht damit exemplarisch für die übrigen gleich aufgebauten Encoderanschlüsse.
+Bewertet werden die elektrischen Pegel und die Funktion. Wichtig ist, ob die Flanken sauber erkennbar sind und ob aus Kanal A und Kanal B die Drehrichtung abgeleitet werden kann. Der Messaufbau ist in Abbildung~\ref{fig:encoder-messaufbau} dargestellt.
 
 \begin{figure}[H]
 	\centering
@@ -201,9 +196,10 @@ Das Ergebnis soll sowohl elektrisch als auch funktional bewertet werden. Neben d
 		\draw[draw] (ch2out) -| node[right, yshift=0.5cm] {CH2} (ch2mid) -- (tapB);
 	\end{tikzpicture}
 	\caption{Messaufbau zur Prüfung eines einzelnen Encoder-Ausgangs}
+	\label{fig:encoder-messaufbau}
 \end{figure}
 
-Die folgenden Oszilloskopbilder zeigen den gemessenen Encoder-Ausgang bei konstanter halber Motorgeschwindigkeit in beide Richtungen. Kanal 1 ist orange dargestellt, Kanal 2 grün. Beide Kanäle wurden mit 1 V/div und derselben Zeitbasis aufgenommen, wodurch sich die Vorwärts- und Rückwärtsmessung direkt vergleichen lassen.
+Die Oszilloskopbilder in Abbildung~\ref{fig:encoder-vorwaerts} und Abbildung~\ref{fig:encoder-rueckwaerts} zeigen den gemessenen Encoder-Ausgang bei konstanter halber Motorgeschwindigkeit in beide Richtungen. Kanal 1 ist orange, Kanal 2 ist grün. Beide Bilder wurden mit 1 V/div und derselben Zeitbasis aufgenommen. Dadurch lassen sie sich gut vergleichen.
 
 \begin{figure}[H]
 	\centering
@@ -211,44 +207,70 @@ Die folgenden Oszilloskopbilder zeigen den gemessenen Encoder-Ausgang bei konsta
 		\centering
 		\includegraphics[width=\linewidth]{Messungen/vor_neuneu.png}
 		\caption{Encoder-Ausgang bei Vorwärtsbewegung}
+		\label{fig:encoder-vorwaerts}
 	\end{minipage}
 	\hfill
 	\begin{minipage}{0.48\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{Messungen/rueck_neuneu.png}
 		\caption{Encoder-Ausgang bei Rückwärtsbewegung}
+		\label{fig:encoder-rueckwaerts}
 	\end{minipage}
 \end{figure}
 
+Die dazugehörigen Messwerte sind in Tabelle~\ref{tab:encoder-messwerte} zusammengefasst.
+
 \begin{table}[H]
+	\hbadness=10000
 	\centering
 	\scriptsize
 	\renewcommand{\arraystretch}{1.25}
 	\setlength{\tabcolsep}{3pt}
-	\begin{tabularx}{\linewidth}{L{0.17\linewidth}|L{0.14\linewidth}|L{0.14\linewidth}|L{0.16\linewidth}|L{0.23\linewidth}}
+	\begin{tabularx}{\linewidth}{|L{0.17\linewidth}|L{0.14\linewidth}|L{0.18\linewidth}|L{0.16\linewidth}|L{0.2845\linewidth}|}
 		\hline
 		\textbf{Messpunkt} & \textbf{Pegel} & \textbf{Frequenz} & \textbf{Phasenlage} & \textbf{Bewertung} \\\hline
-		Vorwärts, Kanal A/B & ca. 3 V$_{SS}$ & 362,23 Hz / 363,19 Hz & +89,63$^\circ$ & sauberes Quadratur-Signal bei konstanter halber Geschwindigkeit \\\hline
-		Rückwärts, Kanal A/B & ca. 3 V$_{SS}$ & 380,60 Hz / 377,96 Hz & -89,97$^\circ$ & Quadratur-Signal plausibel, Richtung gegenüber Vorwärts invertiert \\\hline
+		Vorwärts, Kanal A/B & ca. 3 V & 362,23 Hz / 363,19 Hz & +89,63$^\circ$ & sauberes Quadratur-Signal bei konstanter halber Geschwindigkeit \\\hline
+		Rückwärts, Kanal A/B & ca. 3 V & 380,60 Hz / 377,96 Hz & -89,97$^\circ$ & Quadratur-Signal plausibel, Richtung gegenüber Vorwärts invertiert \\\hline
 	\end{tabularx}
 	\caption{Messwerttabelle für den gemessenen Encoder-Ausgang}
+	\label{tab:encoder-messwerte}
 \end{table}
 
-\subsubsection{Messschaltung}
-Die Signale des gemessenen Encoders werden über die dafür vorgesehenen Leitungen an den Mikrocontroller geführt. Für die Messung wurde dieser eine Encoder-Ausgang parallel an ein Oszilloskop oder einen Logikanalysator angeschlossen. Die übrigen Encoderanschlüsse wurden nicht einzeln vermessen.
 
 \subsubsection{Auswertung und Interpretation}
-Ausgewertet werden insbesondere Tastverhältnis, Signalpegel und Phasenlage der beiden Kanäle des gemessenen Encoder-Ausgangs. Die Phasenverschiebung zwischen den Kanälen gibt dabei Aufschluss über die Drehrichtung. Unscharfe Flanken, starke Störungen oder Pegelprobleme würden auf Schwachstellen in der Signalaufbereitung, Leitungsführung oder Pegelanpassung hinweisen.
+Die Signale in Abbildung~\ref{fig:encoder-vorwaerts} und Abbildung~\ref{fig:encoder-rueckwaerts} zeigen das erwartete Verhalten eines Quadratursignals bei konstanter Motorgeschwindigkeit. In beiden Bildern sind zwei saubere Rechtecksignale mit fast gleicher Frequenz zu sehen. Für die Vorwärtsbewegung wurden laut Tabelle~\ref{tab:encoder-messwerte} 362,23 Hz auf Kanal 1 und 363,19 Hz auf Kanal 2 gemessen. Die Phasenlage beträgt +89,63$^\circ$. Für die Rückwärtsbewegung wurden 380,60 Hz auf Kanal 1 und 377,96 Hz auf Kanal 2 gemessen. Die Phasenlage beträgt -89,97$^\circ$. Damit liegt die Verschiebung fast genau bei 90$^\circ$. Das Vorzeichen wechselt wie erwartet mit der Drehrichtung.
 
-Die neu aufgenommenen Signale zeigen das erwartete Verhalten eines Quadratursignals bei konstanter halber Motorgeschwindigkeit. In beiden Bildern sind zwei saubere Rechtecksignale mit nahezu gleicher Frequenz erkennbar. Für die Vorwärtsbewegung wurden 362,23 Hz auf Kanal 1 und 363,19 Hz auf Kanal 2 gemessen, bei einer Phasenlage von +89,63$^\circ$. Für die Rückwärtsbewegung wurden 380,60 Hz auf Kanal 1 und 377,96 Hz auf Kanal 2 mit einer Phasenlage von -89,97$^\circ$ gemessen. Damit liegt die Phasenverschiebung in beiden Fällen praktisch ideal bei 90$^\circ$ und das Vorzeichen der Phasenlage wechselt wie erwartet mit der Drehrichtung.
+Für die Abschätzung der Motordrehzahl wurde das Datenblatt des COM-MOTOR06-Motors verwendet. Darin steht für den 25GA370-Motor eine Getriebeübersetzung von 21,3. Für die Encodersignale A und B sind 11 Impulse pro Umdrehung angegeben. Bezogen auf die Abtriebswelle ergibt das
 
-Gegenüber den früheren Aufnahmen sind diese Messungen deutlich belastbarer, weil Vorwärts- und Rückwärtsfahrt bei konstanter halber Geschwindigkeit aufgenommen wurden und das Oszilloskop in beiden Fällen numerische Werte für Frequenz und Phasenlage anzeigt. Kleine Frequenzabweichungen zwischen den beiden Drehrichtungen sind bei manuell eingestellter Geschwindigkeit plausibel und ändern nichts an der grundsätzlichen Aussage. Die Messung zeigt damit, dass der Encoder elektrisch saubere Signale liefert und dass der STM32 die Flanken für eine spätere Richtungs- und Drehzahlauswertung grundsätzlich zuverlässig erfassen kann.
+\[
+11 \cdot 21{,}3 = 234{,}3
+\]
+
+Impulse pro Umdrehung. Aus der gemessenen Frequenz eines Encoderkanals kann die Drehzahl daher näherungsweise so berechnet werden:
+
+\[
+n = \frac{f}{234{,}3} \cdot 60
+\]
+
+Für die Vorwärtsmessung ergibt sich mit der mittleren Frequenz von ungefähr 362,7 Hz eine Drehzahl von
+
+\[
+n_\mathrm{vor} = \frac{362{,}7\,\mathrm{Hz}}{234{,}3} \cdot 60 \approx 93\,\mathrm{min}^{-1}.
+\]
+
+Für die Rückwärtsmessung ergibt sich mit ungefähr 379,3 Hz
+
+\[
+n_\mathrm{rueck} = \frac{379{,}3\,\mathrm{Hz}}{234{,}3} \cdot 60 \approx 97\,\mathrm{min}^{-1}.
+\]
+
+Die berechnete Drehzahl liegt unter der Nenndrehzahl von 200 rpm aus dem Datenblatt. Das ist plausibel, weil der Motor bei der Messung mit 50\,\% PWM-Tastverhältnis angesteuert wurde. Die berechneten 93 bis 97 rpm passen daher gut zur reduzierten Ansteuerung.
 
 \subsection{Messungen an Motoren und Servos}
-Die dritte im Antrag vorgesehene Messgruppe betrifft die Leistungsaufnahme und die Funktion von Motoren und Servos unter Last. Die grundsätzliche Stabilität der Powerrails wurde bereits in Abschnitt 9.1 betrachtet. Hier geht es daher um den realen Betrieb der Aktoren: Wie viel Strom beziehungsweise Leistung wird benötigt und funktioniert die Ansteuerung auch unter Belastung zuverlässig.
+Die dritte Messgruppe betrifft die Leistungsaufnahme und die Funktion von Motoren und Servos unter Last. Die Stabilität der Powerrails wurde bereits in Abschnitt 9.1 betrachtet. Hier geht es um den realen Betrieb der Aktoren: Wie viel Strom wird benötigt und funktionieren Motoren und Servos auch unter Belastung?
 
 \subsubsection{Messziel}
-Mit diesen Messungen soll untersucht werden,
+Mit diesen Messungen soll geprüft werden,
 
 \begin{itemize}
 	\item wie groß die Stromaufnahme der Motoren und Servos im Leerlauf und unter Last ist,
@@ -257,7 +279,7 @@ Mit diesen Messungen soll untersucht werden,
 \end{itemize}
 
 \subsubsection{Messaufbau}
-Ein Motor beziehungsweise Servo wird an die reale Ausgangsstufe des Boards angeschlossen und anschließend in mehreren Betriebsfällen untersucht. Sinnvolle Lastfälle sind beispielsweise:
+Ein Motor oder Servo wird an den realen Ausgang des Boards angeschlossen. Danach werden mehrere Betriebsfälle gemessen. Sinnvolle Lastfälle sind zum Beispiel:
 
 \begin{itemize}
 	\item Leerlaufbetrieb
@@ -266,38 +288,45 @@ Ein Motor beziehungsweise Servo wird an die reale Ausgangsstufe des Boards anges
 	\item blockierter oder nahezu blockierter Zustand für kurze kontrollierte Zeit
 \end{itemize}
 
-Gemessen werden dabei Strom und Spannung am jeweiligen Aktor beziehungsweise an dessen Versorgung. Daraus kann die Leistungsaufnahme berechnet werden. Zusätzlich wird die Funktion unter Last beurteilt, also ob Motor oder Servo die gewünschte Bewegung ausführen und ob es zu Aussetzern, starkem Einbruch der Versorgung oder auffälliger Erwärmung kommt.
+Gemessen werden Strom und Spannung am jeweiligen Aktor oder an dessen Versorgung. Daraus wird die Leistungsaufnahme berechnet. Zusätzlich wird geprüft, ob Motor oder Servo die gewünschte Bewegung ausführen und ob es zu Aussetzern, Spannungseinbrüchen oder auffälliger Erwärmung kommt.
 
-Die Messwerte sollen getrennt nach Motoren und Servos dokumentiert werden. Dadurch lässt sich später erkennen, ob die Aktoren und deren Ansteuerung für die geplante Belastung ausreichend dimensioniert sind.
+Der Messaufbau ist in Abbildung~\ref{fig:motor-servo-messaufbau} dargestellt. Die Messwerte werden getrennt für Motoren und Servos dokumentiert. Die vorgesehene Tabelle dafür ist Tabelle~\ref{tab:motor-servo-messwerte}. Dadurch sieht man, ob die Aktoren und die Ansteuerung für die geplante Last ausreichen.
 
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[font=\scriptsize, node distance=1.05cm, >=latex]
-		\tikzstyle{block} = [draw, rectangle, rounded corners=2pt, minimum height=1.0cm, minimum width=2.25cm, align=center]
+	\begin{tikzpicture}[font=\scriptsize, node distance=1.25cm, >=latex]
+		\tikzstyle{block} = [draw, rectangle, rounded corners=2pt, minimum height=1.0cm, minimum width=2.4cm, align=center]
 		\tikzstyle{meter} = [draw, circle, minimum size=0.75cm, align=center]
 		\tikzstyle{line} = [draw, -latex']
 
-		\node[block, fill=blue!12] (board) {Controller \\ STM32/PI};
-		\node[block, fill=red!10, right=1.5cm of board] (stage) {Treiberstufe\\oder Servoport};
-		\node[meter, fill=yellow!20, right=1.15cm of stage] (amp) {A};
-		\node[block, fill=green!12, right=1.15cm of amp] (load) {Motor\\oder Servo};
-		\node[block, fill=purple!12, below=1.05cm of amp] (scope) {Oszilloskop};
-		\coordinate (out) at ($(stage.east)!0.5!(amp.west)$);
-		\coordinate (gndL) at ([yshift=-1.45cm]stage.south west);
-		\coordinate (gndR) at ([yshift=-1.45cm]load.south east);
+		\node[block, fill=gray!15] (source) {Labornetzteil};
+		\node[block, fill=blue!12, right=of source] (board) {Controller-Board\\Treiber / Servoport};
+		\node[meter, fill=yellow!20, right=of board] (amp) {A};
+		\node[block, fill=green!12, right=of amp] (load) {Motor oder Servo\\mit oder ohne \\ mechanischer Last};
 
-		\draw[line] (board) -- node[above] {PWM / I\textsuperscript{2}C} (stage);
-		\draw[line] (stage) -- (amp);
-		\draw[line] (amp) -- node[above] {Laststrom} (load);
-		\draw[draw] (gndL) -- node[below] {GND} (gndR);
+		\path (amp) -- (load) coordinate[pos=0.5] (sense);
+		\node[meter, fill=orange!18] (volt) at ([yshift=-1cm]sense) {V};
+		\coordinate (gndL) at ([yshift=-1.55cm]source.south);
+		\coordinate (gndR) at ([yshift=-1.55cm]load.south);
+
+		\draw[line] (source) -- (board);
+		\draw[line] (board) -- (amp);
+		\draw[line] (amp) -- (load);
+		\node[above=0.01cm of amp] {$I_\mathrm{Aktor}$};
+		\node[left=0.01cm of volt] {$U_\mathrm{Aktor}$};
+		\draw[draw] (sense) -- (volt.north);
+		\draw[draw] (gndL) -- (gndR);
+		\draw[draw] (source.south) -- (source.south |- gndL);
+		\draw[draw] (board.south) -- (board.south |- gndL) node[ground]{};
 		\draw[draw] (load.south) -- (load.south |- gndL);
-		\draw[draw] ([xshift=-0.32cm]scope.north) |- node[left, yshift=0.35cm] {Signal} (out);
-		\draw[draw] ([xshift=0.32cm]scope.south) |- node[right, yshift=-0.25cm] {GND} (scope.south |- gndL);
+		\draw[draw] (volt.south) -- (volt.south |- gndL);
 	\end{tikzpicture}
 	\caption{Messaufbau für Motor- und Servomessungen}
+	\label{fig:motor-servo-messaufbau}
 \end{figure}
 
 \begin{table}[H]
+	\hbadness=10000
 	\centering
 	\scriptsize
 	\renewcommand{\arraystretch}{1.25}
@@ -305,21 +334,55 @@ Die Messwerte sollen getrennt nach Motoren und Servos dokumentiert werden. Dadur
 	\begin{tabularx}{\linewidth}{L{0.15\linewidth}|L{0.15\linewidth}|L{0.12\linewidth}|L{0.12\linewidth}|L{0.13\linewidth}|L{0.16\linewidth}}
 		\hline
 		\textbf{Verbraucher} & \textbf{Lastfall} & \textbf{Spannung} & \textbf{Strom} & \textbf{Leistung} & \textbf{Funktion unter Last} \\\hline
-		DC-Motor & Leerlauf &  &  &  &  \\\hline
-		DC-Motor & Anlauf &  &  &  &  \\\hline
-		DC-Motor & Last &  &  &  &  \\\hline
-		Servo & Ruheposition &  &  &  &  \\\hline
-		Servo & Bewegung &  &  &  &  \\\hline
-		Servo & Last &  &  &  &  \\\hline
+		DC-Motor & Leerlauf & -- & -- & -- & -- \\\hline
+		DC-Motor & Anlauf & -- & -- & -- & -- \\\hline
+		DC-Motor & Last & -- & -- & -- & -- \\\hline
+		Servo & Ruheposition & -- & -- & -- & -- \\\hline
+		Servo & Bewegung & -- & -- & -- & -- \\\hline
+		Servo & Last & -- & -- & -- & -- \\\hline
 	\end{tabularx}
 	\caption{Vorgesehene Messwerttabelle für Motoren und Servos}
+	\label{tab:motor-servo-messwerte}
 \end{table}
 
 \subsubsection{Messschaltung}
-Die Strommessung erfolgt über ein in Serie geschaltetes Messgerät oder über einen Shunt. Die Spannung wird an der Versorgung des jeweiligen Aktors gemessen. Bei Motoren ist dafür die Motorrail im realen Motorbetrieb relevant, bei Servos die Servo-Rail direkt am Servo oder an der Servo-Versorgung. Die Leistung wird anschließend aus Spannung und Strom berechnet.
+Die Strommessung erfolgt über ein Messgerät in Serie oder über einen Shunt. Die Spannung wird an der Versorgung des jeweiligen Aktors gemessen. Bei Motoren ist die Motorrail im echten Motorbetrieb wichtig. Bei Servos ist die Servo-Rail direkt am Servo oder an der Servo-Versorgung relevant. Die Leistung wird aus Spannung und Strom berechnet.
 
-Das Oszilloskop kann zusätzlich verwendet werden, um das PWM-Signal oder kurze Spannungseinbrüche sichtbar zu machen. Für die eigentliche Messaufgabe reichen jedoch vor allem die Leistungsaufnahme und die Beobachtung, ob der Aktor unter Last korrekt arbeitet.
+Das Oszilloskop kann zusätzlich verwendet werden, um das PWM-Signal oder kurze Spannungseinbrüche sichtbar zu machen. Für die eigentliche Messaufgabe sind aber vor allem Leistungsaufnahme und Funktion unter Last wichtig.
+
+
+\subsubsection{Schaltverhalten der Motorrail}
+Zusätzlich zur normalen Spannungs- und Strommessung wurde das Einschaltverhalten der Motorrail mit dem Oszilloskop betrachtet. Dabei wurde geprüft, ob die 6-V-Motorversorgung beim Einschalten sauber hochläuft oder ob starke Einbrüche, Überschwinger oder Schwingungen auftreten.
+
+Abbildung~\ref{fig:motorrail-einschalten} zeigt zuerst den allgemeinen Spannungsverlauf der Motorrail beim Einschalten. Abbildung~\ref{fig:motorrail-einschalten-zoom} zeigt danach eine Zoomaufnahme des Übergangsbereichs.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Messungen/Motor_Anschalten_rail.png}
+		\caption{Motorrail beim Einschalten, Gesamtansicht}
+		\label{fig:motorrail-einschalten}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Messungen/Motor_rail_anschalten_zoom (1).png}
+		\caption{Motorrail beim Einschalten, Zoomaufnahme}
+		\label{fig:motorrail-einschalten-zoom}
+	\end{minipage}
+\end{figure}
+
+In Abbildung~\ref{fig:motorrail-einschalten} steigt die Motorrail nach dem Einschalten auf ungefähr 5,5\,V. Danach bleibt die Versorgung bestehen. Auf der Spannung ist aber ein sichtbarer hochfrequenter Ripple zu sehen. Abbildung~\ref{fig:motorrail-einschalten-zoom} zeigt den Einschaltmoment genauer. Die Spannung steigt nicht ideal sprunghaft an, sondern mit einem kurzen Stör- beziehungsweise Schwinganteil.
+
+Aus der Cursoranzeige der Zoomaufnahme ergibt sich im markierten Bereich ein Spannungsunterschied von ungefähr 637,5\,mV. Das ist kein dauerhafter Spannungsfehler. Der Wert beschreibt nur die Größenordnung im Einschaltmoment. Kritische Einbrüche bis auf 0\,V oder ein komplettes Zusammenbrechen der Motorrail sind nicht zu sehen.
+
+Die Motorrail schaltet grundsätzlich funktionsfähig ein. Beim Einschalten ist aber ein Störanteil sichtbar. Dieser Punkt sollte bei empfindlichen Lasten oder beim Betrieb mehrerer Motoren weiter beobachtet werden. Für eine genauere Bewertung sollte diese Messung auch unter echter Motorlast wiederholt werden.
 
 \subsubsection{Auswertung und Interpretation}
-Die Auswertung beschränkt sich auf die Leistungsaufnahme und die Funktion unter Last. Dazu werden Spannung, Strom und daraus die Leistung betrachtet. Zusätzlich wird bewertet, ob Motoren und Servos die gewünschte Bewegung ausführen, ob die Versorgung dabei stark einbricht und ob Treiber oder Aktoren auffällig warm werden. Damit wird geprüft, ob die Aktoren im geplanten Einsatzbereich zuverlässig betrieben werden können.
+Die Auswertung beschränkt sich auf Leistungsaufnahme und Funktion unter Last. Dazu werden Spannung, Strom und Leistung betrachtet.
+
+Zusätzlich wird bewertet, ob Motoren und Servos die gewünschte Bewegung ausführen. Auch Spannungseinbrüche und auffällige Erwärmung werden beachtet. Am PWM-Signal des Motortreibers konnten keine auffälligen Veränderungen erkannt werden. Damit wird geprüft, ob die Aktoren im geplanten Einsatzbereich funktionieren.
+
+
 

@@ -3,39 +3,40 @@
 \contentsline {section}{\numberline {2}Ausgangslage, Zielsetzung und Anforderungen}{4}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Funktionale Anforderungen}{4}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Nichtfunktionale Anforderungen}{4}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Gesamtsystem und Architektur}{4}{section.3}%
+\contentsline {section}{\numberline {3}Gesamtsystem und Architektur}{5}{section.3}%
 \contentsline {section}{\numberline {4}Hardwareentwurf und Bauteilauswahl}{5}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Raspberry-Pi-Anbindung}{5}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Spannungsversorgung}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Spannungsversorgung}{6}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Motoransteuerung}{6}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Servoansteuerung}{6}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Sensoranschlüsse}{6}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Inertialsensoren}{6}{subsection.4.6}%
-\contentsline {section}{\numberline {5}PCB-Design und Layout}{6}{section.5}%
+\contentsline {section}{\numberline {5}PCB-Design und Layout}{7}{section.5}%
 \contentsline {section}{\numberline {6}Fertigung, Bestückung und Inbetriebnahme}{8}{section.6}%
 \contentsline {section}{\numberline {7}Fehler, Probleme und bereits umgesetzte Verbesserungen}{8}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Fehler im Schaltplan aus dem Power-Designer}{8}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Empfindlichkeit des 5-V-Wandlers beim Abziehen des Akkus}{8}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}BNO085 nicht erreichbar}{9}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Reset-Pin des STM32}{9}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Fehler am Feedback-Netzwerk des 5-V-Wandlers}{9}{subsection.7.5}%
 \contentsline {section}{\numberline {8}Firmware des STM32-Mikrocontrollers}{9}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Rolle des Mikrocontrollers}{9}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Aktueller Stand der Firmware}{9}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Ablauf des aktuellen STM32-Programms}{9}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.3}Ablauf des aktuellen STM32-Programms}{10}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}UART-Kommunikationsprotokoll}{10}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}Programmierung über SWD}{11}{subsection.8.5}%
 \contentsline {section}{\numberline {9}Messungen und Auswertungen}{11}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Messungen an den Powerrails}{11}{subsection.9.1}%
-\contentsline {subsubsection}{\numberline {9.1.1}Messaufbau}{11}{subsubsection.9.1.1}%
-\contentsline {subsubsection}{\numberline {9.1.2}Messschaltung}{13}{subsubsection.9.1.2}%
-\contentsline {subsubsection}{\numberline {9.1.3}Auswertung und Interpretation}{13}{subsubsection.9.1.3}%
-\contentsline {subsubsection}{\numberline {9.1.4}Schaltverhalten der Motorrail}{13}{subsubsection.9.1.4}%
-\contentsline {subsection}{\numberline {9.2}Messung an einem Encoder-Ausgang}{14}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.1.1}Messaufbau und Schaltung}{11}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}Auswertung und Interpretation}{13}{subsubsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.2}Messung an einem Encoder-Ausgang}{13}{subsection.9.2}%
 \contentsline {subsubsection}{\numberline {9.2.1}Messziel}{14}{subsubsection.9.2.1}%
-\contentsline {subsubsection}{\numberline {9.2.2}Messaufbau}{15}{subsubsection.9.2.2}%
-\contentsline {subsubsection}{\numberline {9.2.3}Messschaltung}{16}{subsubsection.9.2.3}%
-\contentsline {subsubsection}{\numberline {9.2.4}Auswertung und Interpretation}{16}{subsubsection.9.2.4}%
-\contentsline {subsection}{\numberline {9.3}Messungen an Motoren und Servos}{16}{subsection.9.3}%
+\contentsline {subsubsection}{\numberline {9.2.2}Messaufbau und Schaltung}{14}{subsubsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.3}Auswertung und Interpretation}{15}{subsubsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.3}Messungen an Motoren und Servos}{15}{subsection.9.3}%
 \contentsline {subsubsection}{\numberline {9.3.1}Messziel}{16}{subsubsection.9.3.1}%
-\contentsline {subsubsection}{\numberline {9.3.2}Messaufbau}{17}{subsubsection.9.3.2}%
+\contentsline {subsubsection}{\numberline {9.3.2}Messaufbau}{16}{subsubsection.9.3.2}%
 \contentsline {subsubsection}{\numberline {9.3.3}Messschaltung}{17}{subsubsection.9.3.3}%
-\contentsline {subsubsection}{\numberline {9.3.4}Auswertung und Interpretation}{18}{subsubsection.9.3.4}%
+\contentsline {subsubsection}{\numberline {9.3.4}Schaltverhalten der Motorrail}{17}{subsubsection.9.3.4}%
+\contentsline {subsubsection}{\numberline {9.3.5}Auswertung und Interpretation}{17}{subsubsection.9.3.5}%
 \contentsline {section}{\numberline {10}Fazit}{18}{section.10}%
