@@ -109,6 +109,8 @@ static EncoderChannel_t encoders[] =
   { GPIOC, GPIO_PIN_11, GPIOC, GPIO_PIN_10, 0, 0U },
 };
 
+static int8_t motor_percent[6] = {0};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -215,6 +217,11 @@ static void Motor_SetPercent(uint8_t motor_index, int8_t duty_percent)
 {
   int16_t duty_ticks;
 
+  if (motor_index >= (sizeof(motors) / sizeof(motors[0])))
+  {
+    return;
+  }
+
   if (duty_percent > 100)
   {
     duty_percent = 100;
@@ -225,6 +232,7 @@ static void Motor_SetPercent(uint8_t motor_index, int8_t duty_percent)
   }
 
   duty_ticks = (int16_t)(((int32_t)duty_percent * (int32_t)PWM_MAX_DUTY_TICKS) / 100);
+  motor_percent[motor_index] = duty_percent;
   Motor_SetSpeed(motor_index, duty_ticks);
 }
 
@@ -472,25 +480,47 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//    PiUart_Poll();
-	  Motor_SetPercent(5, 50);
+    PiUart_Poll();
+//	  Motor_SetPercent(5, 80);
 
     if ((HAL_GetTick() - last_uart_tick) >= UART_HEARTBEAT_MS)
     {
       char heartbeat_message[128];
       int heartbeat_length;
       uint16_t adc_values[ADC_CHANNEL_COUNT];
+      int32_t encoder_counts[6];
+      static int32_t last_encoder_counts[6] = {0};
+      int32_t encoder_speed[6];
+      uint8_t i;
 
       last_uart_tick = HAL_GetTick();
       ADC_ReadAll(adc_values);
+      for (i = 0U; i < 6U; i++)
+      {
+        encoder_counts[i] = Encoder_GetCount(i);
+        encoder_speed[i] = encoder_counts[i] - last_encoder_counts[i];
+        last_encoder_counts[i] = encoder_counts[i];
+      }
       heartbeat_length = snprintf(heartbeat_message, sizeof(heartbeat_message),
-                                  "ENC %ld %ld %ld %ld %ld %ld ADC %u %u %u %u %u\r\n",
-                                  (long)Encoder_GetCount(0U),
-                                  (long)Encoder_GetCount(1U),
-                                  (long)Encoder_GetCount(2U),
-                                  (long)Encoder_GetCount(3U),
-                                  (long)Encoder_GetCount(4U),
-                                  (long)Encoder_GetCount(5U),
+                                  "ENC %ld %ld %ld %ld %ld %ld SPD %ld %ld %ld %ld %ld %ld PWM %d %d %d %d %d %d ADC %u %u %u %u %u\r\n",
+                                  (long)encoder_counts[0],
+                                  (long)encoder_counts[1],
+                                  (long)encoder_counts[2],
+                                  (long)encoder_counts[3],
+                                  (long)encoder_counts[4],
+                                  (long)encoder_counts[5],
+                                  (long)encoder_speed[0],
+                                  (long)encoder_speed[1],
+                                  (long)encoder_speed[2],
+                                  (long)encoder_speed[3],
+                                  (long)encoder_speed[4],
+                                  (long)encoder_speed[5],
+                                  motor_percent[0],
+                                  motor_percent[1],
+                                  motor_percent[2],
+                                  motor_percent[3],
+                                  motor_percent[4],
+                                  motor_percent[5],
                                   adc_values[0],
                                   adc_values[1],
                                   adc_values[2],
@@ -927,7 +957,7 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 115200;
+  huart1.Init.BaudRate = 38400;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;

@@ -40,7 +40,6 @@
 #define UART_HEARTBEAT_MS       1000U
 #define ADC_CHANNEL_COUNT       5U
 #define PI_UART_RX_BUFFER_SIZE  64U
-#define MOTOR_COMMAND_TIMEOUT_MS 500U
 
 /* USER CODE END PD */
 
@@ -109,8 +108,6 @@ static EncoderChannel_t encoders[] =
   /* Encoder 6: MotEnc_60/MotEnc_61 */
   { GPIOC, GPIO_PIN_11, GPIOC, GPIO_PIN_10, 0, 0U },
 };
-
-static uint32_t last_motor_command_tick = 0U;
 
 /* USER CODE END PV */
 
@@ -347,7 +344,6 @@ static void ADC_ReadAll(uint16_t adc_values[ADC_CHANNEL_COUNT])
 static void PiUart_ProcessCommand(char *command)
 {
   uint8_t motor_index = 0U;
-  uint8_t received_motor_value = 0U;
   char *cursor = command;
 
   if ((*cursor != 'M') && (*cursor != 'm'))
@@ -382,12 +378,6 @@ static void PiUart_ProcessCommand(char *command)
 
     Motor_SetPercent(motor_index, (int8_t)percent);
     motor_index++;
-    received_motor_value = 1U;
-  }
-
-  if (received_motor_value != 0U)
-  {
-    last_motor_command_tick = HAL_GetTick();
   }
 }
 
@@ -468,7 +458,6 @@ int main(void)
 
   StartAllPwmChannels();
   Motor_CoastAll();
-  last_motor_command_tick = HAL_GetTick();
 
   Encoder_InitStates();
 
@@ -483,13 +472,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    PiUart_Poll();
-
-    if ((MOTOR_COMMAND_TIMEOUT_MS > 0U) &&
-        ((HAL_GetTick() - last_motor_command_tick) >= MOTOR_COMMAND_TIMEOUT_MS))
-    {
-      Motor_CoastAll();
-    }
+//    PiUart_Poll();
+	  Motor_SetPercent(5, 100);
 
     if ((HAL_GetTick() - last_uart_tick) >= UART_HEARTBEAT_MS)
     {

@@ -458,7 +458,6 @@ int main(void)
 
   StartAllPwmChannels();
   Motor_CoastAll();
-  Motor_SetPercent(5, 50);
 
   Encoder_InitStates();
 
@@ -473,13 +472,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    PiUart_Poll();
+//    PiUart_Poll();
+	  Motor_SetPercent(5, 100);
 
     if ((HAL_GetTick() - last_uart_tick) >= UART_HEARTBEAT_MS)
     {
       char heartbeat_message[128];
       int heartbeat_length;
-      uint16_t adc_values[ADC_CHANNEL_COUNT];
+      uint16_t adc_values[ADC_CHANNEL_OUNT];
 
       last_uart_tick = HAL_GetTick();
       ADC_ReadAll(adc_values);

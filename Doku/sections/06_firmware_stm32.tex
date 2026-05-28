@@ -39,7 +39,7 @@ Der aktuelle Ablauf ist in Abbildung~\ref{fig:stm32-programmablauf} dargestellt.
 		\node[io, below=of loop] (uart) {UART pollen\\Motor-Kommandos auswerten};
 		\node[decision, below=of uart] (tick) {1 s seit letzter\\Rückmeldung?};
 		\node[process, below=of tick] (read) {ADC-Kanäle lesen\\Encoder-Zähler kopieren};
-		\node[io, below=of read] (send) {Heartbeat senden:\\Encoder- und ADC-Werte};
+		\node[io, below=of read] (send) {Heartbeat senden:\\ENC, SPD, PWM und ADC};
 		\node[interrupt, left=2.1cm of read] (exti) {EXTI-Interrupt\\bei Encoder-Flanke};
 		\node[interrupt, below=of exti] (encupdate) {Encoder-Zustand lesen\\Zähler aktualisieren};
 
@@ -65,21 +65,43 @@ Der aktuelle Ablauf ist in Abbildung~\ref{fig:stm32-programmablauf} dargestellt.
 \end{figure}
 
 \subsection{UART-Kommunikationsprotokoll}
-Die Kommunikation zwischen Raspberry Pi und STM32 erfolgt im aktuellen Firmwarestand über USART1 mit 115200 Baud, 8 Datenbits, keiner Parität und einem Stoppbit. Diese Geschwindigkeit ist für die geplanten Steuerbefehle und Statusdaten ausreichend, da nur kurze Textnachrichten übertragen werden.
+Die Kommunikation zwischen Raspberry Pi und STM32 erfolgt im aktuellen Firmwarestand über USART1 mit 38400 Baud, 8 Datenbits, keiner Parität und einem Stoppbit. Das reicht aus, weil nur kurze ASCII-Zeilen übertragen werden. Es werden keine großen Datenmengen gesendet.
 
-Kommandos vom Raspberry Pi werden zeichenweise eingelesen. Ein Motorbefehl beginnt mit \texttt{M} und enthält anschließend bis zu sechs Prozentwerte für die Motoren. Leerzeichen, Tabulatoren, Kommas und Semikolons können als Trennzeichen verwendet werden. Die Werte werden im STM32 auf den Bereich von -100 bis 100 begrenzt und danach auf die PWM-Tastverhältnisse umgerechnet.
-
-\begin{codeblock}
-M 20 -10 0 0 50 -50
-\end{codeblock}
-
-Die Rückmeldung vom STM32 erfolgt einmal pro Sekunde. Dabei werden zuerst die sechs Encoderzähler und danach die fünf ADC-Werte übertragen. Das Format ist als einfache ASCII-Zeile aufgebaut und kann auf dem Raspberry Pi ohne großen Aufwand geparst werden.
+Kommandos vom Raspberry Pi werden zeichenweise eingelesen. Ein Motorbefehl beginnt mit \texttt{M} und enthält danach bis zu sechs Prozentwerte für die Motoren. Die Reihenfolge entspricht den sechs Motorausgängen. Leerzeichen, Tabulatoren, Kommas und Semikolons können als Trennzeichen verwendet werden. Die Werte werden im STM32 auf den Bereich von -100 bis 100 begrenzt und danach auf PWM umgesetzt.
 
 \begin{codeblock}
-ENC 120 118 0 0 -34 -31 ADC 2048 2011 1995 1020 980
+M 0 0 0 0 0 80
 \end{codeblock}
 
-Zusätzlich sendet der STM32 nach dem Start eine kurze Bootmeldung. Damit kann der Raspberry Pi erkennen, dass die Firmware gestartet ist und die PWM-Ausgänge initialisiert wurden.
+Dieser Befehl setzt nur den sechsten Motor auf 80\,\% PWM. Die anderen Motoren bleiben auf 0\,\%.
+
+Die Rückmeldung vom STM32 erfolgt ungefähr einmal pro Sekunde. Das aktuelle Antwortformat enthält Encoder-Zähler, Geschwindigkeitswerte, die gesetzten PWM-Werte und ADC-Werte:
+
+\begin{codeblock}
+ENC <6 Encoderwerte> SPD <6 Geschwindigkeitswerte>
+PWM <6 PWM-Werte> ADC <5 ADC-Werte>
+\end{codeblock}
+
+Die Geschwindigkeitswerte sind die Differenz der Encoder-Zähler seit der letzten Rückmeldung. Dadurch kann der Raspberry Pi erkennen, ob sich ein Motor bewegt. Die PWM-Werte zeigen zusätzlich, welche Werte der STM32 wirklich übernommen hat.
+
+
+\subsubsection{Test mit Raspberry Pi}
+Der UART-Test wurde am Raspberry Pi mit \texttt{test\_motor\_uart.py} über \texttt{/dev/serial0} durchgeführt. Die Schnittstelle war mit 38400 Baud geöffnet. Der Raspberry Pi sendete mehrmals den Befehl \texttt{M 0 0 0 0 0 80}. Der STM32 antwortete mit dem geplanten Format.
+
+\begin{codeblock}
+UART offen: /dev/serial0 @ 38400
+PI : M 0 0 0 0 0 80
+STM: ENC 0 0 0 0 0 63477 SPD 0 0 0 0 0 466
+     PWM 0 0 0 0 0 80 ADC 819 894 919 2247 2273
+STM: ENC 0 0 0 0 0 83120 SPD 0 0 0 0 0 3938
+     PWM 0 0 0 0 0 80 ADC 805 888 917 2246 2272
+^C
+Stoppe Motor
+STM: ENC 0 0 0 0 0 87039 SPD 0 0 0 0 0 3919
+     PWM 0 0 0 0 0 0 ADC 790 887 917 2246 2271
+\end{codeblock}
+
+Der Test zeigt, dass der Befehl vom Raspberry Pi beim STM32 ankommt. In der Antwort steht \texttt{PWM 0 0 0 0 0 80}. Damit bestätigt der STM32, dass der sechste Motor mit 80\,\% angesteuert wird. Der sechste Encoder-Zähler steigt dabei von 63477 auf 83120. Die Geschwindigkeit liegt nach dem Anlaufen bei ungefähr 3900 Zählschritten pro Sekunde. Beim Stoppen wird in der nächsten Antwort \texttt{PWM 0 0 0 0 0 0} ausgegeben.
 
 \subsection{Programmierung über SWD}
 Beim ursprünglich geplanten Flashen des STM32 über den USART-Bootloader zeigte sich ein Problem: Der Bootloader unterstützt USART nur auf festgelegten Pins. Nach AN2606, Abschnitt 57.1 und Tabelle 127, liegen die dafür vorgesehenen Pins beim STM32H562xx für USART1 auf PA9/PA10, für USART2 auf PA2/PA3 und für USART3 auf PD8/PD9. Diese Pinbelegung stimmt nicht mit den ursprünglich für den Boot- und Flash-Vorgang geplanten Pins überein.

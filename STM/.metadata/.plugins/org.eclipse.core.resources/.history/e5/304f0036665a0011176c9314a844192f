@@ -458,7 +458,6 @@ int main(void)
 
   StartAllPwmChannels();
   Motor_CoastAll();
-  Motor_SetPercent(5, 50);
 
   Encoder_InitStates();
 
@@ -474,6 +473,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 //    PiUart_Poll();
+	  Motor_SetPercent(5, 80);
 
     if ((HAL_GetTick() - last_uart_tick) >= UART_HEARTBEAT_MS)
     {
