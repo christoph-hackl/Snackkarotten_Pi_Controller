@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.18)  28 MAY 2026 12:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.18)  29 MAY 2026 09:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1065,7 +1065,7 @@ File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 (sections/02_gesamtsystem_architektur.tex [4
 
 ]) (sections/03_hardwareentwurf.tex [5]) (sections/04_pcb_design_layout.tex [6]
-<Board.png, id=242, 417.9615pt x 534.798pt>
+<Board.png, id=247, 417.9615pt x 534.798pt>
 File: Board.png Graphic file (type png)
 <use Board.png>
 Package pdftex.def Info: Board.png  used on input line 15.
@@ -1080,48 +1080,48 @@ File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 (C:\Users\morit\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-))
-(sections/07_messungen_auswertungen.tex [11] [12] [13] [14]
-<Messungen/vor_neuneu.png, id=320, 803.0pt x 504.88625pt>
+)
+[11]) (sections/07_messungen_auswertungen.tex [12] [13] [14] [15]
+<Messungen/vor_neuneu.png, id=329, 803.0pt x 504.88625pt>
 File: Messungen/vor_neuneu.png Graphic file (type png)
 <use Messungen/vor_neuneu.png>
-Package pdftex.def Info: Messungen/vor_neuneu.png  used on input line 208.
+Package pdftex.def Info: Messungen/vor_neuneu.png  used on input line 212.
 (pdftex.def)             Requested size: 237.6353pt x 149.41008pt.
-<Messungen/rueck_neuneu.png, id=321, 803.0pt x 504.88625pt>
+<Messungen/rueck_neuneu.png, id=330, 803.0pt x 504.88625pt>
 File: Messungen/rueck_neuneu.png Graphic file (type png)
 <use Messungen/rueck_neuneu.png>
-Package pdftex.def Info: Messungen/rueck_neuneu.png  used on input line 215.
+Package pdftex.def Info: Messungen/rueck_neuneu.png  used on input line 219.
 (pdftex.def)             Requested size: 237.6353pt x 149.41008pt.
- [15 <./Messungen/vor_neuneu.png (PNG copy)> <./Messungen/rueck_neuneu.png (PNG
- copy)>] [16]
-<Messungen/Motor_Anschalten_rail.png, id=343, 803.0pt x 504.88625pt>
+ [16 <./Messungen/vor_neuneu.png (PNG copy)> <./Messungen/rueck_neuneu.png (PNG
+ copy)>]
+[17]
+<Messungen/Motor_Anschalten_rail.png, id=352, 803.0pt x 504.88625pt>
 File: Messungen/Motor_Anschalten_rail.png Graphic file (type png)
 <use Messungen/Motor_Anschalten_rail.png>
 Package pdftex.def Info: Messungen/Motor_Anschalten_rail.png  used on input lin
-e 360.
+e 364.
 (pdftex.def)             Requested size: 237.6353pt x 149.41008pt.
-<Messungen/Motor_rail_anschalten_zoom (1).png, id=344, 803.0pt x 504.88625pt>
+<Messungen/Motor_rail_anschalten_zoom (1).png, id=353, 803.0pt x 504.88625pt>
 File: Messungen/Motor_rail_anschalten_zoom (1).png Graphic file (type png)
 <use Messungen/Motor_rail_anschalten_zoom (1).png>
 Package pdftex.def Info: Messungen/Motor_rail_anschalten_zoom (1).png  used on 
-input line 367.
+input line 371.
 (pdftex.def)             Requested size: 237.6353pt x 149.41008pt.
-
-[17]) (sections/08_ausblick_fazit.tex) [18 <./Messungen/Motor_Anschalten_rail.p
-ng (PNG copy)> <./Messungen/Motor_rail_anschalten_zoom (1).png (PNG copy)>]
-(Pi-Robotik_Board.aux)
+ [18]) (sections/08_ausblick_fazit.tex) [19 <./Messungen/Motor_Anschalten_rail.
+png (PNG copy)> <./Messungen/Motor_rail_anschalten_zoom (1).png (PNG copy)>] (P
+i-Robotik_Board.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `Pi-Robotik_Board.out' has not changed.
-(rerunfilecheck)             Checksum: CEB021853A65F34A1071CC82947639C0;8046.
+(rerunfilecheck)             Checksum: 240352F3B823D51DBBED0D56CF5021E8;8101.
  ) 
 Here is how much of TeX's memory you used:
- 46726 strings out of 467867
- 1110075 string characters out of 5418334
- 2123721 words of memory out of 5000000
- 74960 multiletter control sequences out of 15000+600000
+ 46715 strings out of 467867
+ 1109881 string characters out of 5418334
+ 2099093 words of memory out of 5000000
+ 74947 multiletter control sequences out of 15000+600000
  674196 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,19n,108p,811b,1295s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1139,9 +1139,9 @@ ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users
 C:/Users/morit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pf
 b><C:/Users/morit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a
 .pfb>
-Output written on Pi-Robotik_Board.pdf (18 pages, 577323 bytes).
+Output written on Pi-Robotik_Board.pdf (19 pages, 575102 bytes).
 PDF statistics:
- 500 PDF objects out of 1000 (max. 8388607)
- 92 named destinations out of 1000 (max. 500000)
- 366 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 94 named destinations out of 1000 (max. 500000)
+ 374 words of extra memory for PDF output out of 10000 (max. 10000000)
 

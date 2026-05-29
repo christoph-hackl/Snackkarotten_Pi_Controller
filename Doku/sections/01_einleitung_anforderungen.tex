@@ -1,7 +1,7 @@
 \section{Einleitung}
 In dieser Projektarbeit wurde eine Erweiterungsplatine für den Raspberry Pi entwickelt. Ziel war es, die wichtigsten Funktionen für Robotik- und Schulprojekte auf einer Platine zusammenzufassen.
 
-Die Platine verbindet den Raspberry Pi 5 mit Motoren, Servos, Sensoren, IMUs und der Spannungsversorgung. Ein STM32-Mikrocontroller übernimmt Aufgaben, die zeitkritisch sind oder analoge Eingänge brauchen. Das kann der Raspberry Pi alleine nicht erledigen.
+Die Platine verbindet den Raspberry Pi 5 mit Motoren, Servos, Sensoren, IMUs und der Spannungsversorgung. Ein STM32-Mikrocontroller übernimmt Aufgaben, die zeitkritisch sind oder analoge Eingänge brauchen.
 
 Diese Dokumentation beschreibt den aktuellen Stand der Platine. Es geht um den Aufbau, die Bauteile, wichtige Entscheidungen, erkannte Fehler und mögliche Verbesserungen.
 
@@ -11,7 +11,7 @@ Der Raspberry Pi hat genug Rechenleistung für Robotikprojekte. Er ist auch soft
 Deshalb wurde eine eigene Erweiterungsplatine entwickelt. Sie soll viele benötigte Funktionen direkt auf einem Board bereitstellen. Dadurch wird der Aufbau kompakter und robuster.
 
 
-\subsection{Funktionale Anforderungen}
+\subsection{Systemanforderungen}
 \begin{itemize}
 	\item Der Raspberry Pi muss als zentrale Recheneinheit direkt auf die Platine aufgesetzt werden können.
 	\item Mehrere DC-Motoren müssen über passende Treiber angesteuert werden können.
@@ -21,7 +21,7 @@ Deshalb wurde eine eigene Erweiterungsplatine entwickelt. Sie soll viele benöti
 	\item Der STM32 muss zeitkritische Aufgaben übernehmen und mit dem Raspberry Pi kommunizieren können.
 \end{itemize}
 
-\subsection{Nichtfunktionale Anforderungen}
+\subsection{Konstruktive Anforderungen}
 \begin{itemize}
 	\item Leistungselektronik und Logikbereich sollen möglichst sauber getrennt werden.
 	\item Die Leiterplatte soll mechanisch und elektrisch für den Robotikeinsatz geeignet sein.

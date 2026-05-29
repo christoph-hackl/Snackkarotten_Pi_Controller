@@ -5,23 +5,23 @@ Der Raspberry Pi 5 bildet die zentrale Recheneinheit des Systems. Die Erweiterun
 Die Wahl des Raspberry Pi 5 erfolgte wegen der im Vergleich zu früheren Lösungen höheren Rechenleistung, der guten Linux-Unterstützung und der Verfügbarkeit im schulischen Umfeld. Für Robotikanwendungen mit Kamera, Bildverarbeitung oder später auch KI-gestützten Auswerteverfahren bietet diese Plattform genügend Reserven. Zusätzlich kann ein externer KI-Beschleuniger angebunden werden, welcher in diesem Fall der Raspberry Pi AI HAT+ (26 TOPS) ist.
 
 \subsection{Spannungsversorgung}
-Die Platine wird über einen 12-V-Eingang versorgt, der zu einem 3S1P-Akkusystem passt. Aus dieser Spannung werden mehrere niedrigere Versorgungsspannungen erzeugt.
+Die Platine wird über einen 12-V-Eingang versorgt, der zu einem 3S1P-Akku passt. Aus dieser Spannung werden mehrere niedrigere Versorgungsspannungen erzeugt.
 
-Der Entwurf enthält drei 6-V-Versorgungsbereiche sowie eine 5-V-Versorgung für den Raspberry Pi. Aus der 5-V-Schiene wird zusätzlich eine 3,3-V-Versorgung für Logik und Peripherie erzeugt. Diese Aufteilung reduziert Wirkungen von Motoren und Servos auf den Logikbereich.
+Es werden drei 6-V-Versorgungsbereiche sowie eine 5-V-Versorgung für den Raspberry Pi erzeugt. Aus der 5-V-Schiene wird zusätzlich eine 3,3-V-Versorgung für Logik und Peripherie erzeugt. Diese Aufteilung reduziert Wirkungen von Motoren und Servos auf den Logikbereich.
 
-Bei der Auswahl der Spannungswandler stand die Stromtragfähigkeit im Vordergrund. Insbesondere für den Raspberry Pi und die Servoversorgung mussten ausreichende Reserven vorgesehen werden. Getrennte Versorgungspfade sind erforderlich, weil im Robotikbetrieb kurzzeitig hohe Ströme und Lastwechsel auftreten können.
+Bei der Auswahl der Spannungswandler stand die Stromtragfähigkeit im Vordergrund. Besonders für den Raspberry Pi und die Servoversorgung mussten ausreichende Reserven eingeplant werden.
 
 \subsection{Motoransteuerung}
 Die DC-Motoren werden über eigene Treiberstufen angesteuert. Dafür werden drei DRV8411 verwendet. Die Steuersignale kommen vom Mikrocontroller.
 
-Der STM32H562RIT6 wurde als Motor- und Echtzeitcontroller gewählt, weil er mehrere Timer mit PWM-Kanälen, ADC-Eingänge und UART bereitstellt. Dadurch kann er die zeitkritische Motoransteuerung, Encoder-Auswertung und analoge Signalerfassung übernehmen, während der Raspberry Pi die übergeordnete Logik ausführt.
+Der STM32H562RIT6 wurde als Motor- und Echtzeitcontroller gewählt, weil er mehrere Timer mit PWM-Kanälen, Interrupt Eingänge, ADC-Eingänge und UART bereitstellt. Dadurch kann er die zeitkritische Motoransteuerung, Encoder-Auswertung und analoge Signalerfassung übernehmen, während der Raspberry Pi die übergeordnete Logik ausführt.
 
 \subsection{Servoansteuerung}
-Für Servomotoren wurde ein eigener Versorgungs- und Anschlussbereich vorgesehen. Die eigentliche Signalerzeugung erfolgt über den PCA9685, der direkt vom Raspberry Pi angesteuert wird. Dieser Baustein erlaubt viele PWM-Ausgänge über eine I\textsuperscript{2}C-Schnittstelle zu steuern. Dadurch bleibt die Servoansteuerung vom STM32-Teil getrennt.
+Für Servos wurde ein eigener Versorgungs- und Anschlussbereich vorgesehen. Die eigentliche Signalerzeugung erfolgt über den PCA9685, der direkt vom Raspberry Pi angesteuert wird. Dieser Baustein erlaubt viele PWM-Ausgänge über eine I\textsuperscript{2}C-Schnittstelle zu steuern.
 
 \subsection{Sensoranschlüsse}
 Das Board bietet Anschlüsse für digitale und analoge Sensoren. Analoge Signale werden über den STM32 erfasst, da der Raspberry Pi keine eigenen ADC-Kanäle besitzt. Ein Teil dieser Kanäle ist differenziell ausgelegt. Digitale Sensoren können direkt durch den Raspberry Pi ausgewertet werden.
 
 \subsection{Inertialsensoren}
-Auf dem Board sind zwei IMUs vorgesehen: der BNO085 und der LSM6DSO.  Der BNO085 eignet sich besonders für orientierungsbezogene Auswertung, während der LSM6DSO eine zweite Messbasis liefert. Die IMUs werden direkt an den Raspberry Pi angebunden und nicht über den STM32 verarbeitet.
+Auf dem Board sind zwei IMUs vorgesehen: der BNO085 und der LSM6DSO.  Der BNO085 eignet sich besonders für die orientierungsbezogene Auswertung, während der LSM6DSO eine zweite Messbasis liefert. Die IMUs werden direkt an den Raspberry Pi angebunden.
 

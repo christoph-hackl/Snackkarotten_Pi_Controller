@@ -1,6 +1,6 @@
 \section{Firmware des STM32-Mikrocontrollers}
 \subsection{Rolle des Mikrocontrollers}
-Der STM32 ist als echtzeitfähiger Co-Prozessor des Raspberry Pi vorgesehen. Er soll später die hardwarenahen Aufgaben übernehmen, insbesondere PWM-Ausgabe, ADC-Erfassung und die Kommunikation mit dem Raspberry Pi.
+Der STM32 ist als echtzeitfähiger Co-Prozessor des Raspberry Pi vorgesehen. Er soll später die hardwarenahen Aufgaben übernehmen, insbesondere PWM-Ausgabe, Encoder-Dekodierung, ADC-Erfassung und die Kommunikation mit dem Raspberry Pi.
 
 \subsection{Aktueller Stand der Firmware}
 Im aktuellen Projektstand ist die Grundkonfiguration des Mikrocontrollers bereits in STM32CubeIDE angelegt. Dazu gehören:
@@ -18,7 +18,7 @@ Der aktuelle Ablauf ist in Abbildung~\ref{fig:stm32-programmablauf} dargestellt.
 
 \begin{figure}[H]
 	\centering
-	\resizebox{\textwidth}{!}{%
+	\resizebox{0.65\textwidth}{!}{%
 	\begin{tikzpicture}[
 		font=\footnotesize,
 		node distance=0.72cm,
@@ -31,9 +31,7 @@ Der aktuelle Ablauf ist in Abbildung~\ref{fig:stm32-programmablauf} dargestellt.
 		\node[process] (start) {Reset / Programmstart};
 		\node[process, below=of start] (hal) {HAL initialisieren\\Systemtakt konfigurieren};
 		\node[process, below=of hal] (peripherals) {GPIO, TIM1, TIM2, TIM8,\\USART1, ADC1 und ICACHE initialisieren};
-		\node[decision, below=of peripherals] (pwmcheck) {PWM-Grenzen\\gültig?};
-		\node[process, right=2.2cm of pwmcheck] (error) {Error\_Handler\\Interrupts aus, Endlosschleife};
-		\node[process, below=of pwmcheck] (startup) {PWM-Kanäle starten\\Motoren auf 0 setzen\\Encoder-Zustände speichern};
+		\node[process, below=of peripherals] (startup) {PWM-Kanäle starten\\Motoren auf 0 setzen\\Encoder-Zustände speichern};
 		\node[io, below=of startup] (bootmsg) {Bootmeldung über USART1 senden};
 		\node[process, below=of bootmsg] (loop) {Hauptschleife};
 		\node[io, below=of loop] (uart) {UART pollen\\Motor-Kommandos auswerten};
@@ -45,9 +43,7 @@ Der aktuelle Ablauf ist in Abbildung~\ref{fig:stm32-programmablauf} dargestellt.
 
 		\draw[line] (start) -- (hal);
 		\draw[line] (hal) -- (peripherals);
-		\draw[line] (peripherals) -- (pwmcheck);
-		\draw[line] (pwmcheck) -- node[above] {nein} (error);
-		\draw[line] (pwmcheck) -- node[right] {ja} (startup);
+		\draw[line] (peripherals) -- (startup);
 		\draw[line] (startup) -- (bootmsg);
 		\draw[line] (bootmsg) -- (loop);
 		\draw[line] (loop) -- (uart);
@@ -65,9 +61,9 @@ Der aktuelle Ablauf ist in Abbildung~\ref{fig:stm32-programmablauf} dargestellt.
 \end{figure}
 
 \subsection{UART-Kommunikationsprotokoll}
-Die Kommunikation zwischen Raspberry Pi und STM32 erfolgt im aktuellen Firmwarestand über USART1 mit 38400 Baud, 8 Datenbits, keiner Parität und einem Stoppbit. Das reicht aus, weil nur kurze ASCII-Zeilen übertragen werden. Es werden keine großen Datenmengen gesendet.
+Die Kommunikation zwischen Raspberry Pi und STM32 erfolgt im aktuellen Firmwarestand über USART1 mit 38400 Baud, 8 Datenbits, keiner Parität und einem Stoppbit.
 
-Kommandos vom Raspberry Pi werden zeichenweise eingelesen. Ein Motorbefehl beginnt mit \texttt{M} und enthält danach bis zu sechs Prozentwerte für die Motoren. Die Reihenfolge entspricht den sechs Motorausgängen. Leerzeichen, Tabulatoren, Kommas und Semikolons können als Trennzeichen verwendet werden. Die Werte werden im STM32 auf den Bereich von -100 bis 100 begrenzt und danach auf PWM umgesetzt.
+ Ein Motorbefehl beginnt mit \texttt{M} und enthält danach bis zu sechs Prozentwerte für die Motoren. Die Reihenfolge entspricht den sechs Motorausgängen. Die Werte werden im STM32 auf den Bereich von -100 bis 100 begrenzt und danach auf PWM umgesetzt.
 
 \begin{codeblock}
 M 0 0 0 0 0 80
@@ -82,11 +78,11 @@ ENC <6 Encoderwerte> SPD <6 Geschwindigkeitswerte>
 PWM <6 PWM-Werte> ADC <5 ADC-Werte>
 \end{codeblock}
 
-Die Geschwindigkeitswerte sind die Differenz der Encoder-Zähler seit der letzten Rückmeldung. Dadurch kann der Raspberry Pi erkennen, ob sich ein Motor bewegt. Die PWM-Werte zeigen zusätzlich, welche Werte der STM32 wirklich übernommen hat.
+Die Geschwindigkeitswerte sind die Differenz der Encoder-Zähler seit der letzten Rückmeldung. Die PWM-Werte zeigen zusätzlich, welche Werte der STM32 wirklich übernommen hat.
 
 
 \subsubsection{Test mit Raspberry Pi}
-Der UART-Test wurde am Raspberry Pi mit \texttt{test\_motor\_uart.py} über \texttt{/dev/serial0} durchgeführt. Die Schnittstelle war mit 38400 Baud geöffnet. Der Raspberry Pi sendete mehrmals den Befehl \texttt{M 0 0 0 0 0 80}. Der STM32 antwortete mit dem geplanten Format.
+Der UART-Test wurde am Raspberry Pi über \texttt{/dev/serial0} durchgeführt. Die Schnittstelle war mit 38400 Baud geöffnet. Der Raspberry Pi sendete mehrmals den Befehl \texttt{M 0 0 0 0 0 80}. Der STM32 antwortete mit dem geplanten Format.
 
 \begin{codeblock}
 UART offen: /dev/serial0 @ 38400

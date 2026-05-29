@@ -1,10 +1,9 @@
 \newpage
 \section{Gesamtsystem und Architektur}
-Das System besteht aus zwei Recheneinheiten. Der Raspberry Pi 5 übernimmt die Hauptlogik. Dazu gehören zum Beispiel Bildverarbeitung, Ablaufsteuerung und Entscheidungen im Programm. Außerdem bindet er Bausteine wie zum Beispiel die IMUs und den PCA9685 für die Servos an.
+Das System besteht aus zwei Recheneinheiten. Der Raspberry Pi 5 übernimmt die Hauptlogik. Dazu gehören zum Beispiel Bildverarbeitung, Ablaufsteuerung und Entscheidungen im Programm. Außerdem bindet er Bausteine wie zum Beispiel die IMUs und den I\textsuperscript{2}C Servo Controller an.
 
-Der STM32H562RIT6 übernimmt die Motoransteuerung und analoge Sensorsignale. Die Kommunikation zwischen Raspberry Pi und STM32 läuft über UART. Für die kurzen Befehle und Messwerte reicht UART aus. Es ist außerdem einfacher umzusetzen als ein zusätzliches SPI-Protokoll.
-
-Der STM32 wird über SWD programmiert und debuggt. Zuerst war geplant, den USART-Bootloader zu verwenden. Das passte aber nicht zu den vorgesehenen Pins auf der Platine. Laut ST-Dokumentation AN2606, Abschnitt 57.1 und Tabelle 127, verwendet der Bootloader beim STM32H562xx unter anderem USART1 auf PA9/PA10, USART2 auf PA2/PA3 und USART3 auf PD8/PD9. Deshalb wurde SWD als Programmier- und Debugschnittstelle verwendet.
+Der STM32H562RIT6 übernimmt die Motoransteuerung und analoge Sensorsignale. Die Kommunikation zwischen Raspberry Pi und STM32 läuft über UART.
+Der STM32 wird über SWD programmiert und debuggt. 
 
 Der grundsätzliche Aufbau des Systems ist in Abbildung~\ref{fig:blockschaltbild-gesamtsystem} dargestellt.
 
@@ -28,10 +27,10 @@ Der grundsätzliche Aufbau des Systems ist in Abbildung~\ref{fig:blockschaltbild
 		\node [io] (analog) at (10.8,-3.0) {Analog Sensors};
 		\node [io] (servos) at (0,-3.0) {Servos};
 
-		\draw [line] (power) -| node[pos=0.72, right] {5 V / 6 A} (rpi);
-		\draw [line] (power) -| node[pos=0.72, right] {3,3 V / 1 A} (stm);
-		\draw [line] (power) -| node[pos=0.72, right] {6 V / 10 A} (motor);
-		\draw [line] (power) -| node[pos=0.72, right] {6 V / 20 A} (servoctl);
+		\draw [line] (power) -| node[pos=0.72, right] {5V / 6A} (rpi);
+		\draw [line] (power) -| node[pos=0.72, right] {3,3V / 1A} (stm);
+		\draw [line] (power) -| node[pos=0.72, right] {6V / 10A} (motor);
+		\draw [line] (power) -| node[pos=0.72, right] {6V / 20A} (servoctl);
 		\draw [line] (imu) -- node[left] {I\textsuperscript{2}C} (rpi);
 		\draw [<->, >=latex'] (rpi) -- node[above] {UART} (stm);
 		\draw [line] (stm) -- node[above] {PWM} (motor);

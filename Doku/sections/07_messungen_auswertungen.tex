@@ -1,8 +1,20 @@
+\newpage
 \section{Messungen und Auswertungen}
 Im Projektarbeitsantrag wurden Messungen für das fertige System vorgesehen. Es geht um die Stromversorgung, die Motoren und Servos sowie die Rückmeldung über Encoder. In diesem Kapitel werden die Messungen und die Auswertung beschrieben.
 
 \subsection{Messungen an den Powerrails}
 Die Stromversorgung ist ein wichtiger Teil der Platine. Deshalb wurden die Versorgungsschienen unter Last gemessen. Wichtig waren Spannung, Strom, Leistungsaufnahme, Wirkungsgrad und Stabilität.
+
+\subsubsection{Messziel}
+Bei der Messung der Powerrails soll geprüft werden,
+
+\begin{itemize}
+	\item ob die 6-V-Schienen und die 5-V-Schiene die geforderten Spannungen liefern,
+	\item wie stark die Spannungen unter gemeinsamer Last absinken,
+	\item wie groß die Stromaufnahme und die Leistungsaufnahme des Systems sind,
+	\item ob die Versorgung bei Lastwechseln stabil bleibt,
+	\item ob auffällige Erwärmung oder Spannungseinbrüche auftreten.
+\end{itemize}
 
 \subsubsection{Messaufbau und Ergebnis}
 Als Spannungsquelle wurde ein Labornetzteil mit 12 V verwendet.
@@ -11,15 +23,7 @@ Nach der Leerlaufmessung wurden die Powerrails gemeinsam belastet. Für die 6-V-
 
 Die 3,3-V-Logikversorgung wurde nicht extra gemessen. Sie wird aus der 5-V-Schiene erzeugt.
 
-Gemessen wurden:
-
-\begin{itemize}
-	\item Eingangsspannung und Eingangsstrom des Wandlers
-	\item Ausgangsspannung und Ausgangsstrom der jeweiligen Schiene
-	\item eventuelle Spannungseinbrüche beim Lastwechsel
-\end{itemize}
-
-Der allgemeine Messaufbau ist in Abbildung~\ref{fig:powerrail-messaufbau} dargestellt. Die Messwerte stehen in Tabelle~\ref{tab:powerrails}. Die Spalte \glqq gemeinsame Last\grqq{} bezieht sich auf die gleichzeitige Belastung aller direkt genutzten Rails.
+Der allgemeine Messaufbau ist in Abbildung~\ref{fig:powerrail-messaufbau} dargestellt. Die Messwerte stehen in Tabelle~\ref{tab:powerrails}. Die Spalte \glqq gemeinsame Last\grqq{} bezieht sich auf die gleichzeitige Belastung aller genutzten Rails.
 
 \begin{figure}[H]
 	\centering
@@ -199,7 +203,7 @@ Bewertet werden die elektrischen Pegel und die Funktion. Wichtig ist, ob die Fla
 	\label{fig:encoder-messaufbau}
 \end{figure}
 
-Die Oszilloskopbilder in Abbildung~\ref{fig:encoder-vorwaerts} und Abbildung~\ref{fig:encoder-rueckwaerts} zeigen den gemessenen Encoder-Ausgang bei konstanter halber Motorgeschwindigkeit in beide Richtungen. Kanal 1 ist orange, Kanal 2 ist grün. Beide Bilder wurden mit 1 V/div und derselben Zeitbasis aufgenommen. Dadurch lassen sie sich gut vergleichen.
+Die Oszilloskopbilder in Abbildung~\ref{fig:encoder-vorwaerts} und Abbildung~\ref{fig:encoder-rueckwaerts} zeigen den gemessenen Encoder-Ausgang bei konstanter halber Motorgeschwindigkeit in beide Richtungen. Kanal A ist orange, Kanal B ist grün. Beide Bilder wurden mit 1 V/div und derselben Zeitbasis aufgenommen. Dadurch lassen sie sich gut vergleichen.
 
 \begin{figure}[H]
 	\centering
@@ -264,7 +268,7 @@ Für die Rückwärtsmessung ergibt sich mit ungefähr 379,3 Hz
 n_\mathrm{rueck} = \frac{379{,}3\,\mathrm{Hz}}{234{,}3} \cdot 60 \approx 97\,\mathrm{min}^{-1}.
 \]
 
-Die berechnete Drehzahl liegt unter der Nenndrehzahl von 200 rpm aus dem Datenblatt. Das ist plausibel, weil der Motor bei der Messung mit 50\,\% PWM-Tastverhältnis angesteuert wurde. Die berechneten 93 bis 97 rpm passen daher gut zur reduzierten Ansteuerung.
+Die berechnete Drehzahl liegt unter der Nenndrehzahl von 200 rpm aus dem Datenblatt. Das ist plausibel, weil der Motor bei der Messung mit 50\,\% PWM-Tastverhältnis angesteuert wurde. Die berechneten 93 bis 97 rpm passen daher gut zur Ansteuerung.
 
 \subsection{Messungen an Motoren und Servos}
 Die dritte Messgruppe betrifft die Leistungsaufnahme und die Funktion von Motoren und Servos unter Last. Die Stabilität der Powerrails wurde bereits in Abschnitt 9.1 betrachtet. Hier geht es um den realen Betrieb der Aktoren: Wie viel Strom wird benötigt und funktionieren Motoren und Servos auch unter Belastung?
@@ -279,7 +283,7 @@ Mit diesen Messungen soll geprüft werden,
 \end{itemize}
 
 \subsubsection{Messaufbau und Ergebnis}
-Ein Motor oder Servo wird an den realen Ausgang des Boards angeschlossen. Danach werden mehrere Betriebsfälle gemessen. Sinnvolle Lastfälle sind zum Beispiel:
+Ein Motor oder Servo wird an den realen Ausgang des Boards angeschlossen. Danach werden mehrere Betriebsfälle gemessen. Die Lastfälle sind:
 
 \begin{itemize}
 	\item Leerlaufbetrieb
@@ -289,7 +293,7 @@ Ein Motor oder Servo wird an den realen Ausgang des Boards angeschlossen. Danach
 
 Gemessen werden Strom und Spannung am jeweiligen Aktor oder an dessen Versorgung. Daraus wird die Leistungsaufnahme berechnet. Zusätzlich wird geprüft, ob Motor oder Servo die gewünschte Bewegung ausführen und ob es zu Aussetzern, Spannungseinbrüchen oder auffälliger Erwärmung kommt.
 
-Der Messaufbau ist in Abbildung~\ref{fig:motor-servo-messaufbau} dargestellt. Die Messwerte werden getrennt für Motoren und Servos dokumentiert. Die vorgesehene Tabelle dafür ist Tabelle~\ref{tab:motor-servo-messwerte}. Dadurch sieht man, ob die Aktoren und die Ansteuerung für die geplante Last ausreichen.
+Der Messaufbau ist in Abbildung~\ref{fig:motor-servo-messaufbau} dargestellt. Die Messwerte werden getrennt für Motoren und Servos in Tabelle~\ref{tab:motor-servo-messwerte} dokumentiert.
 
 \begin{figure}[H]
 	\centering
@@ -344,41 +348,41 @@ Der Messaufbau ist in Abbildung~\ref{fig:motor-servo-messaufbau} dargestellt. Di
 	\label{tab:motor-servo-messwerte}
 \end{table}
 
-Bei den Servomessungen wurde ein Fehler festgestellt. Der AP2112 ist defekt. Dadurch bekommt der Servocontroller keine Versorgungsspannung. Deshalb konnten die Servos nicht sinnvoll unter Last gemessen werden.
+Kurz vor der Servomessung ist ein Fehler unterlaufen. Der AP2112 ist durch einen Bedienungsfehler defekt. Dadurch bekommt der Servocontroller keine Versorgungsspannung. Deshalb konnten die Servos nicht unter Last gemessen werden.
 
 
 
 \subsubsection{Schaltverhalten der Motorrail}
-Zusätzlich zur normalen Spannungs- und Strommessung wurde das Einschaltverhalten der Motorrail mit dem Oszilloskop betrachtet. Dabei wurde geprüft, ob die 6-V-Motorversorgung beim Einschalten sauber hochläuft oder ob starke Einbrüche, Überschwinger oder Schwingungen auftreten.
+Zusätzlich zur normalen Spannungs- und Strommessung wurde das Einschaltverhalten eines Motors an der Motorrail mit dem Oszilloskop betrachtet. Dabei wurde geprüft, ob die 6-V-Motorversorgung beim Einschalten des Motors stabil bleibt und ob es starke Einbrüche oder Überschwinger gibt.
 
-Abbildung~\ref{fig:motorrail-einschalten} zeigt zuerst den allgemeinen Spannungsverlauf der Motorrail beim Einschalten. Abbildung~\ref{fig:motorrail-einschalten-zoom} zeigt danach eine Zoomaufnahme des Übergangsbereichs.
+Abbildung~\ref{fig:motorrail-einschalten} zeigt zuerst den herausgezoomten Spannungsverlauf der Motorrail beim Einschalten des Motors. Abbildung~\ref{fig:motorrail-einschalten-zoom} zeigt danach eine Zoomaufnahme des Übergangsbereichs.
 
 \begin{figure}[H]
 	\centering
 	\begin{minipage}{0.48\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{Messungen/Motor_Anschalten_rail.png}
-		\caption{Motorrail beim Einschalten, Gesamtansicht}
+		\caption{Motorrail beim Einschalten eines Motors, Gesamtansicht}
 		\label{fig:motorrail-einschalten}
 	\end{minipage}
 	\hfill
 	\begin{minipage}{0.48\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{Messungen/Motor_rail_anschalten_zoom (1).png}
-		\caption{Motorrail beim Einschalten, Zoomaufnahme}
+		\caption{Motorrail beim Einschalten eines Motors, Zoomaufnahme}
 		\label{fig:motorrail-einschalten-zoom}
 	\end{minipage}
 \end{figure}
 
-In den Abbildungen ist zu erkennen dass die Spannung an der Motorrail nach dem Einschalten auch noch relativ stabil ist. Auf der Spannung ist aber ein sichtbarer hochfrequenter Ripple von etwa 600\,mV zu sehen.
+In den Abbildungen ist zu erkennen, dass die Spannung an der Motorrail nach dem Einschalten relativ stabil bleibt. Auf der Spannung ist aber ein sichtbarer hochfrequenter Ripple von etwa 600\,mV zu sehen.
 
-Die Motorrail bleibt trotz dem Zuschalten von Last dennoch sehr stabil.
+Die Motorrail bleibt auch beim Zuschalten der Last sehr stabil.
 
 \subsubsection{Auswertung und Interpretation}
 Die Auswertung bezieht sich auf die Messwerte aus Tabelle~\ref{tab:motor-servo-messwerte}. Beim DC-Motor wurden Leerlauf, Normalbetrieb und blockierter Zustand gemessen. Im Leerlauf braucht der Motor bei 100\,\% PWM nur etwa 0,13\,A. Im Normalbetrieb mit 80\,\% PWM und leichter Last steigt der Strom auf etwa 0,45\,A. Der Motor läuft dabei sauber und die 6-V-Versorgung bleibt stabil.
 
-Beim kurz blockierten Motor wurden etwa 2,3\,A gemessen. Das ist deutlich mehr als im normalen Betrieb, aber die Versorgung ist dabei nicht eingebrochen. Diese Messung wurde nur kurz durchgeführt, damit Motor und Treiber nicht unnötig belastet werden. Am PWM-Signal des Motortreibers konnten keine auffälligen Veränderungen erkannt werden.
+Beim kurz blockierten Motor wurden etwa 2,3\,A gemessen. Das ist deutlich mehr als im normalen Betrieb, aber die Versorgung ist dabei nicht eingebrochen. Diese Messung wurde nur kurz durchgeführt, damit Motor und Treiber nicht unnötig belastet werden. Am PWM-Signal des Motortreibers konnten während der gesamten Messung keine auffälligen Veränderungen erkannt werden.
 
-Die Servomessungen konnten nicht sinnvoll durchgeführt werden. Der AP2112 ist defekt.
+Die Servomessungen konnten nicht durchgeführt werden, da der AP2112 defekt ist.
 
 
