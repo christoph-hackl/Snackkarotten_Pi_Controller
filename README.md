@@ -35,25 +35,27 @@ flowchart LR
     PWR["Power distribution<br/>12 V battery in"]
     PI["Raspberry Pi 5<br/>main control"]
     STM["STM32H562<br/>motor control"]
-    DRV["3× DRV8411A<br/>motor drivers"]
-    MOT["6× DC motors"]
+    DRV["3x DRV8411A<br/>motor drivers"]
+    MOT["6x DC motors"]
     PCA["PCA9685<br/>servo controller"]
     SRV["Servos"]
     IMU["IMUs<br/>BNO085 / LSM6DSO"]
     DIG["Digital sensors"]
     ANA["Analog sensors"]
 
-    PWR -- "5 V / 6 A" --> PI
-    PWR -- "3.3 V" --> STM
-    PWR -- "6 V" --> DRV
-    PWR -- "6 V" --> PCA
-    PI <-- UART --> STM
-    STM -- PWM --> DRV --> MOT
-    MOT -- encoder --> STM
-    ANA -- ADC --> STM
-    PI -- I²C --> PCA -- PWM --> SRV
-    IMU -- I²C --> PI
-    DIG -- GPIO --> PI
+    PWR -->|"5 V / 6 A"| PI
+    PWR -->|"3.3 V"| STM
+    PWR -->|"6 V"| DRV
+    PWR -->|"6 V"| PCA
+    PI <-->|"UART"| STM
+    STM -->|"PWM"| DRV
+    DRV --> MOT
+    MOT -->|"Encoder"| STM
+    ANA -->|"ADC"| STM
+    PI -->|"I2C"| PCA
+    PCA -->|"PWM"| SRV
+    IMU -->|"I2C"| PI
+    DIG -->|"GPIO"| PI
 ```
 
 The Raspberry Pi runs the high-level logic (vision, path planning, decisions) and talks directly
