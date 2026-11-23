@@ -1,7 +1,0 @@
-Removed Pin From Net: NetName=NetSWD_PROG_1 Pin=SWD_PROG-1
-Removed Pin From Net: NetName=NetSWD_PROG_2 Pin=SWD_PROG-2
-Removed Pin From Net: NetName=GND Pin=SWD_PROG-3
-Added Component: Designator=SWD_PROG(KL-3)
-Added Pin To Net: NetName=NetSWD_PROG_1 Pin=SWD_PROG-1
-Added Pin To Net: NetName=NetSWD_PROG_2 Pin=SWD_PROG-2
-Added Pin To Net: NetName=GND Pin=SWD_PROG-3

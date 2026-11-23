@@ -1,0 +1,56 @@
+# ---------- STM32CubeIDE / Eclipse ----------
+.metadata/
+firmware/Debug/
+firmware/Release/
+*.o
+*.d
+*.su
+*.cyclo
+*.elf
+*.map
+*.list
+*.bin
+*.hex
+.launches/
+
+# ---------- Altium Designer ----------
+**/History/
+**/__Previews/
+**/Project Logs for */
+*.PcbDoc.htm
+*.SchDocPreview
+*.PcbDocPreview
+*.$$$*
+MessageListReport.html
+*.LdpPreview
+
+# ---------- LaTeX build files (keep the PDFs) ----------
+*.aux
+*.log
+*.toc
+*.out
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.nav
+*.snm
+
+# ---------- Office lock / temp files ----------
+~$*
+*.tmp
+
+# ---------- Python ----------
+__pycache__/
+*.pyc
+.venv/
+
+# ---------- OS / editors ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
