@@ -163,5 +163,11 @@ Keysight InfiniiVision DSOX2002A · TTi EL302RD power supply
 
 Supervisor: Prantl, HTL St. Pölten
 
-The STM32 HAL / CMSIS drivers in `firmware/Drivers/` are © STMicroelectronics / ARM and are
-distributed under their respective licenses.
+## License
+
+- **Code** (`firmware/Core/`, `software/`): [MIT](LICENSE)
+- **Hardware design & documentation**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+Third-party content keeps its original license: STM32 HAL/CMSIS drivers (`firmware/Drivers/`),
+component libraries (`hardware/Librarys/`) and datasheets (`docs/datasheets/`).
+See [LICENSE](LICENSE) for details.
